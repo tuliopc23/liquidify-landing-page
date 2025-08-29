@@ -11,10 +11,10 @@ const Features: React.FC = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-inter font-bold text-3xl sm:text-4xl text-system-gray-900 mb-4">
+          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-system-gray-900 mb-4">
             Dive into LiqUIdify
           </h2>
-          <p className="font-inter text-lg text-system-gray-600 max-w-2xl mx-auto">
+          <p className="font-sans text-lg text-system-gray-600 max-w-2xl mx-auto">
             Built with meticulous attention to detail, every component embodies
             Apple's design philosophy.
           </p>
@@ -34,11 +34,11 @@ const Features: React.FC = () => {
                 </div>
               </div>
               <div className="mb-4">
-                <span className="text-white/80 text-sm font-inter">
+                <span className="text-white/80 text-sm font-sans">
                   New overview
                 </span>
               </div>
-              <h3 className="font-inter font-semibold text-xl mb-2">
+              <h3 className="font-sans font-semibold text-xl mb-2">
                 Explore the new design principles
               </h3>
               <p className="text-white/90 text-sm mb-4 leading-relaxed">
@@ -47,7 +47,7 @@ const Features: React.FC = () => {
               </p>
               <a
                 href="#"
-                className="inline-flex items-center text-white text-sm font-inter hover:text-white/80 transition-colors"
+                className="inline-flex items-center text-white text-sm font-sans hover:text-white/80 transition-colors"
               >
                 Read overview <i className="bi bi-arrow-right ml-2"></i>
               </a>
@@ -65,11 +65,11 @@ const Features: React.FC = () => {
                 </div>
               </div>
               <div className="mb-4">
-                <span className="text-system-gray-600 text-sm font-inter">
+                <span className="text-system-gray-600 text-sm font-sans">
                   New article
                 </span>
               </div>
-              <h3 className="font-inter font-semibold text-xl mb-2 text-system-gray-900">
+              <h3 className="font-sans font-semibold text-xl mb-2 text-system-gray-900">
                 Adopting Liquid Glass
               </h3>
               <p className="text-system-gray-600 text-sm mb-4 leading-relaxed">
@@ -77,7 +77,7 @@ const Features: React.FC = () => {
               </p>
               <a
                 href="#"
-                className="inline-flex items-center text-apple-blue text-sm font-inter hover:text-apple-blue/80 transition-colors"
+                className="inline-flex items-center text-apple-blue text-sm font-sans hover:text-apple-blue/80 transition-colors"
               >
                 Read article <i className="bi bi-arrow-right ml-2"></i>
               </a>
@@ -96,11 +96,11 @@ const Features: React.FC = () => {
                 </div>
               </div>
               <div className="mb-4">
-                <span className="text-white/80 text-sm font-inter">
+                <span className="text-white/80 text-sm font-sans">
                   New sample
                 </span>
               </div>
-              <h3 className="font-inter font-semibold text-xl mb-2">
+              <h3 className="font-sans font-semibold text-xl mb-2">
                 Building with Liquid Glass
               </h3>
               <p className="text-white/90 text-sm mb-4 leading-relaxed">
@@ -109,7 +109,7 @@ const Features: React.FC = () => {
               </p>
               <a
                 href="#"
-                className="inline-flex items-center text-white text-sm font-inter hover:text-white/80 transition-colors"
+                className="inline-flex items-center text-white text-sm font-sans hover:text-white/80 transition-colors"
               >
                 View sample code <i className="bi bi-arrow-right ml-2"></i>
               </a>
@@ -121,34 +121,34 @@ const Features: React.FC = () => {
         <div className="apple-card-glass p-8 lg:p-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="group">
-              <div className="font-inter font-bold text-3xl lg:text-4xl text-system-gray-900 mb-2 group-hover:text-apple-blue transition-colors duration-300">
+              <div className="font-sans font-bold text-3xl lg:text-4xl text-system-gray-900 mb-2 group-hover:text-apple-blue transition-colors duration-300">
                 60+
               </div>
-              <div className="font-inter text-system-gray-600 text-sm">
+              <div className="font-sans text-system-gray-600 text-sm">
                 Components
               </div>
             </div>
             <div className="group">
-              <div className="font-inter font-bold text-3xl lg:text-4xl text-system-gray-900 mb-2 group-hover:text-apple-purple transition-colors duration-300">
+              <div className="font-sans font-bold text-3xl lg:text-4xl text-system-gray-900 mb-2 group-hover:text-apple-purple transition-colors duration-300">
                 100%
               </div>
-              <div className="font-inter text-system-gray-600 text-sm">
+              <div className="font-sans text-system-gray-600 text-sm">
                 TypeScript
               </div>
             </div>
             <div className="group">
-              <div className="font-inter font-bold text-3xl lg:text-4xl text-system-gray-900 mb-2 group-hover:text-apple-green transition-colors duration-300">
+              <div className="font-sans font-bold text-3xl lg:text-4xl text-system-gray-900 mb-2 group-hover:text-apple-green transition-colors duration-300">
                 A11Y
               </div>
-              <div className="font-inter text-system-gray-600 text-sm">
+              <div className="font-sans text-system-gray-600 text-sm">
                 Accessible
               </div>
             </div>
             <div className="group">
-              <div className="font-inter font-bold text-3xl lg:text-4xl text-system-gray-900 mb-2 group-hover:text-apple-orange transition-colors duration-300">
+              <div className="font-sans font-bold text-3xl lg:text-4xl text-system-gray-900 mb-2 group-hover:text-apple-orange transition-colors duration-300">
                 MIT
               </div>
-              <div className="font-inter text-system-gray-600 text-sm">
+              <div className="font-sans text-system-gray-600 text-sm">
                 License
               </div>
             </div>

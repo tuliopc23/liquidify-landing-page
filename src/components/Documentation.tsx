@@ -11,10 +11,10 @@ const Documentation: React.FC = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-inter font-bold text-3xl sm:text-4xl text-system-gray-900 mb-4">
+          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-system-gray-900 mb-4">
             Complete Documentation
           </h2>
-          <p className="font-inter text-lg text-system-gray-600 max-w-2xl mx-auto">
+          <p className="font-sans text-lg text-system-gray-600 max-w-2xl mx-auto">
             Everything you need to build beautiful applications with LiqUIdify.
           </p>
         </div>
@@ -22,7 +22,7 @@ const Documentation: React.FC = () => {
         {/* Enhanced Installation Guide */}
         <div className="apple-card-glass p-8 lg:p-12 mb-8 bg-gradient-to-br from-white/90 to-white/70">
           <div className="max-w-3xl mx-auto">
-            <h3 className="font-inter font-semibold text-xl text-system-gray-900 mb-6 text-center">
+            <h3 className="font-sans font-semibold text-xl text-system-gray-900 mb-6 text-center">
               Get Started in Seconds
             </h3>
 
@@ -32,7 +32,7 @@ const Documentation: React.FC = () => {
                   <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                   <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="font-inter text-system-gray-400 text-sm ml-4">
+                  <span className="font-sans text-system-gray-400 text-sm ml-4">
                     Terminal
                   </span>
                 </div>
@@ -46,7 +46,7 @@ const Documentation: React.FC = () => {
                   <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                   <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="font-inter text-system-gray-400 text-sm ml-4">
+                  <span className="font-sans text-system-gray-400 text-sm ml-4">
                     App.tsx
                   </span>
                 </div>
@@ -127,7 +127,7 @@ function App() {
               >
                 <i className={`${item.icon} text-${item.color} text-lg`}></i>
               </div>
-              <h4 className="font-inter font-medium text-system-gray-900 text-sm">
+              <h4 className="font-sans font-medium text-system-gray-900 text-sm">
                 {item.title}
               </h4>
             </a>

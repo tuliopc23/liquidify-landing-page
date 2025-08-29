@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
             <div className="w-8 h-8 bg-apple-blue rounded-lg flex items-center justify-center">
               <i className="bi bi-droplet-fill text-white text-sm"></i>
             </div>
-            <span className="font-inter font-semibold text-xl text-system-gray-900">
+            <span className="font-sans font-semibold text-xl text-system-gray-900">
               LiqUIdify
             </span>
           </div>
@@ -36,19 +36,19 @@ const Navbar: React.FC = () => {
           <div className="hidden md:flex items-center space-x-8">
             <a
               href="#components"
-              className="font-inter text-system-gray-700 hover:text-apple-blue transition-colors"
+              className="font-sans text-system-gray-700 hover:text-apple-blue transition-colors"
             >
               Components
             </a>
             <a
               href="#features"
-              className="font-inter text-system-gray-700 hover:text-apple-blue transition-colors"
+              className="font-sans text-system-gray-700 hover:text-apple-blue transition-colors"
             >
               Features
             </a>
             <a
               href="#docs"
-              className="font-inter text-system-gray-700 hover:text-apple-blue transition-colors"
+              className="font-sans text-system-gray-700 hover:text-apple-blue transition-colors"
             >
               Documentation
             </a>
@@ -56,7 +56,7 @@ const Navbar: React.FC = () => {
               href="https://github.com/tuliopc23/LiqUIdify"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 font-inter text-system-gray-700 hover:text-apple-blue transition-colors"
+              className="flex items-center space-x-2 font-sans text-system-gray-700 hover:text-apple-blue transition-colors"
             >
               <i className="bi bi-github"></i>
               <span>GitHub</span>
@@ -81,19 +81,19 @@ const Navbar: React.FC = () => {
             <div className="flex flex-col space-y-4">
               <a
                 href="#components"
-                className="font-inter text-system-gray-700 hover:text-apple-blue transition-colors"
+                className="font-sans text-system-gray-700 hover:text-apple-blue transition-colors"
               >
                 Components
               </a>
               <a
                 href="#features"
-                className="font-inter text-system-gray-700 hover:text-apple-blue transition-colors"
+                className="font-sans text-system-gray-700 hover:text-apple-blue transition-colors"
               >
                 Features
               </a>
               <a
                 href="#docs"
-                className="font-inter text-system-gray-700 hover:text-apple-blue transition-colors"
+                className="font-sans text-system-gray-700 hover:text-apple-blue transition-colors"
               >
                 Documentation
               </a>
@@ -101,7 +101,7 @@ const Navbar: React.FC = () => {
                 href="https://github.com/tuliopc23/LiqUIdify"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 font-inter text-system-gray-700 hover:text-apple-blue transition-colors"
+                className="flex items-center space-x-2 font-sans text-system-gray-700 hover:text-apple-blue transition-colors"
               >
                 <i className="bi bi-github"></i>
                 <span>GitHub</span>

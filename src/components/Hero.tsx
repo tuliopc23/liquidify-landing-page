@@ -28,18 +28,18 @@ const Hero: React.FC = () => {
           {/* Enhanced hero content */}
           <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 mb-8">
             <div className="w-2 h-2 bg-apple-green rounded-full animate-pulse"></div>
-            <span className="font-inter text-sm text-system-gray-700">
+            <span className="font-sans text-sm text-system-gray-700">
               Now available for React
             </span>
           </div>
 
-          <h1 className="font-inter font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-system-gray-900 mb-6 leading-tight tracking-tight">
+          <h1 className="font-sans font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-system-gray-900 mb-6 leading-tight tracking-tight">
             Build with
             <br />
             <span className="text-apple-blue">Liquid Glass</span>
           </h1>
 
-          <p className="font-inter text-lg sm:text-xl text-system-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="font-sans text-lg sm:text-xl text-system-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
             60+ opinionated React components that bring Apple's revolutionary
             Liquid Glass design language to the web. Crafted with precision
             following Apple HIG guidelines.
@@ -68,10 +68,10 @@ const Hero: React.FC = () => {
             <div className="w-14 h-14 bg-gradient-to-br from-apple-blue to-apple-blue/80 rounded-2xl mb-6 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
               <i className="bi bi-ui-checks text-white text-xl"></i>
             </div>
-            <h3 className="font-inter font-semibold text-lg text-system-gray-900 mb-3">
+            <h3 className="font-sans font-semibold text-lg text-system-gray-900 mb-3">
               Interactive Components
             </h3>
-            <p className="font-inter text-system-gray-600 text-sm leading-relaxed">
+            <p className="font-sans text-system-gray-600 text-sm leading-relaxed">
               Buttons, forms, modals with liquid glass effects and smooth
               animations
             </p>
@@ -81,10 +81,10 @@ const Hero: React.FC = () => {
             <div className="w-14 h-14 bg-gradient-to-br from-apple-purple to-apple-purple/80 rounded-2xl mb-6 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
               <i className="bi bi-layout-text-window-reverse text-white text-xl"></i>
             </div>
-            <h3 className="font-inter font-semibold text-lg text-system-gray-900 mb-3">
+            <h3 className="font-sans font-semibold text-lg text-system-gray-900 mb-3">
               Layout Systems
             </h3>
-            <p className="font-inter text-system-gray-600 text-sm leading-relaxed">
+            <p className="font-sans text-system-gray-600 text-sm leading-relaxed">
               Grids, containers, and responsive layouts that adapt beautifully
             </p>
           </div>
@@ -93,10 +93,10 @@ const Hero: React.FC = () => {
             <div className="w-14 h-14 bg-gradient-to-br from-apple-green to-apple-green/80 rounded-2xl mb-6 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
               <i className="bi bi-palette text-white text-xl"></i>
             </div>
-            <h3 className="font-inter font-semibold text-lg text-system-gray-900 mb-3">
+            <h3 className="font-sans font-semibold text-lg text-system-gray-900 mb-3">
               Design Tokens
             </h3>
-            <p className="font-inter text-system-gray-600 text-sm leading-relaxed">
+            <p className="font-sans text-system-gray-600 text-sm leading-relaxed">
               Colors, typography, and spacing system following Apple guidelines
             </p>
           </div>
@@ -109,7 +109,7 @@ const Hero: React.FC = () => {
               <div className="w-3 h-3 bg-red-500 rounded-full"></div>
               <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
               <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span className="font-inter text-system-gray-500 text-sm ml-4">
+              <span className="font-sans text-system-gray-500 text-sm ml-4">
                 App.tsx
               </span>
             </div>

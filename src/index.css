@@ -1,6 +1,32 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-apple-blue: #007aff;
+  --color-apple-purple: #af52de;
+  --color-apple-pink: #ff2d92;
+  --color-apple-red: #ff3b30;
+  --color-apple-orange: #ff9500;
+  --color-apple-yellow: #ffcc00;
+  --color-apple-green: #34c759;
+  --color-apple-mint: #00c7be;
+  --color-apple-teal: #30b0c7;
+  --color-apple-cyan: #32d74b;
+  --color-apple-indigo: #5856d6;
+
+  --color-system-gray-50: #f9f9f9;
+  --color-system-gray-100: #f2f2f7;
+  --color-system-gray-200: #e5e5ea;
+  --color-system-gray-300: #d1d1d6;
+  --color-system-gray-400: #c7c7cc;
+  --color-system-gray-500: #aeaeb2;
+  --color-system-gray-600: #8e8e93;
+  --color-system-gray-700: #636366;
+  --color-system-gray-800: #48484a;
+  --color-system-gray-900: #1c1c1e;
+
+  --font-family-inter: "Inter", "system-ui", "sans-serif";
+  --font-family-sans: "Inter", "system-ui", "sans-serif";
+}
 
 /* Hide scrollbar globally while maintaining scroll functionality */
 * {
@@ -37,11 +63,11 @@ html {
   }
 
   .apple-button {
-    @apply bg-apple-blue text-white font-inter font-medium px-6 py-3 rounded-xl transition-all duration-200 hover:bg-apple-blue/90 hover:scale-105;
+    @apply bg-apple-blue text-white font-sans font-medium px-6 py-3 rounded-xl transition-all duration-200 hover:bg-apple-blue/90 hover:scale-105;
   }
 
   .apple-button-secondary {
-    @apply bg-system-gray-100 text-system-gray-900 font-inter font-medium px-6 py-3 rounded-xl transition-all duration-200 hover:bg-system-gray-200 hover:scale-105;
+    @apply bg-system-gray-100 text-system-gray-900 font-sans font-medium px-6 py-3 rounded-xl transition-all duration-200 hover:bg-system-gray-200 hover:scale-105;
   }
 
   .floating-element {

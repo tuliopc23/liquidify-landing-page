@@ -11,11 +11,11 @@ const Footer: React.FC = () => {
               <div className="w-8 h-8 bg-apple-blue rounded-lg flex items-center justify-center">
                 <i className="bi bi-droplet-fill text-white text-sm"></i>
               </div>
-              <span className="font-inter font-semibold text-xl text-system-gray-900">
+              <span className="font-sans font-semibold text-xl text-system-gray-900">
                 LiqUIdify
               </span>
             </div>
-            <p className="font-inter text-system-gray-600 max-w-md mb-6 text-sm leading-relaxed">
+            <p className="font-sans text-system-gray-600 max-w-md mb-6 text-sm leading-relaxed">
               Bringing Apple's revolutionary Liquid Glass design language to
               React. Build beautiful, accessible interfaces with 60+ premium
               components.
@@ -40,14 +40,14 @@ const Footer: React.FC = () => {
 
           {/* Links */}
           <div>
-            <h4 className="font-inter font-medium text-system-gray-900 mb-4">
+            <h4 className="font-sans font-medium text-system-gray-900 mb-4">
               Resources
             </h4>
             <ul className="space-y-2">
               <li>
                 <a
                   href="#"
-                  className="font-inter text-system-gray-600 hover:text-apple-blue transition-colors text-sm"
+                  className="font-sans text-system-gray-600 hover:text-apple-blue transition-colors text-sm"
                 >
                   Documentation
                 </a>
@@ -55,7 +55,7 @@ const Footer: React.FC = () => {
               <li>
                 <a
                   href="#"
-                  className="font-inter text-system-gray-600 hover:text-apple-blue transition-colors text-sm"
+                  className="font-sans text-system-gray-600 hover:text-apple-blue transition-colors text-sm"
                 >
                   Examples
                 </a>
@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
               <li>
                 <a
                   href="#"
-                  className="font-inter text-system-gray-600 hover:text-apple-blue transition-colors text-sm"
+                  className="font-sans text-system-gray-600 hover:text-apple-blue transition-colors text-sm"
                 >
                   Playground
                 </a>
@@ -71,7 +71,7 @@ const Footer: React.FC = () => {
               <li>
                 <a
                   href="#"
-                  className="font-inter text-system-gray-600 hover:text-apple-blue transition-colors text-sm"
+                  className="font-sans text-system-gray-600 hover:text-apple-blue transition-colors text-sm"
                 >
                   Changelog
                 </a>
@@ -80,14 +80,14 @@ const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h4 className="font-inter font-medium text-system-gray-900 mb-4">
+            <h4 className="font-sans font-medium text-system-gray-900 mb-4">
               Community
             </h4>
             <ul className="space-y-2">
               <li>
                 <a
                   href="#"
-                  className="font-inter text-system-gray-600 hover:text-apple-blue transition-colors text-sm"
+                  className="font-sans text-system-gray-600 hover:text-apple-blue transition-colors text-sm"
                 >
                   GitHub Issues
                 </a>
@@ -95,7 +95,7 @@ const Footer: React.FC = () => {
               <li>
                 <a
                   href="#"
-                  className="font-inter text-system-gray-600 hover:text-apple-blue transition-colors text-sm"
+                  className="font-sans text-system-gray-600 hover:text-apple-blue transition-colors text-sm"
                 >
                   Discussions
                 </a>
@@ -103,7 +103,7 @@ const Footer: React.FC = () => {
               <li>
                 <a
                   href="#"
-                  className="font-inter text-system-gray-600 hover:text-apple-blue transition-colors text-sm"
+                  className="font-sans text-system-gray-600 hover:text-apple-blue transition-colors text-sm"
                 >
                   Contributing
                 </a>
@@ -114,25 +114,25 @@ const Footer: React.FC = () => {
 
         {/* Bottom */}
         <div className="border-t border-system-gray-200 pt-8 flex flex-col sm:flex-row items-center justify-between">
-          <p className="font-inter text-system-gray-600 text-sm">
+          <p className="font-sans text-system-gray-600 text-sm">
             © 2024 LiqUIdify. Built with care for the React community.
           </p>
           <div className="flex items-center space-x-6 mt-4 sm:mt-0">
             <a
               href="#"
-              className="font-inter text-system-gray-600 hover:text-apple-blue transition-colors text-sm"
+              className="font-sans text-system-gray-600 hover:text-apple-blue transition-colors text-sm"
             >
               Privacy
             </a>
             <a
               href="#"
-              className="font-inter text-system-gray-600 hover:text-apple-blue transition-colors text-sm"
+              className="font-sans text-system-gray-600 hover:text-apple-blue transition-colors text-sm"
             >
               Terms
             </a>
             <a
               href="#"
-              className="font-inter text-system-gray-600 hover:text-apple-blue transition-colors text-sm"
+              className="font-sans text-system-gray-600 hover:text-apple-blue transition-colors text-sm"
             >
               MIT License
             </a>
