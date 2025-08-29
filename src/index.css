@@ -12,7 +12,8 @@
   display: none;
 }
 
-html, body {
+html,
+body {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -30,15 +31,15 @@ html {
   .apple-card {
     @apply bg-white/80 backdrop-blur-sm border border-system-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300;
   }
-  
+
   .apple-card-glass {
     @apply bg-white/60 backdrop-blur-xl border border-white/30 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300;
   }
-  
+
   .apple-button {
     @apply bg-apple-blue text-white font-inter font-medium px-6 py-3 rounded-xl transition-all duration-200 hover:bg-apple-blue/90 hover:scale-105;
   }
-  
+
   .apple-button-secondary {
     @apply bg-system-gray-100 text-system-gray-900 font-inter font-medium px-6 py-3 rounded-xl transition-all duration-200 hover:bg-system-gray-200 hover:scale-105;
   }
@@ -49,13 +50,24 @@ html {
   }
 
   .grid-pattern {
-    background-image: radial-gradient(circle at 1px 1px, rgba(0,122,255,0.1) 1px, transparent 0);
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(0, 122, 255, 0.1) 1px,
+      transparent 0
+    );
     background-size: 20px 20px;
   }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33% { transform: translateY(-30px) rotate(120deg); }
-  66% { transform: translateY(15px) rotate(240deg); }
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-30px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(15px) rotate(240deg);
+  }
 }

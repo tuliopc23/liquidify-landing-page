@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Features: React.FC = () => {
   return (
@@ -15,7 +15,8 @@ const Features: React.FC = () => {
             Dive into LiqUIdify
           </h2>
           <p className="font-inter text-lg text-system-gray-600 max-w-2xl mx-auto">
-            Built with meticulous attention to detail, every component embodies Apple's design philosophy.
+            Built with meticulous attention to detail, every component embodies
+            Apple's design philosophy.
           </p>
         </div>
 
@@ -25,7 +26,7 @@ const Features: React.FC = () => {
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-apple-blue to-apple-blue/90 p-8 text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
             <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full translate-y-12 -translate-x-12"></div>
-            
+
             <div className="relative z-10">
               <div className="mb-6">
                 <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 shadow-lg">
@@ -33,15 +34,21 @@ const Features: React.FC = () => {
                 </div>
               </div>
               <div className="mb-4">
-                <span className="text-white/80 text-sm font-inter">New overview</span>
+                <span className="text-white/80 text-sm font-inter">
+                  New overview
+                </span>
               </div>
               <h3 className="font-inter font-semibold text-xl mb-2">
                 Explore the new design principles
               </h3>
               <p className="text-white/90 text-sm mb-4 leading-relaxed">
-                Learn how to design and develop beautiful interfaces that leverage Liquid Glass.
+                Learn how to design and develop beautiful interfaces that
+                leverage Liquid Glass.
               </p>
-              <a href="#" className="inline-flex items-center text-white text-sm font-inter hover:text-white/80 transition-colors">
+              <a
+                href="#"
+                className="inline-flex items-center text-white text-sm font-inter hover:text-white/80 transition-colors"
+              >
                 Read overview <i className="bi bi-arrow-right ml-2"></i>
               </a>
             </div>
@@ -50,7 +57,7 @@ const Features: React.FC = () => {
           {/* Gray Card - Enhanced */}
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-system-gray-100 to-system-gray-50 p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
             <div className="absolute top-0 right-0 w-32 h-32 bg-system-gray-200/50 rounded-full -translate-y-16 translate-x-16"></div>
-            
+
             <div className="relative z-10">
               <div className="mb-6">
                 <div className="w-16 h-16 bg-system-gray-200 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
@@ -58,7 +65,9 @@ const Features: React.FC = () => {
                 </div>
               </div>
               <div className="mb-4">
-                <span className="text-system-gray-600 text-sm font-inter">New article</span>
+                <span className="text-system-gray-600 text-sm font-inter">
+                  New article
+                </span>
               </div>
               <h3 className="font-inter font-semibold text-xl mb-2 text-system-gray-900">
                 Adopting Liquid Glass
@@ -66,7 +75,10 @@ const Features: React.FC = () => {
               <p className="text-system-gray-600 text-sm mb-4 leading-relaxed">
                 Find out how to bring the new material to your app.
               </p>
-              <a href="#" className="inline-flex items-center text-apple-blue text-sm font-inter hover:text-apple-blue/80 transition-colors">
+              <a
+                href="#"
+                className="inline-flex items-center text-apple-blue text-sm font-inter hover:text-apple-blue/80 transition-colors"
+              >
                 Read article <i className="bi bi-arrow-right ml-2"></i>
               </a>
             </div>
@@ -76,7 +88,7 @@ const Features: React.FC = () => {
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-apple-purple to-apple-purple/90 p-8 text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
             <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
             <div className="absolute bottom-0 left-0 w-20 h-20 bg-white/5 rounded-full translate-y-10 -translate-x-10"></div>
-            
+
             <div className="relative z-10">
               <div className="mb-6">
                 <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 shadow-lg">
@@ -84,15 +96,21 @@ const Features: React.FC = () => {
                 </div>
               </div>
               <div className="mb-4">
-                <span className="text-white/80 text-sm font-inter">New sample</span>
+                <span className="text-white/80 text-sm font-inter">
+                  New sample
+                </span>
               </div>
               <h3 className="font-inter font-semibold text-xl mb-2">
                 Building with Liquid Glass
               </h3>
               <p className="text-white/90 text-sm mb-4 leading-relaxed">
-                Enhance your app experience with system-provided and custom Liquid Glass.
+                Enhance your app experience with system-provided and custom
+                Liquid Glass.
               </p>
-              <a href="#" className="inline-flex items-center text-white text-sm font-inter hover:text-white/80 transition-colors">
+              <a
+                href="#"
+                className="inline-flex items-center text-white text-sm font-inter hover:text-white/80 transition-colors"
+              >
                 View sample code <i className="bi bi-arrow-right ml-2"></i>
               </a>
             </div>
@@ -103,20 +121,36 @@ const Features: React.FC = () => {
         <div className="apple-card-glass p-8 lg:p-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="group">
-              <div className="font-inter font-bold text-3xl lg:text-4xl text-system-gray-900 mb-2 group-hover:text-apple-blue transition-colors duration-300">60+</div>
-              <div className="font-inter text-system-gray-600 text-sm">Components</div>
+              <div className="font-inter font-bold text-3xl lg:text-4xl text-system-gray-900 mb-2 group-hover:text-apple-blue transition-colors duration-300">
+                60+
+              </div>
+              <div className="font-inter text-system-gray-600 text-sm">
+                Components
+              </div>
             </div>
             <div className="group">
-              <div className="font-inter font-bold text-3xl lg:text-4xl text-system-gray-900 mb-2 group-hover:text-apple-purple transition-colors duration-300">100%</div>
-              <div className="font-inter text-system-gray-600 text-sm">TypeScript</div>
+              <div className="font-inter font-bold text-3xl lg:text-4xl text-system-gray-900 mb-2 group-hover:text-apple-purple transition-colors duration-300">
+                100%
+              </div>
+              <div className="font-inter text-system-gray-600 text-sm">
+                TypeScript
+              </div>
             </div>
             <div className="group">
-              <div className="font-inter font-bold text-3xl lg:text-4xl text-system-gray-900 mb-2 group-hover:text-apple-green transition-colors duration-300">A11Y</div>
-              <div className="font-inter text-system-gray-600 text-sm">Accessible</div>
+              <div className="font-inter font-bold text-3xl lg:text-4xl text-system-gray-900 mb-2 group-hover:text-apple-green transition-colors duration-300">
+                A11Y
+              </div>
+              <div className="font-inter text-system-gray-600 text-sm">
+                Accessible
+              </div>
             </div>
             <div className="group">
-              <div className="font-inter font-bold text-3xl lg:text-4xl text-system-gray-900 mb-2 group-hover:text-apple-orange transition-colors duration-300">MIT</div>
-              <div className="font-inter text-system-gray-600 text-sm">License</div>
+              <div className="font-inter font-bold text-3xl lg:text-4xl text-system-gray-900 mb-2 group-hover:text-apple-orange transition-colors duration-300">
+                MIT
+              </div>
+              <div className="font-inter text-system-gray-600 text-sm">
+                License
+              </div>
             </div>
           </div>
         </div>
