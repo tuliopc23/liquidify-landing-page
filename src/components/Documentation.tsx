@@ -1,56 +1,58 @@
 import React from "react";
+import { css, cx } from "../../styled-system/css";
+import { cardGlass, button } from "../pandaStyles";
 
 const Documentation: React.FC = () => {
   return (
-    <section id="docs" className="py-20 bg-white relative">
+    <section id="docs" className={css({ paddingY: "5rem", backgroundColor: "white", position: "relative" })}>
       {/* Subtle background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 right-0 w-64 h-64 bg-apple-blue/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-0 w-48 h-48 bg-apple-purple/5 rounded-full blur-3xl"></div>
+      <div className={css({ position: "absolute", inset: 0, overflow: "hidden" })}>
+        <div className={css({ position: "absolute", top: "25%", right: 0, width: "16rem", height: "16rem", backgroundColor: "color-mix(in oklab, var(--colors-apple-blue), transparent 95%)", borderRadius: "9999px", filter: "blur(32px)" })}></div>
+        <div className={css({ position: "absolute", bottom: "25%", left: 0, width: "12rem", height: "12rem", backgroundColor: "color-mix(in oklab, var(--colors-apple-purple), transparent 95%)", borderRadius: "9999px", filter: "blur(32px)" })}></div>
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-system-gray-900 mb-4">
+      <div className={css({ position: "relative", zIndex: 10, maxWidth: "72rem", marginX: "auto", paddingX: { base: "1rem", sm: "1.5rem", lg: "2rem" } })}>
+        <div className={css({ textAlign: "center", marginBottom: "4rem" })}>
+          <h2 className={css({ fontFamily: "sans", fontWeight: 700, fontSize: { base: "1.875rem", sm: "2.25rem" }, color: "system-gray-900", marginBottom: "1rem" })}>
             Complete Documentation
           </h2>
-          <p className="font-sans text-lg text-system-gray-600 max-w-2xl mx-auto">
+          <p className={css({ fontFamily: "sans", fontSize: "1.125rem", color: "system-gray-600", maxWidth: "42rem", marginX: "auto" })}>
             Everything you need to build beautiful applications with LiqUIdify.
           </p>
         </div>
 
         {/* Enhanced Installation Guide */}
-        <div className="apple-card-glass p-8 lg:p-12 mb-8 bg-gradient-to-br from-white/90 to-white/70">
-          <div className="max-w-3xl mx-auto">
-            <h3 className="font-sans font-semibold text-xl text-system-gray-900 mb-6 text-center">
+        <div className={cx(cardGlass, css({ padding: "2rem", lg: { padding: "3rem" }, marginBottom: "2rem", backgroundImage: "linear-gradient(to bottom right, rgba(255,255,255,0.9), rgba(255,255,255,0.7))" }))}>
+          <div className={css({ maxWidth: "48rem", marginX: "auto" })}>
+            <h3 className={css({ fontFamily: "sans", fontWeight: 600, fontSize: "1.25rem", color: "system-gray-900", marginBottom: "1.5rem", textAlign: "center" })}>
               Get Started in Seconds
             </h3>
 
-            <div className="space-y-4">
-              <div className="bg-system-gray-900 rounded-xl p-6 overflow-x-auto shadow-xl">
-                <div className="flex items-center space-x-2 mb-4">
-                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="font-sans text-system-gray-400 text-sm ml-4">
+            <div className={css({ display: "grid", gap: "1rem" })}>
+              <div className={css({ backgroundColor: "system-gray-900", borderRadius: "0.75rem", padding: "1.5rem", overflowX: "auto", boxShadow: "0 20px 25px rgba(0,0,0,0.15)" })}>
+                <div className={css({ display: "flex", alignItems: "center", columnGap: "0.5rem", marginBottom: "1rem" })}>
+                  <div className={css({ width: "0.75rem", height: "0.75rem", backgroundColor: "red.500", borderRadius: "9999px" })}></div>
+                  <div className={css({ width: "0.75rem", height: "0.75rem", backgroundColor: "yellow.500", borderRadius: "9999px" })}></div>
+                  <div className={css({ width: "0.75rem", height: "0.75rem", backgroundColor: "green.500", borderRadius: "9999px" })}></div>
+                  <span className={css({ fontFamily: "sans", color: "system-gray-400", fontSize: "0.875rem", marginLeft: "1rem" })}>
                     Terminal
                   </span>
                 </div>
-                <code className="font-mono text-apple-green text-sm">
+                <code className={css({ fontFamily: "mono", color: "apple-green", fontSize: "0.875rem" })}>
                   npm install liquidify-react
                 </code>
               </div>
 
-              <div className="bg-system-gray-900 rounded-xl p-6 overflow-x-auto shadow-xl">
-                <div className="flex items-center space-x-2 mb-4">
-                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="font-sans text-system-gray-400 text-sm ml-4">
+              <div className={css({ backgroundColor: "system-gray-900", borderRadius: "0.75rem", padding: "1.5rem", overflowX: "auto", boxShadow: "0 20px 25px rgba(0,0,0,0.15)" })}>
+                <div className={css({ display: "flex", alignItems: "center", columnGap: "0.5rem", marginBottom: "1rem" })}>
+                  <div className={css({ width: "0.75rem", height: "0.75rem", backgroundColor: "red.500", borderRadius: "9999px" })}></div>
+                  <div className={css({ width: "0.75rem", height: "0.75rem", backgroundColor: "yellow.500", borderRadius: "9999px" })}></div>
+                  <div className={css({ width: "0.75rem", height: "0.75rem", backgroundColor: "green.500", borderRadius: "9999px" })}></div>
+                  <span className={css({ fontFamily: "sans", color: "system-gray-400", fontSize: "0.875rem", marginLeft: "1rem" })}>
                     App.tsx
                   </span>
                 </div>
-                <pre className="font-mono text-apple-blue text-sm">
+                <pre className={css({ fontFamily: "mono", color: "apple-blue", fontSize: "0.875rem" })}>
                   {`import { Button, Card } from 'liquidify-react';
 
 function App() {
@@ -66,23 +68,23 @@ function App() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+            <div className={css({ display: "flex", flexDirection: { base: "column", sm: "row" }, alignItems: "center", justifyContent: "center", gap: "1rem", marginTop: "2rem" })}>
               <a
                 href="https://github.com/tuliopc23/LiqUIdify"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="apple-button shadow-lg hover:shadow-xl"
+                className={cx(button({ intent: "primary" }), css({ boxShadow: "0 10px 15px rgba(0,0,0,0.1)" }))}
               >
-                <i className="bi bi-github mr-2"></i>
+                <i className="bi bi-github" style={{ marginRight: "0.5rem" }}></i>
                 View Documentation
               </a>
               <a
                 href="https://developer.apple.com/documentation/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="apple-button-secondary shadow-lg hover:shadow-xl"
+                className={cx(button({ intent: "secondary" }), css({ boxShadow: "0 10px 15px rgba(0,0,0,0.1)" }))}
               >
-                <i className="bi bi-apple mr-2"></i>
+                <i className="bi bi-apple" style={{ marginRight: "0.5rem" }}></i>
                 Apple HIG Reference
               </a>
             </div>
@@ -90,7 +92,7 @@ function App() {
         </div>
 
         {/* Enhanced Quick Links */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className={css({ display: "grid", gridTemplateColumns: { base: "1fr", md: "repeat(4, 1fr)" }, gap: "1rem" })}>
           {[
             {
               title: "Quick Start",
@@ -120,14 +122,14 @@ function App() {
             <a
               key={index}
               href={item.link}
-              className="apple-card-glass p-6 text-center hover:scale-105 transition-all duration-300 group bg-gradient-to-br from-white/80 to-white/60"
+              className={cx(cardGlass, css({ padding: "1.5rem", textAlign: "center", transition: "all 300ms ease", _hover: { transform: "scale(1.05)" }, backgroundImage: "linear-gradient(to bottom right, rgba(255,255,255,0.8), rgba(255,255,255,0.6))" }))}
             >
               <div
-                className={`w-12 h-12 bg-${item.color}/10 rounded-xl mx-auto mb-3 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110`}
+                className={css({ width: "3rem", height: "3rem", backgroundColor: `color-mix(in oklab, var(--colors-${item.color}), transparent 90%)`, borderRadius: "0.75rem", marginX: "auto", marginBottom: "0.75rem", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 10px 15px rgba(0,0,0,0.1)", transition: "all 300ms ease", _groupHover: { transform: "scale(1.1)" } })}
               >
-                <i className={`${item.icon} text-${item.color} text-lg`}></i>
+                <i className={css({ color: `var(--colors-${item.color})`, fontSize: "1rem" }) + ` ${item.icon}`}></i>
               </div>
-              <h4 className="font-sans font-medium text-system-gray-900 text-sm">
+              <h4 className={css({ fontFamily: "sans", fontWeight: 500, color: "system-gray-900", fontSize: "0.875rem" })}>
                 {item.title}
               </h4>
             </a>

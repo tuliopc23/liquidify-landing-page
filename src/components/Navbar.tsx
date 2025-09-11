@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { css, cx } from "../../styled-system/css";
+import { button, containerX, navLink } from "../pandaStyles";
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,100 +17,80 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/80 backdrop-blur-xl border-b border-system-gray-200"
-          : "bg-transparent"
-      }`}
+      className={css({
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50,
+        transitionProperty: "all",
+        transitionDuration: "300ms",
+        backgroundColor: isScrolled ? "rgba(255,255,255,0.8)" : "transparent",
+        backdropFilter: isScrolled ? "blur(20px)" : undefined,
+        borderBottomWidth: isScrolled ? "1px" : undefined,
+        borderColor: isScrolled ? "system-gray-200" : undefined,
+      })}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-apple-blue rounded-lg flex items-center justify-center">
-              <i className="bi bi-droplet-fill text-white text-sm"></i>
+      <div className={containerX}>
+        <div className={css({ display: "flex", alignItems: "center", justifyContent: "space-between", height: "4rem" })}>
+          <div className={css({ display: "flex", alignItems: "center", columnGap: "0.75rem" })}>
+            <div className={css({ width: "2rem", height: "2rem", backgroundColor: "apple-blue", borderRadius: "0.5rem", display: "flex", alignItems: "center", justifyContent: "center" })}>
+              <i className={css({ color: "white", fontSize: "0.875rem" }) + " bi bi-droplet-fill"}></i>
             </div>
-            <span className="font-sans font-semibold text-xl text-system-gray-900">
+            <span className={css({ fontFamily: "sans", fontWeight: 600, fontSize: "1.25rem", color: "system-gray-900" })}>
               LiqUIdify
             </span>
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a
-              href="#components"
-              className="font-sans text-system-gray-700 hover:text-apple-blue transition-colors"
-            >
-              Components
-            </a>
-            <a
-              href="#features"
-              className="font-sans text-system-gray-700 hover:text-apple-blue transition-colors"
-            >
-              Features
-            </a>
-            <a
-              href="#docs"
-              className="font-sans text-system-gray-700 hover:text-apple-blue transition-colors"
-            >
-              Documentation
-            </a>
+          <div className={css({ display: { base: "none", md: "flex" }, alignItems: "center", columnGap: "2rem" })}>
+            <a href="#components" className={navLink}>Components</a>
+            <a href="#features" className={navLink}>Features</a>
+            <a href="#docs" className={navLink}>Documentation</a>
             <a
               href="https://github.com/tuliopc23/LiqUIdify"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 font-sans text-system-gray-700 hover:text-apple-blue transition-colors"
+              className={cx(css({ display: "flex", alignItems: "center", columnGap: "0.5rem" }), navLink)}
             >
               <i className="bi bi-github"></i>
               <span>GitHub</span>
             </a>
-            <button className="apple-button text-sm">Get Started</button>
+            <button className={button({ intent: "primary" }) + " " + css({ fontSize: "0.875rem" })}>Get Started</button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className={css({ display: { base: "block", md: "none" }, padding: "0.5rem" })}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            <i
-              className={`bi ${isMobileMenuOpen ? "bi-x" : "bi-list"} text-xl text-system-gray-900`}
-            ></i>
+            <i className={cx("bi", isMobileMenuOpen ? "bi-x" : "bi-list", css({ fontSize: "1.25rem", color: "system-gray-900" }))}></i>
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden apple-card mt-2 p-4">
-            <div className="flex flex-col space-y-4">
-              <a
-                href="#components"
-                className="font-sans text-system-gray-700 hover:text-apple-blue transition-colors"
-              >
-                Components
-              </a>
-              <a
-                href="#features"
-                className="font-sans text-system-gray-700 hover:text-apple-blue transition-colors"
-              >
-                Features
-              </a>
-              <a
-                href="#docs"
-                className="font-sans text-system-gray-700 hover:text-apple-blue transition-colors"
-              >
-                Documentation
-              </a>
+          <div className={cx(css({ display: { base: "block", md: "none" }, marginTop: "0.5rem", padding: "1rem" }), /* glass card */ css({
+            backgroundColor: "rgba(255,255,255,0.6)",
+            backdropFilter: "blur(20px)",
+            borderWidth: "1px",
+            borderColor: "rgba(255,255,255,0.3)",
+            borderRadius: "1rem",
+          }))}>
+            <div className={css({ display: "flex", flexDirection: "column", rowGap: "1rem" })}>
+              <a href="#components" className={navLink}>Components</a>
+              <a href="#features" className={navLink}>Features</a>
+              <a href="#docs" className={navLink}>Documentation</a>
               <a
                 href="https://github.com/tuliopc23/LiqUIdify"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 font-sans text-system-gray-700 hover:text-apple-blue transition-colors"
+                className={cx(css({ display: "flex", alignItems: "center", columnGap: "0.5rem" }), navLink)}
               >
                 <i className="bi bi-github"></i>
                 <span>GitHub</span>
               </a>
-              <button className="apple-button text-sm w-full">
-                Get Started
-              </button>
+              <button className={button({ intent: "primary" }) + " " + css({ fontSize: "0.875rem", width: "100%" })}>Get Started</button>
             </div>
           </div>
         )}

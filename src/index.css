@@ -1,4 +1,4 @@
-@import "tailwindcss";
+/* Tailwind removed during Panda migration; keeping file for any custom global styles if needed */
 
 @theme {
   --color-apple-blue: #007aff;

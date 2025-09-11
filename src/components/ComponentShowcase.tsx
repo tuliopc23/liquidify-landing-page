@@ -1,4 +1,6 @@
 import React from "react";
+import { css, cx } from "../../styled-system/css";
+import { cardGlass, button } from "../pandaStyles";
 
 const ComponentShowcase: React.FC = () => {
   const componentCategories = [
@@ -39,46 +41,46 @@ const ComponentShowcase: React.FC = () => {
   return (
     <section
       id="components"
-      className="py-20 bg-gradient-to-b from-system-gray-50 to-white"
+      className={css({ paddingY: "5rem", backgroundImage: `linear-gradient(to bottom, var(--colors-system-gray-50), white)` })}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-system-gray-900 mb-4">
+      <div className={css({ maxWidth: "72rem", marginX: "auto", paddingX: { base: "1rem", sm: "1.5rem", lg: "2rem" } })}>
+        <div className={css({ textAlign: "center", marginBottom: "4rem" })}>
+          <h2 className={css({ fontFamily: "sans", fontWeight: 700, fontSize: { base: "1.875rem", sm: "2.25rem" }, color: "system-gray-900", marginBottom: "1rem" })}>
             Component Library
           </h2>
-          <p className="font-sans text-lg text-system-gray-600 max-w-2xl mx-auto">
+          <p className={css({ fontFamily: "sans", color: "system-gray-600", fontSize: "1.125rem", maxWidth: "40rem", marginX: "auto" })}>
             Comprehensive collection of components organized by functionality,
             each designed with Apple's attention to detail.
           </p>
         </div>
 
         {/* Enhanced Component Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+        <div className={css({ display: "grid", gridTemplateColumns: { base: "1fr", md: "1fr 1fr" }, gap: "1.5rem", marginBottom: "4rem" })}>
           {componentCategories.map((category, index) => (
             <div
               key={index}
-              className={`apple-card-glass p-8 bg-gradient-to-br ${category.bgColor} hover:scale-105 transition-all duration-300 group`}
+              className={cx(cardGlass, css({ padding: "2rem", backgroundImage: `linear-gradient(to bottom right, rgba(255,255,255,0.8), rgba(255,255,255,0.6))`, transition: "all 300ms ease", _hover: { transform: "scale(1.05)" } }))}
             >
-              <div className="flex items-start space-x-6">
+              <div className={css({ display: "flex", alignItems: "flex-start", columnGap: "1.5rem" })}>
                 <div
-                  className={`w-14 h-14 bg-${category.color}/10 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110`}
+                  className={css({ width: "3.5rem", height: "3.5rem", borderRadius: "1rem", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 10px 15px rgba(0,0,0,0.1)", transition: "all 300ms ease", _groupHover: { transform: "scale(1.1)" }, backgroundColor: `color-mix(in oklab, var(--colors-${category.color}), transparent 90%)` })}
                 >
                   <i
-                    className={`${category.icon} text-${category.color} text-xl`}
+                    className={css({ color: `var(--colors-${category.color})`, fontSize: "1.25rem" }) + ` ${category.icon}`}
                   ></i>
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-sans font-semibold text-lg text-system-gray-900 mb-3">
+                <div className={css({ flex: 1 })}>
+                  <h3 className={css({ fontFamily: "sans", fontWeight: 600, fontSize: "1.125rem", color: "system-gray-900", marginBottom: "0.75rem" })}>
                     {category.title}
                   </h3>
-                  <p className="font-sans text-system-gray-600 text-sm mb-4 leading-relaxed">
+                  <p className={css({ fontFamily: "sans", color: "system-gray-600", fontSize: "0.875rem", marginBottom: "1rem", lineHeight: 1.7 })}>
                     {category.description}
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className={css({ display: "flex", flexWrap: "wrap", gap: "0.5rem" })}>
                     {category.components.map((component, idx) => (
                       <span
                         key={idx}
-                        className="px-3 py-1 bg-white/60 backdrop-blur-sm text-system-gray-700 rounded-lg text-xs font-sans border border-white/30 hover:bg-white/80 transition-colors duration-200"
+                        className={css({ paddingX: "0.75rem", paddingY: "0.25rem", backgroundColor: "rgba(255,255,255,0.6)", backdropFilter: "blur(4px)", color: "system-gray-700", borderRadius: "0.5rem", fontSize: "0.75rem", fontFamily: "sans", borderWidth: "1px", borderColor: "rgba(255,255,255,0.3)", transition: "background-color 200ms ease", _hover: { backgroundColor: "rgba(255,255,255,0.8)" } })}
                       >
                         {component}
                       </span>
@@ -91,27 +93,27 @@ const ComponentShowcase: React.FC = () => {
         </div>
 
         {/* Enhanced Interactive Demo */}
-        <div className="apple-card-glass p-8 lg:p-12 text-center bg-gradient-to-br from-white/80 to-white/60">
-          <h3 className="font-sans font-semibold text-xl text-system-gray-900 mb-4">
+        <div className={cx(cardGlass, css({ padding: "2rem", lg: { padding: "3rem" }, textAlign: "center", backgroundImage: "linear-gradient(to bottom right, rgba(255,255,255,0.8), rgba(255,255,255,0.6))" }))}>
+          <h3 className={css({ fontFamily: "sans", fontWeight: 600, fontSize: "1.25rem", color: "system-gray-900", marginBottom: "1rem" })}>
             Experience the Components
           </h3>
-          <p className="font-sans text-system-gray-600 mb-8 max-w-xl mx-auto">
+          <p className={css({ fontFamily: "sans", color: "system-gray-600", marginBottom: "2rem", maxWidth: "36rem", marginX: "auto" })}>
             See LiqUIdify components in action with our interactive playground.
           </p>
 
           {/* Enhanced Demo Components */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-            <button className="apple-button shadow-lg hover:shadow-xl">
-              <i className="bi bi-play-fill mr-2"></i>
+          <div className={css({ display: "flex", flexDirection: { base: "column", sm: "row" }, alignItems: "center", justifyContent: "center", gap: "1rem", marginBottom: "2rem" })}>
+            <button className={cx(button({ intent: "primary" }), css({ boxShadow: "0 10px 15px rgba(0,0,0,0.1)", _hover: { boxShadow: "0 20px 25px rgba(0,0,0,0.15)" } }))}>
+              <i className="bi bi-play-fill" style={{ marginRight: "0.5rem" }}></i>
               Primary Button
             </button>
-            <button className="apple-button-secondary shadow-lg hover:shadow-xl">
-              <i className="bi bi-heart mr-2"></i>
+            <button className={cx(button({ intent: "secondary" }), css({ boxShadow: "0 10px 15px rgba(0,0,0,0.1)", _hover: { boxShadow: "0 20px 25px rgba(0,0,0,0.15)" } }))}>
+              <i className="bi bi-heart" style={{ marginRight: "0.5rem" }}></i>
               Secondary Button
             </button>
-            <div className="apple-card px-4 py-2 flex items-center space-x-2 shadow-lg">
-              <div className="w-2 h-2 bg-apple-green rounded-full animate-pulse"></div>
-              <span className="font-sans text-system-gray-700 text-sm">
+            <div className={cx(cardGlass, css({ paddingX: "1rem", paddingY: "0.5rem", display: "flex", alignItems: "center", columnGap: "0.5rem", boxShadow: "0 10px 15px rgba(0,0,0,0.1)" }))}>
+              <div className={css({ width: "0.5rem", height: "0.5rem", backgroundColor: "apple-green", borderRadius: "9999px", animation: "pulse 2s infinite" })}></div>
+              <span className={css({ fontFamily: "sans", color: "system-gray-700", fontSize: "0.875rem" })}>
                 Online
               </span>
             </div>
@@ -121,10 +123,10 @@ const ComponentShowcase: React.FC = () => {
             href="https://github.com/tuliopc23/LiqUIdify"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 font-sans text-apple-blue hover:text-apple-blue/80 transition-colors text-sm group"
+            className={css({ display: "inline-flex", alignItems: "center", columnGap: "0.5rem", fontFamily: "sans", color: "apple-blue", transition: "color 150ms ease", fontSize: "0.875rem", _hover: { color: "rgba(0,122,255,0.8)" } })}
           >
             <span>Explore all components</span>
-            <i className="bi bi-arrow-right group-hover:translate-x-1 transition-transform duration-200"></i>
+            <i className={css({ transition: "transform 200ms ease", _hover: { transform: "translateX(0.25rem)" } }) + " bi bi-arrow-right"}></i>
           </a>
         </div>
       </div>

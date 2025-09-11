@@ -1,157 +1,133 @@
 import React from "react";
+import { css, cx } from "../../styled-system/css";
+import { cardGlass, button } from "../pandaStyles";
 
 const Features: React.FC = () => {
   return (
-    <section id="features" className="py-20 bg-white relative overflow-hidden">
+    <section id="features" className={css({ paddingY: "5rem", backgroundColor: "white", position: "relative", overflow: "hidden" })}>
       {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-system-gray-200 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-system-gray-200 to-transparent"></div>
+      <div className={css({ position: "absolute", inset: 0, opacity: 0.3 })}>
+        <div className={css({ position: "absolute", top: 0, left: 0, width: "100%", height: "1px", backgroundImage: "linear-gradient(to right, transparent, var(--colors-system-gray-200), transparent)" })}></div>
+        <div className={css({ position: "absolute", bottom: 0, left: 0, width: "100%", height: "1px", backgroundImage: "linear-gradient(to right, transparent, var(--colors-system-gray-200), transparent)" })}></div>
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-system-gray-900 mb-4">
+      <div className={css({ position: "relative", zIndex: 10, maxWidth: "72rem", marginX: "auto", paddingX: { base: "1rem", sm: "1.5rem", lg: "2rem" } })}>
+        <div className={css({ textAlign: "center", marginBottom: "4rem" })}>
+          <h2 className={css({ fontFamily: "sans", fontWeight: 700, fontSize: { base: "1.875rem", sm: "2.25rem" }, color: "system-gray-900", marginBottom: "1rem" })}>
             Dive into LiqUIdify
           </h2>
-          <p className="font-sans text-lg text-system-gray-600 max-w-2xl mx-auto">
+          <p className={css({ fontFamily: "sans", fontSize: "1.125rem", color: "system-gray-600", maxWidth: "42rem", marginX: "auto" })}>
             Built with meticulous attention to detail, every component embodies
             Apple's design philosophy.
           </p>
         </div>
 
         {/* Enhanced Main Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div className={css({ display: "grid", gridTemplateColumns: { base: "1fr", md: "repeat(3, 1fr)" }, gap: "1.5rem", marginBottom: "4rem" })}>
           {/* Blue Card - Enhanced */}
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-apple-blue to-apple-blue/90 p-8 text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full translate-y-12 -translate-x-12"></div>
+          <div className={css({ position: "relative", overflow: "hidden", borderRadius: "1rem", padding: "2rem", color: "white", boxShadow: "0 20px 25px rgba(0,0,0,0.15)", transition: "all 300ms ease", _hover: { transform: "scale(1.05)" }, backgroundImage: `linear-gradient(to bottom right, var(--colors-apple-blue), rgba(0,122,255,0.9))` })}>
+            <div className={css({ position: "absolute", top: 0, right: 0, width: "8rem", height: "8rem", backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "9999px", transform: "translate(4rem, -4rem)" })}></div>
+            <div className={css({ position: "absolute", bottom: 0, left: 0, width: "6rem", height: "6rem", backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "9999px", transform: "translate(-3rem, 3rem)" })}></div>
 
-            <div className="relative z-10">
-              <div className="mb-6">
-                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 shadow-lg">
-                  <i className="bi bi-apple text-white text-2xl"></i>
+            <div className={css({ position: "relative", zIndex: 10 })}>
+              <div className={css({ marginBottom: "1.5rem" })}>
+                <div className={css({ width: "4rem", height: "4rem", backgroundColor: "rgba(255,255,255,0.2)", backdropFilter: "blur(4px)", borderRadius: "1rem", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1rem", boxShadow: "0 10px 15px rgba(0,0,0,0.1)" })}>
+                  <i className={css({ color: "white", fontSize: "1.5rem" }) + " bi bi-apple"}></i>
                 </div>
               </div>
-              <div className="mb-4">
-                <span className="text-white/80 text-sm font-sans">
+              <div className={css({ marginBottom: "1rem" })}>
+                <span className={css({ color: "rgba(255,255,255,0.8)", fontSize: "0.875rem", fontFamily: "sans" })}>
                   New overview
                 </span>
               </div>
-              <h3 className="font-sans font-semibold text-xl mb-2">
+              <h3 className={css({ fontFamily: "sans", fontWeight: 600, fontSize: "1.25rem", marginBottom: "0.5rem" })}>
                 Explore the new design principles
               </h3>
-              <p className="text-white/90 text-sm mb-4 leading-relaxed">
+              <p className={css({ color: "rgba(255,255,255,0.9)", fontSize: "0.875rem", marginBottom: "1rem", lineHeight: 1.7 })}>
                 Learn how to design and develop beautiful interfaces that
                 leverage Liquid Glass.
               </p>
-              <a
-                href="#"
-                className="inline-flex items-center text-white text-sm font-sans hover:text-white/80 transition-colors"
-              >
-                Read overview <i className="bi bi-arrow-right ml-2"></i>
+              <a href="#" className={css({ display: "inline-flex", alignItems: "center", color: "white", fontSize: "0.875rem", fontFamily: "sans", transition: "color 150ms ease", _hover: { color: "rgba(255,255,255,0.8)" } })}>
+                Read overview <i className="bi bi-arrow-right" style={{ marginLeft: "0.5rem" }}></i>
               </a>
             </div>
           </div>
 
           {/* Gray Card - Enhanced */}
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-system-gray-100 to-system-gray-50 p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-system-gray-200/50 rounded-full -translate-y-16 translate-x-16"></div>
+          <div className={css({ position: "relative", overflow: "hidden", borderRadius: "1rem", padding: "2rem", boxShadow: "0 20px 25px rgba(0,0,0,0.15)", transition: "all 300ms ease", _hover: { transform: "scale(1.05)" }, backgroundImage: `linear-gradient(to bottom right, var(--colors-system-gray-100), var(--colors-system-gray-50))` })}>
+            <div className={css({ position: "absolute", top: 0, right: 0, width: "8rem", height: "8rem", backgroundColor: "rgba(142,142,147,0.5)", borderRadius: "9999px", transform: "translate(4rem, -4rem)" })}></div>
 
-            <div className="relative z-10">
-              <div className="mb-6">
-                <div className="w-16 h-16 bg-system-gray-200 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
-                  <i className="bi bi-droplet-half text-system-gray-600 text-2xl"></i>
+            <div className={css({ position: "relative", zIndex: 10 })}>
+              <div className={css({ marginBottom: "1.5rem" })}>
+                <div className={css({ width: "4rem", height: "4rem", backgroundColor: "system-gray-200", borderRadius: "1rem", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1rem", boxShadow: "0 10px 15px rgba(0,0,0,0.1)" })}>
+                  <i className={css({ color: "system-gray-600", fontSize: "1.5rem" }) + " bi bi-droplet-half"}></i>
                 </div>
               </div>
-              <div className="mb-4">
-                <span className="text-system-gray-600 text-sm font-sans">
+              <div className={css({ marginBottom: "1rem" })}>
+                <span className={css({ color: "system-gray-600", fontSize: "0.875rem", fontFamily: "sans" })}>
                   New article
                 </span>
               </div>
-              <h3 className="font-sans font-semibold text-xl mb-2 text-system-gray-900">
+              <h3 className={css({ fontFamily: "sans", fontWeight: 600, fontSize: "1.25rem", marginBottom: "0.5rem", color: "system-gray-900" })}>
                 Adopting Liquid Glass
               </h3>
-              <p className="text-system-gray-600 text-sm mb-4 leading-relaxed">
+              <p className={css({ color: "system-gray-600", fontSize: "0.875rem", marginBottom: "1rem", lineHeight: 1.7 })}>
                 Find out how to bring the new material to your app.
               </p>
-              <a
-                href="#"
-                className="inline-flex items-center text-apple-blue text-sm font-sans hover:text-apple-blue/80 transition-colors"
-              >
-                Read article <i className="bi bi-arrow-right ml-2"></i>
+              <a href="#" className={css({ display: "inline-flex", alignItems: "center", color: "apple-blue", fontSize: "0.875rem", fontFamily: "sans", transition: "color 150ms ease", _hover: { color: "rgba(0,122,255,0.8)" } })}>
+                Read article <i className="bi bi-arrow-right" style={{ marginLeft: "0.5rem" }}></i>
               </a>
             </div>
           </div>
 
           {/* Purple Card - Enhanced */}
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-apple-purple to-apple-purple/90 p-8 text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
-            <div className="absolute bottom-0 left-0 w-20 h-20 bg-white/5 rounded-full translate-y-10 -translate-x-10"></div>
+          <div className={css({ position: "relative", overflow: "hidden", borderRadius: "1rem", padding: "2rem", color: "white", boxShadow: "0 20px 25px rgba(0,0,0,0.15)", transition: "all 300ms ease", _hover: { transform: "scale(1.05)" }, backgroundImage: `linear-gradient(to bottom right, var(--colors-apple-purple), rgba(175,82,222,0.9))` })}>
+            <div className={css({ position: "absolute", top: 0, right: 0, width: "8rem", height: "8rem", backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "9999px", transform: "translate(4rem, -4rem)" })}></div>
+            <div className={css({ position: "absolute", bottom: 0, left: 0, width: "5rem", height: "5rem", backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "9999px", transform: "translate(-2.5rem, 2.5rem)" })}></div>
 
-            <div className="relative z-10">
-              <div className="mb-6">
-                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 shadow-lg">
-                  <i className="bi bi-code-slash text-white text-2xl"></i>
+            <div className={css({ position: "relative", zIndex: 10 })}>
+              <div className={css({ marginBottom: "1.5rem" })}>
+                <div className={css({ width: "4rem", height: "4rem", backgroundColor: "rgba(255,255,255,0.2)", backdropFilter: "blur(4px)", borderRadius: "1rem", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1rem", boxShadow: "0 10px 15px rgba(0,0,0,0.1)" })}>
+                  <i className={css({ color: "white", fontSize: "1.5rem" }) + " bi bi-code-slash"}></i>
                 </div>
               </div>
-              <div className="mb-4">
-                <span className="text-white/80 text-sm font-sans">
+              <div className={css({ marginBottom: "1rem" })}>
+                <span className={css({ color: "rgba(255,255,255,0.8)", fontSize: "0.875rem", fontFamily: "sans" })}>
                   New sample
                 </span>
               </div>
-              <h3 className="font-sans font-semibold text-xl mb-2">
+              <h3 className={css({ fontFamily: "sans", fontWeight: 600, fontSize: "1.25rem", marginBottom: "0.5rem" })}>
                 Building with Liquid Glass
               </h3>
-              <p className="text-white/90 text-sm mb-4 leading-relaxed">
+              <p className={css({ color: "rgba(255,255,255,0.9)", fontSize: "0.875rem", marginBottom: "1rem", lineHeight: 1.7 })}>
                 Enhance your app experience with system-provided and custom
                 Liquid Glass.
               </p>
-              <a
-                href="#"
-                className="inline-flex items-center text-white text-sm font-sans hover:text-white/80 transition-colors"
-              >
-                View sample code <i className="bi bi-arrow-right ml-2"></i>
+              <a href="#" className={css({ display: "inline-flex", alignItems: "center", color: "white", fontSize: "0.875rem", fontFamily: "sans", transition: "color 150ms ease", _hover: { color: "rgba(255,255,255,0.8)" } })}>
+                View sample code <i className="bi bi-arrow-right" style={{ marginLeft: "0.5rem" }}></i>
               </a>
             </div>
           </div>
         </div>
 
         {/* Enhanced Stats Section */}
-        <div className="apple-card-glass p-8 lg:p-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="group">
-              <div className="font-sans font-bold text-3xl lg:text-4xl text-system-gray-900 mb-2 group-hover:text-apple-blue transition-colors duration-300">
-                60+
+        <div className={cx(cardGlass, css({ padding: "2rem", lg: { padding: "3rem" } }))}>
+          <div className={css({ display: "grid", gridTemplateColumns: { base: "repeat(2, 1fr)", md: "repeat(4, 1fr)" }, gap: "2rem", textAlign: "center" })}>
+            {[
+              { value: "60+", label: "Components", hover: "apple-blue" },
+              { value: "100%", label: "TypeScript", hover: "apple-purple" },
+              { value: "A11Y", label: "Accessible", hover: "apple-green" },
+              { value: "MIT", label: "License", hover: "apple-orange" },
+            ].map((item, idx) => (
+              <div key={idx} className={css({})}>
+                <div className={css({ fontFamily: "sans", fontWeight: 700, fontSize: { base: "1.875rem", lg: "2.25rem" }, color: "system-gray-900", marginBottom: "0.5rem", transition: "color 300ms ease", _hover: { color: item.hover as any } })}>
+                  {item.value}
+                </div>
+                <div className={css({ fontFamily: "sans", color: "system-gray-600", fontSize: "0.875rem" })}>
+                  {item.label}
+                </div>
               </div>
-              <div className="font-sans text-system-gray-600 text-sm">
-                Components
-              </div>
-            </div>
-            <div className="group">
-              <div className="font-sans font-bold text-3xl lg:text-4xl text-system-gray-900 mb-2 group-hover:text-apple-purple transition-colors duration-300">
-                100%
-              </div>
-              <div className="font-sans text-system-gray-600 text-sm">
-                TypeScript
-              </div>
-            </div>
-            <div className="group">
-              <div className="font-sans font-bold text-3xl lg:text-4xl text-system-gray-900 mb-2 group-hover:text-apple-green transition-colors duration-300">
-                A11Y
-              </div>
-              <div className="font-sans text-system-gray-600 text-sm">
-                Accessible
-              </div>
-            </div>
-            <div className="group">
-              <div className="font-sans font-bold text-3xl lg:text-4xl text-system-gray-900 mb-2 group-hover:text-apple-orange transition-colors duration-300">
-                MIT
-              </div>
-              <div className="font-sans text-system-gray-600 text-sm">
-                License
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
