@@ -43,6 +43,17 @@ export default defineConfig({
         '2xl': { value: "1rem" },
       },
     },
+    keyframes: {
+      float: {
+        '0%,100%': { transform: 'translateY(0px) rotate(0deg)' },
+        '33%': { transform: 'translateY(-30px) rotate(120deg)' },
+        '66%': { transform: 'translateY(15px) rotate(240deg)' },
+      },
+      pulse: {
+        '0%, 100%': { opacity: 1 },
+        '50%': { opacity: 0.5 },
+      },
+    },
   },
   // Optional: custom utilities that mirror Tailwind-y shorthands we use often
   utilities: {

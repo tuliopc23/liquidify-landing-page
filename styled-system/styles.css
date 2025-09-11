@@ -255,34 +255,27 @@
     --sizes-breakpoint-2xl: 1536px;
 }
 
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
-}
+  @keyframes float {
+    0%,100% {
+      transform: translateY(0px) rotate(0deg);
 }
 
-  @keyframes ping {
-    75%,100% {
-      transform: scale(2);
-      opacity: 0;
+    33% {
+      transform: translateY(-30px) rotate(120deg);
+}
+
+    66% {
+      transform: translateY(15px) rotate(240deg);
 }
 }
 
   @keyframes pulse {
+    0%,100% {
+      opacity: 1;
+}
+
     50% {
       opacity: 0.5;
-}
-}
-
-  @keyframes bounce {
-    0%,100% {
-      transform: translateY(-25%);
-      animation-timing-function: cubic-bezier(0.8,0,1,1);
-}
-
-    50% {
-      transform: none;
-      animation-timing-function: cubic-bezier(0,0,0.2,1);
 }
 }
 }

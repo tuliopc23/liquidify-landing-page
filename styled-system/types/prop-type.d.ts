@@ -94,7 +94,7 @@ export interface UtilityValues {
 	borderSpacing: "auto";
 	transitionProperty: "common" | "colors" | "size" | "position" | "background";
 	transition: "all" | "common" | "size" | "position" | "background" | "colors" | "opacity" | "shadow" | "transform";
-	animationName: "spin" | "ping" | "pulse" | "bounce";
+	animationName: "float" | "pulse";
 	rotate: "auto" | "auto-3d" | CssProperties["rotate"];
 	rotateX: CssProperties["rotate"];
 	rotateY: CssProperties["rotate"];
