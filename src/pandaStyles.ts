@@ -16,14 +16,17 @@ export const button = cva({
   variants: {
     intent: {
       primary: {
-        backgroundColor: "apple-blue",
+        backgroundColor: "primary",
         color: "white",
-        _hover: { backgroundColor: "apple-blue" },
+        boxShadow: "lg",
+        _hover: { backgroundColor: "primary" },
       },
       secondary: {
-        backgroundColor: "system-gray-100",
-        color: "system-gray-900",
-        _hover: { backgroundColor: "system-gray-200" },
+        backgroundColor: "bg.surface",
+        color: "text",
+        borderWidth: "1px",
+        borderColor: "border.default",
+        _hover: { backgroundColor: "bg.subtle" },
       },
     },
   },
@@ -32,33 +35,44 @@ export const button = cva({
 
 // Card surfaces
 export const card = css({
-  backgroundColor: "rgba(255,255,255,0.8)",
+  backgroundColor: "bg.surface",
   backdropFilter: "blur(4px)", // ~backdrop-blur-sm
   borderWidth: "1px",
-  borderColor: "system-gray-200",
+  borderColor: "border.default",
   borderRadius: "1rem", // ~rounded-2xl
-  boxShadow: "0 1px 2px rgba(0,0,0,0.06)", // ~shadow-sm
+  boxShadow: "sm",
   transition: "box-shadow 300ms ease, transform 300ms ease",
-  _hover: { boxShadow: "0 10px 20px rgba(0,0,0,0.08)" }, // ~shadow-md
+  _hover: { boxShadow: "md" },
 });
 
 export const cardGlass = css({
-  backgroundColor: "rgba(255,255,255,0.6)",
+  // HIG-friendly neutral liquid glass surface
+  position: "relative",
+  backgroundColor: "glass.bg",
   backdropFilter: "blur(20px)", // ~backdrop-blur-xl
   borderWidth: "1px",
-  borderColor: "rgba(255,255,255,0.3)",
-  borderRadius: "1rem",
-  boxShadow: "0 10px 15px rgba(0,0,0,0.1)", // ~shadow-lg
+  borderColor: "glass.border",
+  borderRadius: "glass",
+  boxShadow: "lg",
   transition: "box-shadow 300ms ease, transform 300ms ease",
-  _hover: { boxShadow: "0 20px 25px rgba(0,0,0,0.15)" }, // ~shadow-xl
+  _before: {
+    content: '""',
+    position: "absolute",
+    inset: 0,
+    borderRadius: "inherit",
+    pointerEvents: "none",
+    backgroundImage:
+      "linear-gradient(180deg, rgba(255,255,255,.35), transparent 40%), radial-gradient(120% 100% at 0% 0%, color-mix(in oklab, var(--colors-glass-tint), transparent 92%), transparent 60%)",
+  },
+  _hover: { boxShadow: "xl" },
 });
 
 // Common link style (gray → apple-blue on hover)
 export const navLink = css({
   fontFamily: "sans",
-  color: "system-gray-700",
+  color: "muted",
   transition: "color 150ms ease",
-  _hover: { color: "apple-blue" },
+  _hover: { color: "link" },
 });
 
 // Helpers
@@ -84,13 +98,99 @@ export const floatingElement = (bg: string) =>
 
 export const gridPattern = css({
   backgroundImage:
-    "radial-gradient(circle at 1px 1px, rgba(0, 122, 255, 0.1) 1px, transparent 0)",
+    "radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--colors-primary), transparent 90%) 1px, transparent 0)",
   backgroundSize: "20px 20px",
 });
 
 export const fontSans = css({ fontFamily: "sans" });
+export const fontText = css({ fontFamily: "text" });
+export const fontDisplay = css({ fontFamily: "display" });
+// Semantic typography aligned to Apple iOS Text Styles
+export const typography = cva({
+  variants: {
+    role: {
+      display: {
+        fontFamily: "display",
+        fontWeight: 700,
+        fontSize: { base: "display", sm: "3rem", md: "3.75rem", lg: "4.5rem" },
+        lineHeight: "display",
+        letterSpacing: "display",
+      },
+      largeTitle: {
+        fontFamily: "display",
+        fontWeight: 600,
+        fontSize: "largeTitle",
+        lineHeight: "largeTitle",
+        letterSpacing: "titles",
+      },
+      title1: {
+        fontFamily: "display",
+        fontWeight: 600,
+        fontSize: "title1",
+        lineHeight: "title1",
+        letterSpacing: "titles",
+      },
+      title2: {
+        fontFamily: "display",
+        fontWeight: 600,
+        fontSize: "title2",
+        lineHeight: "title2",
+        letterSpacing: "titles",
+      },
+      title3: {
+        fontFamily: "display",
+        fontWeight: 600,
+        fontSize: "title3",
+        lineHeight: "title3",
+        letterSpacing: "titles",
+      },
+      headline: {
+        fontFamily: "text",
+        fontWeight: 600,
+        fontSize: "headline",
+        lineHeight: "headline",
+        letterSpacing: "body",
+      },
+      body: {
+        fontFamily: "text",
+        fontWeight: 400,
+        fontSize: "body",
+        lineHeight: "body",
+        letterSpacing: "body",
+      },
+      callout: {
+        fontFamily: "text",
+        fontWeight: 400,
+        fontSize: "callout",
+        lineHeight: "callout",
+        letterSpacing: "body",
+      },
+      subheadline: {
+        fontFamily: "text",
+        fontWeight: 400,
+        fontSize: "subheadline",
+        lineHeight: "subheadline",
+        letterSpacing: "body",
+      },
+      footnote: {
+        fontFamily: "text",
+        fontWeight: 400,
+        fontSize: "footnote",
+        lineHeight: "footnote",
+        letterSpacing: "body",
+      },
+      caption: {
+        fontFamily: "text",
+        fontWeight: 400,
+        fontSize: "caption",
+        lineHeight: "caption",
+        letterSpacing: "body",
+      },
+    },
+  },
+  defaultVariants: { role: "body" },
+});
 export const textGray = (shade: 600 | 700 | 900) =>
-  css({ color: `system-gray-${shade}` as any });
+  css({ color: `system-gray-${shade}` as unknown as string });
 
 export { cx };
-

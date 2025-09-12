@@ -48,9 +48,13 @@ export interface UtilityValues {
 	boxSize: "auto" | Tokens["sizes"] | "1/2" | "1/3" | "2/3" | "1/4" | "2/4" | "3/4" | "1/5" | "2/5" | "3/5" | "4/5" | "1/6" | "2/6" | "3/6" | "4/6" | "5/6" | "1/12" | "2/12" | "3/12" | "4/12" | "5/12" | "6/12" | "7/12" | "8/12" | "9/12" | "10/12" | "11/12" | "screen";
 	color: Tokens["colors"];
 	fontFamily: Tokens["fonts"];
+	fontSize: Tokens["fontSizes"];
 	fontSmoothing: "antialiased" | "subpixel-antialiased";
+	letterSpacing: Tokens["letterSpacings"];
+	lineHeight: Tokens["lineHeights"];
 	textDecorationColor: Tokens["colors"];
 	textEmphasisColor: Tokens["colors"];
+	textShadow: Tokens["shadows"];
 	textShadowColor: Tokens["colors"];
 	textWrap: "wrap" | "balance" | "nowrap";
 	truncate: boolean;
@@ -88,6 +92,7 @@ export interface UtilityValues {
 	borderBottomColor: Tokens["colors"];
 	borderBlockEndColor: Tokens["colors"];
 	borderBlockStartColor: Tokens["colors"];
+	boxShadow: Tokens["shadows"];
 	boxShadowColor: Tokens["colors"];
 	filter: "auto";
 	backdropFilter: "auto";
@@ -116,7 +121,7 @@ export interface UtilityValues {
 	srOnly: boolean;
 	debug: boolean;
 	containerName: CssProperties["containerName"];
-	colorPalette: "apple-blue" | "apple-purple" | "apple-pink" | "apple-red" | "apple-orange" | "apple-yellow" | "apple-green" | "apple-mint" | "apple-teal" | "apple-cyan" | "apple-indigo" | "system-gray-50" | "system-gray-100" | "system-gray-200" | "system-gray-300" | "system-gray-400" | "system-gray-500" | "system-gray-600" | "system-gray-700" | "system-gray-800" | "system-gray-900";
+	colorPalette: "apple-blue" | "apple-indigo" | "apple-purple" | "apple-pink" | "apple-red" | "apple-orange" | "apple-yellow" | "apple-green" | "apple-teal" | "apple-cyan" | "apple-red-orange" | "apple-tomato" | "apple-pink-light" | "apple-taupe" | "system-gray-50" | "system-gray-100" | "system-gray-200" | "system-gray-300" | "system-gray-400" | "system-gray-500" | "system-gray-600" | "system-gray-700" | "system-gray-800" | "system-gray-900" | "white" | "black" | "text" | "muted" | "link" | "primary" | "success" | "warning" | "danger" | "info" | "bg.canvas" | "bg.subtle" | "bg.surface" | "border.default" | "glass.bg" | "glass.border" | "glass.ring" | "glass.tint";
 	textStyle: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "8xl" | "9xl";
 }
 

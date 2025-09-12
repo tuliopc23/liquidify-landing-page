@@ -1646,7 +1646,7 @@ boxDecorationBreak?: ConditionalValue<CssVars | CssProperties["boxDecorationBrea
    *
    * @see https://developer.mozilla.org/docs/Web/CSS/box-shadow
    */
-boxShadow?: ConditionalValue<CssProperties["boxShadow"] | AnyString>
+boxShadow?: ConditionalValue<UtilityValues["boxShadow"] | CssVars | CssProperties["boxShadow"] | AnyString>
  /**
    * The **`box-sizing`** CSS property sets how the total width and height of an element is calculated.
    *
@@ -2443,7 +2443,7 @@ fontPalette?: ConditionalValue<CssProperties["fontPalette"] | AnyString>
    *
    * @see https://developer.mozilla.org/docs/Web/CSS/font-size
    */
-fontSize?: ConditionalValue<CssProperties["fontSize"] | AnyString>
+fontSize?: ConditionalValue<UtilityValues["fontSize"] | CssVars | CssProperties["fontSize"] | AnyString>
  /**
    * The **`font-size-adjust`** CSS property sets the size of lower-case letters relative to the current font size (which defines the size of upper-case letters).
    *
@@ -3264,7 +3264,7 @@ left?: ConditionalValue<CssProperties["left"] | AnyString>
    *
    * @see https://developer.mozilla.org/docs/Web/CSS/letter-spacing
    */
-letterSpacing?: ConditionalValue<CssProperties["letterSpacing"] | AnyString>
+letterSpacing?: ConditionalValue<UtilityValues["letterSpacing"] | CssVars | CssProperties["letterSpacing"] | AnyString>
  lightingColor?: ConditionalValue<CssProperties["lightingColor"] | AnyString>
  /**
    * The **`line-break`** CSS property sets how to break lines of Chinese, Japanese, or Korean (CJK) text when working with punctuation and symbols.
@@ -3300,7 +3300,7 @@ lineClamp?: ConditionalValue<CssProperties["lineClamp"] | AnyString>
    *
    * @see https://developer.mozilla.org/docs/Web/CSS/line-height
    */
-lineHeight?: ConditionalValue<CssProperties["lineHeight"] | AnyString>
+lineHeight?: ConditionalValue<UtilityValues["lineHeight"] | CssVars | CssProperties["lineHeight"] | AnyString>
  /**
    * The **`line-height-step`** CSS property sets the step unit for line box heights. When the property is set, line box heights are rounded up to the closest multiple of the unit.
    *
@@ -5659,7 +5659,7 @@ textRendering?: ConditionalValue<CssProperties["textRendering"] | AnyString>
    *
    * @see https://developer.mozilla.org/docs/Web/CSS/text-shadow
    */
-textShadow?: ConditionalValue<CssProperties["textShadow"] | AnyString>
+textShadow?: ConditionalValue<UtilityValues["textShadow"] | CssVars | CssProperties["textShadow"] | AnyString>
  /**
    * The **`text-size-adjust`** CSS property controls the text inflation algorithm used on some smartphones and tablets. Other browsers will ignore this property.
    *
@@ -7307,7 +7307,7 @@ borderEndColor?: ConditionalValue<UtilityValues["borderInlineEndColor"] | CssVar
    *
    * @see https://developer.mozilla.org/docs/Web/CSS/box-shadow
    */
-shadow?: ConditionalValue<CssProperties["boxShadow"] | AnyString>
+shadow?: ConditionalValue<UtilityValues["boxShadow"] | CssVars | CssProperties["boxShadow"] | AnyString>
  shadowColor?: ConditionalValue<UtilityValues["boxShadowColor"] | CssVars | AnyString>
  z?: ConditionalValue<UtilityValues["translateZ"] | CssVars | AnyString>
  /**
