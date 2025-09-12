@@ -388,7 +388,7 @@ const Hero: React.FC = () => {
         <div
           className={css({
             marginTop: "4rem",
-            maxWidth: "42rem",
+            maxWidth: "64rem",
             marginX: "auto",
           })}
         >
@@ -396,7 +396,7 @@ const Hero: React.FC = () => {
             src="/codeblocs/Heroblock.html"
             className={css({
               width: "100%",
-              height: "200px",
+              height: "280px",
               border: "none",
               borderRadius: "0.75rem",
               boxShadow: "0 20px 25px rgba(0,0,0,0.15)",

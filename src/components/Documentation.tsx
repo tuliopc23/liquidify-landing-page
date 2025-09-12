@@ -86,8 +86,7 @@ const Documentation: React.FC = () => {
               padding: "2rem",
               lg: { padding: "3rem" },
               marginBottom: "2rem",
-              backgroundImage:
-                "linear-gradient(to bottom right, rgba(255,255,255,0.9), rgba(255,255,255,0.7))",
+              backgroundImage: "none",
             }),
           )}
         >

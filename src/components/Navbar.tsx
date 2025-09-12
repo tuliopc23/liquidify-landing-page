@@ -125,7 +125,8 @@ const Navbar: React.FC = () => {
               aria-current={active === "features" ? "page" : undefined}
               className={cx(
                 navLink,
-                active === "features" && css({ color: "text", fontWeight: 600 }),
+                active === "features" &&
+                  css({ color: "text", fontWeight: 600 }),
               )}
               onClick={() => setIsMobileMenuOpen(false)}
             >

@@ -135,7 +135,10 @@ const ComponentShowcase: React.FC = () => {
                   <h3
                     className={cx(
                       typography({ role: "title3" }),
-                      css({ color: "system-gray-900", marginBottom: "0.75rem" }),
+                      css({
+                        color: "system-gray-900",
+                        marginBottom: "0.75rem",
+                      }),
                     )}
                   >
                     {category.title}
