@@ -43,7 +43,9 @@ const ComponentShowcase: React.FC = () => {
       id="components"
       className={css({
         paddingY: "5rem",
-        backgroundImage: `linear-gradient(to bottom, var(--colors-bg-subtle), var(--colors-bg-canvas))`,
+        backgroundColor: "white",
+        _dark: { backgroundColor: "white" },
+        scrollMarginTop: "6rem",
       })}
     >
       <div
@@ -57,7 +59,7 @@ const ComponentShowcase: React.FC = () => {
           <h2
             className={cx(
               typography({ role: "title1" }),
-              css({ color: "text", marginBottom: "1rem" }),
+              css({ color: "system-gray-900", marginBottom: "1rem" }),
             )}
           >
             Component Library
@@ -65,7 +67,11 @@ const ComponentShowcase: React.FC = () => {
           <p
             className={cx(
               typography({ role: "body" }),
-              css({ color: "muted", maxWidth: "40rem", marginX: "auto" }),
+              css({
+                color: "system-gray-700",
+                maxWidth: "40rem",
+                marginX: "auto",
+              }),
             )}
           >
             Comprehensive collection of components organized by functionality,
@@ -129,7 +135,7 @@ const ComponentShowcase: React.FC = () => {
                   <h3
                     className={cx(
                       typography({ role: "title3" }),
-                      css({ color: "text", marginBottom: "0.75rem" }),
+                      css({ color: "system-gray-900", marginBottom: "0.75rem" }),
                     )}
                   >
                     {category.title}
@@ -137,7 +143,7 @@ const ComponentShowcase: React.FC = () => {
                   <p
                     className={cx(
                       typography({ role: "subheadline" }),
-                      css({ color: "muted", marginBottom: "1rem" }),
+                      css({ color: "system-gray-700", marginBottom: "1rem" }),
                     )}
                   >
                     {category.description}
@@ -159,7 +165,7 @@ const ComponentShowcase: React.FC = () => {
                             paddingY: "0.25rem",
                             backgroundColor: "glass.bg",
                             backdropFilter: "blur(4px)",
-                            color: "muted",
+                            color: "system-gray-700",
                             borderRadius: "0.5rem",
                             borderWidth: "1px",
                             borderColor: "glass.border",
@@ -194,7 +200,7 @@ const ComponentShowcase: React.FC = () => {
           <h3
             className={cx(
               typography({ role: "title2" }),
-              css({ color: "text", marginBottom: "1rem" }),
+              css({ color: "system-gray-900", marginBottom: "1rem" }),
             )}
           >
             Experience the Components
@@ -203,7 +209,7 @@ const ComponentShowcase: React.FC = () => {
             className={cx(
               typography({ role: "body" }),
               css({
-                color: "muted",
+                color: "system-gray-700",
                 marginBottom: "2rem",
                 maxWidth: "36rem",
                 marginX: "auto",
@@ -243,6 +249,9 @@ const ComponentShowcase: React.FC = () => {
               className={cx(
                 button({ intent: "secondary" }),
                 css({
+                  // Force dark text to ensure contrast on the white section background
+                  color: "system-gray-900",
+                  _dark: { color: "system-gray-900" },
                   boxShadow: "0 10px 15px rgba(0,0,0,0.1)",
                   _hover: { boxShadow: "0 20px 25px rgba(0,0,0,0.15)" },
                 }),

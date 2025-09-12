@@ -11,6 +11,12 @@ const Features: React.FC = () => {
         backgroundColor: "bg.canvas",
         position: "relative",
         overflow: "hidden",
+        scrollMarginTop: "6rem",
+        backgroundImage: 'url(/bg/features-light.svg)',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center top',
+        backgroundSize: 'cover',
+        _dark: { backgroundImage: 'url(/bg/features-dark.svg)' },
       })}
     >
       {/* Subtle background pattern */}

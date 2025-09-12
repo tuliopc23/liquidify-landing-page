@@ -10,6 +10,12 @@ const Documentation: React.FC = () => {
         paddingY: "5rem",
         backgroundColor: "bg.canvas",
         position: "relative",
+        scrollMarginTop: "6rem",
+        backgroundImage: "url(/bg/docs-light.svg)",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        _dark: { backgroundImage: "url(/bg/docs-dark.svg)" },
       })}
     >
       {/* Subtle background elements */}
@@ -90,7 +96,8 @@ const Documentation: React.FC = () => {
               className={cx(
                 typography({ role: "title2" }),
                 css({
-                  color: "text",
+                  color: "system-gray-900",
+                  _dark: { color: "system-gray-900" },
                   marginBottom: "1.5rem",
                   textAlign: "center",
                 }),
@@ -100,137 +107,31 @@ const Documentation: React.FC = () => {
             </h3>
 
             <div className={css({ display: "grid", gap: "1rem" })}>
-              <div
+              <iframe
+                src="/codeblocs/install command.html"
                 className={css({
-                  backgroundColor: "system-gray-900",
+                  width: "100%",
+                  height: "80px",
+                  border: "none",
                   borderRadius: "0.75rem",
-                  padding: "1.5rem",
-                  overflowX: "auto",
                   boxShadow: "0 20px 25px rgba(0,0,0,0.15)",
+                  backgroundColor: "transparent",
                 })}
-              >
-                <div
-                  className={css({
-                    display: "flex",
-                    alignItems: "center",
-                    columnGap: "0.5rem",
-                    marginBottom: "1rem",
-                  })}
-                >
-                  <div
-                    className={css({
-                      width: "0.75rem",
-                      height: "0.75rem",
-                      backgroundColor: "red.500",
-                      borderRadius: "9999px",
-                    })}
-                  ></div>
-                  <div
-                    className={css({
-                      width: "0.75rem",
-                      height: "0.75rem",
-                      backgroundColor: "yellow.500",
-                      borderRadius: "9999px",
-                    })}
-                  ></div>
-                  <div
-                    className={css({
-                      width: "0.75rem",
-                      height: "0.75rem",
-                      backgroundColor: "green.500",
-                      borderRadius: "9999px",
-                    })}
-                  ></div>
-                  <span
-                    className={cx(
-                      typography({ role: "footnote" }),
-                      css({ color: "muted", marginLeft: "1rem" }),
-                    )}
-                  >
-                    Terminal
-                  </span>
-                </div>
-                <code
-                  className={css({
-                    fontFamily: "mono",
-                    color: "success",
-                    fontSize: "0.875rem",
-                  })}
-                >
-                  npm install liquidify-react
-                </code>
-              </div>
+                title="Install Command"
+              />
 
-              <div
+              <iframe
+                src="/codeblocs/Liquidify imports.html"
                 className={css({
-                  backgroundColor: "system-gray-900",
+                  width: "100%",
+                  height: "160px",
+                  border: "none",
                   borderRadius: "0.75rem",
-                  padding: "1.5rem",
-                  overflowX: "auto",
                   boxShadow: "0 20px 25px rgba(0,0,0,0.15)",
+                  backgroundColor: "transparent",
                 })}
-              >
-                <div
-                  className={css({
-                    display: "flex",
-                    alignItems: "center",
-                    columnGap: "0.5rem",
-                    marginBottom: "1rem",
-                  })}
-                >
-                  <div
-                    className={css({
-                      width: "0.75rem",
-                      height: "0.75rem",
-                      backgroundColor: "red.500",
-                      borderRadius: "9999px",
-                    })}
-                  ></div>
-                  <div
-                    className={css({
-                      width: "0.75rem",
-                      height: "0.75rem",
-                      backgroundColor: "yellow.500",
-                      borderRadius: "9999px",
-                    })}
-                  ></div>
-                  <div
-                    className={css({
-                      width: "0.75rem",
-                      height: "0.75rem",
-                      backgroundColor: "green.500",
-                      borderRadius: "9999px",
-                    })}
-                  ></div>
-                  <span
-                    className={cx(
-                      typography({ role: "footnote" }),
-                      css({ color: "muted", marginLeft: "1rem" }),
-                    )}
-                  >
-                    App.tsx
-                  </span>
-                </div>
-                <pre
-                  className={css({
-                    fontFamily: "mono",
-                    color: "primary",
-                    fontSize: "0.875rem",
-                  })}
-                >
-                  {`import { Button, Card } from 'liquidify-react';
-
-function App() {
-  return (
-    <Card variant="glass">
-      <Button variant="liquid">
-        Hello LiqUIdify!
-      </Button>
-    </Card>
-  );
-}`}
-                </pre>
-              </div>
+                title="Liquidify Imports"
+              />
             </div>
 
             <div
@@ -264,7 +165,11 @@ function App() {
                 rel="noopener noreferrer"
                 className={cx(
                   button({ intent: "secondary" }),
-                  css({ boxShadow: "lg" }),
+                  css({
+                    boxShadow: "lg",
+                    color: "system-gray-900",
+                    _dark: { color: "system-gray-900" },
+                  }),
                 )}
               >
                 <i

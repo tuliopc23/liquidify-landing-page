@@ -124,12 +124,12 @@ export default defineConfig({
           },
         },
         link: {
-          value: { base: "{colors.apple-blue}", _dark: "{colors.apple-cyan}" },
+          value: { base: "{colors.apple-blue}", _dark: "{colors.apple-blue}" },
         },
 
         // Brand / status
         primary: {
-          value: { base: "{colors.apple-blue}", _dark: "{colors.apple-cyan}" },
+          value: { base: "{colors.apple-blue}", _dark: "{colors.apple-blue}" },
         },
         success: {
           value: {
@@ -192,11 +192,11 @@ export default defineConfig({
         "glass.ring": {
           value: {
             base: "rgba(0,122,255,0.20)",
-            _dark: "rgba(90,200,250,0.24)",
+            _dark: "rgba(0,122,255,0.20)",
           },
         },
         "glass.tint": {
-          value: { base: "{colors.apple-blue}", _dark: "{colors.apple-cyan}" },
+          value: { base: "{colors.apple-blue}", _dark: "{colors.apple-blue}" },
         },
       },
     },

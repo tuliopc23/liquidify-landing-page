@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { css, cx } from "../../styled-system/css";
-import { button, containerX, navLink } from "../pandaStyles";
+import { button, containerX, navLink, typography } from "../pandaStyles";
 import { useTheme, cycleTheme, ThemeMode } from "../theme";
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mode, setMode] = useTheme();
+  const [active, setActive] = useState<string>("home");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +16,26 @@ const Navbar: React.FC = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Track active section for link highlighting
+  useEffect(() => {
+    const ids = ["components", "features", "docs"] as const;
+    const elements = ids
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+    if (!("IntersectionObserver" in window) || elements.length === 0) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible?.target?.id) setActive(visible.target.id);
+      },
+      { rootMargin: "-20% 0px -60% 0px", threshold: [0.1, 0.25, 0.5, 0.75] },
+    );
+    elements.forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
   }, []);
 
   // no dropdown; segmented control used instead
@@ -87,13 +108,38 @@ const Navbar: React.FC = () => {
               columnGap: "2rem",
             })}
           >
-            <a href="#components" className={navLink}>
+            <a
+              href="#components"
+              aria-current={active === "components" ? "page" : undefined}
+              className={cx(
+                navLink,
+                active === "components" &&
+                  css({ color: "text", fontWeight: 600 }),
+              )}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Components
             </a>
-            <a href="#features" className={navLink}>
+            <a
+              href="#features"
+              aria-current={active === "features" ? "page" : undefined}
+              className={cx(
+                navLink,
+                active === "features" && css({ color: "text", fontWeight: 600 }),
+              )}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Features
             </a>
-            <a href="#docs" className={navLink}>
+            <a
+              href="#docs"
+              aria-current={active === "docs" ? "page" : undefined}
+              className={cx(
+                navLink,
+                active === "docs" && css({ color: "text", fontWeight: 600 }),
+              )}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Documentation
             </a>
             <a
@@ -296,13 +342,39 @@ const Navbar: React.FC = () => {
                 rowGap: "1rem",
               })}
             >
-              <a href="#components" className={navLink}>
+              <a
+                href="#components"
+                aria-current={active === "components" ? "page" : undefined}
+                className={cx(
+                  navLink,
+                  active === "components" &&
+                    css({ color: "text", fontWeight: 600 }),
+                )}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 Components
               </a>
-              <a href="#features" className={navLink}>
+              <a
+                href="#features"
+                aria-current={active === "features" ? "page" : undefined}
+                className={cx(
+                  navLink,
+                  active === "features" &&
+                    css({ color: "text", fontWeight: 600 }),
+                )}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 Features
               </a>
-              <a href="#docs" className={navLink}>
+              <a
+                href="#docs"
+                aria-current={active === "docs" ? "page" : undefined}
+                className={cx(
+                  navLink,
+                  active === "docs" && css({ color: "text", fontWeight: 600 }),
+                )}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 Documentation
               </a>
               <a

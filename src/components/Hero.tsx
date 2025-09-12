@@ -27,8 +27,16 @@ const Hero: React.FC = () => {
         className={css({
           position: "absolute",
           inset: 0,
+          // layer 1: subtle SVG backdrop; layer 2: existing gradient
           backgroundImage:
-            "linear-gradient(to bottom right, color-mix(in oklab, var(--colors-primary), white 92%), color-mix(in oklab, var(--colors-apple-indigo), white 95%))",
+            "url(/bg/hero-light.svg), linear-gradient(to bottom right, color-mix(in oklab, var(--colors-primary), white 92%), color-mix(in oklab, var(--colors-apple-indigo), white 95%))",
+          backgroundRepeat: "no-repeat, no-repeat",
+          backgroundPosition: "center, center",
+          backgroundSize: "cover, cover",
+          _dark: {
+            backgroundImage:
+              "url(/bg/hero-dark.svg), linear-gradient(to bottom right, color-mix(in oklab, var(--colors-primary), black 88%), color-mix(in oklab, var(--colors-apple-indigo), black 90%))",
+          },
         })}
       >
         {/* Floating geometric elements */}
@@ -240,6 +248,7 @@ const Hero: React.FC = () => {
                 fontSize: "1.125rem",
                 color: "system-gray-900",
                 marginBottom: "0.75rem",
+                _dark: { color: "white" },
               })}
             >
               Interactive Components
@@ -250,6 +259,7 @@ const Hero: React.FC = () => {
                 color: "system-gray-600",
                 fontSize: "0.875rem",
                 lineHeight: 1.7,
+                _dark: { color: "system-gray-300" },
               })}
             >
               Buttons, forms, modals with liquid glass effects and smooth
@@ -297,6 +307,7 @@ const Hero: React.FC = () => {
                 fontSize: "1.125rem",
                 color: "system-gray-900",
                 marginBottom: "0.75rem",
+                _dark: { color: "white" },
               })}
             >
               Layout Systems
@@ -307,6 +318,7 @@ const Hero: React.FC = () => {
                 color: "system-gray-600",
                 fontSize: "0.875rem",
                 lineHeight: 1.7,
+                _dark: { color: "system-gray-300" },
               })}
             >
               Grids, containers, and responsive layouts that adapt beautifully
@@ -353,6 +365,7 @@ const Hero: React.FC = () => {
                 fontSize: "1.125rem",
                 color: "system-gray-900",
                 marginBottom: "0.75rem",
+                _dark: { color: "white" },
               })}
             >
               Design Tokens
@@ -363,6 +376,7 @@ const Hero: React.FC = () => {
                 color: "system-gray-600",
                 fontSize: "0.875rem",
                 lineHeight: 1.7,
+                _dark: { color: "system-gray-300" },
               })}
             >
               Colors, typography, and spacing system following Apple guidelines
@@ -378,70 +392,18 @@ const Hero: React.FC = () => {
             marginX: "auto",
           })}
         >
-          <div
-            className={cx(
-              cardGlass,
-              css({ padding: "1.5rem", textAlign: "left" }),
-            )}
-          >
-            <div
-              className={css({
-                display: "flex",
-                alignItems: "center",
-                columnGap: "0.5rem",
-                marginBottom: "1rem",
-              })}
-            >
-              <div
-                className={css({
-                  width: "0.75rem",
-                  height: "0.75rem",
-                  backgroundColor: "red.500",
-                  borderRadius: "9999px",
-                })}
-              ></div>
-              <div
-                className={css({
-                  width: "0.75rem",
-                  height: "0.75rem",
-                  backgroundColor: "yellow.500",
-                  borderRadius: "9999px",
-                })}
-              ></div>
-              <div
-                className={css({
-                  width: "0.75rem",
-                  height: "0.75rem",
-                  backgroundColor: "green.500",
-                  borderRadius: "9999px",
-                })}
-              ></div>
-              <span
-                className={cx(
-                  typography({ role: "footnote" }),
-                  css({ color: "muted", marginLeft: "1rem" }),
-                )}
-              >
-                App.tsx
-              </span>
-            </div>
-            <pre
-              className={css({
-                fontFamily: "mono",
-                fontSize: "0.875rem",
-                color: "system-gray-800",
-                overflowX: "auto",
-              })}
-            >
-              {`import { Button, Card } from 'liquidify-react';
-
-<Card variant="glass">
-  <Button variant="liquid">
-    Hello LiqUIdify!
-  </Button>
-</Card>`}
-            </pre>
-          </div>
+          <iframe
+            src="/codeblocs/Heroblock.html"
+            className={css({
+              width: "100%",
+              height: "200px",
+              border: "none",
+              borderRadius: "0.75rem",
+              boxShadow: "0 20px 25px rgba(0,0,0,0.15)",
+              backgroundColor: "transparent",
+            })}
+            title="Code Example"
+          />
         </div>
       </div>
     </section>
