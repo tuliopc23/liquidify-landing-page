@@ -1,9 +1,16 @@
 # Liquidify Components Showcase — Execution Plan
 
-Status: Draft v1
+Status: Accepted — TanStack Start (decision date: 2025-09-13)
 Owner: Agent Mode
 
-This document describes the minimal, fast path to add a second page “Components Showcase” that renders ~40 Liquidify components as Apple‑style cards, with SSR and progressive hydration. It favors zero-waste implementation using your current stack.
+Decision
+- We will implement routing and SSR with TanStack Start and TanStack Router. Vike remains an evaluated fallback but is not planned.
+
+Quick links
+- ADR: docs/adr/0001-routing-ssr-tanstack-start.md
+- Setup checklist: see section 12 “Implementation checklist”
+- Where to start coding: src/routes/components.tsx, src/registry/componentsRegistry.ts, src/components/ui/Card.tsx
+- Search tags: tanstack, start, router, ssr, components, showcase, grid, cards, apple, liquid glass
 
 Evidence (current repo, VISIBLE)
 - package.json shows React 19 + Vite 7, Bun, Panda CSS usage and scripts:
