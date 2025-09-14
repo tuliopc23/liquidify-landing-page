@@ -1,13 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { css } from "../../styled-system/css";
 import { createFileRoute } from "@tanstack/react-router";
-<<<<<<< HEAD
-||||||| parent of e8d4e886 (chore(repo): untrack node_modules and dist)
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-=======
 import { Helmet } from "react-helmet-async";
->>>>>>> e8d4e886 (chore(repo): untrack node_modules and dist)
 import { CardGrid, ComponentCard, registry } from "../showcase/GridParts";
 
 function ComponentsShowcaseRoute() {
@@ -22,58 +16,6 @@ function ComponentsShowcaseRoute() {
 
   return (
     <main id="main" className={css({ py: "5rem" })}>
-<<<<<<< HEAD
-      <section className={css({ maxW: "6xl", mx: "auto", px: { base: 4, md: 6 } })}>
-        <h1 className={css({ fontSize: "3xl", fontWeight: 700, mb: 6 })}>
-          Components Showcase
-        </h1>
-        <div className={css({ mb: 6, display: "flex", alignItems: "center", gap: 3 })}>
-          <label htmlFor="component-search" className={css({ fontWeight: 500 })}>
-            Search
-          </label>
-          <input
-            id="component-search"
-            type="search"
-            placeholder="Search components..."
-            value={query}
-            onChange={(e) => setQuery((e.target as HTMLInputElement).value)}
-            className={css({
-              flex: 1,
-              bg: "bg.surface",
-              color: "text",
-              borderWidth: "1px",
-              borderColor: "border.default",
-              borderRadius: "lg",
-              px: 3,
-              py: 2,
-              outline: "none",
-              _focusVisible: { borderColor: "glass.ring", boxShadow: "md" },
-            })}
-          />
-        </div>
-        <CardGrid>
-          {list.map((meta) => (
-            <ComponentCard key={meta.id} meta={meta} />
-          ))}
-        </CardGrid>
-||||||| parent of e8d4e886 (chore(repo): untrack node_modules and dist)
-    <div>
-      <Navbar />
-      <main id="main" className={css({ py: "5rem" })}>
-        <section className={css({ maxW: "6xl", mx: "auto", px: { base: 4, md: 6 } })}>
-          <h1 className={css({ fontSize: "3xl", fontWeight: 700, mb: 6 })}>
-            Components Showcase
-          </h1>
-          <CardGrid>
-            {registry.map((meta) => (
-              <ComponentCard key={meta.id} meta={meta} />
-            ))}
-          </CardGrid>
-        </section>
-      </main>
-      <Footer />
-    </div>
-=======
       <Helmet>
         <title>Liquidify Components Showcase</title>
         <meta name="description" content="Explore high-fidelity Liquid Glass React components." />
@@ -139,7 +81,6 @@ function ComponentsShowcaseRoute() {
             ))}
           </CardGrid>
         )}
->>>>>>> e8d4e886 (chore(repo): untrack node_modules and dist)
       </section>
     </main>
   );

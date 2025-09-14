@@ -27,8 +27,8 @@ Architecture and configuration (big picture)
 
 - Entry and render flow
   - index.html defines <div id="root"></div> and loads /src/main.tsx.
-  - src/main.tsx creates a React root in StrictMode and renders <App />.
-  - src/App.tsx composes the page from sectioned components: Navbar, Hero, Features, ComponentShowcase, Documentation, Footer.
+  - src/main.tsx creates a React root in StrictMode and renders a TanStack Router <RouterProvider> with a file-based route tree.
+  - src/routes/__root.tsx composes the layout: Navbar, <Outlet/>, Footer. The home route (/src/routes/index.tsx) renders Hero, Features, ComponentShowcase, Documentation.
   - In‑page anchors used by the navbar and scrolling: #components, #features, #docs.
 
 - Styling system

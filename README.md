@@ -7,7 +7,7 @@ Docs & Plans
 - ADR 0001 — Routing & SSR with TanStack Start: docs/adr/0001-routing-ssr-tanstack-start.md
 
 Decision snapshot
-- Router/SSR: TanStack Start (not Next.js). Vike was considered as fallback.
+- Router: TanStack Router (Vite plugin) for SPA. We may adopt TanStack Start later for SSR.
 
 Quick start (existing)
 - Dev: bun run dev

@@ -5,8 +5,9 @@
   "type": "module",
   "packageManager": "bun@1.2.21",
   "scripts": {
-    "dev": "vinxi dev -c start.config.ts",
-    "build": "vinxi build -c start.config.ts",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --host",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit",
@@ -14,8 +15,7 @@
     "format:check": "prettier --check .",
     "check": "bun run lint && bun run typecheck && bun run format:check",
     "fix": "bun run lint:fix && bun run format",
-    "clean": "rm -rf .output dist .tanstack .nitro",
-    "preview": "vinxi preview -c start.config.ts",
+    "clean": "rm -rf dist .output .tanstack .nitro .vinxi",
     "panda": "panda --watch",
     "panda:once": "panda",
     "verify:panda": "node scripts/verify-panda-migration.mjs"
@@ -23,7 +23,6 @@
   "dependencies": {
     "@ark-ui/react": "^5.23.0",
     "@tanstack/react-router": "^1.131.41",
-    "@tanstack/start": "^1.120.20",
     "framer-motion": "^12.23.12",
     "liquidify-react": "^0.6.3",
     "lucide-react": "^0.544.0",
@@ -36,13 +35,7 @@
     "@pandacss/dev": "^1.3.0",
     "@tanstack/router-plugin": "^1.131.43",
     "@types/node": "^24.3.3",
-<<<<<<< HEAD
-    "@types/react": "^19.1.12",
-||||||| parent of e8d4e886 (chore(repo): untrack node_modules and dist)
-    "@types/react": "^19.1.12",
-=======
     "@types/react": "^19.1.13",
->>>>>>> e8d4e886 (chore(repo): untrack node_modules and dist)
     "@types/react-dom": "^19.1.9",
     "@vitejs/plugin-react": "^5.0.2",
     "eslint": "^9.35.0",

@@ -89,12 +89,7 @@ export const registry: ComponentMeta[] = [
 ];
 
 const previewModules = import.meta.glob("/src/previews/**/*.tsx");
-<<<<<<< HEAD
-const previewRawModules = import.meta.glob("/src/previews/**/*.tsx", { as: "raw" });
-||||||| parent of e8d4e886 (chore(repo): untrack node_modules and dist)
-=======
 const previewRawModules = import.meta.glob("/src/previews/**/*.tsx?raw", { import: "default" });
->>>>>>> e8d4e886 (chore(repo): untrack node_modules and dist)
 
 function useIntersectionOnce<T extends Element>(ref: React.RefObject<T>, options?: IntersectionObserverInit) {
   const [visible, setVisible] = useState(false);

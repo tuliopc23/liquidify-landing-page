@@ -8,10 +8,12 @@ dist/
 .tanstack/
 .nitro/
 .vercel/
+.vinxi/
 
 # Locks & logs
 bun.lock
 bun.lockb
+package-lock.json
 *.log
 
 # IDE/editor
