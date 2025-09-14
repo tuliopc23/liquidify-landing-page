@@ -1,6 +1,7 @@
 import React, { lazy, Suspense, useMemo, useRef } from "react";
 import { css } from "../../styled-system/css";
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 
 class ErrorBoundary extends React.Component<{ fallback?: React.ReactNode }, { hasError: boolean; message?: string }> {
   constructor(props: { fallback?: React.ReactNode }) {
@@ -336,25 +337,56 @@ export function ComponentCard({ meta }: { meta: ComponentMeta }) {
           </pre>
         </div>
       ) : null}
-      <footer className={css({ p: 5, pt: 0, display: "flex", justifyContent: "space-between", alignItems: "center", gap: 4 })}>
-        <a className={css({ color: "link", _hover: { textDecoration: "underline" } })} href={meta.sourceUrl} target="_blank" rel="noreferrer">
-          View Source ›
-        </a>
-        <button
-          onClick={toggleCode}
-          className={css({
-            fontSize: "sm",
-            px: 3,
-            py: 2,
-            borderWidth: "1px",
-            borderColor: "border.default",
-            borderRadius: "md",
-            bg: "bg.surface",
-            _hover: { bg: "bg.emphasized" },
-          })}
-        >
-          {showCode ? "Hide code" : "Show code"}
-        </button>
+      <footer className={css({ p: 5, pt: 0, display: "flex", justifyContent: "space-between", alignItems: "center", gap: 4, flexWrap: "wrap" })}>
+        <div className={css({ display: "flex", alignItems: "center", gap: 4 })}>
+          <a className={css({ color: "link", _hover: { textDecoration: "underline" } })} href={meta.sourceUrl} target="_blank" rel="noreferrer">
+            View Source ›
+          </a>
+          <Link
+            to={`/components/${meta.id}`}
+            className={css({ color: "link", _hover: { textDecoration: "underline" } })}
+          >
+            Details ›
+          </Link>
+        </div>
+        <div className={css({ display: "flex", alignItems: "center", gap: 3 })}>
+          {showCode && code ? (
+            <button
+              onClick={() => {
+                try {
+                  navigator.clipboard?.writeText(code);
+                } catch {}
+              }}
+              className={css({
+                fontSize: "sm",
+                px: 3,
+                py: 2,
+                borderWidth: "1px",
+                borderColor: "border.default",
+                borderRadius: "md",
+                bg: "bg.surface",
+                _hover: { bg: "bg.emphasized" },
+              })}
+            >
+              Copy code
+            </button>
+          ) : null}
+          <button
+            onClick={toggleCode}
+            className={css({
+              fontSize: "sm",
+              px: 3,
+              py: 2,
+              borderWidth: "1px",
+              borderColor: "border.default",
+              borderRadius: "md",
+              bg: "bg.surface",
+              _hover: { bg: "bg.emphasized" },
+            })}
+          >
+            {showCode ? "Hide code" : "Show code"}
+          </button>
+        </div>
       </footer>
     </article>
   );
