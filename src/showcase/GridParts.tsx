@@ -26,6 +26,7 @@ export type ComponentMeta = {
   previewModule: string; // path under src/previews
   sourceUrl: string;
   status?: "New" | "Updated" | "Deprecated" | null;
+  tags?: string[];
 };
 
 export const registry: ComponentMeta[] = [
@@ -36,6 +37,7 @@ export const registry: ComponentMeta[] = [
     previewModule: "/src/previews/ButtonPreview.tsx",
     sourceUrl: "https://github.com/tuliopc23/LiqUIdify/tree/main/libs/components/src/components/button",
     status: "Updated",
+    tags: ["input", "action"],
   },
   {
     id: "checkbox",
@@ -43,6 +45,7 @@ export const registry: ComponentMeta[] = [
     description: "Accessible checkbox built on Ark UI with Liquid Glass.",
     previewModule: "/src/previews/CheckboxPreview.tsx",
     sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
+    tags: ["input", "form"],
   },
   {
     id: "tabs",
@@ -85,11 +88,87 @@ export const registry: ComponentMeta[] = [
     description: "Indicate loading or processing state.",
     previewModule: "/src/previews/ProgressPreview.tsx",
     sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
+    tags: ["feedback"],
+  },
+  // New skeleton entries
+  {
+    id: "select",
+    name: "Select",
+    description: "Choose from options in a dropdown.",
+    previewModule: "/src/previews/SelectPreview.tsx",
+    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
+    status: "New",
+    tags: ["input", "form"],
+  },
+  {
+    id: "combobox",
+    name: "Combobox",
+    description: "Autocomplete text field with list selection.",
+    previewModule: "/src/previews/ComboboxPreview.tsx",
+    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
+    status: "New",
+    tags: ["input", "form"],
+  },
+  {
+    id: "slider",
+    name: "Slider",
+    description: "Adjust numeric value by sliding a handle.",
+    previewModule: "/src/previews/SliderPreview.tsx",
+    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
+    status: "New",
+    tags: ["input"],
+  },
+  {
+    id: "rating",
+    name: "RatingGroup",
+    description: "Select a rating from a series (e.g., stars).",
+    previewModule: "/src/previews/RatingGroupPreview.tsx",
+    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
+    status: "New",
+    tags: ["input"],
+  },
+  {
+    id: "menu",
+    name: "Menu",
+    description: "Context or dropdown menu for grouped actions.",
+    previewModule: "/src/previews/MenuPreview.tsx",
+    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
+    status: "New",
+    tags: ["navigation", "action"],
+  },
+  {
+    id: "numberinput",
+    name: "NumberInput",
+    description: "Input for numeric values with steppers.",
+    previewModule: "/src/previews/NumberInputPreview.tsx",
+    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
+    status: "New",
+    tags: ["input", "form"],
+  },
+  {
+    id: "tagsinput",
+    name: "TagsInput",
+    description: "Enter multiple tags with chips.",
+    previewModule: "/src/previews/TagsInputPreview.tsx",
+    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
+    status: "New",
+    tags: ["input", "form"],
+  },
+  {
+    id: "toast",
+    name: "Toast",
+    description: "Transient messages for feedback.",
+    previewModule: "/src/previews/ToastPreview.tsx",
+    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
+    status: "New",
+    tags: ["feedback"],
   },
 ];
 
 const previewModules = import.meta.glob("/src/previews/**/*.tsx");
 const previewRawModules = import.meta.glob("/src/previews/**/*.tsx?raw", { import: "default" });
+
+let __prismLoaded = false as boolean;
 
 function useIntersectionOnce<T extends Element>(ref: React.RefObject<T>, options?: IntersectionObserverInit) {
   const [visible, setVisible] = useState(false);
@@ -142,6 +221,7 @@ export function ComponentCard({ meta }: { meta: ComponentMeta }) {
   const visible = useIntersectionOnce(ref, { rootMargin: "250px" });
   const [showCode, setShowCode] = useState(false);
   const [code, setCode] = useState<string | null>(null);
+  const [highlighted, setHighlighted] = useState<string | null>(null);
 
   const LazyPreview = useMemo(
     () =>
@@ -157,6 +237,7 @@ export function ComponentCard({ meta }: { meta: ComponentMeta }) {
   async function toggleCode() {
     if (showCode) {
       setShowCode(false);
+      setHighlighted(null);
       return;
     }
     const rawLoader = previewRawModules[meta.previewModule] as undefined | (() => Promise<string>);
@@ -164,7 +245,24 @@ export function ComponentCard({ meta }: { meta: ComponentMeta }) {
       try {
         const src = await rawLoader();
         setCode(src);
-      } catch {}
+        try {
+          if (!__prismLoaded) {
+            await import("prismjs/themes/prism.css");
+            const PrismAny: any = await import("prismjs");
+            await import("prismjs/components/prism-tsx");
+            (window as any).__Prism = PrismAny.default ?? PrismAny;
+            __prismLoaded = true;
+          }
+          const PrismLib = (window as any).__Prism;
+          const html = PrismLib.highlight(src, PrismLib.languages.tsx, "tsx");
+          setHighlighted(html);
+        } catch {
+          setHighlighted(null);
+        }
+      } catch {
+        setCode(null);
+        setHighlighted(null);
+      }
     }
     setShowCode(true);
   }
@@ -219,19 +317,22 @@ export function ComponentCard({ meta }: { meta: ComponentMeta }) {
       </div>
       {showCode ? (
         <div className={css({ p: 5, pt: 0 })}>
-          <pre className={css({
-            maxH: "400px",
-            overflow: "auto",
-            bg: "bg.subtle",
-            color: "text",
-            borderWidth: "1px",
-            borderColor: "border.default",
-            borderRadius: "lg",
-            p: 4,
-            fontFamily: "mono",
-            fontSize: "sm",
-          })}>
-            {code ?? "Loading..."}
+          <pre
+            className={css({
+              maxH: "400px",
+              overflow: "auto",
+              bg: "bg.subtle",
+              color: "text",
+              borderWidth: "1px",
+              borderColor: "border.default",
+              borderRadius: "lg",
+              p: 4,
+              fontFamily: "mono",
+              fontSize: "sm",
+            })}
+            dangerouslySetInnerHTML={highlighted ? { __html: highlighted } : undefined}
+          >
+            {highlighted ? undefined : code ?? "Loading..."}
           </pre>
         </div>
       ) : null}
