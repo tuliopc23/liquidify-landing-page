@@ -21,7 +21,11 @@
     "verify:panda": "node scripts/verify-panda-migration.mjs"
   },
   "dependencies": {
-    "lucide-react": "^0.542.0",
+    "@ark-ui/react": "^5.23.0",
+    "@tanstack/react-router": "^1.131.41",
+    "framer-motion": "^12.23.12",
+    "liquidify-react": "^0.6.3",
+    "lucide-react": "^0.544.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },

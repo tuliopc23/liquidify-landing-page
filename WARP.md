@@ -4,7 +4,7 @@ This file provides guidance to WARP (warp.dev) when working with code in this re
 
 Repository overview
 
-- React + Vite + TypeScript app managed by Bun. Styling uses Tailwind CSS v4 with custom design tokens and component utilities.
+- React + Vite + TypeScript app managed by Bun. Styling uses Panda CSS with custom design tokens and component utilities.
 - Single-page landing site composed of sectioned components with in‑page anchors for navigation. Build output is written to dist/.
 
 Common commands

@@ -121,6 +121,13 @@ const Navbar: React.FC = () => {
               Components
             </a>
             <a
+              href="/components"
+              className={navLink}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Showcase
+            </a>
+            <a
               href="#features"
               aria-current={active === "features" ? "page" : undefined}
               className={cx(

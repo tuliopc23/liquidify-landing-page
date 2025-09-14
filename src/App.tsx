@@ -1,9 +1,6 @@
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Features from "./components/Features";
-import ComponentShowcase from "./components/ComponentShowcase";
-import Documentation from "./components/Documentation";
-import Footer from "./components/Footer";
+import HomePage from "./routes/index";
+import ComponentsPage from "./routes/components";
 import React, { Suspense } from "react";
 import { css } from "../styled-system/css";
 
@@ -48,12 +45,9 @@ function App() {
       </a>
       <Navbar />
       <main id="main">
-        <Hero />
-        <Features />
-        <ComponentShowcase />
-        <Documentation />
+        <HomePage />
+        {/* Remove this once client routing is wired; or replace with router */}
       </main>
-      <Footer />
     </div>
   );
 }
