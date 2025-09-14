@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "liquidify-react/button";
+import { Button } from "liquidify-react";
 
 export default function ButtonPreview() {
   return (

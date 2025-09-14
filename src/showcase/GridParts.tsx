@@ -2,6 +2,23 @@ import React, { lazy, Suspense, useMemo, useRef } from "react";
 import { css } from "../../styled-system/css";
 import { useEffect, useState } from "react";
 
+class ErrorBoundary extends React.Component<{ fallback?: React.ReactNode }, { hasError: boolean; message?: string }> {
+  constructor(props: { fallback?: React.ReactNode }) {
+    super(props);
+    this.state = { hasError: false, message: undefined };
+  }
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, message: error?.message ?? "" };
+  }
+  componentDidCatch() {}
+  render() {
+    if (this.state.hasError) {
+      return this.props.fallback ?? null;
+    }
+    return this.props.children as React.ReactNode;
+  }
+}
+
 export type ComponentMeta = {
   id: string;
   name: string;
@@ -27,16 +44,78 @@ export const registry: ComponentMeta[] = [
     previewModule: "/src/previews/CheckboxPreview.tsx",
     sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
   },
+  {
+    id: "tabs",
+    name: "Tabs",
+    description: "Organize content into tabbed sections.",
+    previewModule: "/src/previews/TabsPreview.tsx",
+    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
+  },
+  {
+    id: "dialog",
+    name: "Dialog",
+    description: "Modal overlay for critical tasks and messages.",
+    previewModule: "/src/previews/DialogPreview.tsx",
+    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
+  },
+  {
+    id: "popover",
+    name: "Popover",
+    description: "Small overlay of contextual content.",
+    previewModule: "/src/previews/PopoverPreview.tsx",
+    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
+  },
+  {
+    id: "tooltip",
+    name: "Tooltip",
+    description: "Text labels that appear on hover or focus.",
+    previewModule: "/src/previews/TooltipPreview.tsx",
+    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
+  },
+  {
+    id: "switch",
+    name: "Switch",
+    description: "Toggle between on and off states.",
+    previewModule: "/src/previews/SwitchPreview.tsx",
+    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
+  },
+  {
+    id: "progress",
+    name: "Progress",
+    description: "Indicate loading or processing state.",
+    previewModule: "/src/previews/ProgressPreview.tsx",
+    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
+  },
 ];
 
 const previewModules = import.meta.glob("/src/previews/**/*.tsx");
+<<<<<<< HEAD
 const previewRawModules = import.meta.glob("/src/previews/**/*.tsx", { as: "raw" });
+||||||| parent of e8d4e886 (chore(repo): untrack node_modules and dist)
+=======
+const previewRawModules = import.meta.glob("/src/previews/**/*.tsx?raw", { import: "default" });
+>>>>>>> e8d4e886 (chore(repo): untrack node_modules and dist)
 
 function useIntersectionOnce<T extends Element>(ref: React.RefObject<T>, options?: IntersectionObserverInit) {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     const el = ref.current;
-    if (!el || visible || typeof IntersectionObserver === "undefined") return;
+    if (!el || visible) return;
+
+    // Fallback: if IO is unavailable, show immediately
+    if (typeof IntersectionObserver === "undefined") {
+      setVisible(true);
+      return;
+    }
+
+    // If element is already in (or near) viewport, show immediately
+    const rect = el.getBoundingClientRect?.();
+    const margin = (options?.rootMargin ? parseInt(options.rootMargin) || 0 : 0) + 300;
+    if (rect && rect.top < (window.innerHeight + margin)) {
+      setVisible(true);
+      return;
+    }
+
     const obs = new IntersectionObserver((entries) => {
       if (entries[0]?.isIntersecting) {
         setVisible(true);
@@ -121,9 +200,27 @@ export function ComponentCard({ meta }: { meta: ComponentMeta }) {
         <p className={css({ color: "muted" })}>{meta.description}</p>
       </header>
       <div className={css({ p: 5, pt: 0 })}>
-        <Suspense fallback={<div className={css({ h: "200px", bg: "bg.subtle", borderRadius: "md" })} />}> 
-          {visible ? <LazyPreview /> : null}
-        </Suspense>
+        <ErrorBoundary
+          fallback={
+            <div className={css({
+              h: "200px",
+              bg: "bg.subtle",
+              borderRadius: "md",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "muted",
+              fontSize: "sm",
+            })}
+            >
+              Preview failed to load
+            </div>
+          }
+        >
+          <Suspense fallback={<div className={css({ h: "200px", bg: "bg.subtle", borderRadius: "md" })} />}> 
+            {visible ? <LazyPreview /> : <div className={css({ h: "200px", bg: "bg.subtle", borderRadius: "md" })} />}
+          </Suspense>
+        </ErrorBoundary>
       </div>
       {showCode ? (
         <div className={css({ p: 5, pt: 0 })}>
