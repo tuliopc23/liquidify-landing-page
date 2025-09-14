@@ -30,6 +30,7 @@ export const registry: ComponentMeta[] = [
 ];
 
 const previewModules = import.meta.glob("/src/previews/**/*.tsx");
+const previewRawModules = import.meta.glob("/src/previews/**/*.tsx", { as: "raw" });
 
 function useIntersectionOnce<T extends Element>(ref: React.RefObject<T>, options?: IntersectionObserverInit) {
   const [visible, setVisible] = useState(false);
@@ -65,6 +66,9 @@ export function CardGrid(props: React.PropsWithChildren) {
 export function ComponentCard({ meta }: { meta: ComponentMeta }) {
   const ref = useRef<HTMLDivElement | null>(null);
   const visible = useIntersectionOnce(ref, { rootMargin: "250px" });
+  const [showCode, setShowCode] = useState(false);
+  const [code, setCode] = useState<string | null>(null);
+
   const LazyPreview = useMemo(
     () =>
       lazy(async () => {
@@ -76,8 +80,24 @@ export function ComponentCard({ meta }: { meta: ComponentMeta }) {
     [meta.previewModule],
   );
 
+  async function toggleCode() {
+    if (showCode) {
+      setShowCode(false);
+      return;
+    }
+    const rawLoader = previewRawModules[meta.previewModule] as undefined | (() => Promise<string>);
+    if (rawLoader) {
+      try {
+        const src = await rawLoader();
+        setCode(src);
+      } catch {}
+    }
+    setShowCode(true);
+  }
+
   return (
     <article
+      id={meta.id}
       ref={ref}
       className={css({
         position: "relative",
@@ -105,10 +125,43 @@ export function ComponentCard({ meta }: { meta: ComponentMeta }) {
           {visible ? <LazyPreview /> : null}
         </Suspense>
       </div>
-      <footer className={css({ p: 5, pt: 0, display: "flex", justifyContent: "flex-end" })}>
+      {showCode ? (
+        <div className={css({ p: 5, pt: 0 })}>
+          <pre className={css({
+            maxH: "400px",
+            overflow: "auto",
+            bg: "bg.subtle",
+            color: "text",
+            borderWidth: "1px",
+            borderColor: "border.default",
+            borderRadius: "lg",
+            p: 4,
+            fontFamily: "mono",
+            fontSize: "sm",
+          })}>
+            {code ?? "Loading..."}
+          </pre>
+        </div>
+      ) : null}
+      <footer className={css({ p: 5, pt: 0, display: "flex", justifyContent: "space-between", alignItems: "center", gap: 4 })}>
         <a className={css({ color: "link", _hover: { textDecoration: "underline" } })} href={meta.sourceUrl} target="_blank" rel="noreferrer">
           View Source ›
         </a>
+        <button
+          onClick={toggleCode}
+          className={css({
+            fontSize: "sm",
+            px: 3,
+            py: 2,
+            borderWidth: "1px",
+            borderColor: "border.default",
+            borderRadius: "md",
+            bg: "bg.surface",
+            _hover: { bg: "bg.emphasized" },
+          })}
+        >
+          {showCode ? "Hide code" : "Show code"}
+        </button>
       </footer>
     </article>
   );

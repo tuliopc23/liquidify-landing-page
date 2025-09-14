@@ -1,4 +1,4 @@
-import React from "react";
+const e=`import React from "react";
 import { Checkbox } from "liquidify-react";
 
 export default function CheckboxPreview() {
@@ -8,3 +8,4 @@ export default function CheckboxPreview() {
     </div>
   );
 }
+`;export{e as default};
