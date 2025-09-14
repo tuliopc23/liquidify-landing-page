@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Builds
+.dist/
+dist/
+.output/
+.tanstack/
+.nitro/
+.vercel/
+
+# Locks & logs
+bun.lock
+bun.lockb
+*.log
+
+# IDE/editor
+.vscode/
+.idea/
+.DS_Store
