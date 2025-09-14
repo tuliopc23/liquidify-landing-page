@@ -1,7 +1,8 @@
-import React, { lazy, Suspense, useMemo, useRef } from "react";
+import React, { Suspense, useMemo, useRef } from "react";
 import { css } from "../../styled-system/css";
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
+import type { ShowcaseEntry } from "./registry";
 
 class ErrorBoundary extends React.Component<{ fallback?: React.ReactNode }, { hasError: boolean; message?: string }> {
   constructor(props: { fallback?: React.ReactNode }) {
@@ -24,150 +25,12 @@ export type ComponentMeta = {
   id: string;
   name: string;
   description: string;
-  previewModule: string; // path under src/previews
-  sourceUrl: string;
+  sourceUrl?: string;
   status?: "New" | "Updated" | "Deprecated" | null;
   tags?: string[];
 };
 
-export const registry: ComponentMeta[] = [
-  {
-    id: "button",
-    name: "Button",
-    description: "Apple HIG style button with variants and sizes",
-    previewModule: "/src/previews/ButtonPreview.tsx",
-    sourceUrl: "https://github.com/tuliopc23/LiqUIdify/tree/main/libs/components/src/components/button",
-    status: "Updated",
-    tags: ["input", "action"],
-  },
-  {
-    id: "checkbox",
-    name: "Checkbox",
-    description: "Accessible checkbox built on Ark UI with Liquid Glass.",
-    previewModule: "/src/previews/CheckboxPreview.tsx",
-    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
-    tags: ["input", "form"],
-  },
-  {
-    id: "tabs",
-    name: "Tabs",
-    description: "Organize content into tabbed sections.",
-    previewModule: "/src/previews/TabsPreview.tsx",
-    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
-  },
-  {
-    id: "dialog",
-    name: "Dialog",
-    description: "Modal overlay for critical tasks and messages.",
-    previewModule: "/src/previews/DialogPreview.tsx",
-    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
-  },
-  {
-    id: "popover",
-    name: "Popover",
-    description: "Small overlay of contextual content.",
-    previewModule: "/src/previews/PopoverPreview.tsx",
-    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
-  },
-  {
-    id: "tooltip",
-    name: "Tooltip",
-    description: "Text labels that appear on hover or focus.",
-    previewModule: "/src/previews/TooltipPreview.tsx",
-    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
-  },
-  {
-    id: "switch",
-    name: "Switch",
-    description: "Toggle between on and off states.",
-    previewModule: "/src/previews/SwitchPreview.tsx",
-    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
-  },
-  {
-    id: "progress",
-    name: "Progress",
-    description: "Indicate loading or processing state.",
-    previewModule: "/src/previews/ProgressPreview.tsx",
-    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
-    tags: ["feedback"],
-  },
-  // New skeleton entries
-  {
-    id: "select",
-    name: "Select",
-    description: "Choose from options in a dropdown.",
-    previewModule: "/src/previews/SelectPreview.tsx",
-    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
-    status: "New",
-    tags: ["input", "form"],
-  },
-  {
-    id: "combobox",
-    name: "Combobox",
-    description: "Autocomplete text field with list selection.",
-    previewModule: "/src/previews/ComboboxPreview.tsx",
-    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
-    status: "New",
-    tags: ["input", "form"],
-  },
-  {
-    id: "slider",
-    name: "Slider",
-    description: "Adjust numeric value by sliding a handle.",
-    previewModule: "/src/previews/SliderPreview.tsx",
-    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
-    status: "New",
-    tags: ["input"],
-  },
-  {
-    id: "rating",
-    name: "RatingGroup",
-    description: "Select a rating from a series (e.g., stars).",
-    previewModule: "/src/previews/RatingGroupPreview.tsx",
-    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
-    status: "New",
-    tags: ["input"],
-  },
-  {
-    id: "menu",
-    name: "Menu",
-    description: "Context or dropdown menu for grouped actions.",
-    previewModule: "/src/previews/MenuPreview.tsx",
-    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
-    status: "New",
-    tags: ["navigation", "action"],
-  },
-  {
-    id: "numberinput",
-    name: "NumberInput",
-    description: "Input for numeric values with steppers.",
-    previewModule: "/src/previews/NumberInputPreview.tsx",
-    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
-    status: "New",
-    tags: ["input", "form"],
-  },
-  {
-    id: "tagsinput",
-    name: "TagsInput",
-    description: "Enter multiple tags with chips.",
-    previewModule: "/src/previews/TagsInputPreview.tsx",
-    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
-    status: "New",
-    tags: ["input", "form"],
-  },
-  {
-    id: "toast",
-    name: "Toast",
-    description: "Transient messages for feedback.",
-    previewModule: "/src/previews/ToastPreview.tsx",
-    sourceUrl: "https://github.com/tuliopc23/LiqUIdify",
-    status: "New",
-    tags: ["feedback"],
-  },
-];
-
-const previewModules = import.meta.glob("/src/previews/**/*.tsx");
-const previewRawModules = import.meta.glob("/src/previews/**/*.tsx?raw", { import: "default" });
+// Legacy registry removed. Use registry from ./registry.
 
 let __prismLoaded = false as boolean;
 
@@ -217,23 +80,14 @@ export function CardGrid(props: React.PropsWithChildren) {
   );
 }
 
-export function ComponentCard({ meta }: { meta: ComponentMeta }) {
+export function ComponentCard({ meta, entry }: { meta: ComponentMeta; entry: ShowcaseEntry }) {
   const ref = useRef<HTMLDivElement | null>(null);
   const visible = useIntersectionOnce(ref, { rootMargin: "250px" });
   const [showCode, setShowCode] = useState(false);
   const [code, setCode] = useState<string | null>(null);
   const [highlighted, setHighlighted] = useState<string | null>(null);
 
-  const LazyPreview = useMemo(
-    () =>
-      lazy(async () => {
-        const loader = previewModules[meta.previewModule];
-        if (!loader) throw new Error(`Preview not found: ${meta.previewModule}`);
-        const mod = await loader();
-        return { default: (mod as any).default ?? (mod as any).Preview };
-      }),
-    [meta.previewModule],
-  );
+  const LazyPreview = useMemo(() => entry.Demo, [entry.Demo]);
 
   async function toggleCode() {
     if (showCode) {
@@ -241,29 +95,26 @@ export function ComponentCard({ meta }: { meta: ComponentMeta }) {
       setHighlighted(null);
       return;
     }
-    const rawLoader = previewRawModules[meta.previewModule] as undefined | (() => Promise<string>);
-    if (rawLoader) {
+    try {
+      const src = entry.code;
+      setCode(src);
       try {
-        const src = await rawLoader();
-        setCode(src);
-        try {
-          if (!__prismLoaded) {
-            await import("prismjs/themes/prism.css");
-            const PrismAny: any = await import("prismjs");
-            await import("prismjs/components/prism-tsx");
-            (window as any).__Prism = PrismAny.default ?? PrismAny;
-            __prismLoaded = true;
-          }
-          const PrismLib = (window as any).__Prism;
-          const html = PrismLib.highlight(src, PrismLib.languages.tsx, "tsx");
-          setHighlighted(html);
-        } catch {
-          setHighlighted(null);
+        if (!__prismLoaded) {
+          await import("prismjs/themes/prism.css");
+          const PrismAny: any = await import("prismjs");
+          await import("prismjs/components/prism-tsx");
+          (window as any).__Prism = PrismAny.default ?? PrismAny;
+          __prismLoaded = true;
         }
+        const PrismLib = (window as any).__Prism;
+        const html = PrismLib.highlight(src, PrismLib.languages.tsx, "tsx");
+        setHighlighted(html);
       } catch {
-        setCode(null);
         setHighlighted(null);
       }
+    } catch {
+      setCode(null);
+      setHighlighted(null);
     }
     setShowCode(true);
   }

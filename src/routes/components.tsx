@@ -2,7 +2,8 @@ import React, { useMemo, useState } from "react";
 import { css } from "../../styled-system/css";
 import { createFileRoute } from "@tanstack/react-router";
 import { Helmet } from "react-helmet-async";
-import { CardGrid, ComponentCard, registry } from "../showcase/GridParts";
+import { CardGrid, ComponentCard } from "../showcase/GridParts";
+import { registry } from "../showcase/registry";
 
 function ComponentsShowcaseRoute() {
   const [query, setQuery] = useState("");
@@ -76,9 +77,11 @@ function ComponentsShowcaseRoute() {
           </div>
         ) : (
           <CardGrid>
-            {list.map((meta) => (
-              <ComponentCard key={meta.id} meta={meta} />
-            ))}
+            {list.map((meta) => {
+              const entry = registry.find((e) => e.id === meta.id);
+              if (!entry) return null;
+              return <ComponentCard key={meta.id} meta={meta} entry={entry} />;
+            })}
           </CardGrid>
         )}
       </section>
