@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { css, cx } from "../../styled-system/css";
 import { button, containerX, navLink, typography } from "../pandaStyles";
+import { Link } from "@tanstack/react-router";
 import { useTheme, cycleTheme, ThemeMode } from "../theme";
 
 const Navbar: React.FC = () => {
@@ -120,13 +121,9 @@ const Navbar: React.FC = () => {
             >
               Components
             </a>
-            <a
-              href="/components"
-              className={navLink}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
+            <Link to="/components" className={navLink} onClick={() => setIsMobileMenuOpen(false)}>
               Showcase
-            </a>
+            </Link>
             <a
               href="#features"
               aria-current={active === "features" ? "page" : undefined}
