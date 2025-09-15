@@ -1,6 +1,7 @@
 import React from "react";
 import { css, cx } from "../../styled-system/css";
 import { cardGlass, button, typography } from "../pandaStyles";
+import CodeBlock from "./CodeBlock";
 
 const Documentation: React.FC = () => {
   return (
@@ -96,7 +97,7 @@ const Documentation: React.FC = () => {
                 typography({ role: "title2" }),
                 css({
                   color: "system-gray-900",
-                  _dark: { color: "system-gray-900" },
+                  _dark: { color: "white" },
                   marginBottom: "1.5rem",
                   textAlign: "center",
                 }),
@@ -106,30 +107,22 @@ const Documentation: React.FC = () => {
             </h3>
 
             <div className={css({ display: "grid", gap: "1rem" })}>
-              <iframe
-                src="/codeblocs/install command.html"
-                className={css({
-                  width: "100%",
-                  height: "80px",
-                  border: "none",
-                  borderRadius: "0.75rem",
-                  boxShadow: "0 20px 25px rgba(0,0,0,0.15)",
-                  backgroundColor: "transparent",
-                })}
-                title="Install Command"
+              <CodeBlock
+                language="bash"
+                ariaLabel="Install command"
+                code={`bun add liquidify-react @pandacss/dev
+bunx panda init --postcss --ts
+bun run panda:once`}
               />
 
-              <iframe
-                src="/codeblocs/Liquidify imports.html"
-                className={css({
-                  width: "100%",
-                  height: "160px",
-                  border: "none",
-                  borderRadius: "0.75rem",
-                  boxShadow: "0 20px 25px rgba(0,0,0,0.15)",
-                  backgroundColor: "transparent",
-                })}
-                title="Liquidify Imports"
+              <CodeBlock
+                language="tsx"
+                ariaLabel="Import usage"
+                code={`import { Button } from "liquidify-react";
+
+export function Example() {
+  return <Button intent="primary">Get started</Button>;
+}`}
               />
             </div>
 
@@ -258,7 +251,11 @@ const Documentation: React.FC = () => {
               <h4
                 className={cx(
                   typography({ role: "headline" }),
-                  css({ color: "text", fontSize: "0.875rem" }),
+                  css({
+                    color: "system-gray-900",
+                    _dark: { color: "system-gray-900" },
+                    fontSize: "0.875rem",
+                  }),
                 )}
               >
                 {item.title}

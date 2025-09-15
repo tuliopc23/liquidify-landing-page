@@ -51,7 +51,7 @@ const Footer: React.FC = () => {
               <span
                 className={cx(
                   typography({ role: "title3" }),
-                  css({ color: "system-gray-900" }),
+                  css({ color: "text" }),
                 )}
               >
                 LiqUIdify
@@ -60,8 +60,7 @@ const Footer: React.FC = () => {
             <p
               className={css({
                 fontFamily: "sans",
-                color: "system-gray-600",
-
+                color: "muted",
                 maxWidth: "28rem",
                 marginBottom: "1.5rem",
                 fontSize: "0.875rem",
@@ -91,11 +90,7 @@ const Footer: React.FC = () => {
                   _hover: { backgroundColor: "bg.subtle" },
                 })}
               >
-                <i
-                  className={
-                    css({ color: "system-gray-600" }) + " bi bi-github"
-                  }
-                ></i>
+                <i className={css({ color: "muted" }) + " bi bi-github"}></i>
               </a>
               <a
                 href="#"
@@ -113,11 +108,7 @@ const Footer: React.FC = () => {
                   _hover: { backgroundColor: "bg.subtle" },
                 })}
               >
-                <i
-                  className={
-                    css({ color: "system-gray-600" }) + " bi bi-twitter"
-                  }
-                ></i>
+                <i className={css({ color: "muted" }) + " bi bi-twitter"}></i>
               </a>
             </div>
           </div>
@@ -128,7 +119,7 @@ const Footer: React.FC = () => {
               className={css({
                 fontFamily: "sans",
                 fontWeight: 500,
-                color: "system-gray-900",
+                color: "text",
                 marginBottom: "1rem",
               })}
             >
@@ -140,8 +131,7 @@ const Footer: React.FC = () => {
                   href="#"
                   className={css({
                     fontFamily: "sans",
-                    color: "system-gray-600",
-
+                    color: "muted",
                     _hover: { color: "link" },
                     fontSize: "0.875rem",
                     transition: "color 150ms ease",
@@ -155,8 +145,7 @@ const Footer: React.FC = () => {
                   href="#"
                   className={css({
                     fontFamily: "sans",
-                    color: "system-gray-600",
-
+                    color: "muted",
                     _hover: { color: "link" },
                     fontSize: "0.875rem",
                     transition: "color 150ms ease",
@@ -170,8 +159,7 @@ const Footer: React.FC = () => {
                   href="#"
                   className={css({
                     fontFamily: "sans",
-                    color: "system-gray-600",
-
+                    color: "muted",
                     _hover: { color: "link" },
                     fontSize: "0.875rem",
                     transition: "color 150ms ease",
@@ -203,7 +191,7 @@ const Footer: React.FC = () => {
               className={css({
                 fontFamily: "sans",
                 fontWeight: 500,
-                color: "system-gray-900",
+                color: "text",
                 marginBottom: "1rem",
               })}
             >
@@ -215,8 +203,7 @@ const Footer: React.FC = () => {
                   href="#"
                   className={css({
                     fontFamily: "sans",
-                    color: "system-gray-600",
-
+                    color: "muted",
                     _hover: { color: "link" },
                     fontSize: "0.875rem",
                     transition: "color 150ms ease",
@@ -230,8 +217,7 @@ const Footer: React.FC = () => {
                   href="#"
                   className={css({
                     fontFamily: "sans",
-                    color: "system-gray-600",
-
+                    color: "muted",
                     _hover: { color: "link" },
                     fontSize: "0.875rem",
                     transition: "color 150ms ease",
@@ -245,8 +231,7 @@ const Footer: React.FC = () => {
                   href="#"
                   className={css({
                     fontFamily: "sans",
-                    color: "system-gray-600",
-
+                    color: "muted",
                     _hover: { color: "link" },
                     fontSize: "0.875rem",
                     transition: "color 150ms ease",
@@ -274,8 +259,7 @@ const Footer: React.FC = () => {
           <p
             className={css({
               fontFamily: "sans",
-              color: "system-gray-600",
-
+              color: "muted",
               fontSize: "0.875rem",
             })}
           >
@@ -293,8 +277,7 @@ const Footer: React.FC = () => {
               href="#"
               className={css({
                 fontFamily: "sans",
-                color: "system-gray-600",
-
+                color: "muted",
                 _hover: { color: "link" },
                 fontSize: "0.875rem",
                 transition: "color 150ms ease",
@@ -306,8 +289,7 @@ const Footer: React.FC = () => {
               href="#"
               className={css({
                 fontFamily: "sans",
-                color: "system-gray-600",
-
+                color: "muted",
                 _hover: { color: "link" },
                 fontSize: "0.875rem",
                 transition: "color 150ms ease",
@@ -319,8 +301,7 @@ const Footer: React.FC = () => {
               href="#"
               className={css({
                 fontFamily: "sans",
-                color: "system-gray-600",
-
+                color: "muted",
                 _hover: { color: "link" },
                 fontSize: "0.875rem",
                 transition: "color 150ms ease",

@@ -7,6 +7,7 @@ import {
   gridPattern,
   typography,
 } from "../pandaStyles";
+import CodeBlock from "./CodeBlock";
 
 const Hero: React.FC = () => {
   return (
@@ -384,7 +385,7 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Code preview snippet */}
+        {/* Code preview snippet (Prism) */}
         <div
           className={css({
             marginTop: "4rem",
@@ -392,17 +393,16 @@ const Hero: React.FC = () => {
             marginX: "auto",
           })}
         >
-          <iframe
-            src="/codeblocs/Heroblock.html"
-            className={css({
-              width: "100%",
-              height: "280px",
-              border: "none",
-              borderRadius: "0.75rem",
-              boxShadow: "0 20px 25px rgba(0,0,0,0.15)",
-              backgroundColor: "transparent",
-            })}
-            title="Code Example"
+          <CodeBlock
+            language="tsx"
+            ariaLabel="Install example"
+            code={`import { Button } from "react";
+
+export function Hello() {
+  return (
+    <button className="btn-primary">Hello Liquidify</button>
+  );
+}`}
           />
         </div>
       </div>
