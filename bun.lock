@@ -8,7 +8,7 @@
         "@tanstack/react-router": "^1.131.41",
         "cache": "^3.0.0",
         "framer-motion": "^12.23.12",
-        "liquidify-react": "^0.6.3",
+        "liquidify-react": "^0.6.4",
         "lucide-react": "^0.544.0",
         "prismjs": "^1.30.0",
         "react": "^19.1.1",
@@ -737,7 +737,7 @@
 
     "lightningcss-win32-x64-msvc": ["lightningcss-win32-x64-msvc@1.25.1", "", { "os": "win32", "cpu": "x64" }, "sha512-9KZZkmmy9oGDSrnyHuxP6iMhbsgChUiu/NSgOx+U1I/wTngBStDf2i2aGRCHvFqj19HqqBEI4WuGVQBa2V6e0A=="],
 
-    "liquidify-react": ["liquidify-react@0.6.3", "", { "peerDependencies": { "@ark-ui/react": "^5.23.0", "framer-motion": "^12", "lucide-react": "^0.544.0", "react": "^18 || ^19", "react-dom": "^18 || ^19" } }, "sha512-5Q3L23fx+8/pNxBwxdHWngKGrHTDNBLAIG07c7XMbRwnKokv2nLXqqRyfkzfVlLDsVGW0G4Uf6R3xHgzyq3IVg=="],
+    "liquidify-react": ["liquidify-react@0.6.4", "", { "peerDependencies": { "@ark-ui/react": "^5.23.0", "framer-motion": "^12", "lucide-react": "^0.544.0", "react": "^18 || ^19", "react-dom": "^18 || ^19" } }, "sha512-fBRczDS6Dnut3YWYlrYq57Axz8SaZh4a79hilqSyEDvj9dvqh2ASx+ePf5nYg1gg4byLgm3j0svcYhWeyaJJnA=="],
 
     "locate-path": ["locate-path@6.0.0", "", { "dependencies": { "p-locate": "^5.0.0" } }, "sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw=="],
 

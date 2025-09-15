@@ -25,7 +25,7 @@
     "@tanstack/react-router": "^1.131.41",
     "cache": "^3.0.0",
     "framer-motion": "^12.23.12",
-    "liquidify-react": "^0.6.3",
+    "liquidify-react": "^0.6.4",
     "lucide-react": "^0.544.0",
     "prismjs": "^1.30.0",
     "react": "^19.1.1",

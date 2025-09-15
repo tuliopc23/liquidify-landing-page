@@ -10,9 +10,8 @@ export default defineConfig({
   // Shim Node globals used by some dependencies in the browser during dev.
   // This avoids runtime errors like "ReferenceError: process is not defined".
   define: {
-    "process.env.NODE_ENV": JSON.stringify("development"),
+    "process.env.NODE_ENV": JSON.stringify("production"),
     "process.env": "{}",
-    process: "({ env: {} })",
     global: "globalThis",
   },
   css: {
