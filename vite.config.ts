@@ -1,22 +1,11 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
-import mdx from "@mdx-js/rollup";
-import remarkGfm from "remark-gfm";
-import rehypeSlug from "rehype-slug";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 export default defineConfig(({ mode }) => {
   const isProd = mode === "production";
   return {
-    plugins: [
-      react(),
-      TanStackRouterVite(),
-      mdx({
-        remarkPlugins: [remarkGfm],
-        rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: "wrap" }]],
-      }),
-    ],
+    plugins: [react(), TanStackRouterVite()],
     optimizeDeps: {
       exclude: ["lucide-react"],
     },

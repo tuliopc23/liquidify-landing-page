@@ -1,4 +1,3 @@
-/* eslint-disable */
 export type Token =
   | `colors.${ColorToken}`
   | `fonts.${FontToken}`

@@ -1,4 +1,3 @@
-/* eslint-disable */
 import "./global.d.ts";
 export * from "./conditions";
 export * from "./pattern";

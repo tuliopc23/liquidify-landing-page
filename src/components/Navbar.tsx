@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { css, cx } from "../../styled-system/css";
 import { button, containerX, navLink, typography } from "../pandaStyles";
-import { Link } from "@tanstack/react-router";
 import { useTheme, cycleTheme, ThemeMode } from "../theme";
 
 const Navbar: React.FC = () => {

@@ -1,4 +1,3 @@
-/* eslint-disable */
 import type { SystemStyleObject } from "../types/index";
 
 type Styles = SystemStyleObject | undefined | null | false;
