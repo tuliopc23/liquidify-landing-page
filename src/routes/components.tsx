@@ -4,6 +4,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Helmet } from "react-helmet-async";
 import { CardGrid, ComponentCard } from "../showcase/GridParts";
 import { registry } from "../showcase/registry";
+import { Button, Checkbox, Switch } from "liquidify-react";
 
 function ComponentsShowcaseRoute() {
   const [query, setQuery] = useState("");
@@ -46,6 +47,26 @@ function ComponentsShowcaseRoute() {
       <section
         className={css({ maxW: "6xl", mx: "auto", px: { base: 4, md: 6 } })}
       >
+        <div
+          className={css({
+            mb: 6,
+            p: 4,
+            borderWidth: "1px",
+            borderColor: "border.default",
+            borderRadius: "lg",
+            bg: "bg.surface",
+            display: "flex",
+            alignItems: "center",
+            gap: 4,
+            flexWrap: "wrap",
+          })}
+        >
+          <span className={css({ fontWeight: 600 })}>Sanity:</span>
+          <Button>Primary</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Checkbox label="Accept" />
+          <Switch label="Enable" defaultChecked />
+        </div>
         <h1 className={css({ fontSize: "3xl", fontWeight: 700, mb: 6 })}>
           Components Showcase
         </h1>

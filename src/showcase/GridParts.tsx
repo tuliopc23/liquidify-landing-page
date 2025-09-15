@@ -1,6 +1,7 @@
 import React, { Suspense, useMemo, useRef } from "react";
 import { css } from "../../styled-system/css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { CodeBlock } from "./CodeBlock";
 import type { ShowcaseEntry } from "./registry";
 
 class ErrorBoundary extends React.Component<
@@ -33,50 +34,9 @@ export type ComponentMeta = {
 
 // Legacy registry removed. Use registry from ./registry.
 
-type PrismLibType = {
-  highlight: (code: string, grammar: unknown, language: string) => string;
-  languages: Record<string, unknown>;
-};
+// Prism dynamic import handled in CodeBlock component
 
-type PrismWindow = Window & { __Prism?: PrismLibType };
-
-let __prismLoaded = false as boolean;
-
-function useIntersectionOnce<T extends Element>(
-  ref: React.RefObject<T>,
-  options?: IntersectionObserverInit,
-) {
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || visible) return;
-
-    // Fallback: if IO is unavailable, show immediately
-    if (typeof IntersectionObserver === "undefined") {
-      setVisible(true);
-      return;
-    }
-
-    // If element is already in (or near) viewport, show immediately
-    const rect = el.getBoundingClientRect?.();
-    const margin =
-      (options?.rootMargin ? parseInt(options.rootMargin) || 0 : 0) + 300;
-    if (rect && rect.top < window.innerHeight + margin) {
-      setVisible(true);
-      return;
-    }
-
-    const obs = new IntersectionObserver((entries) => {
-      if (entries[0]?.isIntersecting) {
-        setVisible(true);
-        obs.disconnect();
-      }
-    }, options);
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [ref, options, visible]);
-  return visible;
-}
+// NOTE: intersection gating disabled
 
 export function CardGrid(props: React.PropsWithChildren) {
   return (
@@ -104,60 +64,21 @@ export function ComponentCard({
   entry: ShowcaseEntry;
 }) {
   const ref = useRef<HTMLDivElement | null>(null);
-  // In dev, render previews immediately to aid debugging; keep IO gating in prod
-  const observerVisible = useIntersectionOnce(ref, { rootMargin: "250px" });
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    if (!import.meta.env.DEV) {
-      setVisible(observerVisible);
-    }
-    if (import.meta.env.DEV) {
-      setVisible(true);
-    }
-  }, [ref]);
+  // Always render previews; IO gating caused empty cards in some environments
+  const visible = true;
   const [showCode, setShowCode] = useState(false);
   const [code, setCode] = useState<string | null>(null);
-  const [highlighted, setHighlighted] = useState<string | null>(null);
+  // highlighting handled inside CodeBlock
 
   const LazyPreview = useMemo(() => entry.Demo, [entry.Demo]);
 
   async function toggleCode() {
     if (showCode) {
       setShowCode(false);
-      setHighlighted(null);
       return;
     }
-    try {
-      const src = entry.code;
-      setCode(src);
-      try {
-        if (!__prismLoaded) {
-          await import("prismjs/themes/prism.css");
-          const prismModule = await import("prismjs");
-          await import("prismjs/components/prism-tsx");
-          (window as PrismWindow).__Prism =
-            (prismModule as unknown as { default?: PrismLibType }).default ??
-            (prismModule as unknown as PrismLibType);
-          __prismLoaded = true;
-        }
-        const PrismLib = (window as PrismWindow).__Prism;
-        if (PrismLib) {
-          const html = PrismLib.highlight(
-            src,
-            PrismLib.languages["tsx"],
-            "tsx",
-          );
-          setHighlighted(html);
-        } else {
-          setHighlighted(null);
-        }
-      } catch {
-        setHighlighted(null);
-      }
-    } catch {
-      setCode(null);
-      setHighlighted(null);
-    }
+    const src = entry.code;
+    setCode(src);
     setShowCode(true);
   }
 
@@ -242,25 +163,18 @@ export function ComponentCard({
       </div>
       {showCode ? (
         <div className={css({ p: 5, pt: 0 })}>
-          <pre
+          <div
             className={css({
               maxH: "400px",
               overflow: "auto",
-              bg: "bg.subtle",
-              color: "text",
               borderWidth: "1px",
               borderColor: "border.default",
               borderRadius: "lg",
-              p: 4,
-              fontFamily: "mono",
-              fontSize: "sm",
+              bg: "bg.subtle",
             })}
-            dangerouslySetInnerHTML={
-              highlighted ? { __html: highlighted } : undefined
-            }
           >
-            {highlighted ? undefined : (code ?? "Loading...")}
-          </pre>
+            <CodeBlock code={code ?? ""} language="tsx" />
+          </div>
         </div>
       ) : null}
       <footer

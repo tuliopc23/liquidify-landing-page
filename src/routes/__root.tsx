@@ -2,7 +2,6 @@ import React, { Suspense } from "react";
 import { createRootRoute, Outlet } from "@tanstack/react-router";
 import { HelmetProvider } from "react-helmet-async";
 import { css } from "../../styled-system/css";
-import "liquidify-react/styles";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 

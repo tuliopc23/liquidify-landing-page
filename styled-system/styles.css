@@ -436,6 +436,10 @@
     inset: 0;
   }
 
+  .bd_none {
+    border: none;
+  }
+
   .p_1\.5rem {
     padding: 1.5rem;
   }
@@ -458,6 +462,30 @@
 
   .p_0\.75rem_1rem {
     padding: 0.75rem 1rem;
+  }
+
+  .bg_bg\.surface {
+    background: var(--colors-bg\.surface);
+  }
+
+  .p_6 {
+    padding: 6px;
+  }
+
+  .bg_glass\.bg {
+    background: var(--colors-glass\.bg);
+  }
+
+  .p_5 {
+    padding: 5px;
+  }
+
+  .bg_bg\.subtle {
+    background: var(--colors-bg\.subtle);
+  }
+
+  .p_4 {
+    padding: 4px;
   }
 
   .px_1\.5rem {
@@ -619,8 +647,60 @@
     gap: 0.75rem;
   }
 
-  .pos_absolute {
-    position: absolute;
+  .px_4 {
+    padding-inline: 4px;
+  }
+
+  .gap_3 {
+    gap: 3px;
+  }
+
+  .bdr_lg {
+    border-radius: lg;
+  }
+
+  .px_3 {
+    padding-inline: 3px;
+  }
+
+  .py_2 {
+    padding-block: 2px;
+  }
+
+  .gap_6 {
+    gap: 6px;
+  }
+
+  .bdr_xl {
+    border-radius: var(--radii-xl);
+  }
+
+  .gap_2 {
+    gap: 2px;
+  }
+
+  .px_2 {
+    padding-inline: 2px;
+  }
+
+  .py_1 {
+    padding-block: 1px;
+  }
+
+  .bdr_full {
+    border-radius: full;
+  }
+
+  .bdr_md {
+    border-radius: md;
+  }
+
+  .ov_auto {
+    overflow: auto;
+  }
+
+  .gap_4 {
+    gap: 4px;
   }
 
   .ff_sans {
@@ -811,6 +891,10 @@
     color: var(--colors-muted);
   }
 
+  .pos_absolute {
+    position: absolute;
+  }
+
   .filter_blur\(24px\) {
     filter: blur(24px);
   }
@@ -959,44 +1043,16 @@
     z-index: 10;
   }
 
-  .bg-i_linear-gradient\(to_bottom_right\,_rgba\(255\,255\,255\,0\.9\)\,_rgba\(255\,255\,255\,0\.7\)\) {
-    background-image: linear-gradient(
-      to bottom right,
-      rgba(255, 255, 255, 0.9),
-      rgba(255, 255, 255, 0.7)
-    );
-  }
-
-  .bg-c_system-gray-900 {
-    background-color: var(--colors-system-gray-900);
+  .bg-i_none {
+    background-image: none;
   }
 
   .bx-sh_0_20px_25px_rgba\(0\,0\,0\,0\.15\) {
     box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
   }
 
-  .bg-c_red\.500 {
-    background-color: red.500;
-  }
-
-  .bg-c_yellow\.500 {
-    background-color: yellow.500;
-  }
-
-  .bg-c_green\.500 {
-    background-color: green.500;
-  }
-
-  .ff_mono {
-    font-family: var(--fonts-mono);
-  }
-
-  .c_success {
-    color: var(--colors-success);
-  }
-
-  .c_primary {
-    color: var(--colors-primary);
+  .bg-c_transparent {
+    background-color: transparent;
   }
 
   .fs_1rem {
@@ -1147,6 +1203,10 @@
     -webkit-backdrop-filter: blur(8px);
   }
 
+  .c_primary {
+    color: var(--colors-primary);
+  }
+
   .ta_left {
     text-align: left;
   }
@@ -1177,14 +1237,6 @@
       var(--colors-apple-green),
       rgba(52, 199, 89, 0.8)
     );
-  }
-
-  .c_system-gray-800 {
-    color: var(--colors-system-gray-800);
-  }
-
-  .bg-c_transparent {
-    background-color: transparent;
   }
 
   .pos_fixed {
@@ -1247,6 +1299,10 @@
     row-gap: 1rem;
   }
 
+  .ff_mono {
+    font-family: var(--fonts-mono);
+  }
+
   .fs_0\.75rem {
     font-size: 0.75rem;
   }
@@ -1255,12 +1311,20 @@
     align-items: baseline;
   }
 
-  .left_-9999px {
-    left: -9999px;
+  .fs_3xl {
+    font-size: 3xl;
   }
 
-  .top_auto {
-    top: auto;
+  .fs_xs {
+    font-size: xs;
+  }
+
+  .fs_xl {
+    font-size: xl;
+  }
+
+  .fs_sm {
+    font-size: sm;
   }
 
   .max-w_72rem {
@@ -1371,20 +1435,16 @@
     margin-bottom: 1.5rem;
   }
 
-  .ov-x_auto {
-    overflow-x: auto;
+  .w_100\% {
+    width: 100%;
   }
 
-  .w_0\.75rem {
-    width: 0.75rem;
+  .h_80px {
+    height: 80px;
   }
 
-  .h_0\.75rem {
-    height: 0.75rem;
-  }
-
-  .ml_1rem {
-    margin-left: 1rem;
+  .h_160px {
+    height: 160px;
   }
 
   .mt_2rem {
@@ -1401,10 +1461,6 @@
 
   .top_0 {
     top: 0;
-  }
-
-  .w_100\% {
-    width: 100%;
   }
 
   .h_1px {
@@ -1539,6 +1595,10 @@
     margin-top: 4rem;
   }
 
+  .h_280px {
+    height: 280px;
+  }
+
   .bd-b-w_1px {
     border-bottom-width: 1px;
   }
@@ -1561,6 +1621,38 @@
 
   .h_3\.25rem {
     height: 3.25rem;
+  }
+
+  .left_-9999px {
+    left: -9999px;
+  }
+
+  .top_auto {
+    top: auto;
+  }
+
+  .max-w_6xl {
+    max-width: 6xl;
+  }
+
+  .mb_6 {
+    margin-bottom: 6px;
+  }
+
+  .mb_3 {
+    margin-bottom: 3px;
+  }
+
+  .pt_0 {
+    padding-top: 0;
+  }
+
+  .h_200px {
+    height: 200px;
+  }
+
+  .max-h_400px {
+    max-height: 400px;
   }
 
   .before\:inset_0::before {
@@ -1609,10 +1701,6 @@
     background-image: url(/bg/features-dark.svg);
   }
 
-  .dark .dark\:c_text {
-    color: var(--colors-text);
-  }
-
   .dark
     .dark\:bg-i_url\(\/bg\/hero-dark\.svg\)\,_linear-gradient\(to_bottom_right\,_color-mix\(in_oklab\,_var\(--colors-primary\)\,_black_88\%\)\,_color-mix\(in_oklab\,_var\(--colors-apple-indigo\)\,_black_90\%\)\) {
     background-image:
@@ -1658,6 +1746,10 @@
     border-radius: 0.5rem;
   }
 
+  .focusVisible\:bd-c_glass\.ring:is(:focus-visible, [data-focus-visible]) {
+    border-color: var(--colors-glass\.ring);
+  }
+
   .focusVisible\:z_100:is(:focus-visible, [data-focus-visible]) {
     z-index: 100;
   }
@@ -1680,6 +1772,14 @@
 
   .focusVisible\:top_1rem:is(:focus-visible, [data-focus-visible]) {
     top: 1rem;
+  }
+
+  .hover\:bg_bg\.emphasized:is(:hover, [data-hover]) {
+    background: bg.emphasized;
+  }
+
+  .hover\:td_underline:is(:hover, [data-hover]) {
+    text-decoration: underline;
   }
 
   .hover\:trf_scale\(1\.05\):is(:hover, [data-hover]) {
@@ -1737,6 +1837,10 @@
     color: rgba(0, 122, 255, 0.8);
   }
 
+  .hover\:trf_translateY\(-2px\):is(:hover, [data-hover]) {
+    transform: translateY(-2px);
+  }
+
   @media screen and (min-width: 40rem) {
     .sm\:px_1\.5rem {
       padding-inline: 1.5rem;
@@ -1768,6 +1872,9 @@
     .md\:grid-c_span_2 {
       grid-column: span 2;
     }
+    .md\:px_6 {
+      padding-inline: 6px;
+    }
     .md\:fs_3\.75rem {
       font-size: 3.75rem;
     }
@@ -1786,6 +1893,9 @@
     .md\:d_none {
       display: none;
     }
+    .md\:grid-tc_repeat\(2\,_1fr\) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   @media screen and (min-width: 64rem) {
@@ -1803,6 +1913,9 @@
     }
     .lg\:grid-tc_repeat\(4\,_1fr\) {
       grid-template-columns: repeat(4, 1fr);
+    }
+    .lg\:grid-tc_repeat\(3\,_1fr\) {
+      grid-template-columns: repeat(3, 1fr);
     }
     .lg\:pl_2rem {
       padding-left: 2rem;

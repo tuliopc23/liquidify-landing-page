@@ -1,3 +1,4 @@
+/* eslint-disable */
 import type { CompositionStyleObject } from "./system-types";
 
 interface Token<T> {

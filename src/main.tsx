@@ -1,4 +1,5 @@
 import "../styled-system/styles.css";
+import "liquidify-react/styles";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createRouter, RouterProvider } from "@tanstack/react-router";

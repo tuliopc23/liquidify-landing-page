@@ -1,3 +1,4 @@
+/* eslint-disable */
 export interface Part {
   selector: string;
 }
