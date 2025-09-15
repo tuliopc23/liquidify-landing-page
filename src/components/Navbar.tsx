@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
 
   // Track active section for link highlighting
   useEffect(() => {
-    const ids = ["components", "features", "docs"] as const;
+    const ids = ["features", "docs"] as const;
     const elements = ids
       .map((id) => document.getElementById(id))
       .filter(Boolean) as HTMLElement[];
@@ -109,25 +109,7 @@ const Navbar: React.FC = () => {
               columnGap: "2rem",
             })}
           >
-            <a
-              href="#components"
-              aria-current={active === "components" ? "page" : undefined}
-              className={cx(
-                navLink,
-                active === "components" &&
-                  css({ color: "text", fontWeight: 600 }),
-              )}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Components
-            </a>
-            <Link
-              to="/components"
-              className={navLink}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Showcase
-            </Link>
+            {/* Showcase link removed */}
             <a
               href="#features"
               aria-current={active === "features" ? "page" : undefined}
@@ -351,18 +333,7 @@ const Navbar: React.FC = () => {
                 rowGap: "1rem",
               })}
             >
-              <a
-                href="#components"
-                aria-current={active === "components" ? "page" : undefined}
-                className={cx(
-                  navLink,
-                  active === "components" &&
-                    css({ color: "text", fontWeight: 600 }),
-                )}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Components
-              </a>
+              {/* Showcase link removed */}
               <a
                 href="#features"
                 aria-current={active === "features" ? "page" : undefined}
