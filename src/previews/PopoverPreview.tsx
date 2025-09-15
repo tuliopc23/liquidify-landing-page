@@ -1,5 +1,12 @@
 import React from "react";
-import { PopoverRoot, PopoverTrigger, PopoverPositioner, PopoverContent, PopoverTitle, PopoverDescription } from "liquidify-react";
+import {
+  PopoverRoot,
+  PopoverTrigger,
+  PopoverPositioner,
+  PopoverContent,
+  PopoverTitle,
+  PopoverDescription,
+} from "liquidify-react";
 
 export default function PopoverPreview() {
   return (

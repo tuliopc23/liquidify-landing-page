@@ -4,7 +4,7 @@ export default function RatingGroupPreview() {
   const [value, setValue] = useState(3);
   return (
     <div style={{ display: "flex", gap: 6 }}>
-      {[1,2,3,4,5].map((i) => (
+      {[1, 2, 3, 4, 5].map((i) => (
         <button
           key={i}
           aria-pressed={value === i}

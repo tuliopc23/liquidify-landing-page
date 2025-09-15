@@ -1,5 +1,10 @@
 import React from "react";
-import { TooltipRoot, TooltipTrigger, TooltipContent, TooltipPositioner } from "liquidify-react";
+import {
+  TooltipRoot,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipPositioner,
+} from "liquidify-react";
 
 export default function TooltipPreview() {
   return (

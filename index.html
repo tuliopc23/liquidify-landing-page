@@ -47,9 +47,9 @@
       /* Robust fallback font stack; Inter first (CDN), then platform fonts */
       :root {
         --global-font-body:
-          "Inter", -apple-system, system-ui, BlinkMacSystemFont,
-          "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, sans-serif;
+          "Inter", -apple-system, system-ui, BlinkMacSystemFont, "SF Pro Text",
+          "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial,
+          sans-serif;
       }
       html,
       body {
@@ -76,6 +76,8 @@
           if (resolved === "dark")
             document.documentElement.classList.add("dark");
           document.documentElement.setAttribute("data-theme-mode", mode);
+          // Also set data-theme for libraries that depend on it (e.g., liquidify-react)
+          document.documentElement.setAttribute("data-theme", resolved);
         } catch (e) {}
       })();
     </script>

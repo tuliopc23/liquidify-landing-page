@@ -14,7 +14,9 @@ function RootLayout() {
     new URLSearchParams(window.location.search).has("palette");
 
   if (showPalette) {
-    const PalettePreview = React.lazy(() => import("../components/PalettePreview"));
+    const PalettePreview = React.lazy(
+      () => import("../components/PalettePreview"),
+    );
     return (
       <Suspense fallback={null}>
         <PalettePreview />

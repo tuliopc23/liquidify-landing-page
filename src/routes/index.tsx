@@ -17,8 +17,14 @@ function HomePage() {
         />
         <link rel="canonical" href="/" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="LiqUIdify – Apple-Inspired React Components" />
-        <meta property="og:description" content="Build beautiful, accessible UIs with Liquid Glass-styled React components." />
+        <meta
+          property="og:title"
+          content="LiqUIdify – Apple-Inspired React Components"
+        />
+        <meta
+          property="og:description"
+          content="Build beautiful, accessible UIs with Liquid Glass-styled React components."
+        />
         <meta property="og:url" content="/" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>

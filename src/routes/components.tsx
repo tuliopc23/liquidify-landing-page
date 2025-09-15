@@ -19,26 +19,48 @@ function ComponentsShowcaseRoute() {
     <main id="main" className={css({ py: "5rem" })}>
       <Helmet>
         <title>Liquidify Components Showcase</title>
-        <meta name="description" content="Explore high-fidelity Liquid Glass React components." />
+        <meta
+          name="description"
+          content="Explore high-fidelity Liquid Glass React components."
+        />
         <link rel="canonical" href="/components" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Liquidify Components Showcase" />
-        <meta property="og:description" content="Explore high-fidelity Liquid Glass React components." />
+        <meta
+          property="og:description"
+          content="Explore high-fidelity Liquid Glass React components."
+        />
         <meta property="og:url" content="/components" />
         <script type="application/ld+json">
           {JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'ItemList',
-            itemListElement: registry.map((m, i) => ({ '@type': 'ListItem', position: i + 1, url: `/components#${m.id}` })),
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            itemListElement: registry.map((m, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              url: `/components#${m.id}`,
+            })),
           })}
         </script>
       </Helmet>
-      <section className={css({ maxW: "6xl", mx: "auto", px: { base: 4, md: 6 } })}>
+      <section
+        className={css({ maxW: "6xl", mx: "auto", px: { base: 4, md: 6 } })}
+      >
         <h1 className={css({ fontSize: "3xl", fontWeight: 700, mb: 6 })}>
           Components Showcase
         </h1>
-        <div className={css({ mb: 6, display: "flex", alignItems: "center", gap: 3 })}>
-          <label htmlFor="component-search" className={css({ fontWeight: 500 })}>
+        <div
+          className={css({
+            mb: 6,
+            display: "flex",
+            alignItems: "center",
+            gap: 3,
+          })}
+        >
+          <label
+            htmlFor="component-search"
+            className={css({ fontWeight: 500 })}
+          >
             Search
           </label>
           <input
@@ -65,13 +87,14 @@ function ComponentsShowcaseRoute() {
           Found {list.length} component{list.length === 1 ? "" : "s"}
         </p>
         {list.length === 0 ? (
-          <div className={css({
-            p: 6,
-            borderWidth: "1px",
-            borderColor: "border.default",
-            borderRadius: "lg",
-            bg: "bg.surface",
-          })}
+          <div
+            className={css({
+              p: 6,
+              borderWidth: "1px",
+              borderColor: "border.default",
+              borderRadius: "lg",
+              bg: "bg.surface",
+            })}
           >
             No components match your search.
           </div>
@@ -89,4 +112,6 @@ function ComponentsShowcaseRoute() {
   );
 }
 
-export const Route = createFileRoute("/components")({ component: ComponentsShowcaseRoute });
+export const Route = createFileRoute("/components")({
+  component: ComponentsShowcaseRoute,
+});

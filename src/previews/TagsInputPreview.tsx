@@ -7,7 +7,16 @@ export default function TagsInputPreview() {
     <div style={{ display: "grid", gap: 8 }}>
       <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
         {tags.map((t, idx) => (
-          <span key={idx} style={{ padding: "2px 8px", border: "1px solid #ddd", borderRadius: 12 }}>{t}</span>
+          <span
+            key={idx}
+            style={{
+              padding: "2px 8px",
+              border: "1px solid #ddd",
+              borderRadius: 12,
+            }}
+          >
+            {t}
+          </span>
         ))}
       </div>
       <form
@@ -18,7 +27,12 @@ export default function TagsInputPreview() {
           setInput("");
         }}
       >
-        <input value={input} onChange={(e) => setInput((e.target as HTMLInputElement).value)} placeholder="Add tag" style={{ padding: 8, borderRadius: 8 }} />
+        <input
+          value={input}
+          onChange={(e) => setInput((e.target as HTMLInputElement).value)}
+          placeholder="Add tag"
+          style={{ padding: 8, borderRadius: 8 }}
+        />
       </form>
     </div>
   );

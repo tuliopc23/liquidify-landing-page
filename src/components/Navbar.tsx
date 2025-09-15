@@ -121,7 +121,11 @@ const Navbar: React.FC = () => {
             >
               Components
             </a>
-            <Link to="/components" className={navLink} onClick={() => setIsMobileMenuOpen(false)}>
+            <Link
+              to="/components"
+              className={navLink}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Showcase
             </Link>
             <a
