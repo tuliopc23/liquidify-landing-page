@@ -2,3 +2,5 @@ dist/
 node_modules/
 *.lock
 *.log
+src/routeTree.gen.ts
+styled-system/

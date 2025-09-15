@@ -4,63 +4,33 @@ import { css, cva, cx } from "../styled-system/css";
 export const button = cva({
   base: {
     fontFamily: "sans",
-    fontWeight: 600,
-    borderRadius: "full" /* capsule */,
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "0.375rem",
-    lineHeight: 1.2,
-    cursor: "pointer",
-    WebkitTapHighlightColor: "transparent",
-    _focusVisible: {
-      outline: "none",
-      boxShadow:
-        "0 0 0 3px color-mix(in oklab, var(--colors-apple-blue), transparent 50%)",
-    },
+    fontWeight: 500,
+    px: "1.5rem", // ~px-6
+    py: "0.75rem", // ~py-3
+    borderRadius: "1rem", // ~rounded-xl
     transitionProperty: "all",
-    transitionDuration: "150ms",
+    transitionDuration: "200ms",
     transform: "translateZ(0)",
-    _hover: { transform: "translateY(-1px)" },
-    _active: { transform: "translateY(0)" },
+    _hover: { transform: "scale(1.05)" },
   },
   variants: {
     intent: {
       primary: {
+        backgroundColor: "primary",
         color: "white",
-        borderWidth: "1px",
-        borderColor: "glass.border",
-        backgroundImage:
-          "radial-gradient(140% 120% at 50% 0%, rgba(255,255,255,.10), transparent 60%)",
-        backgroundColor: "apple-blue/24" /* tinted through glass */,
-        backdropFilter: "saturate(160%) blur(18px)",
         boxShadow: "lg",
-        _hover: { boxShadow: "xl" },
+        _hover: { backgroundColor: "primary" },
       },
-      neutral: {
-        color: "text",
-        borderWidth: "1px",
-        borderColor: "border.default",
-        backgroundImage:
-          "linear-gradient(180deg, rgba(255,255,255,.10), transparent)",
+      secondary: {
         backgroundColor: "bg.surface",
-        _hover: { backgroundColor: "bg.subtle" },
-      },
-      outline: {
         color: "text",
         borderWidth: "1px",
         borderColor: "border.default",
-        backgroundColor: "transparent",
         _hover: { backgroundColor: "bg.subtle" },
       },
-    },
-    size: {
-      sm: { px: "0.875rem", py: "0.375rem", fontSize: "0.875rem" },
-      md: { px: "1.25rem", py: "0.625rem", fontSize: "1rem" },
-      lg: { px: "1.5rem", py: "0.75rem", fontSize: "1rem" },
     },
   },
-  defaultVariants: { intent: "primary", size: "md" },
+  defaultVariants: { intent: "primary" },
 });
 
 // Card surfaces
@@ -224,134 +194,3 @@ export const textGray = (shade: 600 | 700 | 900) =>
   css({ color: `system-gray-${shade}` as unknown as string });
 
 export { cx };
-
-/* -------------------------
- * Apple Docs-like enhancements
- * ------------------------- */
-
-/** Pill for "New", "Now available", etc — tinted glass */
-export const heroBadge = cva({
-  base: {
-    display: "inline-flex",
-    alignItems: "center",
-    gap: "0.5rem",
-    borderRadius: "9999px",
-    px: "0.75rem",
-    py: "0.375rem",
-    fontFamily: "text",
-    fontWeight: 600,
-    fontSize: "caption",
-    color: "text",
-    backgroundColor: "glass.bg",
-    borderWidth: "1px",
-    borderColor: "glass.border",
-    backdropFilter: "blur(20px)",
-    boxShadow: "sm",
-  },
-  variants: {
-    tone: {
-      neutral: {},
-      blue: {
-        color: "white",
-        backgroundColor: "apple-blue",
-        _dark: { backgroundColor: "apple-blue" },
-      },
-      indigo: {
-        color: "white",
-        backgroundColor: "apple-indigo",
-        _dark: { backgroundColor: "apple-indigo" },
-      },
-    },
-  },
-  defaultVariants: { tone: "neutral" },
-});
-
-/** Symbol tile background used in cards and sidebar lists */
-export const symbolTile = cva({
-  base: {
-    display: "inline-grid",
-    placeItems: "center",
-    width: "3rem",
-    height: "3rem",
-    borderRadius: "0.75rem",
-    borderWidth: "1px",
-    borderColor: "glass.border",
-    backgroundImage:
-      "linear-gradient(180deg, rgba(255,255,255,.12), transparent)",
-    _dark: {
-      backgroundImage:
-        "linear-gradient(180deg, rgba(255,255,255,.06), transparent)",
-    },
-    boxShadow: "sm",
-  },
-  variants: {
-    tint: {
-      gray: { backgroundColor: "bg.surface" },
-      blue: { backgroundColor: "apple-blue/24" },
-      indigo: { backgroundColor: "apple-indigo/24" },
-      teal: { backgroundColor: "apple-teal/24" },
-      green: { backgroundColor: "apple-green/24" },
-      orange: { backgroundColor: "apple-orange/24" },
-      pink: { backgroundColor: "apple-pink/24" },
-    },
-  },
-  defaultVariants: { tint: "gray" },
-});
-
-/** Docs-like card: hairline border, large radius, subtle hover lift */
-export const docsCard = cva({
-  base: {
-    position: "relative",
-    borderRadius: "glass",
-    borderWidth: "1px",
-    borderColor: "border.default",
-    backgroundColor: "bg.surface",
-    boxShadow: "sm",
-    transition:
-      "transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease",
-    _hover: {
-      transform: "translateY(-2px)",
-      boxShadow: "md",
-      borderColor: "glass.border",
-    },
-  },
-  variants: {
-    clickable: {
-      true: { cursor: "pointer", textDecoration: "none", color: "inherit" },
-    },
-    padded: {
-      true: { p: "1rem" },
-    },
-  },
-  defaultVariants: { clickable: true, padded: true },
-});
-
-/** Standard page section with vertical rhythm aligned to Apple docs */
-export const pageSection = cva({
-  base: {
-    paddingY: "5rem",
-    scrollMarginTop: "6rem",
-    backgroundColor: "bg.canvas",
-  },
-});
-
-/** Section headline hierarchy (display-like spacing/weights) */
-export const sectionTitle = cva({
-  base: {
-    fontFamily: "display",
-    fontWeight: 700,
-    letterSpacing: "titles",
-    color: "text",
-    marginBottom: "1rem",
-    fontSize: { base: "title1", md: "2rem" },
-  },
-});
-
-export const sectionLead = cva({
-  base: {
-    fontFamily: "text",
-    color: "muted",
-    maxWidth: "42rem",
-    marginX: "auto",
-  },
-});

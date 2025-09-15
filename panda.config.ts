@@ -98,6 +98,7 @@ export default defineConfig({
       radii: {
         xl: { value: "0.75rem" },
         "2xl": { value: "1rem" },
+        full: { value: "9999px" },
         glass: { value: "1rem" },
       },
       shadows: {

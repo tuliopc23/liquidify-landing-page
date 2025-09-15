@@ -18,7 +18,10 @@ export default defineConfig(({ mode }) => {
       preprocessorOptions: {},
     },
     server: {
-      hmr: { overlay: false },
+      // Bind to IPv4 localhost to avoid ::1/EPERM issues on some setups
+      host: "127.0.0.1",
+      port: 5173,
+      hmr: { overlay: false, host: "127.0.0.1", port: 5173 },
       watch: { usePolling: true },
     },
   };
