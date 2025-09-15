@@ -3,7 +3,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Helmet } from "react-helmet-async";
 import Hero from "../components/Hero";
 import Features from "../components/Features";
-import ComponentShowcase from "../components/ComponentShowcase";
 import Documentation from "../components/Documentation";
 
 function HomePage() {
@@ -30,7 +29,6 @@ function HomePage() {
       </Helmet>
       <Hero />
       <Features />
-      <ComponentShowcase />
       <Documentation />
     </>
   );

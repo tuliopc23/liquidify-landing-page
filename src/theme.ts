@@ -36,7 +36,7 @@ export const applyTheme = (mode: ThemeMode) => {
   if (resolved === "dark") root.classList.add("dark");
   else root.classList.remove("dark");
   root.setAttribute("data-theme-mode", mode);
-  // Ensure libraries that read data-theme (e.g., liquidify-react) get the resolved value
+  // Ensure libraries that read data-theme get the resolved value
   root.setAttribute("data-theme", resolved);
 };
 

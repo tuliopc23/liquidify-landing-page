@@ -6,9 +6,7 @@ export default defineConfig(({ mode }) => {
   const isProd = mode === "production";
   return {
     plugins: [react(), TanStackRouterVite()],
-    optimizeDeps: {
-      exclude: ["lucide-react"],
-    },
+    optimizeDeps: {},
     // Shim Node globals used by some dependencies in the browser.
     define: {
       "process.env.NODE_ENV": JSON.stringify(mode),

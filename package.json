@@ -21,13 +21,7 @@
     "verify:panda": "node scripts/verify-panda-migration.mjs"
   },
   "dependencies": {
-    "@ark-ui/react": "^5.24.1",
     "@tanstack/react-router": "^1.131.41",
-    "cache": "^3.0.0",
-    "framer-motion": "^12.23.12",
-    "liquidify-react": "^0.6.4",
-    "lucide-react": "^0.544.0",
-    "prismjs": "^1.30.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-helmet-async": "^2.0.5"
