@@ -21,8 +21,15 @@ export default defineConfig(({ mode }) => {
       // Bind to all interfaces for Replit environment
       host: "0.0.0.0",
       port: 5000,
-      // Allow all hosts for Replit proxy
-      hmr: { overlay: false, host: "0.0.0.0", port: 5000 },
+      strictPort: true,
+      // Allow all hosts for Replit proxy with improved HMR reliability
+      hmr: { 
+        overlay: false, 
+        host: "0.0.0.0", 
+        port: 5000,
+        clientPort: 443,
+        protocol: "wss"
+      },
       watch: { usePolling: true },
     },
   };
