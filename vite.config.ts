@@ -18,10 +18,11 @@ export default defineConfig(({ mode }) => {
       preprocessorOptions: {},
     },
     server: {
-      // Bind to IPv4 localhost to avoid ::1/EPERM issues on some setups
-      host: "127.0.0.1",
-      port: 5173,
-      hmr: { overlay: false, host: "127.0.0.1", port: 5173 },
+      // Bind to all interfaces for Replit environment
+      host: "0.0.0.0",
+      port: 5000,
+      // Allow all hosts for Replit proxy
+      hmr: { overlay: false, host: "0.0.0.0", port: 5000 },
       watch: { usePolling: true },
     },
   };
