@@ -1,10 +1,24 @@
 import React from "react";
-import { css, cx } from "../../styled-system/css";
-import { typography } from "../pandaStyles";
+import { css } from "../../styled-system/css";
+import { LiquidifyBrand } from "./BrandAssets";
 
 const Footer: React.FC = () => {
   return (
-    <footer className={css({ backgroundColor: "bg.subtle", paddingY: "4rem" })}>
+    <footer
+      className={css({
+        backgroundColor: {
+          base: "rgba(245,246,255,0.96)",
+          _dark: "rgba(6,6,12,0.96)",
+        },
+        paddingY: "4rem",
+        color: "text",
+        borderTopWidth: "1px",
+        borderColor: {
+          base: "rgba(0,0,0,0.05)",
+          _dark: "rgba(255,255,255,0.12)",
+        },
+      })}
+    >
       <div
         className={css({
           maxWidth: "72rem",
@@ -22,45 +36,17 @@ const Footer: React.FC = () => {
         >
           {/* Brand */}
           <div className={css({ gridColumn: { md: "span 2" } })}>
-            <div
-              className={css({
-                display: "flex",
-                alignItems: "center",
-                columnGap: "0.75rem",
-                marginBottom: "1rem",
-              })}
-            >
-              <div
-                className={css({
-                  width: "2rem",
-                  height: "2rem",
-                  backgroundColor: "apple-blue",
-                  borderRadius: "0.5rem",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                })}
-              >
-                <i
-                  className={
-                    css({ color: "white", fontSize: "0.875rem" }) +
-                    " bi bi-droplet-fill"
-                  }
-                ></i>
-              </div>
-              <span
-                className={cx(
-                  typography({ role: "title3" }),
-                  css({ color: "text" }),
-                )}
-              >
-                LiqUIdify
-              </span>
+            <div className={css({ marginBottom: "1rem" })}>
+              <LiquidifyBrand
+                size={40}
+                wordmarkRole="title3"
+                className={css({ alignItems: "center" })}
+              />
             </div>
             <p
               className={css({
                 fontFamily: "sans",
-                color: "muted",
+                color: { base: "muted", _dark: "rgba(220,220,230,0.78)" },
                 maxWidth: "28rem",
                 marginBottom: "1.5rem",
                 fontSize: "0.875rem",
@@ -79,36 +65,72 @@ const Footer: React.FC = () => {
                 className={css({
                   width: "2.5rem",
                   height: "2.5rem",
-                  backgroundColor: "bg.surface",
+                  backgroundColor: {
+                    base: "bg.surface",
+                    _dark: "rgba(18,18,26,0.95)",
+                  },
                   borderWidth: "1px",
-                  borderColor: "border.default",
+                  borderColor: {
+                    base: "border.default",
+                    _dark: "rgba(255,255,255,0.16)",
+                  },
                   borderRadius: "0.5rem",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  transition: "background-color 150ms ease",
-                  _hover: { backgroundColor: "bg.subtle" },
+                  transition:
+                    "background-color 150ms ease, border-color 150ms ease",
+                  _hover: {
+                    backgroundColor: {
+                      base: "bg.subtle",
+                      _dark: "rgba(26,26,34,0.95)",
+                    },
+                  },
                 })}
               >
-                <i className={css({ color: "muted" }) + " bi bi-github"}></i>
+                <i
+                  className={
+                    css({
+                      color: { base: "muted", _dark: "rgba(220,220,230,0.8)" },
+                    }) + " bi bi-github"
+                  }
+                ></i>
               </a>
               <a
                 href="#"
                 className={css({
                   width: "2.5rem",
                   height: "2.5rem",
-                  backgroundColor: "bg.surface",
+                  backgroundColor: {
+                    base: "bg.surface",
+                    _dark: "rgba(18,18,26,0.95)",
+                  },
                   borderWidth: "1px",
-                  borderColor: "border.default",
+                  borderColor: {
+                    base: "border.default",
+                    _dark: "rgba(255,255,255,0.16)",
+                  },
                   borderRadius: "0.5rem",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  transition: "background-color 150ms ease",
-                  _hover: { backgroundColor: "bg.subtle" },
+                  transition:
+                    "background-color 150ms ease, border-color 150ms ease",
+                  _hover: {
+                    backgroundColor: {
+                      base: "bg.subtle",
+                      _dark: "rgba(26,26,34,0.95)",
+                    },
+                  },
                 })}
               >
-                <i className={css({ color: "muted" }) + " bi bi-twitter"}></i>
+                <i
+                  className={
+                    css({
+                      color: { base: "muted", _dark: "rgba(220,220,230,0.8)" },
+                    }) + " bi bi-twitter"
+                  }
+                ></i>
               </a>
             </div>
           </div>
@@ -131,7 +153,7 @@ const Footer: React.FC = () => {
                   href="#"
                   className={css({
                     fontFamily: "sans",
-                    color: "muted",
+                    color: { base: "muted", _dark: "rgba(214,214,226,0.76)" },
                     _hover: { color: "link" },
                     fontSize: "0.875rem",
                     transition: "color 150ms ease",
@@ -145,7 +167,7 @@ const Footer: React.FC = () => {
                   href="#"
                   className={css({
                     fontFamily: "sans",
-                    color: "muted",
+                    color: { base: "muted", _dark: "rgba(214,214,226,0.76)" },
                     _hover: { color: "link" },
                     fontSize: "0.875rem",
                     transition: "color 150ms ease",
@@ -159,7 +181,7 @@ const Footer: React.FC = () => {
                   href="#"
                   className={css({
                     fontFamily: "sans",
-                    color: "muted",
+                    color: { base: "muted", _dark: "rgba(214,214,226,0.76)" },
                     _hover: { color: "link" },
                     fontSize: "0.875rem",
                     transition: "color 150ms ease",
@@ -203,7 +225,7 @@ const Footer: React.FC = () => {
                   href="#"
                   className={css({
                     fontFamily: "sans",
-                    color: "muted",
+                    color: { base: "muted", _dark: "rgba(214,214,226,0.76)" },
                     _hover: { color: "link" },
                     fontSize: "0.875rem",
                     transition: "color 150ms ease",
@@ -217,7 +239,7 @@ const Footer: React.FC = () => {
                   href="#"
                   className={css({
                     fontFamily: "sans",
-                    color: "muted",
+                    color: { base: "muted", _dark: "rgba(214,214,226,0.76)" },
                     _hover: { color: "link" },
                     fontSize: "0.875rem",
                     transition: "color 150ms ease",
@@ -231,7 +253,7 @@ const Footer: React.FC = () => {
                   href="#"
                   className={css({
                     fontFamily: "sans",
-                    color: "muted",
+                    color: { base: "muted", _dark: "rgba(214,214,226,0.76)" },
                     _hover: { color: "link" },
                     fontSize: "0.875rem",
                     transition: "color 150ms ease",
@@ -259,11 +281,11 @@ const Footer: React.FC = () => {
           <p
             className={css({
               fontFamily: "sans",
-              color: "muted",
+              color: { base: "muted", _dark: "rgba(214,214,226,0.76)" },
               fontSize: "0.875rem",
             })}
           >
-            © 2024 LiqUIdify. Built with care for the React community.
+            © 2024 Liquidify. Built with care for the React community.
           </p>
           <div
             className={css({
@@ -277,7 +299,7 @@ const Footer: React.FC = () => {
               href="#"
               className={css({
                 fontFamily: "sans",
-                color: "muted",
+                color: { base: "muted", _dark: "rgba(214,214,226,0.76)" },
                 _hover: { color: "link" },
                 fontSize: "0.875rem",
                 transition: "color 150ms ease",
@@ -289,7 +311,7 @@ const Footer: React.FC = () => {
               href="#"
               className={css({
                 fontFamily: "sans",
-                color: "muted",
+                color: { base: "muted", _dark: "rgba(214,214,226,0.76)" },
                 _hover: { color: "link" },
                 fontSize: "0.875rem",
                 transition: "color 150ms ease",
@@ -301,7 +323,7 @@ const Footer: React.FC = () => {
               href="#"
               className={css({
                 fontFamily: "sans",
-                color: "muted",
+                color: { base: "muted", _dark: "rgba(214,214,226,0.76)" },
                 _hover: { color: "link" },
                 fontSize: "0.875rem",
                 transition: "color 150ms ease",

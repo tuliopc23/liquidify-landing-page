@@ -14,7 +14,16 @@ const wrapperClass = css({
   position: "relative",
   borderRadius: "glass",
   overflow: "hidden",
-  backgroundColor: { base: "system-gray-900", _dark: "system-gray-900" },
+  borderWidth: "1px",
+  borderColor: { base: "rgba(0,0,0,0.08)", _dark: "rgba(255,255,255,0.16)" },
+  backgroundColor: {
+    base: "rgba(13,16,24,0.92)",
+    _dark: "rgba(16,18,26,0.94)",
+  },
+  boxShadow: {
+    base: "0 20px 40px rgba(15,23,42,0.14)",
+    _dark: "0 26px 60px rgba(0,0,0,0.55)",
+  },
 });
 
 const preClass = css({
@@ -25,6 +34,7 @@ const preClass = css({
   lineHeight: 1.6,
   overflow: "auto",
   backgroundColor: "transparent",
+  color: { base: "#f6f8ff", _dark: "#f6f8ff" },
 });
 
 const copyButtonClass = css({

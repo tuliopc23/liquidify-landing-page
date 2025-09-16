@@ -4,6 +4,8 @@ import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 
 export default defineConfig(({ mode }) => {
   const isProd = mode === "production";
+  const portEnv = process.env.PORT ?? process.env.VITE_PORT;
+  const devPort = Number.parseInt(portEnv ?? "", 10) || 5173;
   return {
     plugins: [react(), TanStackRouterVite()],
     optimizeDeps: {},
@@ -18,17 +20,13 @@ export default defineConfig(({ mode }) => {
       preprocessorOptions: {},
     },
     server: {
-      // Bind to all interfaces for Replit environment
       host: "0.0.0.0",
-      port: 5000,
-      strictPort: true,
-      // Allow all hosts for Replit proxy with improved HMR reliability
-      hmr: { 
-        overlay: false, 
-        host: "0.0.0.0", 
-        port: 5000,
-        clientPort: 443,
-        protocol: "wss"
+      port: devPort,
+      strictPort: false,
+      hmr: {
+        overlay: false,
+        host: "0.0.0.0",
+        port: devPort,
       },
       watch: { usePolling: true },
     },

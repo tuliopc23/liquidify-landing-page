@@ -1,10 +1,69 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Liquidify logomark">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0a84ff" />
-      <stop offset="100%" stop-color="#6e5afc" />
+    <linearGradient id="liquidify-base" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="55%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#2563eb" />
     </linearGradient>
+    <linearGradient id="liquidify-glass-1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.32" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="liquidify-glass-2" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.22" />
+      <stop offset="55%" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.08" />
+    </linearGradient>
+    <radialGradient id="liquidify-orb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6" />
+      <stop offset="70%" stop-color="#ffffff" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="liquidify-orb-core" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.82" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.2" />
+    </radialGradient>
+    <radialGradient id="liquidify-drop-1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.2" />
+    </radialGradient>
+    <radialGradient id="liquidify-drop-2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.12" />
+    </radialGradient>
+    <radialGradient id="liquidify-drop-3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.1" />
+    </radialGradient>
+    <linearGradient id="liquidify-highlight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="liquidify-shadow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.3" />
+    </linearGradient>
+    <filter id="liquidify-soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.4" />
+    </filter>
+    <filter id="liquidify-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="14.4" stdDeviation="21.6" flood-color="rgba(59,130,246,0.4)" />
+      <feDropShadow dx="0" dy="7.2" stdDeviation="10.8" flood-color="rgba(96,165,250,0.35)" />
+    </filter>
   </defs>
-  <rect width="64" height="64" rx="12" fill="#0b1220"/>
-  <path d="M32 10c6 9 14 14 14 22a14 14 0 1 1-28 0c0-8 8-13 14-22z" fill="url(#g)"/>
+
+  <rect width="120" height="120" rx="27" fill="none" filter="url(#liquidify-glow)" opacity="0.32" />
+  <rect width="120" height="120" rx="27" fill="url(#liquidify-base)" />
+  <rect width="120" height="120" rx="27" fill="url(#liquidify-glass-1)" />
+  <rect width="120" height="120" rx="27" fill="url(#liquidify-glass-2)" />
+
+  <circle cx="60" cy="60" r="30" fill="url(#liquidify-orb)" filter="url(#liquidify-soft)" />
+  <circle cx="60" cy="60" r="15" fill="url(#liquidify-orb-core)" />
+
+  <circle cx="38.4" cy="32.4" r="9" fill="url(#liquidify-drop-1)" filter="url(#liquidify-soft)" />
+  <circle cx="90" cy="85.2" r="7.2" fill="url(#liquidify-drop-2)" filter="url(#liquidify-soft)" />
+  <circle cx="82.8" cy="40.8" r="4.8" fill="url(#liquidify-drop-3)" filter="url(#liquidify-soft)" />
+
+  <rect width="120" height="120" rx="27" fill="url(#liquidify-highlight)" />
+  <path d="M 0 80.4 Q 0 120 27 120 L 93 120 Q 120 120 120 80.4 L 120 120 L 0 120 Z" fill="url(#liquidify-shadow)" />
 </svg>

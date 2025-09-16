@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { css, cx } from "../../styled-system/css";
 import { button, containerX, navLink } from "../pandaStyles";
 import { useTheme, cycleTheme } from "../theme";
+import { LiquidifyBrand } from "./BrandAssets";
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -13,21 +14,34 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const navBase = css({
+    position: "fixed",
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 50,
+    transition: "background-color 240ms ease, box-shadow 240ms ease",
+    backdropFilter: "blur(24px)",
+    borderBottomWidth: "1px",
+    borderColor: { base: "rgba(0,0,0,0.06)", _dark: "rgba(255,255,255,0.14)" },
+    backgroundColor: {
+      base: "rgba(255,255,255,0.65)",
+      _dark: "rgba(8,8,14,0.65)",
+    },
+    boxShadow: "none",
+  });
+
+  const navSolid = css({
+    backgroundColor: {
+      base: "rgba(255,255,255,0.92)",
+      _dark: "rgba(12,12,18,0.9)",
+    },
+    boxShadow: "0 18px 44px rgba(15,23,42,0.08)",
+  });
+
   return (
     <nav
-      className={css({
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 50,
-        transitionProperty: "all",
-        transitionDuration: "300ms",
-        backgroundColor: isScrolled ? "glass.bg" : "transparent",
-        backdropFilter: isScrolled ? "blur(20px)" : undefined,
-        borderBottomWidth: isScrolled ? "1px" : undefined,
-        borderColor: isScrolled ? "border.default" : undefined,
-      })}
+      className={cx(navBase, isScrolled ? navSolid : undefined)}
       aria-label="Global"
     >
       <div
@@ -44,12 +58,16 @@ const Navbar: React.FC = () => {
         <a
           href="/"
           className={css({
-            fontFamily: "display",
-            fontWeight: 700,
-            letterSpacing: "titles",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            textDecoration: "none",
+            color: "text",
+            _hover: { color: "text" },
           })}
+          aria-label="Liquidify home"
         >
-          Liquidify
+          <LiquidifyBrand size={32} wordmarkRole="headline" />
         </a>
         <div
           className={css({
@@ -66,7 +84,7 @@ const Navbar: React.FC = () => {
           </a>
           <button
             onClick={() => setMode(cycleTheme(mode))}
-            className={button({ intent: "neutral", size: "sm" })}
+            className={button({ intent: "outline", size: "sm" })}
             aria-label="Toggle theme"
           >
             Theme

@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import Hero from "../components/Hero";
 import Features from "../components/Features";
 import Documentation from "../components/Documentation";
+import OverviewSection from "../components/OverviewSection";
 
 function HomePage() {
   return (
@@ -28,6 +29,7 @@ function HomePage() {
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
       <Hero />
+      <OverviewSection />
       <Features />
       <Documentation />
     </>

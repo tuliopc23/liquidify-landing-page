@@ -1,104 +1,181 @@
 import React from "react";
 import { css, cx } from "../../styled-system/css";
-import { symbolTile, typography } from "../pandaStyles";
+import { typography } from "../pandaStyles";
 
-/**
- * Apple-style overview card: cover → keyline → details
- * Uses Panda CSS utilities so it fits the project's style system.
- */
 export type OverviewCardProps = {
-  href: string;
-  cover?: string;
-  /** Optional icon to use instead of a cover image */
-  icon?: React.ReactNode;
-  /** Tint for the icon tile background */
-  tint?: "gray" | "blue" | "indigo" | "teal" | "green" | "orange" | "pink";
-  eyebrow: string;
+  href?: string;
+  cover: React.ReactNode;
+  eyebrow?: string;
   title: string;
-  summary: string;
+  summary?: string;
+  cta?: string | null;
   theme?: "light" | "dark";
+  size?: "standard" | "compact";
+  children?: React.ReactNode;
 };
+
+const defaultCta = "Learn more ›";
 
 export const OverviewCard: React.FC<OverviewCardProps> = ({
   href,
   cover,
-  icon,
-  tint = "gray",
   eyebrow,
   title,
   summary,
+  cta,
   theme = "dark",
+  size = "standard",
+  children,
 }) => {
+  const isLightCard = theme === "light";
+  const isCompact = size === "compact";
+  const hoverStyles = href
+    ? {
+        transform: "translateY(-4px)",
+        boxShadow: isLightCard
+          ? "0 26px 72px rgba(0,0,0,0.22)"
+          : "0 30px 80px rgba(0,0,0,0.45)",
+      }
+    : {};
   const card = css({
     display: "flex",
     flexDirection: "column",
-    borderRadius: "glass",
+    borderRadius: isCompact ? "1rem" : "1.125rem",
     overflow: "hidden",
     textDecoration: "none",
     color: "inherit",
-    transition: "transform 150ms ease, box-shadow 150ms ease",
-    _hover: { transform: "translateY(-2px)", boxShadow: "xl" },
+    backgroundColor: "transparent",
+    transform: "translateZ(0)",
+    cursor: href ? "pointer" : "default",
+    transition: "transform 180ms ease, box-shadow 200ms ease",
+    boxShadow: isLightCard
+      ? isCompact
+        ? "0 14px 42px rgba(0,0,0,0.16)"
+        : "0 18px 56px rgba(0,0,0,0.18)"
+      : isCompact
+        ? "0 20px 50px rgba(0,0,0,0.34)"
+        : "0 22px 60px rgba(0,0,0,0.38)",
+    _hover: hoverStyles,
+    _focusVisible: {
+      outline: "none",
+      boxShadow: "0 0 0 3px rgba(0,122,255,0.45), 0 28px 80px rgba(0,0,0,0.42)",
+    },
   });
 
-  const coverCls = css({
+  const coverShell = css({
+    position: "relative",
+    aspectRatio: isCompact ? "4/3" : "16/9",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    overflow: "hidden",
+    backgroundColor: isLightCard ? "#f5f5f7" : "#0f1115",
+    _dark: isLightCard
+      ? { backgroundColor: "rgba(255,255,255,0.94)" }
+      : { backgroundColor: "rgba(15,15,20,0.94)" },
+    maxHeight: isCompact ? "10.5rem" : "13.5rem",
+  });
+
+  const coverContent = css({
     width: "100%",
-    aspectRatio: "16/9",
-    objectFit: "cover",
-    bg: { base: "#222" },
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   });
 
-  const keyline = css({ height: "1px", bg: "glass.border" });
+  const keyline = css({
+    height: "1px",
+    backgroundColor: isLightCard ? "#e8e8ed" : "rgba(255,255,255,0.1)",
+    _dark: isLightCard
+      ? { backgroundColor: "rgba(0,0,0,0.08)" }
+      : { backgroundColor: "rgba(255,255,255,0.16)" },
+  });
 
   const details = css({
-    backgroundColor: theme === "light" ? "white" : "bg.surface",
-    color: theme === "light" ? "black" : "text",
-    p: "1rem",
+    backgroundColor: isLightCard
+      ? "rgba(255,255,255,0.96)"
+      : "rgba(19,19,22,0.94)",
+    _dark: isLightCard
+      ? { backgroundColor: "rgba(255,255,255,0.94)", color: "#1d1d1f" }
+      : {
+          backgroundColor: "rgba(27,27,32,0.96)",
+          color: "rgba(240,240,245,0.95)",
+        },
+    color: isLightCard ? "#1d1d1f" : "rgba(248,248,250,0.93)",
+    padding: isCompact ? "1rem 1.15rem 1.2rem" : "1.15rem 1.35rem 1.3rem",
     display: "grid",
-    gap: "0.35rem",
-    minH: "150px",
+    gap: isCompact ? "0.45rem" : "0.55rem",
+    minHeight: isCompact ? "10.5rem" : "12.5rem",
   });
 
   const eyebrowCls = css({
-    fontSize: "0.75rem",
-    color: theme === "light" ? "muted" : "muted",
+    fontSize: isCompact ? "0.7rem" : "0.75rem",
+    letterSpacing: "0.08em",
+    textTransform: "uppercase",
+    fontWeight: 600,
+    color: isLightCard ? "#6e6e73" : "rgba(255,255,255,0.64)",
+    _dark: isLightCard
+      ? { color: "rgba(0,0,0,0.54)" }
+      : { color: "rgba(255,255,255,0.68)" },
   });
+
   const titleCls = cx(
     typography({ role: "title3" }),
-    css({ letterSpacing: "-0.02em" }),
+    css({
+      fontSize: isCompact ? "1.15rem" : undefined,
+      letterSpacing: "-0.02em",
+      color: isLightCard ? "#1d1d1f" : "rgba(255,255,255,0.95)",
+    }),
   );
-  const summaryCls = css({
-    fontSize: "0.875rem",
-    color: theme === "light" ? "#515154" : "muted",
-  });
-  const cta = css({ fontSize: "0.875rem", color: "link" });
 
-  return (
-    <a className={card} href={href}>
-      {icon ? (
-        <div
-          className={css({
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            py: "1rem",
-            backgroundImage:
-              "linear-gradient(180deg, rgba(255,255,255,.12), transparent)",
-          })}
-        >
-          <span className={cx(symbolTile({ tint }))}>{icon}</span>
+  const summaryCls = css({
+    fontSize: isCompact ? "0.9rem" : "0.95rem",
+    lineHeight: 1.48,
+    color: isLightCard ? "#515154" : "rgba(255,255,255,0.72)",
+    _dark: isLightCard
+      ? { color: "#515154" }
+      : { color: "rgba(232,232,237,0.76)" },
+  });
+
+  const ctaCls = css({
+    fontSize: isCompact ? "0.9rem" : "0.95rem",
+    fontWeight: 600,
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "0.25rem",
+    color: isLightCard ? "#0071e3" : "var(--colors-link)",
+  });
+
+  const resolvedCta = cta === null ? null : (cta ?? defaultCta);
+
+  const content = (
+    <>
+      <div className={coverShell}>
+        <div className={coverContent} aria-hidden={true}>
+          {cover}
         </div>
-      ) : (
-        <img className={coverCls} src={cover ?? ""} alt="" />
-      )}
-      <div className={keyline} aria-hidden="true" />
-      <div className={details}>
-        <div className={eyebrowCls}>{eyebrow}</div>
-        <div className={titleCls}>{title}</div>
-        <p className={summaryCls}>{summary}</p>
-        <span className={cta}>Learn more ›</span>
       </div>
-    </a>
+      <div className={keyline} aria-hidden={true} />
+      <div className={details}>
+        {eyebrow ? <div className={eyebrowCls}>{eyebrow}</div> : null}
+        <div className={titleCls}>{title}</div>
+        {summary ? <p className={summaryCls}>{summary}</p> : null}
+        {children}
+        {resolvedCta ? <span className={ctaCls}>{resolvedCta}</span> : null}
+      </div>
+    </>
   );
+
+  if (href) {
+    return (
+      <a className={card} href={href}>
+        {content}
+      </a>
+    );
+  }
+
+  return <div className={card}>{content}</div>;
 };
 
 export default OverviewCard;

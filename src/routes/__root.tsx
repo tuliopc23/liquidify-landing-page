@@ -22,9 +22,16 @@ function RootLayout() {
     );
   }
 
+  const appShell = css({
+    minHeight: "100vh",
+    backgroundColor: "bg.canvas",
+    color: "text",
+    transition: "background-color 300ms ease, color 300ms ease",
+  });
+
   return (
     <HelmetProvider>
-      <div>
+      <div className={appShell}>
         <a
           href="#main"
           className={css({

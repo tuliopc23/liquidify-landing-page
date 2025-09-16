@@ -7,6 +7,7 @@ import {
   gridPattern,
   typography,
 } from "../pandaStyles";
+import { LiquidifyBrand, LiquidifyLogomark } from "./BrandAssets";
 
 const Hero: React.FC = () => {
   return (
@@ -20,6 +21,8 @@ const Hero: React.FC = () => {
         textAlign: "center",
         py: "6rem",
         px: "1rem",
+        backgroundColor: "bg.canvas",
+        color: "text",
       })}
     >
       <div
@@ -33,17 +36,37 @@ const Hero: React.FC = () => {
       </div>
 
       <div className={css({ zIndex: 1 })}>
+        <div
+          className={css({
+            display: "grid",
+            justifyItems: "center",
+            gap: "0.75rem",
+            mb: "2rem",
+          })}
+        >
+          <LiquidifyBrand
+            size={96}
+            direction="column"
+            className={css({ alignItems: "center", gap: "0.75rem" })}
+            wordmarkRole="title2"
+            wordmarkClassName={css({ textAlign: "center" })}
+          />
+          <span
+            className={cx(
+              typography({ role: "callout" }),
+              css({
+                color: { base: "muted", _dark: "rgba(222,222,234,0.82)" },
+                textTransform: "uppercase",
+              }),
+            )}
+          >
+            React component library
+          </span>
+        </div>
         <div className={css({ mb: "0.75rem" })}>
-          <span className={cx(heroBadge())}>
-            <span
-              className={css({
-                w: "0.5rem",
-                h: "0.5rem",
-                borderRadius: "9999px",
-                bg: "apple-blue",
-              })}
-            />
-            Liquidify React
+          <span className={cx(heroBadge(), css({ gap: "0.35rem" }))}>
+            <LiquidifyLogomark size={18} />
+            Brand kit ready
           </span>
         </div>
 
@@ -54,7 +77,10 @@ const Hero: React.FC = () => {
         <p
           className={cx(
             typography({ role: "title2" }),
-            css({ color: "muted", mt: "0.5rem" }),
+            css({
+              color: { base: "muted", _dark: "rgba(222,222,234,0.82)" },
+              mt: "0.5rem",
+            }),
           )}
         >
           A React component library that brings Apple’s Human Interface
@@ -74,7 +100,7 @@ const Hero: React.FC = () => {
           >
             Explore components
           </a>
-          <a href="#docs" className={button({ intent: "neutral", size: "lg" })}>
+          <a href="#docs" className={button({ intent: "outline", size: "lg" })}>
             Read the docs
           </a>
         </div>

@@ -5,7 +5,7 @@ export const button = cva({
   base: {
     fontFamily: "sans",
     fontWeight: 600,
-    borderRadius: "full" /* capsule */,
+    borderRadius: "full",
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
@@ -13,44 +13,84 @@ export const button = cva({
     lineHeight: 1.2,
     cursor: "pointer",
     WebkitTapHighlightColor: "transparent",
-    _focusVisible: {
-      outline: "none",
-      boxShadow:
-        "0 0 0 3px color-mix(in oklab, var(--colors-apple-blue), transparent 50%)",
-    },
     transitionProperty: "all",
-    transitionDuration: "150ms",
+    transitionDuration: "180ms",
     transform: "translateZ(0)",
     _hover: { transform: "translateY(-1px)" },
     _active: { transform: "translateY(0)" },
+    _focusVisible: {
+      outline: "none",
+      boxShadow:
+        "0 0 0 3px color-mix(in oklab, var(--colors-apple-blue), transparent 55%)",
+    },
   },
   variants: {
     intent: {
       primary: {
         color: "white",
         borderWidth: "1px",
-        borderColor: "glass.border",
+        borderColor: "apple-blue",
         backgroundImage:
-          "radial-gradient(140% 120% at 50% 0%, rgba(255,255,255,.10), transparent 60%)",
-        backgroundColor: "apple-blue/24" /* tinted through glass */,
-        backdropFilter: "saturate(160%) blur(18px)",
-        boxShadow: "lg",
-        _hover: { boxShadow: "xl" },
+          "linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.05))",
+        backgroundColor: "apple-blue",
+        boxShadow: "0 14px 38px rgba(10,132,255,0.38)",
+        _hover: {
+          backgroundColor: "#0a7aff",
+          boxShadow: "0 18px 44px rgba(10,132,255,0.42)",
+        },
+        _dark: {
+          backgroundColor: "#0a84ff",
+          borderColor: "#0a84ff",
+          boxShadow: "0 20px 46px rgba(10,132,255,0.48)",
+        },
       },
       neutral: {
-        color: "text",
+        color: { base: "#1d1d1f", _dark: "rgba(240,240,245,0.9)" },
+        borderWidth: "1px",
+        borderColor: {
+          base: "rgba(0,0,0,0.08)",
+          _dark: "rgba(255,255,255,0.18)",
+        },
+        backgroundColor: {
+          base: "rgba(255,255,255,0.86)",
+          _dark: "rgba(24,24,30,0.9)",
+        },
+        boxShadow: {
+          base: "0 14px 30px rgba(15,23,42,0.12)",
+          _dark: "0 20px 48px rgba(0,0,0,0.6)",
+        },
+        _hover: {
+          backgroundColor: {
+            base: "rgba(255,255,255,0.94)",
+            _dark: "rgba(30,30,38,0.92)",
+          },
+        },
+      },
+      outline: {
+        color: "apple-blue",
+        borderWidth: "1px",
+        borderColor: "apple-blue",
+        backgroundColor: "transparent",
+        boxShadow: "none",
+        _hover: {
+          backgroundColor: "rgba(10,132,255,0.08)",
+        },
+        _dark: {
+          color: "#69b4ff",
+          borderColor: "rgba(10,132,255,0.65)",
+          _hover: {
+            backgroundColor: "rgba(10,132,255,0.12)",
+          },
+        },
+      },
+      secondary: {
+        color: { base: "#1d1d1f", _dark: "rgba(240,240,245,0.9)" },
         borderWidth: "1px",
         borderColor: "border.default",
         backgroundImage:
-          "linear-gradient(180deg, rgba(255,255,255,.10), transparent)",
+          "linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.02))",
         backgroundColor: "bg.surface",
-        _hover: { backgroundColor: "bg.subtle" },
-      },
-      outline: {
-        color: "text",
-        borderWidth: "1px",
-        borderColor: "border.default",
-        backgroundColor: "transparent",
+        boxShadow: "0 12px 28px rgba(15,23,42,0.1)",
         _hover: { backgroundColor: "bg.subtle" },
       },
     },
@@ -100,7 +140,7 @@ export const cardGlass = css({
 // Common link style (gray → apple-blue on hover)
 export const navLink = css({
   fontFamily: "sans",
-  color: "muted",
+  color: { base: "muted", _dark: "rgba(232,232,237,0.78)" },
   transition: "color 150ms ease",
   _hover: { color: "link" },
 });
@@ -137,6 +177,9 @@ export const fontText = css({ fontFamily: "text" });
 export const fontDisplay = css({ fontFamily: "display" });
 // Semantic typography aligned to Apple iOS Text Styles
 export const typography = cva({
+  base: {
+    color: "text",
+  },
   variants: {
     role: {
       display: {
@@ -266,72 +309,15 @@ export const heroBadge = cva({
   defaultVariants: { tone: "neutral" },
 });
 
-/** Symbol tile background used in cards and sidebar lists */
-export const symbolTile = cva({
-  base: {
-    display: "inline-grid",
-    placeItems: "center",
-    width: "3rem",
-    height: "3rem",
-    borderRadius: "0.75rem",
-    borderWidth: "1px",
-    borderColor: "glass.border",
-    backgroundImage:
-      "linear-gradient(180deg, rgba(255,255,255,.12), transparent)",
-    _dark: {
-      backgroundImage:
-        "linear-gradient(180deg, rgba(255,255,255,.06), transparent)",
-    },
-    boxShadow: "sm",
-  },
-  variants: {
-    tint: {
-      gray: { backgroundColor: "bg.surface" },
-      blue: { backgroundColor: "apple-blue/24" },
-      indigo: { backgroundColor: "apple-indigo/24" },
-      teal: { backgroundColor: "apple-teal/24" },
-      green: { backgroundColor: "apple-green/24" },
-      orange: { backgroundColor: "apple-orange/24" },
-      pink: { backgroundColor: "apple-pink/24" },
-    },
-  },
-  defaultVariants: { tint: "gray" },
-});
-
-/** Docs-like card: hairline border, large radius, subtle hover lift */
-export const docsCard = cva({
-  base: {
-    position: "relative",
-    borderRadius: "glass",
-    borderWidth: "1px",
-    borderColor: "border.default",
-    backgroundColor: "bg.surface",
-    boxShadow: "sm",
-    transition:
-      "transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease",
-    _hover: {
-      transform: "translateY(-2px)",
-      boxShadow: "md",
-      borderColor: "glass.border",
-    },
-  },
-  variants: {
-    clickable: {
-      true: { cursor: "pointer", textDecoration: "none", color: "inherit" },
-    },
-    padded: {
-      true: { p: "1rem" },
-    },
-  },
-  defaultVariants: { clickable: true, padded: true },
-});
-
 /** Standard page section with vertical rhythm aligned to Apple docs */
 export const pageSection = cva({
   base: {
     paddingY: "5rem",
     scrollMarginTop: "6rem",
-    backgroundColor: "bg.canvas",
+    backgroundColor: {
+      base: "bg.canvas",
+      _dark: "#050509",
+    },
   },
 });
 

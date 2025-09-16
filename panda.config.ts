@@ -114,14 +114,14 @@ export default defineConfig({
         // Text colors
         text: {
           value: {
-            base: "{colors.system-gray-900}",
-            _dark: "{colors.system-gray-50}",
+            base: "#0b0b0d",
+            _dark: "#f5f5f7",
           },
         },
         muted: {
           value: {
             base: "{colors.system-gray-600}",
-            _dark: "{colors.system-gray-400}",
+            _dark: "rgba(226,226,235,0.82)",
           },
         },
         link: {
@@ -156,24 +156,24 @@ export default defineConfig({
 
         // Surfaces
         "bg.canvas": {
-          value: { base: "{colors.white}", _dark: "{colors.black}" },
+          value: { base: "#f5f5f7", _dark: "#050509" },
         },
         "bg.subtle": {
           value: {
             base: "{colors.system-gray-50}",
-            _dark: "rgba(255,255,255,0.04)",
+            _dark: "rgba(255,255,255,0.06)",
           },
         },
         "bg.surface": {
           value: {
-            base: "rgba(255,255,255,0.9)",
-            _dark: "rgba(255,255,255,0.06)",
+            base: "rgba(255,255,255,0.94)",
+            _dark: "rgba(22,22,30,0.92)",
           },
         },
         "border.default": {
           value: {
             base: "{colors.system-gray-200}",
-            _dark: "rgba(255,255,255,0.16)",
+            _dark: "rgba(255,255,255,0.18)",
           },
         },
 
