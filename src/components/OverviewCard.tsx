@@ -58,7 +58,9 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
     _hover: hoverStyles,
     _focusVisible: {
       outline: "none",
-      boxShadow: "0 0 0 3px rgba(0,122,255,0.45), 0 28px 80px rgba(0,0,0,0.42)",
+      boxShadow: isLightCard
+        ? "0 0 0 3px rgba(10,132,255,0.35), 0 28px 80px rgba(0,0,0,0.32)"
+        : "0 0 0 3px rgba(10,132,255,0.45), 0 28px 80px rgba(0,0,0,0.42)",
     },
   });
 
@@ -70,10 +72,9 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
     justifyContent: "center",
     overflow: "hidden",
     backgroundColor: isLightCard ? "#f5f5f7" : "#0f1115",
-    _dark: isLightCard
-      ? { backgroundColor: "rgba(255,255,255,0.94)" }
-      : { backgroundColor: "rgba(15,15,20,0.94)" },
     maxHeight: isCompact ? "10.5rem" : "13.5rem",
+    borderTopLeftRadius: isCompact ? "1rem" : "1.125rem",
+    borderTopRightRadius: isCompact ? "1rem" : "1.125rem",
   });
 
   const coverContent = css({
@@ -82,26 +83,27 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    // Uniform inner margin so artwork never touches edges and appears consistently scaled
+    padding: isCompact ? "8%" : "6%",
+    boxSizing: "border-box",
+    "& > *": {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: "100%",
+      height: "100%",
+    },
   });
 
   const keyline = css({
     height: "1px",
     backgroundColor: isLightCard ? "#e8e8ed" : "rgba(255,255,255,0.1)",
-    _dark: isLightCard
-      ? { backgroundColor: "rgba(0,0,0,0.08)" }
-      : { backgroundColor: "rgba(255,255,255,0.16)" },
   });
 
   const details = css({
     backgroundColor: isLightCard
       ? "rgba(255,255,255,0.96)"
       : "rgba(19,19,22,0.94)",
-    _dark: isLightCard
-      ? { backgroundColor: "rgba(255,255,255,0.94)", color: "#1d1d1f" }
-      : {
-          backgroundColor: "rgba(27,27,32,0.96)",
-          color: "rgba(240,240,245,0.95)",
-        },
     color: isLightCard ? "#1d1d1f" : "rgba(248,248,250,0.93)",
     padding: isCompact ? "1rem 1.15rem 1.2rem" : "1.15rem 1.35rem 1.3rem",
     display: "grid",
@@ -115,9 +117,6 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
     textTransform: "uppercase",
     fontWeight: 600,
     color: isLightCard ? "#6e6e73" : "rgba(255,255,255,0.64)",
-    _dark: isLightCard
-      ? { color: "rgba(0,0,0,0.54)" }
-      : { color: "rgba(255,255,255,0.68)" },
   });
 
   const titleCls = cx(
@@ -133,9 +132,6 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
     fontSize: isCompact ? "0.9rem" : "0.95rem",
     lineHeight: 1.48,
     color: isLightCard ? "#515154" : "rgba(255,255,255,0.72)",
-    _dark: isLightCard
-      ? { color: "#515154" }
-      : { color: "rgba(232,232,237,0.76)" },
   });
 
   const ctaCls = css({

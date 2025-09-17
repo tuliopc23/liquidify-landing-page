@@ -1,16 +1,38 @@
 import React from "react";
 import { css, cx } from "../../styled-system/css";
-import {
-  sectionTitle,
-  sectionLead,
-  pageSection,
-  typography,
-  containerX,
-} from "../pandaStyles";
+import { pageSection, typography, containerX } from "../pandaStyles";
 import CodeBlock from "./CodeBlock";
 import OverviewCard from "./OverviewCard";
 import CardArt from "./CardArt";
 import { useTheme, resolveTheme } from "../theme";
+
+const sectionHeading = cx(
+  typography({ role: "largeTitle" }),
+  css({ marginBottom: "1rem", letterSpacing: "-0.01em" }),
+);
+
+const sectionIntro = cx(
+  typography({ role: "title3" }),
+  css({
+    color: "muted",
+    fontWeight: 500,
+    maxWidth: "44rem",
+    marginX: "auto",
+    lineHeight: 1.6,
+  }),
+);
+
+const docsLink = cx(
+  typography({ role: "callout" }),
+  css({
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "0.25rem",
+    fontWeight: 600,
+    color: "link",
+    mt: "0.75rem",
+  }),
+);
 
 const Documentation: React.FC = () => {
   const [mode] = useTheme();
@@ -21,30 +43,25 @@ const Documentation: React.FC = () => {
     marginTop: "0.5rem",
   });
 
-  const linkClass = css({
-    display: "inline-flex",
-    alignItems: "center",
-    gap: "0.25rem",
-    fontWeight: 600,
-    color: "link",
-    mt: "0.75rem",
-  });
-
   return (
     <section
       id="docs"
       className={cx(
         pageSection(),
         css({
-          backgroundColor: { base: "bg.canvas", _dark: "rgba(5,5,11,0.95)" },
+          backgroundColor: { base: "bg.canvas", _dark: "#050509" },
           color: "text",
+          borderTop: {
+            base: "1px solid var(--colors-border-default)",
+            _dark: "1px solid rgba(255,255,255,0.08)",
+          },
         }),
       )}
     >
       <div className={containerX}>
-        <div className={css({ textAlign: "center", mb: "2.5rem" })}>
-          <h2 className={cx(sectionTitle())}>Documentation</h2>
-          <p className={cx(sectionLead())}>
+        <div className={css({ textAlign: "center", mb: "3rem" })}>
+          <h2 className={sectionHeading}>Get Started</h2>
+          <p className={sectionIntro}>
             Install the library, import the styles once, and start shipping
             Apple‑flavored UI with accessible Ark UI primitives.
           </p>
@@ -62,7 +79,7 @@ const Documentation: React.FC = () => {
           })}
         >
           <OverviewCard
-            cover={<CardArt variant="install" tone={resolved} scale={0.62} />}
+            cover={<CardArt variant="install" tone={resolved} scale={0.6} />}
             eyebrow="Setup"
             title="Install"
             summary="Install Liquidify together with its peer dependencies in a single command."
@@ -81,7 +98,7 @@ const Documentation: React.FC = () => {
           </OverviewCard>
 
           <OverviewCard
-            cover={<CardArt variant="usage" tone={resolved} scale={0.62} />}
+            cover={<CardArt variant="usage" tone={resolved} scale={0.6} />}
             eyebrow="First component"
             title="Use"
             summary="Import the styles once, then pull components from focused entry points."
@@ -105,7 +122,7 @@ export default function App() {
           </OverviewCard>
 
           <OverviewCard
-            cover={<CardArt variant="inside" tone={resolved} scale={0.62} />}
+            cover={<CardArt variant="inside" tone={resolved} scale={0.6} />}
             eyebrow="What ships"
             title="What's inside"
             summary="47 Ark UI wrappers, Liquid Glass surfaces, Panda tokens, and type-safe recipes."
@@ -116,7 +133,7 @@ export default function App() {
               Strict TypeScript, SSR compatibility, and design tokens for
               colors, radii, typography, and motion utilities.
             </p>
-            <a href="https://docs.useliquidify.dev" className={linkClass}>
+            <a href="https://docs.useliquidify.dev" className={docsLink}>
               Read the docs <span aria-hidden={true}>›</span>
             </a>
           </OverviewCard>

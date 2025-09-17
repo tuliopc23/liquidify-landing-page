@@ -1,14 +1,9 @@
 import React from "react";
 import { css, cx } from "../../styled-system/css";
-import {
-  sectionTitle,
-  sectionLead,
-  pageSection,
-  typography,
-  containerX,
-} from "../pandaStyles";
+import { pageSection, typography, containerX } from "../pandaStyles";
 import OverviewCard, { type OverviewCardProps } from "./OverviewCard";
 import CardArt, { type CardArtVariant } from "./CardArt";
+import { useTheme, resolveTheme } from "../theme";
 
 const grid = css({
   display: "grid",
@@ -39,44 +34,66 @@ const smallRow = css({
   },
 });
 
-const rowDivider = css({
-  height: "1px",
-  backgroundColor: "glass.border",
-  opacity: 0.6,
-  boxShadow: "0 1px 6px rgba(0,0,0,0.06)",
-});
+const sectionHeading = cx(
+  typography({ role: "largeTitle" }),
+  css({ marginBottom: "1rem", letterSpacing: "-0.01em" }),
+);
+
+const sectionIntro = cx(
+  typography({ role: "title3" }),
+  css({
+    color: "muted",
+    fontWeight: 500,
+    maxWidth: "40rem",
+    marginX: "auto",
+    lineHeight: 1.6,
+  }),
+);
+
+const subheading = cx(
+  typography({ role: "title2" }),
+  css({ marginBottom: "0.5rem" }),
+);
+
+const subheadingCopy = cx(
+  typography({ role: "body" }),
+  css({ color: "muted", maxWidth: "32rem", mx: "auto" }),
+);
 
 export default function Features() {
+  const [mode] = useTheme();
+  const resolved = resolveTheme(mode);
+
   const cards: OverviewCardProps[] = [
     {
       href: "#hig-web",
-      cover: <CardArt variant="hig" tone="light" scale={0.62} />,
+      cover: <CardArt variant="hig" tone={resolved} scale={0.6} />,
       eyebrow: "Design language",
       title: "Apple HIG — on the web",
       summary:
         "SF typography, tempered glass surfaces, and motion curves tuned for browsers.",
       cta: "Explore the guidelines ›",
-      theme: "light",
+      theme: resolved,
     },
     {
       href: "#apps-sites",
-      cover: <CardArt variant="apps" tone="dark" scale={0.62} />,
+      cover: <CardArt variant="apps" tone={resolved} scale={0.6} />,
       eyebrow: "Use cases",
       title: "Built for Apple app sites",
       summary:
         "Launch pages and documentation that feel at home across iOS, iPadOS, and macOS.",
       cta: "See example layouts ›",
-      theme: "dark",
+      theme: resolved,
     },
     {
       href: "#quality",
-      cover: <CardArt variant="quality" tone="dark" scale={0.62} />,
+      cover: <CardArt variant="quality" tone={resolved} scale={0.6} />,
       eyebrow: "Quality",
       title: "Accessible, fast, themable",
       summary:
         "AA contrast defaults, SSR-ready primitives, and Panda tokens for complete control.",
       cta: "Preview theming ›",
-      theme: "dark",
+      theme: resolved,
     },
   ];
 
@@ -144,21 +161,21 @@ export default function Features() {
     },
   ];
 
-  const smallFeatures = smallFeaturesBase.map((feature, index) => {
-    const theme = index % 2 === 0 ? "dark" : "light";
-    const tone = theme === "light" ? "light" : "dark";
+  const smallFeatures = smallFeaturesBase.map((feature) => {
     const scale = 0.56;
     return {
       ...feature,
-      theme,
-      cover: <CardArt variant={feature.variant} tone={tone} scale={scale} />,
+      theme: resolved,
+      cover: (
+        <CardArt variant={feature.variant} tone={resolved} scale={scale} />
+      ),
     } satisfies Pick<
       OverviewCardProps,
       "cover" | "eyebrow" | "title" | "summary" | "theme"
     >;
   });
 
-  const rows = [smallFeatures.slice(0, 4), smallFeatures.slice(4)];
+  const rows = [smallFeatures.slice(0, 4), smallFeatures.slice(4, 8)];
 
   return (
     <section
@@ -166,15 +183,23 @@ export default function Features() {
       className={cx(
         pageSection(),
         css({
-          backgroundColor: { base: "bg.subtle", _dark: "rgba(10,10,18,0.92)" },
+          backgroundColor: { base: "bg.subtle", _dark: "#0a0a12" },
           color: "text",
+          borderTop: {
+            base: "1px solid var(--colors-border-default)",
+            _dark: "1px solid rgba(255,255,255,0.06)",
+          },
+          borderBottom: {
+            base: "1px solid var(--colors-border-default)",
+            _dark: "1px solid rgba(255,255,255,0.06)",
+          },
         }),
       )}
     >
       <div className={containerX}>
-        <div className={css({ textAlign: "center", mb: "2.5rem" })}>
-          <h2 className={cx(sectionTitle())}>Dive into Liquidify</h2>
-          <p className={cx(sectionLead())}>
+        <div className={css({ textAlign: "center", mb: "3rem" })}>
+          <h2 className={sectionHeading}>Dive into Liquidify</h2>
+          <p className={sectionIntro}>
             Built with meticulous attention to detail — close to Apple's HIG,
             adapted to the web.
           </p>
@@ -186,13 +211,16 @@ export default function Features() {
         </div>
 
         {/* Small feature cards */}
-        <div className={css({ textAlign: "center", mt: "3rem", mb: "1rem" })}>
-          <h3 className={cx(typography({ role: "headline" }))}>What you get</h3>
+        <div className={css({ textAlign: "center", mt: "4rem", mb: "2rem" })}>
+          <h3 className={subheading}>What you get</h3>
+          <p className={subheadingCopy}>
+            Everything you need to build beautiful, accessible interfaces with
+            Apple's design language
+          </p>
         </div>
         <div className={smallSection}>
           {rows.map((row, index) => (
             <React.Fragment key={`row-${index}`}>
-              {index === 1 ? <div className={rowDivider} aria-hidden /> : null}
               <div className={smallRow}>
                 {row.map((item) => (
                   <OverviewCard
@@ -207,6 +235,18 @@ export default function Features() {
                   />
                 ))}
               </div>
+              {index === 0 ? (
+                <div className={css({ textAlign: "center", my: "2rem" })}>
+                  <h4
+                    className={cx(
+                      typography({ role: "headline" }),
+                      css({ color: "muted" }),
+                    )}
+                  >
+                    Built for performance and accessibility
+                  </h4>
+                </div>
+              ) : null}
             </React.Fragment>
           ))}
         </div>

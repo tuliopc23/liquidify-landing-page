@@ -24,15 +24,38 @@ const introGrid = css({
   gap: "2.5rem",
   maxWidth: "72rem",
   marginX: "auto",
+  alignItems: "start",
+  rowGap: { base: "2.75rem", lg: "3.25rem" },
+  columnGap: { lg: "3rem" },
+  gridTemplateColumns: { base: "1fr", lg: "minmax(0, 1.1fr) minmax(0, 0.9fr)" },
 });
 
 const copyStack = css({
   display: "grid",
-  gap: "1rem",
-  textAlign: { base: "center", md: "left" },
+  gap: "1.25rem",
+  textAlign: { base: "center", lg: "left" },
   maxWidth: "52rem",
-  justifySelf: { base: "center", md: "stretch" },
+  justifySelf: { base: "center", lg: "stretch" },
 });
+
+const overviewLead = cx(
+  typography({ role: "title2" }),
+  css({
+    color: { base: "muted", _dark: "rgba(222,222,234,0.85)" },
+    letterSpacing: "-0.01em",
+  }),
+);
+
+const overviewBody = cx(
+  typography({ role: "body" }),
+  css({
+    fontSize: { base: "1rem", md: "1.0625rem" },
+    color: { base: "muted", _dark: "rgba(220,220,232,0.8)" },
+    lineHeight: 1.75,
+    marginX: { base: "auto", lg: 0 },
+    maxWidth: { base: "40rem", lg: "unset" },
+  }),
+);
 
 const highlightCard = css({
   backgroundColor: {
@@ -54,15 +77,13 @@ const highlightList = css({
   margin: 0,
   padding: 0,
   display: "grid",
-  gap: "0.9rem",
+  gap: "1rem",
 });
 
 const listItem = css({
   position: "relative",
   paddingLeft: "1.75rem",
-  fontFamily: "text",
   color: { base: "muted", _dark: "rgba(224,224,235,0.82)" },
-  fontSize: "1rem",
   lineHeight: 1.6,
   _before: {
     content: '""',
@@ -89,7 +110,7 @@ const OverviewSection: React.FC = () => {
                 typography({ role: "largeTitle" }),
                 css({
                   display: "flex",
-                  justifyContent: { base: "center", md: "flex-start" },
+                  justifyContent: { base: "center", lg: "flex-start" },
                 }),
               )}
             >
@@ -99,41 +120,16 @@ const OverviewSection: React.FC = () => {
                 className={css({ alignItems: "center" })}
               />
             </h2>
-            <p
-              className={cx(
-                typography({ role: "title1" }),
-                css({
-                  color: { base: "muted", _dark: "rgba(222,222,234,0.85)" },
-                }),
-              )}
-            >
+            <p className={overviewLead}>
               HIG-aligned React components for the web
             </p>
-            <p
-              className={cx(
-                typography({ role: "body" }),
-                css({
-                  fontSize: { base: "1rem", md: "1.0625rem" },
-                  color: { base: "muted", _dark: "rgba(220,220,232,0.8)" },
-                  lineHeight: 1.8,
-                }),
-              )}
-            >
+            <p className={overviewBody}>
               Liquidify brings Apple's latest Human Interface Guidelines to the
               web with a modern React component library. Built with React, Vite,
               and Panda CSS, it's responsive by default and fully
               tree-shakeable, so you ship only what you use.
             </p>
-            <p
-              className={cx(
-                typography({ role: "body" }),
-                css({
-                  fontSize: { base: "1rem", md: "1.0625rem" },
-                  color: { base: "muted", _dark: "rgba(220,220,232,0.8)" },
-                  lineHeight: 1.8,
-                }),
-              )}
-            >
+            <p className={overviewBody}>
               Crafted for app developers, Liquidify helps your web experiences
               feel native to iOS and macOS, preserving familiar typography,
               spacing, motion, and interaction patterns for a seamless brand and
@@ -186,7 +182,10 @@ const OverviewSection: React.FC = () => {
             </h3>
             <ul className={highlightList}>
               {highlights.map((item) => (
-                <li key={item} className={listItem}>
+                <li
+                  key={item}
+                  className={cx(typography({ role: "body" }), listItem)}
+                >
                   {item}
                 </li>
               ))}

@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 
 export type ThemeMode = "light" | "dark" | "system";
 
+// Broadcast channel for theme changes within the same window
+const THEME_EVENT = "ui.theme.change" as const;
+
 const STORAGE_KEY = "ui.theme";
 
 const getSystemTheme = (): "light" | "dark" =>
@@ -38,6 +41,14 @@ export const applyTheme = (mode: ThemeMode) => {
   root.setAttribute("data-theme-mode", mode);
   // Ensure libraries that read data-theme get the resolved value
   root.setAttribute("data-theme", resolved);
+  // Notify any listeners in this window so all components update immediately
+  try {
+    window.dispatchEvent(
+      new CustomEvent(THEME_EVENT, { detail: { mode, resolved } }),
+    );
+  } catch {
+    // no-op in non-browser contexts
+  }
 };
 
 export function useTheme(): [ThemeMode, (m: ThemeMode) => void] {
@@ -66,6 +77,32 @@ export function useTheme(): [ThemeMode, (m: ThemeMode) => void] {
         mql.removeEventListener("change", handler);
       } catch {
         mql.removeListener(handler);
+      }
+    };
+  }, [mode]);
+
+  // Listen for theme changes dispatched elsewhere in the app (same window)
+  useEffect(() => {
+    type ThemeEvent = CustomEvent<{
+      mode: ThemeMode;
+      resolved: "light" | "dark";
+    }>;
+    const onTheme = (e: Event) => {
+      const ev = e as ThemeEvent;
+      const next: ThemeMode | undefined = ev?.detail?.mode;
+      if (!next) return;
+      if (next !== mode) setMode(next);
+    };
+    try {
+      window.addEventListener(THEME_EVENT, onTheme as EventListener);
+    } catch {
+      /* noop */
+    }
+    return () => {
+      try {
+        window.removeEventListener(THEME_EVENT, onTheme as EventListener);
+      } catch {
+        /* noop */
       }
     };
   }, [mode]);
