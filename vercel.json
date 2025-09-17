@@ -4,11 +4,6 @@
   "devCommand": "bun run dev",
   "installCommand": "bun install",
   "framework": null,
-  "functions": {
-    "api/**/*": {
-      "runtime": "nodejs20.x"
-    }
-  },
   "rewrites": [
     {
       "source": "/(.*)",
