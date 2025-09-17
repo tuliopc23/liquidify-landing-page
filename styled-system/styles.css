@@ -539,6 +539,10 @@
     gap: 24px;
 }
 
+  .bdr_0 {
+    border-radius: 0;
+}
+
   .gap_1\.75rem {
     gap: 1.75rem;
 }
@@ -1380,6 +1384,18 @@
 
   .mb_3rem {
     margin-bottom: 3rem;
+}
+
+  .ml_-1\.35rem {
+    margin-left: -1.35rem;
+}
+
+  .mr_-1\.35rem {
+    margin-right: -1.35rem;
+}
+
+  .mt_0\.25rem {
+    margin-top: 0.25rem;
 }
 
   .mt_1\.5rem {

@@ -90,6 +90,12 @@ const Documentation: React.FC = () => {
               language="bash"
               code={`bun add liquidify-react react react-dom @ark-ui/react framer-motion lucide-react`}
               ariaLabel="Installation command"
+              className={css({
+                marginLeft: "-1.35rem",
+                marginRight: "-1.35rem",
+                marginTop: "0.25rem",
+                borderRadius: 0,
+              })}
             />
             <p className={cx(typography({ role: "footnote" }), helperText)}>
               Bun, npm, pnpm, and yarn are supported. The package ships as pure
@@ -114,6 +120,12 @@ export default function App() {
   return <Button intent="primary">Get Started</Button>;
 }`}
               ariaLabel="Usage example"
+              className={css({
+                marginLeft: "-1.35rem",
+                marginRight: "-1.35rem",
+                marginTop: "0.25rem",
+                borderRadius: 0,
+              })}
             />
             <p className={cx(typography({ role: "footnote" }), helperText)}>
               Use subpath imports for tree‑shaking, e.g.{" "}
