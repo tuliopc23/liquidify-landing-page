@@ -42,7 +42,7 @@ const sectionHeading = cx(
 const sectionIntro = cx(
   typography({ role: "title3" }),
   css({
-    color: "muted",
+    color: { base: "#6e6e73", _dark: "rgba(222,222,234,0.86)" },
     fontWeight: 500,
     maxWidth: "40rem",
     marginX: "auto",
@@ -69,7 +69,7 @@ export default function Features() {
       href: "#hig-web",
       cover: <CardArt variant="hig" tone={resolved} scale={0.6} />,
       eyebrow: "Design language",
-      title: "Apple HIG — on the web",
+      title: "HIG principles — on the web",
       summary:
         "SF typography, tempered glass surfaces, and motion curves tuned for browsers.",
       cta: "Explore the guidelines ›",

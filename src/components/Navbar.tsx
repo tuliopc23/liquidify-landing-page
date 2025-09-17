@@ -28,7 +28,8 @@ const toggleRoot = css({
 
 const toggleOption = css({
   paddingInline: "0.875rem",
-  paddingBlock: "0.35rem",
+  paddingBlock: "0.4375rem",
+  minHeight: "2.25rem",
   borderRadius: "999px",
   border: "none",
   backgroundColor: "transparent",
@@ -36,7 +37,7 @@ const toggleOption = css({
   fontFamily: "text",
   fontSize: "0.875rem",
   fontWeight: 500,
-  lineHeight: 1.2,
+  lineHeight: 1.43,
   cursor: "pointer",
   transition:
     "background-color 150ms ease, color 150ms ease, box-shadow 150ms ease",

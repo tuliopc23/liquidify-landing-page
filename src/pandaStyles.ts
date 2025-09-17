@@ -95,9 +95,24 @@ export const button = cva({
       },
     },
     size: {
-      sm: { px: "0.875rem", py: "0.375rem", fontSize: "0.875rem" },
-      md: { px: "1.25rem", py: "0.625rem", fontSize: "1rem" },
-      lg: { px: "1.5rem", py: "0.75rem", fontSize: "1rem" },
+      sm: {
+        px: "1rem",
+        py: "0.5rem",
+        fontSize: "0.875rem",
+        minHeight: "2.75rem",
+      },
+      md: {
+        px: "1.25rem",
+        py: "0.6875rem",
+        fontSize: "1rem",
+        minHeight: "2.75rem",
+      },
+      lg: {
+        px: "1.625rem",
+        py: "0.875rem",
+        fontSize: "1.0625rem",
+        minHeight: "3rem",
+      },
     },
   },
   defaultVariants: { intent: "primary", size: "md" },

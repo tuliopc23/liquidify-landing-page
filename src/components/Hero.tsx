@@ -108,9 +108,9 @@ const Hero: React.FC = () => {
               }),
             )}
           >
-            A React component library that brings Apple’s Human Interface
-            Guidelines to the web with Liquid Glass materials — fast,
-            accessible, and themable.
+            A React component library that brings Human Interface Guidelines to
+            the web with Liquid Glass materials — fast, accessible, and
+            themable.
           </p>
         </div>
         <div className={heroActions}>

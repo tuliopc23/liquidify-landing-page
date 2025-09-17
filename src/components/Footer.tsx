@@ -147,7 +147,7 @@ const Footer: React.FC = () => {
             >
               Resources
             </h4>
-            <ul className={css({ display: "grid", gap: "0.5rem" })}>
+            <ul className={css({ display: "grid", gap: "0.625rem" })}>
               <li>
                 <a
                   href="#"
@@ -219,7 +219,7 @@ const Footer: React.FC = () => {
             >
               Community
             </h4>
-            <ul className={css({ display: "grid", gap: "0.5rem" })}>
+            <ul className={css({ display: "grid", gap: "0.625rem" })}>
               <li>
                 <a
                   href="#"
