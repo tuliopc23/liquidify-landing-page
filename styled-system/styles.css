@@ -1194,20 +1194,20 @@
     cursor: default;
 }
 
-  .bx-sh_0_14px_42px_rgba\(0\,0\,0\,0\.16\) {
-    box-shadow: 0 14px 42px rgba(0,0,0,0.16);
+  .bx-sh_0_8px_32px_rgba\(0\,0\,0\,0\.08\)\,_0_0_0_1px_rgba\(0\,0\,0\,0\.04\) {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04);
 }
 
-  .bx-sh_0_18px_56px_rgba\(0\,0\,0\,0\.18\) {
-    box-shadow: 0 18px 56px rgba(0,0,0,0.18);
+  .bx-sh_0_12px_48px_rgba\(0\,0\,0\,0\.10\)\,_0_0_0_1px_rgba\(0\,0\,0\,0\.04\) {
+    box-shadow: 0 12px 48px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04);
 }
 
-  .bx-sh_0_20px_50px_rgba\(0\,0\,0\,0\.34\) {
-    box-shadow: 0 20px 50px rgba(0,0,0,0.34);
+  .bx-sh_0_12px_40px_rgba\(0\,0\,0\,0\.4\)\,_0_0_0_1px_rgba\(255\,255\,255\,0\.06\)\,_0_0_80px_rgba\(10\,132\,255\,0\.15\) {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06), 0 0 80px rgba(10,132,255,0.15);
 }
 
-  .bx-sh_0_22px_60px_rgba\(0\,0\,0\,0\.38\) {
-    box-shadow: 0 22px 60px rgba(0,0,0,0.38);
+  .bx-sh_0_20px_60px_rgba\(0\,0\,0\,0\.5\)\,_0_0_0_1px_rgba\(255\,255\,255\,0\.08\)\,_0_0_120px_rgba\(10\,132\,255\,0\.12\) {
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08), 0 0 120px rgba(10,132,255,0.12);
 }
 
   .c_inherit {
@@ -2003,12 +2003,12 @@
     color: var(--colors-text);
 }
 
-  .hover\:bx-sh_0_26px_72px_rgba\(0\,0\,0\,0\.22\):is(:hover, [data-hover]) {
-    box-shadow: 0 26px 72px rgba(0,0,0,0.22);
+  .hover\:bx-sh_0_20px_64px_rgba\(0\,0\,0\,0\.14\)\,_0_0_0_1px_rgba\(0\,0\,0\,0\.05\):is(:hover, [data-hover]) {
+    box-shadow: 0 20px 64px rgba(0,0,0,0.14), 0 0 0 1px rgba(0,0,0,0.05);
 }
 
-  .hover\:bx-sh_0_30px_80px_rgba\(0\,0\,0\,0\.45\):is(:hover, [data-hover]) {
-    box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+  .hover\:bx-sh_0_30px_80px_rgba\(0\,0\,0\,0\.6\)\,_0_0_0_1px_rgba\(255\,255\,255\,0\.1\)\,_0_0_140px_rgba\(10\,132\,255\,0\.18\):is(:hover, [data-hover]) {
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.1), 0 0 140px rgba(10,132,255,0.18);
 }
 
   .hover\:trf_translateY\(-4px\):is(:hover, [data-hover]) {

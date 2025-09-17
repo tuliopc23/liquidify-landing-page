@@ -33,8 +33,8 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
     ? {
         transform: "translateY(-4px)",
         boxShadow: isLightCard
-          ? "0 26px 72px rgba(0,0,0,0.22)"
-          : "0 30px 80px rgba(0,0,0,0.45)",
+          ? "0 20px 64px rgba(0,0,0,0.14), 0 0 0 1px rgba(0,0,0,0.05)"
+          : "0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.1), 0 0 140px rgba(10,132,255,0.18)",
       }
     : {};
   const card = css({
@@ -52,11 +52,11 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
     transition: "transform 180ms ease, box-shadow 200ms ease",
     boxShadow: isLightCard
       ? isCompact
-        ? "0 14px 42px rgba(0,0,0,0.16)"
-        : "0 18px 56px rgba(0,0,0,0.18)"
+        ? "0 8px 32px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04)"
+        : "0 12px 48px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04)"
       : isCompact
-        ? "0 20px 50px rgba(0,0,0,0.34)"
-        : "0 22px 60px rgba(0,0,0,0.38)",
+        ? "0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06), 0 0 80px rgba(10,132,255,0.15)"
+        : "0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08), 0 0 120px rgba(10,132,255,0.12)",
     _hover: hoverStyles,
     _focusVisible: {
       outline: "none",
