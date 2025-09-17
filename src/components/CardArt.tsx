@@ -34,7 +34,7 @@ const artClass = css({
 const VIEWBOX_WIDTH = 320;
 const VIEWBOX_HEIGHT = 180;
 const GLYPH_CANVAS_WIDTH = 320;
-const GLYPH_CANVAS_HEIGHT = 200;
+const GLYPH_CANVAS_HEIGHT = 180;
 const OUTER_RADIUS = 28;
 const DEFAULT_SCALE = 0.72;
 

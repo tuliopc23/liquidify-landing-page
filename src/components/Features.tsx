@@ -67,7 +67,7 @@ export default function Features() {
   const cards: OverviewCardProps[] = [
     {
       href: "#hig-web",
-      cover: <CardArt variant="hig" tone={resolved} scale={0.6} />,
+      cover: <CardArt variant="hig" tone={resolved} scale={0.58} />,
       eyebrow: "Design language",
       title: "HIG principles — on the web",
       summary:
@@ -77,7 +77,7 @@ export default function Features() {
     },
     {
       href: "#apps-sites",
-      cover: <CardArt variant="apps" tone={resolved} scale={0.6} />,
+      cover: <CardArt variant="apps" tone={resolved} scale={0.58} />,
       eyebrow: "Use cases",
       title: "Built for Apple app sites",
       summary:
@@ -87,7 +87,7 @@ export default function Features() {
     },
     {
       href: "#quality",
-      cover: <CardArt variant="quality" tone={resolved} scale={0.6} />,
+      cover: <CardArt variant="quality" tone={resolved} scale={0.58} />,
       eyebrow: "Quality",
       title: "Accessible, fast, themable",
       summary:
@@ -162,7 +162,7 @@ export default function Features() {
   ];
 
   const smallFeatures = smallFeaturesBase.map((feature) => {
-    const scale = 0.56;
+    const scale = 0.54;
     return {
       ...feature,
       theme: resolved,

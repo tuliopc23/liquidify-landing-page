@@ -79,7 +79,7 @@ const Documentation: React.FC = () => {
           })}
         >
           <OverviewCard
-            cover={<CardArt variant="install" tone={resolved} scale={0.6} />}
+            cover={<CardArt variant="install" tone={resolved} scale={0.58} />}
             eyebrow="Setup"
             title="Install"
             summary="Install Liquidify together with its peer dependencies in a single command."
@@ -98,7 +98,7 @@ const Documentation: React.FC = () => {
           </OverviewCard>
 
           <OverviewCard
-            cover={<CardArt variant="usage" tone={resolved} scale={0.6} />}
+            cover={<CardArt variant="usage" tone={resolved} scale={0.58} />}
             eyebrow="First component"
             title="Use"
             summary="Import the styles once, then pull components from focused entry points."
@@ -122,7 +122,7 @@ export default function App() {
           </OverviewCard>
 
           <OverviewCard
-            cover={<CardArt variant="inside" tone={resolved} scale={0.6} />}
+            cover={<CardArt variant="inside" tone={resolved} scale={0.58} />}
             eyebrow="What ships"
             title="What's inside"
             summary="47 Ark UI wrappers, Liquid Glass surfaces, Panda tokens, and type-safe recipes."
