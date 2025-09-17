@@ -5,7 +5,17 @@ import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { ignores: ["dist", "styled-system/**/*", "Design Logo and Assets/**/*"] },
+  {
+    ignores: [
+      "dist",
+      "styled-system/**/*",
+      "Design Logo and Assets/**/*",
+      "node_modules/**/*",
+      "~/.bun/**/*",
+      "**/node_modules/**",
+      "**/.bun/**",
+    ],
+  },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ["**/*.{ts,tsx}"],

@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@tanstack/react-router": "^1.131.44",
+    "cache": "^3.0.0",
     "lucide-react": "^0.544.0",
     "prismjs": "^1.30.0",
     "react": "^19.1.1",

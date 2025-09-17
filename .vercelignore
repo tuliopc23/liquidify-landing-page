@@ -12,7 +12,6 @@ coverage/
 .env*.local
 
 # Build outputs (we'll build on Vercel)
-dist/
 .output/
 .tanstack/
 
@@ -39,6 +38,3 @@ scripts/
 apple-card-demo-dual.html
 AGENTS.md
 WARP.md
-
-# Panda CSS (will be generated during build)
-styled-system/

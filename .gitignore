@@ -1,13 +1,13 @@
 # Dependencies
 node_modules/
+.bun/
+~/.bun/
 
 # Builds
-.dist/
 dist/
 .output/
 .tanstack/
 .nitro/
-.vercel/
 .vinxi/
 
 # Locks & logs
@@ -20,3 +20,20 @@ package-lock.json
 .vscode/
 .idea/
 .DS_Store
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Vercel
+.vercel/
+
+# Coverage
+coverage/
+.nyc_output/
+
+# OS
+.DS_Store
+Thumbs.db
+.replit

@@ -149,10 +149,16 @@ const Navbar: React.FC = () => {
               alignItems: "center",
               padding: "0.5rem",
               borderRadius: "0.375rem",
-              color: { base: "rgba(60,60,67,0.6)", _dark: "rgba(235,235,245,0.6)" },
+              color: {
+                base: "rgba(60,60,67,0.6)",
+                _dark: "rgba(235,235,245,0.6)",
+              },
               transition: "color 150ms ease",
               _hover: {
-                color: { base: "rgba(60,60,67,0.85)", _dark: "rgba(235,235,245,0.85)" }
+                color: {
+                  base: "rgba(60,60,67,0.85)",
+                  _dark: "rgba(235,235,245,0.85)",
+                },
               },
             })}
             aria-label="View Liquidify on GitHub"
