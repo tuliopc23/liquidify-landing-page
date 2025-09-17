@@ -1,0 +1,65 @@
+# Bun configuration file
+# https://bun.sh/docs/runtime/bunfig
+
+# Package manager settings
+[install]
+# Use the local platform-specific binary when possible
+preferOffline = false
+
+# Save exact versions to package.json
+save = true
+saveExact = false
+
+# Install peer dependencies automatically
+auto = "auto"
+
+# Production optimizations
+production = false
+
+# Lockfile settings
+lockfile = { save = true, print = "yarn" }
+
+# Cache directory
+cache = "~/.bun/install/cache"
+
+# Registry configuration
+registry = "https://registry.npmjs.org"
+
+# Scopes (for private registries if needed)
+[install.scopes]
+
+# Build configuration
+[build]
+minify = true
+sourcemap = "external"
+target = "browser"
+splitting = true
+publicPath = "/"
+
+# Development settings
+[dev]
+port = 5173
+host = "localhost"
+
+# Test configuration (if you add tests later)
+[test]
+coverage = false
+coverageDirectory = "./coverage"
+timeout = 5000
+
+# Runtime configuration
+[runtime]
+# Use JSX automatic runtime
+jsx = "automatic"
+jsxImportSource = "react"
+
+# Telemetry
+telemetry = false
+
+# Logging
+logLevel = "info"
+
+# Package resolution
+[install.resolutions]
+# Add any package resolutions/overrides here if needed
+# Example: "package-name" = "1.2.3"

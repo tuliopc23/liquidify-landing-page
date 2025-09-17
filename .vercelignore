@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+*.test.*
+*.spec.*
+
+# Local env files
+.env*.local
+
+# Build outputs (we'll build on Vercel)
+dist/
+.output/
+.tanstack/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+*.md
+!README.md
+
+# Development files
+backups/
+public/codeblocs/
+scripts/
+apple-card-demo-dual.html
+AGENTS.md
+WARP.md
+
+# Panda CSS (will be generated during build)
+styled-system/
