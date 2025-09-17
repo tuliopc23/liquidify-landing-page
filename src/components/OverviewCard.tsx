@@ -44,7 +44,9 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
     overflow: "hidden",
     textDecoration: "none",
     color: "inherit",
-    backgroundColor: "transparent",
+    backgroundColor: isLightCard
+      ? "rgba(255,255,255,0.96)"
+      : "rgba(19,19,22,0.94)",
     transform: "translateZ(0)",
     cursor: href ? "pointer" : "default",
     transition: "transform 180ms ease, box-shadow 200ms ease",
@@ -101,14 +103,14 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
   });
 
   const details = css({
-    backgroundColor: isLightCard
-      ? "rgba(255,255,255,0.96)"
-      : "rgba(19,19,22,0.94)",
+    backgroundColor: "transparent",
     color: isLightCard ? "#1d1d1f" : "rgba(248,248,250,0.93)",
     padding: isCompact ? "1rem 1.15rem 1.2rem" : "1.15rem 1.35rem 1.3rem",
     display: "grid",
     gap: isCompact ? "0.45rem" : "0.55rem",
     minHeight: isCompact ? "10.5rem" : "12.5rem",
+    borderBottomLeftRadius: isCompact ? "1rem" : "1.125rem",
+    borderBottomRightRadius: isCompact ? "1rem" : "1.125rem",
   });
 
   const eyebrowCls = css({

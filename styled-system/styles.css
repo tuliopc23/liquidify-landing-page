@@ -539,10 +539,6 @@
     gap: 24px;
 }
 
-  .bdr_0 {
-    border-radius: 0;
-}
-
   .gap_1\.75rem {
     gap: 1.75rem;
 }
@@ -1162,6 +1158,14 @@
     box-shadow: 0 18px 44px rgba(15,23,42,0.08);
 }
 
+  .bg-c_rgba\(255\,255\,255\,0\.96\) {
+    background-color: rgba(255,255,255,0.96);
+}
+
+  .bg-c_rgba\(19\,19\,22\,0\.94\) {
+    background-color: rgba(19,19,22,0.94);
+}
+
   .cursor_default {
     cursor: default;
 }
@@ -1212,14 +1216,6 @@
 
   .bg-c_rgba\(255\,255\,255\,0\.1\) {
     background-color: rgba(255,255,255,0.1);
-}
-
-  .bg-c_rgba\(255\,255\,255\,0\.96\) {
-    background-color: rgba(255,255,255,0.96);
-}
-
-  .bg-c_rgba\(19\,19\,22\,0\.94\) {
-    background-color: rgba(19,19,22,0.94);
 }
 
   .c_rgba\(248\,248\,250\,0\.93\) {
@@ -1384,18 +1380,6 @@
 
   .mb_3rem {
     margin-bottom: 3rem;
-}
-
-  .ml_-1\.35rem {
-    margin-left: -1.35rem;
-}
-
-  .mr_-1\.35rem {
-    margin-right: -1.35rem;
-}
-
-  .mt_0\.25rem {
-    margin-top: 0.25rem;
 }
 
   .mt_1\.5rem {
@@ -1572,6 +1556,22 @@
 
   .min-h_12\.5rem {
     min-height: 12.5rem;
+}
+
+  .bdr-bl_1rem {
+    border-bottom-left-radius: 1rem;
+}
+
+  .bdr-bl_1\.125rem {
+    border-bottom-left-radius: 1.125rem;
+}
+
+  .bdr-br_1rem {
+    border-bottom-right-radius: 1rem;
+}
+
+  .bdr-br_1\.125rem {
+    border-bottom-right-radius: 1.125rem;
 }
 
   .max-w_52rem {
