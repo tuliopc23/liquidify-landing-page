@@ -4,6 +4,7 @@ import { containerX, navLink } from "../pandaStyles";
 import { useTheme } from "../theme";
 import type { ThemeMode } from "../theme";
 import { LiquidifyBrand } from "./BrandAssets";
+import { Github } from "lucide-react";
 
 const themeOptions: Array<{ mode: ThemeMode; label: string }> = [
   { mode: "light", label: "Light" },
@@ -138,6 +139,25 @@ const Navbar: React.FC = () => {
           </a>
           <a href="#docs" className={navLink}>
             Docs
+          </a>
+          <a
+            href="https://github.com/tuliopc23/LiqUIdify"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={css({
+              display: "inline-flex",
+              alignItems: "center",
+              padding: "0.5rem",
+              borderRadius: "0.375rem",
+              color: { base: "rgba(60,60,67,0.6)", _dark: "rgba(235,235,245,0.6)" },
+              transition: "color 150ms ease",
+              _hover: {
+                color: { base: "rgba(60,60,67,0.85)", _dark: "rgba(235,235,245,0.85)" }
+              },
+            })}
+            aria-label="View Liquidify on GitHub"
+          >
+            <Github size={20} />
           </a>
           <div role="radiogroup" aria-label="Theme mode" className={toggleRoot}>
             {themeOptions.map((option) => {

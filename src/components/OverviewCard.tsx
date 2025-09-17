@@ -88,6 +88,10 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
     // Uniform inner margin so artwork never touches edges and appears consistently scaled
     padding: isCompact ? "8%" : "6%",
     boxSizing: "border-box",
+    "@supports (-webkit-touch-callout: none)": {
+      // Safari applies percentage padding more aggressively on aspect-ratio flex items
+      padding: isCompact ? "6%" : "4.5%",
+    },
     "& > *": {
       display: "flex",
       alignItems: "center",
