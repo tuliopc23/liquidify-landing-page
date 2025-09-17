@@ -28,30 +28,54 @@ const wrapperClass = css({
 
 const preClass = css({
   m: 0,
-  p: { base: "1rem", md: "1.25rem" },
+  p: { base: "0.875rem", md: "1rem" },
   fontFamily: "mono",
-  fontSize: { base: "0.85rem", md: "0.9rem" },
-  lineHeight: 1.6,
+  fontSize: { base: "0.8125rem", md: "0.875rem" },
+  lineHeight: 1.5,
   overflow: "auto",
+  maxHeight: "24rem",
   backgroundColor: "transparent",
   color: { base: "#f6f8ff", _dark: "#f6f8ff" },
+  scrollbarWidth: "thin",
+  scrollbarColor: "rgba(255,255,255,0.2) transparent",
+  "&::-webkit-scrollbar": {
+    width: "8px",
+    height: "8px",
+  },
+  "&::-webkit-scrollbar-track": {
+    background: "transparent",
+  },
+  "&::-webkit-scrollbar-thumb": {
+    background: "rgba(255,255,255,0.2)",
+    borderRadius: "4px",
+    _hover: {
+      background: "rgba(255,255,255,0.3)",
+    },
+  },
 });
 
 const copyButtonClass = css({
   position: "absolute",
-  top: "0.75rem",
-  right: "0.75rem",
-  padding: "0.5rem",
-  backgroundColor: "rgba(255, 255, 255, 0.1)",
-  border: "1px solid rgba(255, 255, 255, 0.2)",
-  borderRadius: "9999px",
-  color: "white",
+  top: "0.625rem",
+  right: "0.625rem",
+  padding: "0.375rem 0.625rem",
+  backgroundColor: "rgba(255, 255, 255, 0.08)",
+  border: "1px solid rgba(255, 255, 255, 0.16)",
+  borderRadius: "0.5rem",
+  color: "rgba(255, 255, 255, 0.9)",
   cursor: "pointer",
-  fontSize: "0.875rem",
-  transition: "all 200ms ease",
+  fontSize: "0.75rem",
+  fontWeight: 500,
+  fontFamily: "text",
+  letterSpacing: "0.01em",
+  transition: "all 180ms ease",
+  backdropFilter: "blur(8px)",
   _hover: {
-    backgroundColor: "rgba(255, 255, 255, 0.2)",
-    transform: "scale(1.05)",
+    backgroundColor: "rgba(255, 255, 255, 0.12)",
+    borderColor: "rgba(255, 255, 255, 0.24)",
+  },
+  _active: {
+    transform: "scale(0.98)",
   },
 });
 
@@ -132,8 +156,9 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
         onClick={handleCopy}
         className={copyButtonClass}
         title="Copy code"
+        aria-label={copied ? "Copied" : "Copy code"}
       >
-        {copied ? "✓" : "⧉"}
+        {copied ? "Copied" : "Copy"}
       </button>
       <pre className={cx("prism-no-bg", preClass)} aria-label={ariaLabel}>
         <code className={cx(`language-${lang}`)}>

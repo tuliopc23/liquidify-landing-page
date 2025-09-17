@@ -94,7 +94,7 @@ const Hero: React.FC = () => {
               }),
             )}
           >
-            Apple HIG in{" "}
+            HIG-Inspired{" "}
             <span className={css({ color: "apple-blue" })}>Liquid Glass</span>
           </h1>
           <p

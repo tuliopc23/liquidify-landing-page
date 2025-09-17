@@ -10,7 +10,7 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>LiqUIdify – Apple-Inspired React Components</title>
+        <title>LiqUIdify – HIG-Inspired React Components</title>
         <meta
           name="description"
           content="Build beautiful, accessible UIs with Liquid Glass-styled React components."
@@ -19,7 +19,7 @@ function HomePage() {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="LiqUIdify – Apple-Inspired React Components"
+          content="LiqUIdify – HIG-Inspired React Components"
         />
         <meta
           property="og:description"
