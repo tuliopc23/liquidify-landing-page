@@ -5,14 +5,19 @@ import {
   sectionLead,
   pageSection,
   typography,
+  containerX,
 } from "../pandaStyles";
 import OverviewCard, { type OverviewCardProps } from "./OverviewCard";
 import CardArt, { type CardArtVariant } from "./CardArt";
 
 const grid = css({
   display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-  gap: "28px",
+  gridTemplateColumns: {
+    base: "1fr",
+    md: "repeat(2, 1fr)",
+    xl: "repeat(3, 1fr)",
+  },
+  gap: "24px",
   mt: "1.5rem",
 });
 
@@ -29,6 +34,7 @@ const smallRow = css({
   gridTemplateColumns: {
     base: "repeat(1, minmax(0, 1fr))",
     sm: "repeat(2, minmax(0, 1fr))",
+    lg: "repeat(3, minmax(0, 1fr))",
     xl: "repeat(4, minmax(0, 1fr))",
   },
 });
@@ -44,7 +50,7 @@ export default function Features() {
   const cards: OverviewCardProps[] = [
     {
       href: "#hig-web",
-      cover: <CardArt variant="hig" tone="light" scale={0.68} />,
+      cover: <CardArt variant="hig" tone="light" scale={0.62} />,
       eyebrow: "Design language",
       title: "Apple HIG — on the web",
       summary:
@@ -54,7 +60,7 @@ export default function Features() {
     },
     {
       href: "#apps-sites",
-      cover: <CardArt variant="apps" tone="dark" scale={0.68} />,
+      cover: <CardArt variant="apps" tone="dark" scale={0.62} />,
       eyebrow: "Use cases",
       title: "Built for Apple app sites",
       summary:
@@ -64,7 +70,7 @@ export default function Features() {
     },
     {
       href: "#quality",
-      cover: <CardArt variant="quality" tone="dark" scale={0.7} />,
+      cover: <CardArt variant="quality" tone="dark" scale={0.62} />,
       eyebrow: "Quality",
       title: "Accessible, fast, themable",
       summary:
@@ -141,7 +147,7 @@ export default function Features() {
   const smallFeatures = smallFeaturesBase.map((feature, index) => {
     const theme = index % 2 === 0 ? "dark" : "light";
     const tone = theme === "light" ? "light" : "dark";
-    const scale = theme === "light" ? 0.6 : 0.58;
+    const scale = 0.56;
     return {
       ...feature,
       theme,
@@ -165,43 +171,45 @@ export default function Features() {
         }),
       )}
     >
-      <div className={css({ textAlign: "center", mb: "2.5rem" })}>
-        <h2 className={cx(sectionTitle())}>Dive into Liquidify</h2>
-        <p className={cx(sectionLead())}>
-          Built with meticulous attention to detail — close to Apple's HIG,
-          adapted to the web.
-        </p>
-      </div>
-      <div className={grid}>
-        {cards.map((c) => (
-          <OverviewCard key={c.title} {...c} />
-        ))}
-      </div>
+      <div className={containerX}>
+        <div className={css({ textAlign: "center", mb: "2.5rem" })}>
+          <h2 className={cx(sectionTitle())}>Dive into Liquidify</h2>
+          <p className={cx(sectionLead())}>
+            Built with meticulous attention to detail — close to Apple's HIG,
+            adapted to the web.
+          </p>
+        </div>
+        <div className={grid}>
+          {cards.map((c) => (
+            <OverviewCard key={c.title} {...c} />
+          ))}
+        </div>
 
-      {/* Small feature cards */}
-      <div className={css({ textAlign: "center", mt: "3rem", mb: "1rem" })}>
-        <h3 className={cx(typography({ role: "headline" }))}>What you get</h3>
-      </div>
-      <div className={smallSection}>
-        {rows.map((row, index) => (
-          <React.Fragment key={`row-${index}`}>
-            {index === 1 ? <div className={rowDivider} aria-hidden /> : null}
-            <div className={smallRow}>
-              {row.map((item) => (
-                <OverviewCard
-                  key={item.title}
-                  cover={item.cover}
-                  eyebrow={item.eyebrow}
-                  title={item.title}
-                  summary={item.summary}
-                  cta={null}
-                  size="compact"
-                  theme={item.theme}
-                />
-              ))}
-            </div>
-          </React.Fragment>
-        ))}
+        {/* Small feature cards */}
+        <div className={css({ textAlign: "center", mt: "3rem", mb: "1rem" })}>
+          <h3 className={cx(typography({ role: "headline" }))}>What you get</h3>
+        </div>
+        <div className={smallSection}>
+          {rows.map((row, index) => (
+            <React.Fragment key={`row-${index}`}>
+              {index === 1 ? <div className={rowDivider} aria-hidden /> : null}
+              <div className={smallRow}>
+                {row.map((item) => (
+                  <OverviewCard
+                    key={item.title}
+                    cover={item.cover}
+                    eyebrow={item.eyebrow}
+                    title={item.title}
+                    summary={item.summary}
+                    cta={null}
+                    size="compact"
+                    theme={item.theme}
+                  />
+                ))}
+              </div>
+            </React.Fragment>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -30,6 +30,7 @@ export const LiquidifyLogomark: React.FC<LiquidifyLogomarkProps> = ({
 }) => {
   const cornerRadius = size * 0.225;
   const uniqueId = useId();
+  const isCompact = size <= 36;
 
   const gradientIds = {
     base: `liquidify-base-${uniqueId}`,
@@ -49,6 +50,18 @@ export const LiquidifyLogomark: React.FC<LiquidifyLogomarkProps> = ({
     glow: `liquidify-glow-${uniqueId}`,
   };
 
+  const clipId = `liquidify-clip-${uniqueId}`;
+
+  const filterFrame = {
+    x: -size * 0.45,
+    y: -size * 0.45,
+    width: size * 1.9,
+    height: size * 1.9,
+  };
+
+  const outerShadowDeviation = isCompact ? size * 0.08 : size * 0.12;
+  const outerShadowSpread = isCompact ? size * 0.12 : size * 0.18;
+
   const labelled = Boolean(ariaLabel);
 
   return (
@@ -58,6 +71,7 @@ export const LiquidifyLogomark: React.FC<LiquidifyLogomarkProps> = ({
       viewBox={`0 0 ${size} ${size}`}
       className={className}
       xmlns="http://www.w3.org/2000/svg"
+      shapeRendering="geometricPrecision"
       role={labelled ? "img" : undefined}
       aria-label={ariaLabel}
       aria-hidden={labelled ? undefined : true}
@@ -140,33 +154,40 @@ export const LiquidifyLogomark: React.FC<LiquidifyLogomarkProps> = ({
         </linearGradient>
         <filter
           id={filterIds.soft}
-          x="-50%"
-          y="-50%"
-          width="200%"
-          height="200%"
+          filterUnits="userSpaceOnUse"
+          primitiveUnits="userSpaceOnUse"
+          x={filterFrame.x}
+          y={filterFrame.y}
+          width={filterFrame.width}
+          height={filterFrame.height}
         >
           <feGaussianBlur stdDeviation={size * 0.02} />
         </filter>
         <filter
           id={filterIds.glow}
-          x="-50%"
-          y="-50%"
-          width="200%"
-          height="200%"
+          filterUnits="userSpaceOnUse"
+          primitiveUnits="userSpaceOnUse"
+          x={filterFrame.x}
+          y={filterFrame.y}
+          width={filterFrame.width}
+          height={filterFrame.height}
         >
           <feDropShadow
             dx="0"
-            dy={size * 0.12}
-            stdDeviation={size * 0.18}
+            dy={outerShadowDeviation}
+            stdDeviation={outerShadowSpread}
             floodColor="rgba(59,130,246,0.4)"
           />
           <feDropShadow
             dx="0"
-            dy={size * 0.06}
-            stdDeviation={size * 0.09}
+            dy={outerShadowDeviation * 0.5}
+            stdDeviation={outerShadowSpread * 0.5}
             floodColor="rgba(96,165,250,0.35)"
           />
         </filter>
+        <clipPath id={clipId}>
+          <rect width={size} height={size} rx={cornerRadius} />
+        </clipPath>
       </defs>
 
       <rect
@@ -196,56 +217,56 @@ export const LiquidifyLogomark: React.FC<LiquidifyLogomarkProps> = ({
         fill={`url(#${gradientIds.glass2})`}
       />
 
-      <circle
-        cx={size / 2}
-        cy={size / 2}
-        r={size * 0.25}
-        fill={`url(#${gradientIds.orb})`}
-        filter={`url(#${filterIds.soft})`}
-      />
-      <circle
-        cx={size / 2}
-        cy={size / 2}
-        r={size * 0.125}
-        fill={`url(#${gradientIds.orbCore})`}
-      />
-
-      <circle
-        cx={size * 0.32}
-        cy={size * 0.27}
-        r={size * 0.075}
-        fill={`url(#${gradientIds.drop1})`}
-        filter={`url(#${filterIds.soft})`}
-      />
-      <circle
-        cx={size * 0.75}
-        cy={size * 0.71}
-        r={size * 0.06}
-        fill={`url(#${gradientIds.drop2})`}
-        filter={`url(#${filterIds.soft})`}
-      />
-      <circle
-        cx={size * 0.69}
-        cy={size * 0.34}
-        r={size * 0.04}
-        fill={`url(#${gradientIds.drop3})`}
-        filter={`url(#${filterIds.soft})`}
-      />
-
-      <rect
-        width={size}
-        height={size}
-        rx={cornerRadius}
-        fill={`url(#${gradientIds.highlight})`}
-      />
-      <path
-        d={`M 0 ${size * 0.67} Q 0 ${size} ${cornerRadius} ${size} L ${
-          size - cornerRadius
-        } ${size} Q ${size} ${size} ${size} ${size * 0.67} L ${size} ${size} L 0 ${
-          size
-        } Z`}
-        fill={`url(#${gradientIds.shadow})`}
-      />
+      <g clipPath={`url(#${clipId})`}>
+        <circle
+          cx={size / 2}
+          cy={size / 2}
+          r={size * 0.25}
+          fill={`url(#${gradientIds.orb})`}
+          filter={`url(#${filterIds.soft})`}
+        />
+        <circle
+          cx={size / 2}
+          cy={size / 2}
+          r={size * 0.125}
+          fill={`url(#${gradientIds.orbCore})`}
+        />
+        <circle
+          cx={size * 0.32}
+          cy={size * 0.27}
+          r={size * 0.075}
+          fill={`url(#${gradientIds.drop1})`}
+          filter={`url(#${filterIds.soft})`}
+        />
+        <circle
+          cx={size * 0.75}
+          cy={size * 0.71}
+          r={size * 0.06}
+          fill={`url(#${gradientIds.drop2})`}
+          filter={`url(#${filterIds.soft})`}
+        />
+        <circle
+          cx={size * 0.69}
+          cy={size * 0.34}
+          r={size * 0.04}
+          fill={`url(#${gradientIds.drop3})`}
+          filter={`url(#${filterIds.soft})`}
+        />
+        <rect
+          width={size}
+          height={size}
+          rx={cornerRadius}
+          fill={`url(#${gradientIds.highlight})`}
+        />
+        <path
+          d={`M 0 ${size * 0.67} Q 0 ${size} ${cornerRadius} ${size} L ${
+            size - cornerRadius
+          } ${size} Q ${size} ${size} ${size} ${size * 0.67} L ${size} ${size} L 0 ${
+            size
+          } Z`}
+          fill={`url(#${gradientIds.shadow})`}
+        />
+      </g>
     </svg>
   );
 };

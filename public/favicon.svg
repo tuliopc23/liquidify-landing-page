@@ -1,4 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Liquidify logomark">
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 120 120"
+  role="img"
+  aria-label="Liquidify logomark"
+>
   <defs>
     <linearGradient id="liquidify-base" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#60a5fa" />
@@ -35,7 +40,13 @@
       <stop offset="0%" stop-color="#ffffff" stop-opacity="0.3" />
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0.1" />
     </radialGradient>
-    <linearGradient id="liquidify-highlight" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient
+      id="liquidify-highlight"
+      x1="0%"
+      y1="0%"
+      x2="100%"
+      y2="100%"
+    >
       <stop offset="0%" stop-color="#ffffff" stop-opacity="0.2" />
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
     </linearGradient>
@@ -43,27 +54,88 @@
       <stop offset="0%" stop-color="#000000" stop-opacity="0" />
       <stop offset="100%" stop-color="#000000" stop-opacity="0.3" />
     </linearGradient>
-    <filter id="liquidify-soft" x="-50%" y="-50%" width="200%" height="200%">
+    <filter
+      id="liquidify-soft"
+      filterUnits="userSpaceOnUse"
+      primitiveUnits="userSpaceOnUse"
+      x="-54"
+      y="-54"
+      width="228"
+      height="228"
+    >
       <feGaussianBlur stdDeviation="2.4" />
     </filter>
-    <filter id="liquidify-glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feDropShadow dx="0" dy="14.4" stdDeviation="21.6" flood-color="rgba(59,130,246,0.4)" />
-      <feDropShadow dx="0" dy="7.2" stdDeviation="10.8" flood-color="rgba(96,165,250,0.35)" />
+    <filter
+      id="liquidify-glow"
+      filterUnits="userSpaceOnUse"
+      primitiveUnits="userSpaceOnUse"
+      x="-54"
+      y="-54"
+      width="228"
+      height="228"
+    >
+      <feDropShadow
+        dx="0"
+        dy="9.6"
+        stdDeviation="14.4"
+        flood-color="rgba(59,130,246,0.4)"
+      />
+      <feDropShadow
+        dx="0"
+        dy="4.8"
+        stdDeviation="7.2"
+        flood-color="rgba(96,165,250,0.35)"
+      />
     </filter>
   </defs>
 
-  <rect width="120" height="120" rx="27" fill="none" filter="url(#liquidify-glow)" opacity="0.32" />
+  <rect
+    width="120"
+    height="120"
+    rx="27"
+    fill="none"
+    filter="url(#liquidify-glow)"
+    opacity="0.32"
+    shape-rendering="geometricPrecision"
+  />
   <rect width="120" height="120" rx="27" fill="url(#liquidify-base)" />
   <rect width="120" height="120" rx="27" fill="url(#liquidify-glass-1)" />
   <rect width="120" height="120" rx="27" fill="url(#liquidify-glass-2)" />
 
-  <circle cx="60" cy="60" r="30" fill="url(#liquidify-orb)" filter="url(#liquidify-soft)" />
+  <circle
+    cx="60"
+    cy="60"
+    r="30"
+    fill="url(#liquidify-orb)"
+    filter="url(#liquidify-soft)"
+  />
   <circle cx="60" cy="60" r="15" fill="url(#liquidify-orb-core)" />
 
-  <circle cx="38.4" cy="32.4" r="9" fill="url(#liquidify-drop-1)" filter="url(#liquidify-soft)" />
-  <circle cx="90" cy="85.2" r="7.2" fill="url(#liquidify-drop-2)" filter="url(#liquidify-soft)" />
-  <circle cx="82.8" cy="40.8" r="4.8" fill="url(#liquidify-drop-3)" filter="url(#liquidify-soft)" />
+  <circle
+    cx="38.4"
+    cy="32.4"
+    r="9"
+    fill="url(#liquidify-drop-1)"
+    filter="url(#liquidify-soft)"
+  />
+  <circle
+    cx="90"
+    cy="85.2"
+    r="7.2"
+    fill="url(#liquidify-drop-2)"
+    filter="url(#liquidify-soft)"
+  />
+  <circle
+    cx="82.8"
+    cy="40.8"
+    r="4.8"
+    fill="url(#liquidify-drop-3)"
+    filter="url(#liquidify-soft)"
+  />
 
   <rect width="120" height="120" rx="27" fill="url(#liquidify-highlight)" />
-  <path d="M 0 80.4 Q 0 120 27 120 L 93 120 Q 120 120 120 80.4 L 120 120 L 0 120 Z" fill="url(#liquidify-shadow)" />
+  <path
+    d="M 0 80.4 Q 0 120 27 120 L 93 120 Q 120 120 120 80.4 L 120 120 L 0 120 Z"
+    fill="url(#liquidify-shadow)"
+  />
 </svg>
