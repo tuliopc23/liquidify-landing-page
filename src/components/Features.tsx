@@ -36,7 +36,7 @@ const smallRow = css({
 
 const sectionHeading = cx(
   typography({ role: "largeTitle" }),
-  css({ marginBottom: "1rem", letterSpacing: "-0.01em" }),
+  css({ marginBottom: "1rem", letterSpacing: "-0.02em" }),
 );
 
 const sectionIntro = cx(
@@ -53,7 +53,7 @@ const sectionIntro = cx(
 
 const subheading = cx(
   typography({ role: "title2" }),
-  css({ marginBottom: "0.5rem" }),
+  css({ marginBottom: "0.5rem", letterSpacing: "-0.02em" }),
 );
 
 const subheadingCopy = cx(
@@ -245,11 +245,11 @@ export default function Features() {
                 <div className={css({ textAlign: "center", my: "2rem" })}>
                   <h4
                     className={cx(
-                      typography({ role: "callout" }),
+                      typography({ role: "headline" }),
                       css({
-                        color: "muted",
+                        color: "text",
                         fontWeight: 600,
-                        letterSpacing: "-0.005em",
+                        letterSpacing: "-0.01em",
                       }),
                     )}
                   >
@@ -257,7 +257,7 @@ export default function Features() {
                   </h4>
                   <p
                     className={cx(
-                      typography({ role: "footnote" }),
+                      typography({ role: "callout" }),
                       css({ color: "muted", mt: "0.25rem" }),
                     )}
                   >
