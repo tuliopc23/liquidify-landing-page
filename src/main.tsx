@@ -1,6 +1,7 @@
 import "../styled-system/styles.css";
 import "./styles/apple-motion.css";
 import "./styles/apple-typography.css";
+import "./styles/apple-enhancements.css";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createRouter, RouterProvider } from "@tanstack/react-router";

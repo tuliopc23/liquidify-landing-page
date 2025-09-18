@@ -26,7 +26,8 @@ function RootLayout() {
     minHeight: "100vh",
     backgroundColor: "bg.canvas",
     color: "text",
-    transition: "background-color 300ms ease, color 300ms ease",
+    transition:
+      "background-color 300ms var(--ease-out-quad), color 300ms var(--ease-out-quad)",
   });
 
   return (

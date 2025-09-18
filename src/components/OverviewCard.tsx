@@ -36,7 +36,12 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
           ? "0 20px 64px rgba(0,0,0,0.14), 0 0 0 1px rgba(0,0,0,0.05)"
           : "0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.1), 0 0 140px rgba(10,132,255,0.18)",
       }
-    : {};
+    : {
+        transform: "translateY(-1px)",
+        boxShadow: isLightCard
+          ? "0 16px 48px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.05)"
+          : "0 24px 64px rgba(0,0,0,0.44), 0 0 0 1px rgba(255,255,255,0.08)",
+      };
   const card = css({
     display: "flex",
     flexDirection: "column",
@@ -59,6 +64,7 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
         ? "0 12px 36px rgba(0,0,0,0.38), 0 0 0 1px rgba(255,255,255,0.06)"
         : "0 20px 56px rgba(0,0,0,0.48), 0 0 0 1px rgba(255,255,255,0.08)",
     _hover: hoverStyles,
+    _active: { transform: href ? "translateY(-2px)" : undefined },
     _focusVisible: {
       outline: "none",
       boxShadow: isLightCard
@@ -76,9 +82,9 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
     justifyContent: "center",
     overflow: "hidden",
     backgroundColor: isLightCard ? "#f5f5f7" : "#0f1115",
-    // Let height be dictated by width and aspect-ratio for Safari correctness
-    borderTopLeftRadius: isCompact ? "1rem" : "1.125rem",
-    borderTopRightRadius: isCompact ? "1rem" : "1.125rem",
+    // Match card corner radii exactly for seamless edges
+    borderTopLeftRadius: isCompact ? "0.875rem" : "1rem",
+    borderTopRightRadius: isCompact ? "0.875rem" : "1rem",
   });
 
   const coverContent = css({
@@ -122,8 +128,8 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
     display: "grid",
     gap: isCompact ? "0.45rem" : "0.55rem",
     minHeight: isCompact ? "10.5rem" : "12.5rem",
-    borderBottomLeftRadius: isCompact ? "1rem" : "1.125rem",
-    borderBottomRightRadius: isCompact ? "1rem" : "1.125rem",
+    borderBottomLeftRadius: isCompact ? "0.875rem" : "1rem",
+    borderBottomRightRadius: isCompact ? "0.875rem" : "1rem",
   });
 
   const eyebrowCls = css({

@@ -56,8 +56,8 @@ const preClass = css({
 
 const copyButtonClass = css({
   position: "absolute",
-  top: "0.625rem",
-  right: "0.625rem",
+  top: "0.875rem", // align to pre padding for perfect optical alignment
+  right: "0.875rem",
   padding: "0.375rem 0.625rem",
   backgroundColor: "rgba(255, 255, 255, 0.08)",
   border: "1px solid rgba(255, 255, 255, 0.16)",
@@ -68,11 +68,13 @@ const copyButtonClass = css({
   fontWeight: 500,
   fontFamily: "text",
   letterSpacing: "0.01em",
-  transition: "all 180ms ease",
+  transition:
+    "background-color 180ms var(--ease-out-quad), border-color 180ms var(--ease-out-quad), transform 120ms var(--ease-out-quad)",
   backdropFilter: "blur(8px)",
   _hover: {
     backgroundColor: "rgba(255, 255, 255, 0.12)",
     borderColor: "rgba(255, 255, 255, 0.24)",
+    transform: "translateY(-0.5px)",
   },
   _active: {
     transform: "scale(0.98)",

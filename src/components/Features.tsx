@@ -258,7 +258,7 @@ export default function Features() {
                   <p
                     className={cx(
                       typography({ role: "callout" }),
-                      css({ color: "muted", mt: "0.25rem" }),
+                      css({ color: "muted", mt: "0.375rem" }),
                     )}
                   >
                     Fast defaults, zero‑layout‑shift navigation, and AA contrast

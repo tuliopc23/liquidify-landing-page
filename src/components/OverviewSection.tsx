@@ -42,7 +42,7 @@ const overviewLead = cx(
   typography({ role: "title2" }),
   css({
     color: { base: "muted", _dark: "rgba(222,222,234,0.85)" },
-    letterSpacing: "-0.01em",
+    letterSpacing: "-0.02em",
   }),
 );
 
@@ -174,6 +174,7 @@ const OverviewSection: React.FC = () => {
                 css({
                   marginBottom: "1.25rem",
                   color: { base: "text", _dark: "rgba(244,244,250,0.96)" },
+                  letterSpacing: "-0.02em",
                   textAlign: { base: "center", md: "left" },
                 }),
               )}

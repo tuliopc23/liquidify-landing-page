@@ -65,6 +65,10 @@ export const button = cva({
             base: "rgba(255,255,255,0.94)",
             _dark: "rgba(30,30,38,0.92)",
           },
+          boxShadow: {
+            base: "0 18px 36px rgba(15,23,42,0.16)",
+            _dark: "0 24px 54px rgba(0,0,0,0.64)",
+          },
         },
       },
       outline: {
@@ -92,7 +96,10 @@ export const button = cva({
           "linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.02))",
         backgroundColor: "bg.surface",
         boxShadow: "0 12px 28px rgba(15,23,42,0.1)",
-        _hover: { backgroundColor: "bg.subtle" },
+        _hover: {
+          backgroundColor: "bg.subtle",
+          boxShadow: "0 16px 36px rgba(15,23,42,0.14)",
+        },
       },
     },
     size: {
@@ -127,7 +134,8 @@ export const card = css({
   borderColor: "border.default",
   borderRadius: "1rem", // ~rounded-2xl
   boxShadow: "sm",
-  transition: "box-shadow 300ms ease, transform 300ms ease",
+  transition:
+    "box-shadow 300ms var(--ease-out-quad), transform 300ms var(--ease-out-quad)",
   _hover: { boxShadow: "md" },
 });
 
@@ -140,7 +148,8 @@ export const cardGlass = css({
   borderColor: "glass.border",
   borderRadius: "glass",
   boxShadow: "lg",
-  transition: "box-shadow 300ms ease, transform 300ms ease",
+  transition:
+    "box-shadow 300ms var(--ease-out-quad), transform 300ms var(--ease-out-quad)",
   _before: {
     content: '""',
     position: "absolute",
@@ -156,9 +165,21 @@ export const cardGlass = css({
 // Common link style (gray → apple-blue on hover)
 export const navLink = css({
   fontFamily: "sans",
+  display: "inline-flex",
+  alignItems: "center",
   color: { base: "muted", _dark: "rgba(232,232,237,0.78)" },
-  transition: "color 150ms ease",
-  _hover: { color: "link" },
+  paddingInline: "0.5rem",
+  paddingBlock: "0.375rem",
+  borderRadius: "0.5rem",
+  transition:
+    "color 150ms var(--ease-out-quad), background-color 150ms var(--ease-out-quad)",
+  _hover: {
+    color: "link",
+    backgroundColor: {
+      base: "rgba(0,0,0,0.04)",
+      _dark: "rgba(255,255,255,0.08)",
+    },
+  },
 });
 
 // Helpers
@@ -179,7 +200,7 @@ export const floatingElement = (bg: string) =>
     filter: "blur(24px)", // ~blur-3xl
     opacity: 0.3,
     backgroundColor: bg,
-    animation: "float 20s ease-in-out infinite",
+    animation: "float 20s var(--ease-in-out-quad) infinite",
   });
 
 export const gridPattern = css({

@@ -1,0 +1,221 @@
+/* Final Apple HIG Enhancements for Perfect Alignment */
+
+/* Enhanced Focus States - Apple's signature blue glow */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in oklab, #0a84ff, transparent 55%);
+  transition: box-shadow 150ms var(--ease-out-quad);
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in oklab, #0a84ff, transparent 55%);
+}
+
+/* Smooth Scroll Behavior with iOS-style physics */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-padding-top: 5rem; /* Account for fixed navbar */
+  }
+}
+
+/* Selection Colors - Apple Blue */
+::selection {
+  background-color: color-mix(in oklab, #0a84ff, transparent 75%);
+  color: inherit;
+}
+
+/* Improved Link Underlines - Subtle like Apple */
+a {
+  text-underline-offset: 0.125em;
+  text-decoration-thickness: 0.0625em;
+  text-decoration-color: color-mix(in oklab, currentColor, transparent 70%);
+  transition: text-decoration-color 150ms var(--ease-out-quad);
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* Button Active States - Subtle depression */
+button:active {
+  transform: translateY(0.5px);
+}
+
+/* Card Hover Lift - More subtle */
+[class*="card"]:hover {
+  transform: translateY(-1px);
+}
+
+/* Disabled States - Apple Style */
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Loading States - Apple's subtle pulse */
+@keyframes pulse-subtle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes navOverlayFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes navSheetIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 42px, 0) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.loading {
+  animation: pulse-subtle 2s var(--ease-in-out-quad) infinite;
+}
+
+/* Improved Shadow System - Lighter, more diffused */
+:root {
+  --shadow-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-elevation-2: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-elevation-3: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-elevation-4: 0 16px 48px rgba(0, 0, 0, 0.12);
+}
+
+/* Micro-interaction Timing - All at 150ms for consistency */
+* {
+  transition-duration: 150ms;
+}
+
+/* Exception for longer animations */
+[class*="animate-"],
+[class*="transition-"] {
+  transition-duration: inherit;
+}
+
+/* Perfect Border Radii System - Apple's exact values */
+:root {
+  --radius-xs: 0.25rem; /* 4px */
+  --radius-sm: 0.375rem; /* 6px */
+  --radius-md: 0.5rem; /* 8px */
+  --radius-lg: 0.75rem; /* 12px */
+  --radius-xl: 1rem; /* 16px */
+  --radius-2xl: 1.25rem; /* 20px */
+  --radius-3xl: 1.5rem; /* 24px */
+}
+
+/* Image Loading Optimization */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+@media (prefers-color-scheme: dark) {
+  img {
+    opacity: 0.95; /* Slightly reduce brightness in dark mode */
+  }
+}
+
+/* Improved Typography Rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings:
+    "kern" 1,
+    "liga" 1;
+}
+
+/* Code Blocks - Apple Developer Style */
+code {
+  font-variant-ligatures: none; /* Disable ligatures in code for clarity */
+}
+
+/* Input Field Refinements */
+input,
+textarea,
+select {
+  transition:
+    border-color 150ms var(--ease-out-quad),
+    background-color 150ms var(--ease-out-quad),
+    box-shadow 150ms var(--ease-out-quad);
+}
+
+input:hover:not(:focus),
+textarea:hover:not(:focus),
+select:hover:not(:focus) {
+  border-color: color-mix(in oklab, currentColor, transparent 70%);
+}
+
+/* Ensure Tap Targets Meet Apple's 44x44 points minimum */
+button,
+a,
+input,
+select,
+textarea,
+[role="button"] {
+  min-height: 2.75rem; /* 44px */
+  min-width: 2.75rem; /* 44px */
+}
+
+/* Small buttons exception - but still accessible */
+button[class*="sm"],
+a[class*="sm"] {
+  min-height: 2.25rem; /* 36px */
+  min-width: 2.25rem; /* 36px */
+}
+
+/* Improved Print Styles */
+@media print {
+  @page {
+    margin: 0.5in;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  h1 {
+    font-size: 24pt;
+  }
+  h2 {
+    font-size: 18pt;
+  }
+  h3 {
+    font-size: 14pt;
+  }
+
+  a {
+    text-decoration: underline;
+    color: inherit;
+  }
+
+  button,
+  nav,
+  [class*="float"] {
+    display: none !important;
+  }
+}

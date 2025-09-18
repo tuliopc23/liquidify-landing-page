@@ -79,7 +79,7 @@ const Footer: React.FC = () => {
                   alignItems: "center",
                   justifyContent: "center",
                   transition:
-                    "background-color 150ms ease, border-color 150ms ease",
+                    "background-color 150ms var(--ease-out-quad), border-color 150ms var(--ease-out-quad)",
                   _hover: {
                     backgroundColor: {
                       base: "bg.subtle",
@@ -115,7 +115,7 @@ const Footer: React.FC = () => {
                   alignItems: "center",
                   justifyContent: "center",
                   transition:
-                    "background-color 150ms ease, border-color 150ms ease",
+                    "background-color 150ms var(--ease-out-quad), border-color 150ms var(--ease-out-quad)",
                   _hover: {
                     backgroundColor: {
                       base: "bg.subtle",
@@ -139,9 +139,10 @@ const Footer: React.FC = () => {
           <div>
             <h4
               className={css({
-                fontFamily: "sans",
-                fontWeight: 500,
+                fontFamily: "display",
+                fontWeight: 600,
                 color: "text",
+                letterSpacing: "-0.01em",
                 marginBottom: "1rem",
               })}
             >
@@ -156,7 +157,7 @@ const Footer: React.FC = () => {
                     color: { base: "muted", _dark: "rgba(214,214,226,0.76)" },
                     _hover: { color: "link" },
                     fontSize: "0.875rem",
-                    transition: "color 150ms ease",
+                    transition: "color 150ms var(--ease-out-quad)",
                   })}
                 >
                   Documentation
@@ -170,7 +171,7 @@ const Footer: React.FC = () => {
                     color: { base: "muted", _dark: "rgba(214,214,226,0.76)" },
                     _hover: { color: "link" },
                     fontSize: "0.875rem",
-                    transition: "color 150ms ease",
+                    transition: "color 150ms var(--ease-out-quad)",
                   })}
                 >
                   Examples
@@ -184,7 +185,7 @@ const Footer: React.FC = () => {
                     color: { base: "muted", _dark: "rgba(214,214,226,0.76)" },
                     _hover: { color: "link" },
                     fontSize: "0.875rem",
-                    transition: "color 150ms ease",
+                    transition: "color 150ms var(--ease-out-quad)",
                   })}
                 >
                   Playground
@@ -199,7 +200,7 @@ const Footer: React.FC = () => {
 
                     _hover: { color: "link" },
                     fontSize: "0.875rem",
-                    transition: "color 150ms ease",
+                    transition: "color 150ms var(--ease-out-quad)",
                   })}
                 >
                   Changelog
@@ -211,9 +212,10 @@ const Footer: React.FC = () => {
           <div>
             <h4
               className={css({
-                fontFamily: "sans",
-                fontWeight: 500,
+                fontFamily: "display",
+                fontWeight: 600,
                 color: "text",
+                letterSpacing: "-0.01em",
                 marginBottom: "1rem",
               })}
             >
@@ -228,7 +230,7 @@ const Footer: React.FC = () => {
                     color: { base: "muted", _dark: "rgba(214,214,226,0.76)" },
                     _hover: { color: "link" },
                     fontSize: "0.875rem",
-                    transition: "color 150ms ease",
+                    transition: "color 150ms var(--ease-out-quad)",
                   })}
                 >
                   GitHub Issues
@@ -242,7 +244,7 @@ const Footer: React.FC = () => {
                     color: { base: "muted", _dark: "rgba(214,214,226,0.76)" },
                     _hover: { color: "link" },
                     fontSize: "0.875rem",
-                    transition: "color 150ms ease",
+                    transition: "color 150ms var(--ease-out-quad)",
                   })}
                 >
                   Discussions
@@ -256,7 +258,7 @@ const Footer: React.FC = () => {
                     color: { base: "muted", _dark: "rgba(214,214,226,0.76)" },
                     _hover: { color: "link" },
                     fontSize: "0.875rem",
-                    transition: "color 150ms ease",
+                    transition: "color 150ms var(--ease-out-quad)",
                   })}
                 >
                   Contributing
@@ -302,7 +304,7 @@ const Footer: React.FC = () => {
                 color: { base: "muted", _dark: "rgba(214,214,226,0.76)" },
                 _hover: { color: "link" },
                 fontSize: "0.875rem",
-                transition: "color 150ms ease",
+                transition: "color 150ms var(--ease-out-quad)",
               })}
             >
               Privacy
@@ -314,7 +316,7 @@ const Footer: React.FC = () => {
                 color: { base: "muted", _dark: "rgba(214,214,226,0.76)" },
                 _hover: { color: "link" },
                 fontSize: "0.875rem",
-                transition: "color 150ms ease",
+                transition: "color 150ms var(--ease-out-quad)",
               })}
             >
               Terms
@@ -326,7 +328,7 @@ const Footer: React.FC = () => {
                 color: { base: "muted", _dark: "rgba(214,214,226,0.76)" },
                 _hover: { color: "link" },
                 fontSize: "0.875rem",
-                transition: "color 150ms ease",
+                transition: "color 150ms var(--ease-out-quad)",
               })}
             >
               MIT License

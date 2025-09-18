@@ -60,9 +60,12 @@ const Hero: React.FC = () => {
           <LiquidifyBrand
             size={96}
             direction="column"
-            className={css({ alignItems: "center", gap: "0.75rem" })}
+            className={css({ alignItems: "center", gap: "0.625rem" })}
             wordmarkRole="title2"
-            wordmarkClassName={css({ textAlign: "center" })}
+            wordmarkClassName={css({
+              textAlign: "center",
+              letterSpacing: "-0.015em",
+            })}
           />
           <span
             className={cx(
