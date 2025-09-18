@@ -88,9 +88,12 @@ const Hero: React.FC = () => {
             className={cx(
               typography({ role: "display" }),
               css({
-                letterSpacing: "-0.01em",
+                letterSpacing: "-0.02em",
+                lineHeight: 1.08,
                 marginX: "auto",
-                maxWidth: { base: "18ch", md: "16ch" },
+                maxWidth: { base: "20ch", md: "none" },
+                fontSize: { md: "3.25rem", lg: "4.125rem" },
+                whiteSpace: { md: "nowrap" },
               }),
             )}
           >
@@ -99,12 +102,12 @@ const Hero: React.FC = () => {
           </h1>
           <p
             className={cx(
-              typography({ role: "title3" }),
+              typography({ role: "headline" }),
               css({
-                color: { base: "muted", _dark: "rgba(222,222,234,0.82)" },
-                mt: "0.75rem",
-                fontWeight: 500,
-                letterSpacing: "-0.008em",
+                color: { base: "muted", _dark: "rgba(222,222,234,0.86)" },
+                mt: "0.875rem",
+                fontWeight: 600,
+                letterSpacing: "-0.01em",
               }),
             )}
           >

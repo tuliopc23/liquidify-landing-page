@@ -40,7 +40,7 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
   const card = css({
     display: "flex",
     flexDirection: "column",
-    borderRadius: isCompact ? "1rem" : "1.125rem",
+    borderRadius: isCompact ? "0.875rem" : "1rem",
     overflow: "hidden",
     textDecoration: "none",
     color: "inherit",
@@ -49,14 +49,15 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
       : "rgba(19,19,22,0.94)",
     transform: "translateZ(0)",
     cursor: href ? "pointer" : "default",
-    transition: "transform 180ms ease, box-shadow 200ms ease",
+    transition:
+      "transform 180ms var(--ease-out-quad), box-shadow 200ms var(--ease-out-quad)",
     boxShadow: isLightCard
       ? isCompact
-        ? "0 8px 32px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04)"
-        : "0 12px 48px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04)"
+        ? "0 8px 28px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04)"
+        : "0 12px 40px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04)"
       : isCompact
-        ? "0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06), 0 0 80px rgba(10,132,255,0.15)"
-        : "0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08), 0 0 120px rgba(10,132,255,0.12)",
+        ? "0 12px 36px rgba(0,0,0,0.38), 0 0 0 1px rgba(255,255,255,0.06)"
+        : "0 20px 56px rgba(0,0,0,0.48), 0 0 0 1px rgba(255,255,255,0.08)",
     _hover: hoverStyles,
     _focusVisible: {
       outline: "none",
@@ -127,14 +128,14 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
 
   const eyebrowCls = css({
     fontSize: isCompact ? "0.7rem" : "0.75rem",
-    letterSpacing: "0.08em",
+    letterSpacing: "0.09em",
     textTransform: "uppercase",
     fontWeight: 600,
-    color: isLightCard ? "#6e6e73" : "rgba(255,255,255,0.64)",
+    color: isLightCard ? "#6e6e73" : "rgba(255,255,255,0.62)",
   });
 
   const titleCls = cx(
-    typography({ role: "title3" }),
+    typography({ role: isCompact ? "title3" : "title2" }),
     css({
       fontSize: isCompact ? "1.15rem" : undefined,
       letterSpacing: "-0.02em",

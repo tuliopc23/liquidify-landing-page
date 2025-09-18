@@ -15,6 +15,7 @@ export const button = cva({
     WebkitTapHighlightColor: "transparent",
     transitionProperty: "all",
     transitionDuration: "180ms",
+    transitionTimingFunction: "var(--ease-out-quad)",
     transform: "translateZ(0)",
     _hover: { transform: "translateY(-1px)" },
     _active: { transform: "translateY(0)" },

@@ -1,0 +1,8 @@
+/* Apple Typography refinements */
+
+h1,
+h2,
+[class*="largeTitle"],
+[class*="display"] {
+  text-wrap: balance;
+}

@@ -40,13 +40,14 @@ const sectionHeading = cx(
 );
 
 const sectionIntro = cx(
-  typography({ role: "title3" }),
+  typography({ role: "callout" }),
   css({
     color: { base: "#6e6e73", _dark: "rgba(222,222,234,0.86)" },
     fontWeight: 500,
-    maxWidth: "40rem",
+    maxWidth: "42rem",
     marginX: "auto",
-    lineHeight: 1.6,
+    lineHeight: 1.5,
+    letterSpacing: "-0.005em",
   }),
 );
 
@@ -56,8 +57,13 @@ const subheading = cx(
 );
 
 const subheadingCopy = cx(
-  typography({ role: "body" }),
-  css({ color: "muted", maxWidth: "32rem", mx: "auto" }),
+  typography({ role: "callout" }),
+  css({
+    color: "muted",
+    maxWidth: "38rem",
+    mx: "auto",
+    letterSpacing: "-0.005em",
+  }),
 );
 
 export default function Features() {
@@ -162,7 +168,7 @@ export default function Features() {
   ];
 
   const smallFeatures = smallFeaturesBase.map((feature) => {
-    const scale = 0.54;
+    const scale = 0.52;
     return {
       ...feature,
       theme: resolved,
@@ -239,12 +245,25 @@ export default function Features() {
                 <div className={css({ textAlign: "center", my: "2rem" })}>
                   <h4
                     className={cx(
-                      typography({ role: "headline" }),
-                      css({ color: "muted" }),
+                      typography({ role: "callout" }),
+                      css({
+                        color: "muted",
+                        fontWeight: 600,
+                        letterSpacing: "-0.005em",
+                      }),
                     )}
                   >
                     Built for performance and accessibility
                   </h4>
+                  <p
+                    className={cx(
+                      typography({ role: "footnote" }),
+                      css({ color: "muted", mt: "0.25rem" }),
+                    )}
+                  >
+                    Fast defaults, zero‑layout‑shift navigation, and AA contrast
+                    baseline.
+                  </p>
                 </div>
               ) : null}
             </React.Fragment>
