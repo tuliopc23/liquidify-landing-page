@@ -996,6 +996,10 @@
     display: block;
 }
 
+  .flex-sh_0 {
+    flex-shrink: 0;
+}
+
   .bg-c_rgba\(13\,16\,24\,0\.92\) {
     background-color: rgba(13,16,24,0.92);
 }
@@ -1390,8 +1394,12 @@
     width: 100%;
 }
 
-  .h_100\% {
-    height: 100%;
+  .h_auto {
+    height: auto;
+}
+
+  .max-h_100\% {
+    max-height: 100%;
 }
 
   .max-h_24rem {
@@ -1588,6 +1596,10 @@
 
   .bdr-tr_1\.125rem {
     border-top-right-radius: 1.125rem;
+}
+
+  .h_100\% {
+    height: 100%;
 }
 
   .h_1px {
@@ -1846,6 +1858,14 @@
     justify-content: center;
 }
 
+  .\[\&_\>_svg\]\:d_block > svg {
+    display: block;
+}
+
+  .\[\&_\>_svg\]\:flex-sh_0 > svg {
+    flex-shrink: 0;
+}
+
   .dark .dark\:c_rgba\(222\,222\,234\,0\.85\) {
     color: rgba(222,222,234,0.85);
 }
@@ -1888,6 +1908,22 @@
 
   .\[\&_\>_\*\]\:h_100\% > * {
     height: 100%;
+}
+
+  .\[\&_\>_svg\]\:w_100\% > svg {
+    width: 100%;
+}
+
+  .\[\&_\>_svg\]\:h_auto > svg {
+    height: auto;
+}
+
+  .\[\&_\>_svg\]\:max-h_100\% > svg {
+    max-height: 100%;
+}
+
+  .\[\&_\>_svg\]\:min-w_0 > svg {
+    min-width: 0;
 }
 
   .before\:left_0::before {

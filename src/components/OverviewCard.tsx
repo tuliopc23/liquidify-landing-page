@@ -93,11 +93,19 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
       padding: isCompact ? "6%" : "4.5%",
     },
     "& > *": {
+      width: "100%",
+      height: "100%",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
+    },
+    "& > svg": {
+      display: "block",
       width: "100%",
-      height: "100%",
+      height: "auto",
+      maxHeight: "100%",
+      minWidth: 0,
+      flexShrink: 0,
     },
   });
 

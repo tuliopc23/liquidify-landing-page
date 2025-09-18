@@ -27,8 +27,10 @@ export type CardArtProps = {
 
 const artClass = css({
   width: "100%",
-  height: "100%",
+  height: "auto",
+  maxHeight: "100%",
   display: "block",
+  flexShrink: 0,
 });
 
 const VIEWBOX_WIDTH = 320;
@@ -656,11 +658,15 @@ const ArtFrame: React.FC<{
 
   return (
     <svg
+      width={VIEWBOX_WIDTH}
+      height={VIEWBOX_HEIGHT}
       viewBox={`0 0 ${VIEWBOX_WIDTH} ${VIEWBOX_HEIGHT}`}
       className={artClass}
       role="presentation"
       aria-hidden="true"
       preserveAspectRatio="xMidYMid meet"
+      focusable="false"
+      xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
         {stopEls(gradientId, stops)}
