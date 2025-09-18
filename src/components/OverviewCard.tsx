@@ -68,13 +68,14 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
 
   const coverShell = css({
     position: "relative",
-    aspectRatio: isCompact ? "4/3" : "16/9",
+    // Use fixed aspect ratio for all to match artwork
+    aspectRatio: "16/9",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     overflow: "hidden",
     backgroundColor: isLightCard ? "#f5f5f7" : "#0f1115",
-    maxHeight: isCompact ? "10.5rem" : "13.5rem",
+    // Let height be dictated by width and aspect-ratio for Safari correctness
     borderTopLeftRadius: isCompact ? "1rem" : "1.125rem",
     borderTopRightRadius: isCompact ? "1rem" : "1.125rem",
   });
@@ -85,13 +86,9 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    // Uniform inner margin so artwork never touches edges and appears consistently scaled
-    padding: isCompact ? "8%" : "6%",
+    // Use fixed padding to avoid Safari percentage quirks
+    padding: isCompact ? "0.75rem" : "1rem",
     boxSizing: "border-box",
-    "@supports (-webkit-touch-callout: none)": {
-      // Safari applies percentage padding more aggressively on aspect-ratio flex items
-      padding: isCompact ? "6%" : "4.5%",
-    },
     "& > *": {
       width: "100%",
       height: "100%",
@@ -106,6 +103,9 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
       maxHeight: "100%",
       minWidth: 0,
       flexShrink: 0,
+      overflow: "visible",
+      transformBox: "fill-box",
+      transformOrigin: "center",
     },
   });
 

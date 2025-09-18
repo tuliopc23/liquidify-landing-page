@@ -29,8 +29,12 @@ const artClass = css({
   width: "100%",
   height: "auto",
   maxHeight: "100%",
+  maxWidth: "100%",
   display: "block",
   flexShrink: 0,
+  overflow: "visible",
+  transformBox: "fill-box",
+  transformOrigin: "center",
 });
 
 const VIEWBOX_WIDTH = 320;
@@ -670,7 +674,7 @@ const ArtFrame: React.FC<{
     >
       <defs>
         {stopEls(gradientId, stops)}
-        <clipPath id={clipId}>
+        <clipPath id={clipId} clipPathUnits="userSpaceOnUse">
           <rect
             width={VIEWBOX_WIDTH}
             height={VIEWBOX_HEIGHT}
