@@ -38,10 +38,12 @@ export const applyTheme = (mode: ThemeMode) => {
   const root = document.documentElement;
   if (resolved === "dark") root.classList.add("dark");
   else root.classList.remove("dark");
+  const reduce =
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  root.classList.toggle("reduce-motion", reduce);
   root.setAttribute("data-theme-mode", mode);
-  // Ensure libraries that read data-theme get the resolved value
   root.setAttribute("data-theme", resolved);
-  // Notify any listeners in this window so all components update immediately
   try {
     window.dispatchEvent(
       new CustomEvent(THEME_EVENT, { detail: { mode, resolved } }),

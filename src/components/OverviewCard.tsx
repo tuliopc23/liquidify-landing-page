@@ -58,14 +58,14 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
       "transform 160ms var(--ease-out-quad), box-shadow 200ms var(--ease-out-quad)",
     boxShadow: isLightCard
       ? isCompact
-        ? "0 1px 0 rgba(0,0,0,0.04), 0 10px 30px rgba(0,0,0,0.08)"
-        : "0 1px 0 rgba(0,0,0,0.04), 0 14px 44px rgba(0,0,0,0.10)"
+        ? "inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 0 rgba(0,0,0,0.04), 0 8px 16px rgba(0,0,0,0.06), 0 20px 32px rgba(0,0,0,0.08)"
+        : "inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 0 rgba(0,0,0,0.04), 0 12px 24px rgba(0,0,0,0.06), 0 28px 44px rgba(0,0,0,0.10)"
       : isCompact
-        ? "0 1px 0 rgba(255,255,255,0.06) inset, 0 14px 40px rgba(0,0,0,0.42)"
-        : "0 1px 0 rgba(255,255,255,0.06) inset, 0 22px 60px rgba(0,0,0,0.5)",
+        ? "inset 0 1px 0 rgba(255,255,255,0.06), 0 10px 20px rgba(0,0,0,0.38), 0 24px 48px rgba(0,0,0,0.46)"
+        : "inset 0 1px 0 rgba(255,255,255,0.06), 0 14px 28px rgba(0,0,0,0.42), 0 30px 60px rgba(0,0,0,0.5)",
     _hover: {
       ...hoverStyles,
-      transform: "translateY(-2px)",
+      transform: "translateY(-3px)",
     },
     _active: { transform: href ? "translateY(-1px)" : undefined },
     _focusVisible: {
