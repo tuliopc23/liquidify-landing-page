@@ -24,6 +24,9 @@ export const button = cva({
       boxShadow:
         "0 0 0 3px color-mix(in oklab, var(--colors-apple-blue), transparent 55%)",
     },
+    "@media (prefers-reduced-motion: reduce)": {
+      transition: "none",
+    },
   },
   variants: {
     intent: {

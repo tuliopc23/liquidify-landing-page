@@ -87,6 +87,18 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
       "radial-gradient(120% 100% at 0% 0%, rgba(0,0,0,1), rgba(0,0,0,0.5) 55%, rgba(0,0,0,0) 70%)",
     maskImage:
       "radial-gradient(120% 100% at 0% 0%, rgba(0,0,0,1), rgba(0,0,0,0.5) 55%, rgba(0,0,0,0) 70%)",
+    _after: {
+      content: '""',
+      position: "absolute",
+      inset: 0,
+      pointerEvents: "none",
+      background:
+        "linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.15) 35%, rgba(255,255,255,0) 60%)",
+      _dark: {
+        background:
+          "linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05) 35%, rgba(255,255,255,0) 60%)",
+      },
+    },
   });
 
   const coverContent = css({
