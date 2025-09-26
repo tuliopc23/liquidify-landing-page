@@ -1,6 +1,7 @@
 import React from "react";
 import { css, cx } from "../../styled-system/css";
 import { typography } from "../pandaStyles";
+import { useSpringHover } from "../hooks/useSpringHover";
 
 export type OverviewCardProps = {
   href?: string;
@@ -207,15 +208,24 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
     </>
   );
 
+  const [springStyle, bind, a] = useSpringHover({
+    lift: href ? 3 : 2,
+    scale: 1.01,
+  });
+
   if (href) {
     return (
-      <a className={card} href={href}>
+      <a.a style={springStyle} className={card} href={href} {...bind}>
         {content}
-      </a>
+      </a.a>
     );
   }
 
-  return <div className={card}>{content}</div>;
+  return (
+    <a.div style={springStyle} className={card} {...bind}>
+      {content}
+    </a.div>
+  );
 };
 
 export default OverviewCard;

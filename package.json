@@ -27,7 +27,9 @@
     "verify:panda": "node scripts/verify-panda-migration.mjs"
   },
   "dependencies": {
+    "@react-spring/web": "^10.0.3",
     "@tanstack/react-router": "^1.131.44",
+    "@use-gesture/react": "^10.3.1",
     "cache": "^3.0.0",
     "lucide-react": "^0.544.0",
     "prismjs": "^1.30.0",
