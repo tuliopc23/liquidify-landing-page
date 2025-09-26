@@ -1,5 +1,3 @@
-<!-- OPENSPEC:START -->
-
 # OpenSpec Instructions
 
 Instructions for AI coding assistants using OpenSpec for spec-driven development.
@@ -17,17 +15,14 @@ Instructions for AI coding assistants using OpenSpec for spec-driven development
 ## Three-Stage Workflow
 
 ### Stage 1: Creating Changes
-
 Create proposal when you need to:
-
 - Add features or functionality
 - Make breaking changes (API, schema)
-- Change architecture or patterns
+- Change architecture or patterns  
 - Optimize performance (changes behavior)
 - Update security patterns
 
 Triggers (examples):
-
 - "Help me create a change proposal"
 - "Help me plan a change"
 - "Help me create a proposal"
@@ -35,12 +30,10 @@ Triggers (examples):
 - "I want to create a spec"
 
 Loose matching guidance:
-
 - Contains one of: `proposal`, `change`, `spec`
 - With one of: `create`, `plan`, `make`, `start`, `help`
 
 Skip proposal for:
-
 - Bug fixes (restore intended behavior)
 - Typos, formatting, comments
 - Dependency updates (non-breaking)
@@ -48,14 +41,12 @@ Skip proposal for:
 - Tests for existing behavior
 
 **Workflow**
-
 1. Review `openspec/project.md`, `openspec list`, and `openspec list --specs` to understand current context.
 2. Choose a unique verb-led `change-id` and scaffold `proposal.md`, `tasks.md`, optional `design.md`, and spec deltas under `openspec/changes/<id>/`.
 3. Draft spec deltas using `## ADDED|MODIFIED|REMOVED Requirements` with at least one `#### Scenario:` per requirement.
 4. Run `openspec validate <id> --strict` and resolve any issues before sharing the proposal.
 
 ### Stage 2: Implementing Changes
-
 1. **Read proposal.md** - Understand what's being built
 2. **Read design.md** (if exists) - Review technical decisions
 3. **Read tasks.md** - Get implementation checklist
@@ -64,9 +55,7 @@ Skip proposal for:
 6. **Approval gate** - Do not start implementation until the proposal is reviewed and approved
 
 ### Stage 3: Archiving Changes
-
 After deployment, create separate PR to:
-
 - Move `changes/[name]/` → `changes/archive/YYYY-MM-DD-[name]/`
 - Update `specs/` if capabilities changed
 - Use `openspec archive [change] --skip-specs` for tooling-only changes
@@ -75,7 +64,6 @@ After deployment, create separate PR to:
 ## Before Any Task
 
 **Context Checklist:**
-
 - [ ] Read relevant specs in `specs/[capability]/spec.md`
 - [ ] Check pending changes in `changes/` for conflicts
 - [ ] Read `openspec/project.md` for conventions
@@ -83,14 +71,12 @@ After deployment, create separate PR to:
 - [ ] Run `openspec list --specs` to see existing capabilities
 
 **Before Creating Specs:**
-
 - Always check if capability already exists
 - Prefer modifying existing specs over creating duplicates
 - Use `openspec show [spec]` to review current state
 - If request is ambiguous, ask 1–2 clarifying questions before scaffolding
 
 ### Search Guidance
-
 - Enumerate specs: `openspec spec list --long` (or `--json` for scripts)
 - Enumerate changes: `openspec list` (or `openspec change list --json` - deprecated but available)
 - Show details:
@@ -159,7 +145,7 @@ openspec/
 ```
 New request?
 ├─ Bug fix restoring spec behavior? → Fix directly
-├─ Typo/format/comment? → Fix directly
+├─ Typo/format/comment? → Fix directly  
 ├─ New feature/capability? → Create proposal
 ├─ Breaking change? → Create proposal
 ├─ Architecture change? → Create proposal
@@ -171,58 +157,43 @@ New request?
 1. **Create directory:** `changes/[change-id]/` (kebab-case, verb-led, unique)
 
 2. **Write proposal.md:**
-
 ```markdown
 ## Why
-
 [1-2 sentences on problem/opportunity]
 
 ## What Changes
-
 - [Bullet list of changes]
 - [Mark breaking changes with **BREAKING**]
 
 ## Impact
-
 - Affected specs: [list capabilities]
 - Affected code: [key files/systems]
 ```
 
 3. **Create spec deltas:** `specs/[capability]/spec.md`
-
 ```markdown
 ## ADDED Requirements
-
 ### Requirement: New Feature
-
 The system SHALL provide...
 
 #### Scenario: Success case
-
 - **WHEN** user performs action
 - **THEN** expected result
 
 ## MODIFIED Requirements
-
 ### Requirement: Existing Feature
-
 [Complete modified requirement]
 
 ## REMOVED Requirements
-
 ### Requirement: Old Feature
-
 **Reason**: [Why removing]
 **Migration**: [How to handle]
 ```
-
 If multiple capabilities are affected, create multiple delta files under `changes/[change-id]/specs/<capability>/spec.md`—one per capability.
 
 4. **Create tasks.md:**
-
 ```markdown
 ## 1. Implementation
-
 - [ ] 1.1 Create database schema
 - [ ] 1.2 Implement API endpoint
 - [ ] 1.3 Add frontend component
@@ -230,40 +201,32 @@ If multiple capabilities are affected, create multiple delta files under `change
 ```
 
 5. **Create design.md when needed:**
-   Create `design.md` if any of the following apply; otherwise omit it:
-
+Create `design.md` if any of the following apply; otherwise omit it:
 - Cross-cutting change (multiple services/modules) or a new architectural pattern
 - New external dependency or significant data model changes
 - Security, performance, or migration complexity
 - Ambiguity that benefits from technical decisions before coding
 
 Minimal `design.md` skeleton:
-
 ```markdown
 ## Context
-
 [Background, constraints, stakeholders]
 
 ## Goals / Non-Goals
-
 - Goals: [...]
 - Non-Goals: [...]
 
 ## Decisions
-
 - Decision: [What and why]
 - Alternatives considered: [Options + rationale]
 
 ## Risks / Trade-offs
-
 - [Risk] → Mitigation
 
 ## Migration Plan
-
 [Steps, rollback]
 
 ## Open Questions
-
 - [...]
 ```
 
@@ -272,27 +235,22 @@ Minimal `design.md` skeleton:
 ### Critical: Scenario Formatting
 
 **CORRECT** (use #### headers):
-
 ```markdown
 #### Scenario: User login success
-
 - **WHEN** valid credentials provided
 - **THEN** return JWT token
 ```
 
 **WRONG** (don't use bullets or bold):
-
 ```markdown
-- **Scenario: User login** ❌
-  **Scenario**: User login ❌
-
-### Scenario: User login ❌
+- **Scenario: User login**  ❌
+**Scenario**: User login     ❌
+### Scenario: User login      ❌
 ```
 
 Every requirement MUST have at least one scenario.
 
 ### Requirement Wording
-
 - Use SHALL/MUST for normative requirements (avoid should/may unless intentionally non-normative)
 
 ### Delta Operations
@@ -305,7 +263,6 @@ Every requirement MUST have at least one scenario.
 Headers matched with `trim(header)` - whitespace ignored.
 
 #### When to use ADDED vs MODIFIED
-
 - ADDED: Introduces a new capability or sub-capability that can stand alone as a requirement. Prefer ADDED when the change is orthogonal (e.g., adding "Slash Command Configuration") rather than altering the semantics of an existing requirement.
 - MODIFIED: Changes the behavior, scope, or acceptance criteria of an existing requirement. Always paste the full, updated requirement content (header + all scenarios). The archiver will replace the entire requirement with what you provide here; partial deltas will drop previous details.
 - RENAMED: Use when only the name changes. If you also change behavior, use RENAMED (name) plus MODIFIED (content) referencing the new name.
@@ -313,17 +270,14 @@ Headers matched with `trim(header)` - whitespace ignored.
 Common pitfall: Using MODIFIED to add a new concern without including the previous text. This causes loss of detail at archive time. If you aren’t explicitly changing the existing requirement, add a new requirement under ADDED instead.
 
 Authoring a MODIFIED requirement correctly:
-
-1. Locate the existing requirement in `openspec/specs/<capability>/spec.md`.
-2. Copy the entire requirement block (from `### Requirement: ...` through its scenarios).
-3. Paste it under `## MODIFIED Requirements` and edit to reflect the new behavior.
-4. Ensure the header text matches exactly (whitespace-insensitive) and keep at least one `#### Scenario:`.
+1) Locate the existing requirement in `openspec/specs/<capability>/spec.md`.
+2) Copy the entire requirement block (from `### Requirement: ...` through its scenarios).
+3) Paste it under `## MODIFIED Requirements` and edit to reflect the new behavior.
+4) Ensure the header text matches exactly (whitespace-insensitive) and keep at least one `#### Scenario:`.
 
 Example for RENAMED:
-
 ```markdown
 ## RENAMED Requirements
-
 - FROM: `### Requirement: Login`
 - TO: `### Requirement: User Authentication`
 ```
@@ -333,17 +287,14 @@ Example for RENAMED:
 ### Common Errors
 
 **"Change must have at least one delta"**
-
 - Check `changes/[name]/specs/` exists with .md files
 - Verify files have operation prefixes (## ADDED Requirements)
 
 **"Requirement must have at least one scenario"**
-
 - Check scenarios use `#### Scenario:` format (4 hashtags)
 - Don't use bullet points or bold for scenario headers
 
 **Silent scenario parsing failures**
-
 - Exact format required: `#### Scenario: Name`
 - Debug with: `openspec show [change] --json --deltas-only`
 
@@ -405,88 +356,73 @@ openspec/changes/add-2fa-notify/
 ```
 
 auth/spec.md
-
 ```markdown
 ## ADDED Requirements
-
 ### Requirement: Two-Factor Authentication
-
 ...
 ```
 
 notifications/spec.md
-
 ```markdown
 ## ADDED Requirements
-
 ### Requirement: OTP Email Notification
-
 ...
 ```
 
 ## Best Practices
 
 ### Simplicity First
-
 - Default to <100 lines of new code
 - Single-file implementations until proven insufficient
 - Avoid frameworks without clear justification
 - Choose boring, proven patterns
 
 ### Complexity Triggers
-
 Only add complexity with:
-
 - Performance data showing current solution too slow
 - Concrete scale requirements (>1000 users, >100MB data)
 - Multiple proven use cases requiring abstraction
 
 ### Clear References
-
 - Use `file.ts:42` format for code locations
 - Reference specs as `specs/auth/spec.md`
 - Link related changes and PRs
 
 ### Capability Naming
-
 - Use verb-noun: `user-auth`, `payment-capture`
 - Single purpose per capability
 - 10-minute understandability rule
 - Split if description needs "AND"
 
 ### Change ID Naming
-
 - Use kebab-case, short and descriptive: `add-two-factor-auth`
 - Prefer verb-led prefixes: `add-`, `update-`, `remove-`, `refactor-`
 - Ensure uniqueness; if taken, append `-2`, `-3`, etc.
 
 ## Tool Selection Guide
 
-| Task                  | Tool | Why                      |
-| --------------------- | ---- | ------------------------ |
-| Find files by pattern | Glob | Fast pattern matching    |
-| Search code content   | Grep | Optimized regex search   |
-| Read specific files   | Read | Direct file access       |
+| Task | Tool | Why |
+|------|------|-----|
+| Find files by pattern | Glob | Fast pattern matching |
+| Search code content | Grep | Optimized regex search |
+| Read specific files | Read | Direct file access |
 | Explore unknown scope | Task | Multi-step investigation |
 
 ## Error Recovery
 
 ### Change Conflicts
-
 1. Run `openspec list` to see active changes
 2. Check for overlapping specs
 3. Coordinate with change owners
 4. Consider combining proposals
 
 ### Validation Failures
-
 1. Run with `--strict` flag
 2. Check JSON output for details
 3. Verify spec file format
 4. Ensure scenarios properly formatted
 
 ### Missing Context
-
 1. Read project.md first
 2. Check related specs
 3. Review recent archives
@@ -495,20 +431,17 @@ Only add complexity with:
 ## Quick Reference
 
 ### Stage Indicators
-
 - `changes/` - Proposed, not yet built
 - `specs/` - Built and deployed
 - `archive/` - Completed changes
 
 ### File Purposes
-
 - `proposal.md` - Why and what
 - `tasks.md` - Implementation steps
 - `design.md` - Technical decisions
 - `spec.md` - Requirements and behavior
 
 ### CLI Essentials
-
 ```bash
 openspec list              # What's in progress?
 openspec show [item]       # View details
@@ -518,46 +451,3 @@ openspec archive [change]  # Mark complete
 ```
 
 Remember: Specs are truth. Changes are proposals. Keep them in sync.
-
-<!-- OPENSPEC:END -->
-
-# Repository Guidelines
-
-## Project Structure & Module Organization
-
-- App entry starts at `src/main.tsx`; the shell lives in `src/App.tsx` and shared UI components sit under `src/components/` using PascalCase filenames.
-- Utility helpers stay next to their consumers; keep tests close by in `src/**/__tests__/` or named `Component.test.tsx`.
-- Static assets and Panda tokens live in `public/`; generated Panda output resides in `styled-system/` and should only change via Panda commands.
-- Build artifacts land in `dist/`; clear them with `bun run clean` before fresh builds.
-
-## Build, Test, and Development Commands
-
-- `bun install` installs dependencies (Bun 1.2.x expected).
-- `bun run dev` starts the Vite dev server at `http://localhost:5173`.
-- `bun run build` emits the production bundle; preview with `bun run preview`.
-- `bun run check` runs linting, formatting, and type checks—execute before every PR.
-- Use `bun run panda` (watch) or `bun run panda:once` to regenerate Panda CSS; validate via `bun run verify:panda` after token or recipe updates.
-
-## Coding Style & Naming Conventions
-
-- TypeScript strict mode, React 19 functional components, and hooks-first patterns.
-- Follow camelCase for variables/functions, PascalCase for components, and UPPER_SNAKE_CASE for top-level constants.
-- Styling flows through Panda utilities; import `styled-system/styles.css` in `src/main.tsx` and avoid ad-hoc class strings.
-- Formatting is enforced by Prettier and linting by ESLint; run `bun run fix` to auto-apply both.
-
-## Testing Guidelines
-
-- Prefer Vitest with React Testing Library when adding coverage.
-- Target ~80% line coverage for new features; focus on user-visible behavior.
-- Name files `Component.test.tsx` or place them under `src/**/__tests__/`.
-
-## Commit & Pull Request Guidelines
-
-- Use Conventional Commits (e.g., `feat: add pricing cards` or `fix(panda): refresh tokens`).
-- Each PR should link its issue, describe scope, and include screenshots or GIFs for UI-visible changes.
-- Confirm `bun run check`, `bun run build`, and `bun run verify:panda` (for styling changes) succeed before requesting review.
-
-## Security & Configuration Tips
-
-- Never commit secrets; rely on environment variables for sensitive data.
-- After changing `panda.config.ts` or `public/tokens.*`, run `bun run panda:once` and commit regenerated `styled-system/` output.

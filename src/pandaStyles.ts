@@ -132,10 +132,10 @@ export const button = cva({
 // Card surfaces
 export const card = css({
   backgroundColor: "bg.surface",
-  backdropFilter: "blur(4px)", // ~backdrop-blur-sm
+  backdropFilter: "blur(4px)",
   borderWidth: "1px",
   borderColor: "border.default",
-  borderRadius: "1rem", // ~rounded-2xl
+  borderRadius: "26px",
   boxShadow: "sm",
   transition:
     "box-shadow 300ms var(--ease-out-quad), transform 300ms var(--ease-out-quad)",

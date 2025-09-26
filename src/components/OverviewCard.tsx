@@ -46,7 +46,7 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
   const card = css({
     display: "flex",
     flexDirection: "column",
-    borderRadius: isCompact ? "0.875rem" : "1rem",
+    borderRadius: "26px",
     overflow: "hidden",
     textDecoration: "none",
     color: "inherit",
@@ -85,8 +85,8 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
     justifyContent: "center",
     overflow: "hidden",
     backgroundColor: isLightCard ? "#f5f5f7" : "#0b0c10",
-    borderTopLeftRadius: isCompact ? "0.75rem" : "0.875rem",
-    borderTopRightRadius: isCompact ? "0.75rem" : "0.875rem",
+    borderTopLeftRadius: "26px",
+    borderTopRightRadius: "26px",
     WebkitMaskImage:
       "radial-gradient(120% 100% at 0% 0%, rgba(0,0,0,1), rgba(0,0,0,0.5) 55%, rgba(0,0,0,0) 70%)",
     maskImage:
@@ -151,8 +151,8 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
     display: "grid",
     gap: isCompact ? "0.45rem" : "0.6rem",
     minHeight: isCompact ? "10.25rem" : "12.25rem",
-    borderBottomLeftRadius: isCompact ? "0.875rem" : "1rem",
-    borderBottomRightRadius: isCompact ? "0.875rem" : "1rem",
+    borderBottomLeftRadius: "26px",
+    borderBottomRightRadius: "26px",
   });
 
   const eyebrowCls = css({

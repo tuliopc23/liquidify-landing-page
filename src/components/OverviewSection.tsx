@@ -62,7 +62,8 @@ const highlightCard = css({
     base: "rgba(255,255,255,0.94)",
     _dark: "rgba(18,18,24,0.94)",
   },
-  borderRadius: "1rem",
+  borderRadius: "26px",
+  overflow: "hidden",
   borderWidth: "1px",
   borderColor: { base: "rgba(10,10,20,0.08)", _dark: "rgba(255,255,255,0.14)" },
   boxShadow: {
