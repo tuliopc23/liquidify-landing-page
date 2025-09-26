@@ -1980,6 +1980,14 @@
     background: rgba(255,255,255,0.2);
 }
 
+  .after\:inset_0::after {
+    inset: 0;
+}
+
+  .after\:bg_linear-gradient\(180deg\,_rgba\(255\,255\,255\,0\.6\)\,_rgba\(255\,255\,255\,0\.15\)_35\%\,_rgba\(255\,255\,255\,0\)_60\%\)::after {
+    background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.15) 35%, rgba(255,255,255,0) 60%);
+}
+
   .before\:bg_apple-blue::before {
     background: var(--colors-apple-blue);
 }
@@ -2214,6 +2222,18 @@
 
   .dark .dark\:bg-c_rgba\(32\,36\,54\,0\.95\) {
     background-color: rgba(32,36,54,0.95);
+}
+
+  .after\:content_\"\"::after {
+    content: "";
+}
+
+  .after\:pos_absolute::after {
+    position: absolute;
+}
+
+  .after\:pointer-events_none::after {
+    pointer-events: none;
 }
 
   .\[\&_\>_\*\]\:d_flex > * {
@@ -2521,6 +2541,10 @@
     background: rgba(255,255,255,0.3);
 }
 
+  .dark .after\:dark\:bg_linear-gradient\(180deg\,_rgba\(255\,255\,255\,0\.12\)\,_rgba\(255\,255\,255\,0\.05\)_35\%\,_rgba\(255\,255\,255\,0\)_60\%\)::after {
+    background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05) 35%, rgba(255,255,255,0) 60%);
+}
+
   .dark .hover\:dark\:bg-c_rgba\(30\,30\,38\,0\.92\):is(:hover, [data-hover]) {
     background-color: rgba(30,30,38,0.92);
 }
@@ -2686,6 +2710,12 @@
 }
     .xl\:grid-tc_repeat\(4\,_minmax\(0\,_1fr\)\) {
       grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+}
+
+  @media (prefers-reduced-motion: reduce) {
+    .\[\@media_\(prefers-reduced-motion\:_reduce\)\]\:trs_none {
+      transition: none;
 }
 }
 }

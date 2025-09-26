@@ -31,16 +31,16 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
   const isCompact = size === "compact";
   const hoverStyles = href
     ? {
-        transform: "translateY(-4px)",
+        transform: "translateY(-2px)",
         boxShadow: isLightCard
-          ? "0 20px 64px rgba(0,0,0,0.14), 0 0 0 1px rgba(0,0,0,0.05)"
-          : "0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.1), 0 0 140px rgba(10,132,255,0.18)",
+          ? "0 1px 0 rgba(0,0,0,0.06), 0 20px 64px rgba(0,0,0,0.14)"
+          : "0 1px 0 rgba(255,255,255,0.06) inset, 0 28px 72px rgba(0,0,0,0.56)",
       }
     : {
         transform: "translateY(-1px)",
         boxShadow: isLightCard
-          ? "0 16px 48px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.05)"
-          : "0 24px 64px rgba(0,0,0,0.44), 0 0 0 1px rgba(255,255,255,0.08)",
+          ? "0 1px 0 rgba(0,0,0,0.05), 0 16px 48px rgba(0,0,0,0.12)"
+          : "0 1px 0 rgba(255,255,255,0.06) inset, 0 22px 60px rgba(0,0,0,0.46)",
       };
   const card = css({
     display: "flex",
@@ -55,16 +55,19 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
     transform: "translateZ(0)",
     cursor: href ? "pointer" : "default",
     transition:
-      "transform 180ms var(--ease-out-quad), box-shadow 220ms var(--ease-out-quad)",
+      "transform 160ms var(--ease-out-quad), box-shadow 200ms var(--ease-out-quad)",
     boxShadow: isLightCard
       ? isCompact
-        ? "0 10px 30px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04)"
-        : "0 14px 44px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04)"
+        ? "0 1px 0 rgba(0,0,0,0.04), 0 10px 30px rgba(0,0,0,0.08)"
+        : "0 1px 0 rgba(0,0,0,0.04), 0 14px 44px rgba(0,0,0,0.10)"
       : isCompact
-        ? "0 14px 40px rgba(0,0,0,0.42), 0 0 0 1px rgba(255,255,255,0.06)"
-        : "0 22px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08)",
-    _hover: hoverStyles,
-    _active: { transform: href ? "translateY(-2px)" : undefined },
+        ? "0 1px 0 rgba(255,255,255,0.06) inset, 0 14px 40px rgba(0,0,0,0.42)"
+        : "0 1px 0 rgba(255,255,255,0.06) inset, 0 22px 60px rgba(0,0,0,0.5)",
+    _hover: {
+      ...hoverStyles,
+      transform: "translateY(-2px)",
+    },
+    _active: { transform: href ? "translateY(-1px)" : undefined },
     _focusVisible: {
       outline: "none",
       boxShadow: isLightCard

@@ -174,14 +174,20 @@ export const navLink = css({
   paddingInline: "0.5rem",
   paddingBlock: "0.375rem",
   borderRadius: "0.5rem",
+  textDecoration: "none",
+  backgroundImage: "linear-gradient(currentColor, currentColor)",
+  backgroundRepeat: "no-repeat",
+  backgroundPosition: "0 100%",
+  backgroundSize: "0% 1px",
   transition:
-    "color 150ms var(--ease-out-quad), background-color 150ms var(--ease-out-quad)",
+    "color 150ms var(--ease-out-quad), background-color 150ms var(--ease-out-quad), background-size 180ms var(--ease-out-quad)",
   _hover: {
     color: "link",
     backgroundColor: {
       base: "rgba(0,0,0,0.04)",
       _dark: "rgba(255,255,255,0.08)",
     },
+    backgroundSize: "100% 1px",
   },
 });
 
