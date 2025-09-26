@@ -40,6 +40,7 @@ export const applyTheme = (mode: ThemeMode) => {
   else root.classList.remove("dark");
   const reduce = false; // DEBUG: force full motion
   root.classList.toggle("reduce-motion", reduce);
+  root.classList.add("debug-motion");
   root.setAttribute("data-theme-mode", mode);
   root.setAttribute("data-theme", resolved);
   try {

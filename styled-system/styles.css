@@ -535,8 +535,16 @@
     border-radius: 0.5rem;
 }
 
-  .trs_color_150ms_var\(--ease-out-quad\)\,_background-color_150ms_var\(--ease-out-quad\) {
-    transition: color 150ms var(--ease-out-quad), background-color 150ms var(--ease-out-quad);
+  .td_none {
+    text-decoration: none;
+}
+
+  .bg-p_0_100\% {
+    background-position: 0 100%;
+}
+
+  .trs_color_150ms_var\(--ease-out-quad\)\,_background-color_150ms_var\(--ease-out-quad\)\,_background-size_180ms_var\(--ease-out-quad\) {
+    transition: color 150ms var(--ease-out-quad), background-color 150ms var(--ease-out-quad), background-size 180ms var(--ease-out-quad);
 }
 
   .gap_0\.6rem {
@@ -651,16 +659,16 @@
     padding-block: 0.75rem;
 }
 
-  .td_none {
-    text-decoration: none;
-}
-
   .bd-c_rgba\(60\,60\,67\,0\.12\) {
     border-color: rgba(60,60,67,0.12);
 }
 
   .trs_transform_120ms_var\(--ease-out-quad\)\,_box-shadow_200ms_var\(--ease-out-quad\)\,_border-color_160ms_var\(--ease-out-quad\) {
     transition: transform 120ms var(--ease-out-quad), box-shadow 200ms var(--ease-out-quad), border-color 160ms var(--ease-out-quad);
+}
+
+  .trs_color_150ms_var\(--ease-out-quad\)\,_background-color_150ms_var\(--ease-out-quad\) {
+    transition: color 150ms var(--ease-out-quad), background-color 150ms var(--ease-out-quad);
 }
 
   .bdr_1\.75rem {
@@ -703,8 +711,8 @@
     border-radius: 0.875rem;
 }
 
-  .trs_transform_180ms_var\(--ease-out-quad\)\,_box-shadow_220ms_var\(--ease-out-quad\) {
-    transition: transform 180ms var(--ease-out-quad), box-shadow 220ms var(--ease-out-quad);
+  .trs_transform_160ms_var\(--ease-out-quad\)\,_box-shadow_200ms_var\(--ease-out-quad\) {
+    transition: transform 160ms var(--ease-out-quad), box-shadow 200ms var(--ease-out-quad);
 }
 
   .gap_0\.45rem {
@@ -1006,6 +1014,18 @@
 
   .bx-sh_lg {
     box-shadow: var(--shadows-lg);
+}
+
+  .bg-i_linear-gradient\(currentColor\,_currentColor\) {
+    background-image: linear-gradient(currentColor, currentColor);
+}
+
+  .bg-r_no-repeat {
+    background-repeat: no-repeat;
+}
+
+  .bg-s_0\%_1px {
+    background-size: 0% 1px;
 }
 
   .pos_absolute {
@@ -1483,20 +1503,20 @@
     cursor: default;
 }
 
-  .bx-sh_0_10px_30px_rgba\(0\,0\,0\,0\.08\)\,_0_0_0_1px_rgba\(0\,0\,0\,0\.04\) {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04);
+  .bx-sh_inset_0_1px_0_rgba\(255\,255\,255\,0\.6\)\,_0_1px_0_rgba\(0\,0\,0\,0\.04\)\,_0_8px_16px_rgba\(0\,0\,0\,0\.06\)\,_0_20px_32px_rgba\(0\,0\,0\,0\.08\) {
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 0 rgba(0,0,0,0.04), 0 8px 16px rgba(0,0,0,0.06), 0 20px 32px rgba(0,0,0,0.08);
 }
 
-  .bx-sh_0_14px_44px_rgba\(0\,0\,0\,0\.10\)\,_0_0_0_1px_rgba\(0\,0\,0\,0\.04\) {
-    box-shadow: 0 14px 44px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04);
+  .bx-sh_inset_0_1px_0_rgba\(255\,255\,255\,0\.6\)\,_0_1px_0_rgba\(0\,0\,0\,0\.04\)\,_0_12px_24px_rgba\(0\,0\,0\,0\.06\)\,_0_28px_44px_rgba\(0\,0\,0\,0\.10\) {
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 0 rgba(0,0,0,0.04), 0 12px 24px rgba(0,0,0,0.06), 0 28px 44px rgba(0,0,0,0.10);
 }
 
-  .bx-sh_0_14px_40px_rgba\(0\,0\,0\,0\.42\)\,_0_0_0_1px_rgba\(255\,255\,255\,0\.06\) {
-    box-shadow: 0 14px 40px rgba(0,0,0,0.42), 0 0 0 1px rgba(255,255,255,0.06);
+  .bx-sh_inset_0_1px_0_rgba\(255\,255\,255\,0\.06\)\,_0_10px_20px_rgba\(0\,0\,0\,0\.38\)\,_0_24px_48px_rgba\(0\,0\,0\,0\.46\) {
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 10px 20px rgba(0,0,0,0.38), 0 24px 48px rgba(0,0,0,0.46);
 }
 
-  .bx-sh_0_22px_60px_rgba\(0\,0\,0\,0\.5\)\,_0_0_0_1px_rgba\(255\,255\,255\,0\.08\) {
-    box-shadow: 0 22px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
+  .bx-sh_inset_0_1px_0_rgba\(255\,255\,255\,0\.06\)\,_0_14px_28px_rgba\(0\,0\,0\,0\.42\)\,_0_30px_60px_rgba\(0\,0\,0\,0\.5\) {
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 14px 28px rgba(0,0,0,0.42), 0 30px 60px rgba(0,0,0,0.5);
 }
 
   .c_inherit {
@@ -2473,6 +2493,10 @@
     background-color: rgba(0,0,0,0.04);
 }
 
+  .hover\:bg-s_100\%_1px:is(:hover, [data-hover]) {
+    background-size: 100% 1px;
+}
+
   .hover\:bg-c_rgba\(255\,_255\,_255\,_0\.12\):is(:hover, [data-hover]) {
     background-color: rgba(255, 255, 255, 0.12);
 }
@@ -2497,24 +2521,28 @@
     transform: scale(1.05);
 }
 
-  .hover\:bx-sh_0_20px_64px_rgba\(0\,0\,0\,0\.14\)\,_0_0_0_1px_rgba\(0\,0\,0\,0\.05\):is(:hover, [data-hover]) {
-    box-shadow: 0 20px 64px rgba(0,0,0,0.14), 0 0 0 1px rgba(0,0,0,0.05);
+  .hover\:bx-sh_0_1px_0_rgba\(0\,0\,0\,0\.06\)\,_0_20px_64px_rgba\(0\,0\,0\,0\.14\):is(:hover, [data-hover]) {
+    box-shadow: 0 1px 0 rgba(0,0,0,0.06), 0 20px 64px rgba(0,0,0,0.14);
 }
 
-  .hover\:bx-sh_0_30px_80px_rgba\(0\,0\,0\,0\.6\)\,_0_0_0_1px_rgba\(255\,255\,255\,0\.1\)\,_0_0_140px_rgba\(10\,132\,255\,0\.18\):is(:hover, [data-hover]) {
-    box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.1), 0 0 140px rgba(10,132,255,0.18);
+  .hover\:bx-sh_0_1px_0_rgba\(255\,255\,255\,0\.06\)_inset\,_0_28px_72px_rgba\(0\,0\,0\,0\.56\):is(:hover, [data-hover]) {
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 28px 72px rgba(0,0,0,0.56);
 }
 
-  .hover\:bx-sh_0_16px_48px_rgba\(0\,0\,0\,0\.12\)\,_0_0_0_1px_rgba\(0\,0\,0\,0\.05\):is(:hover, [data-hover]) {
-    box-shadow: 0 16px 48px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.05);
+  .hover\:bx-sh_0_1px_0_rgba\(0\,0\,0\,0\.05\)\,_0_16px_48px_rgba\(0\,0\,0\,0\.12\):is(:hover, [data-hover]) {
+    box-shadow: 0 1px 0 rgba(0,0,0,0.05), 0 16px 48px rgba(0,0,0,0.12);
 }
 
-  .hover\:bx-sh_0_24px_64px_rgba\(0\,0\,0\,0\.44\)\,_0_0_0_1px_rgba\(255\,255\,255\,0\.08\):is(:hover, [data-hover]) {
-    box-shadow: 0 24px 64px rgba(0,0,0,0.44), 0 0 0 1px rgba(255,255,255,0.08);
+  .hover\:bx-sh_0_1px_0_rgba\(255\,255\,255\,0\.06\)_inset\,_0_22px_60px_rgba\(0\,0\,0\,0\.46\):is(:hover, [data-hover]) {
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 22px 60px rgba(0,0,0,0.46);
 }
 
-  .hover\:trf_translateY\(-4px\):is(:hover, [data-hover]) {
-    transform: translateY(-4px);
+  .hover\:trf_translateY\(-3px\):is(:hover, [data-hover]) {
+    transform: translateY(-3px);
+}
+
+  .hover\:trf_translateY\(-2px\):is(:hover, [data-hover]) {
+    transform: translateY(-2px);
 }
 
   .active\:trf_translateY\(0\):is(:active, [data-active]) {
@@ -2533,8 +2561,8 @@
     transform: scale(0.99);
 }
 
-  .active\:trf_translateY\(-2px\):is(:active, [data-active]) {
-    transform: translateY(-2px);
+  .active\:trf_translateY\(-1px\):is(:active, [data-active]) {
+    transform: translateY(-1px);
 }
 
   .\[\&\:\:-webkit-scrollbar-thumb\]\:hover\:bg_rgba\(255\,255\,255\,0\.3\)::-webkit-scrollbar-thumb:is(:hover, [data-hover]) {

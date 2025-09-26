@@ -15,4 +15,12 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  html.debug-motion *,
+  html.debug-motion *::before,
+  html.debug-motion *::after {
+    animation-duration: initial !important;
+    animation-iteration-count: initial !important;
+    transition-duration: initial !important;
+    scroll-behavior: smooth !important;
+  }
 }
