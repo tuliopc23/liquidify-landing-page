@@ -59,17 +59,17 @@ const overviewBody = cx(
 
 const highlightCard = css({
   backgroundColor: {
-    base: "rgba(255,255,255,0.9)",
-    _dark: "rgba(20,20,28,0.92)",
+    base: "rgba(255,255,255,0.94)",
+    _dark: "rgba(18,18,24,0.94)",
   },
-  borderRadius: "1.25rem",
+  borderRadius: "1rem",
   borderWidth: "1px",
   borderColor: { base: "rgba(10,10,20,0.08)", _dark: "rgba(255,255,255,0.14)" },
   boxShadow: {
-    base: "0 24px 48px rgba(15,23,42,0.12)",
-    _dark: "0 28px 64px rgba(0,0,0,0.6)",
+    base: "0 20px 40px rgba(15,23,42,0.12)",
+    _dark: "0 24px 56px rgba(0,0,0,0.58)",
   },
-  padding: { base: "2rem", md: "2.5rem" },
+  padding: { base: "1.75rem", md: "2rem" },
 });
 
 const highlightList = css({

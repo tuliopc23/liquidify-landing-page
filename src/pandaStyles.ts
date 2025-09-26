@@ -207,6 +207,10 @@ export const gridPattern = css({
   backgroundImage:
     "radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--colors-primary), transparent 90%) 1px, transparent 0)",
   backgroundSize: "20px 20px",
+  maskImage:
+    "linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.2) 40%, rgba(0,0,0,0))",
+  WebkitMaskImage:
+    "linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.2) 40%, rgba(0,0,0,0))",
 });
 
 export const fontSans = css({ fontFamily: "sans" });

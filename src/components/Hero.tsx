@@ -20,6 +20,8 @@ const heroSection = css({
   px: "1rem",
   backgroundColor: { base: "bg.canvas", _dark: "#050509" },
   color: "text",
+  WebkitFontSmoothing: "antialiased",
+  MozOsxFontSmoothing: "grayscale",
 });
 
 const heroInner = css({
@@ -92,10 +94,10 @@ const Hero: React.FC = () => {
               typography({ role: "display" }),
               css({
                 letterSpacing: "-0.02em",
-                lineHeight: 1.08,
+                lineHeight: 1.06,
                 marginX: "auto",
                 maxWidth: { base: "20ch", md: "none" },
-                fontSize: { md: "3.25rem", lg: "4.125rem" },
+                fontSize: { md: "3.375rem", lg: "4.375rem" },
                 whiteSpace: { md: "nowrap" },
               }),
             )}
@@ -132,27 +134,44 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Floating glass blobs (existing) */}
       <div
         className={cx(
           floatingElement("apple-teal"),
-          css({ w: "12rem", h: "12rem", top: "12%", left: "18%" }),
+          css({
+            w: "10rem",
+            h: "10rem",
+            top: "14%",
+            left: "16%",
+            filter: "blur(18px)",
+          }),
         )}
-        style={{ animationDelay: "3s" }}
+        style={{ animationDelay: "2.2s" }}
       />
       <div
         className={cx(
           floatingElement("apple-pink"),
-          css({ w: "18rem", h: "18rem", bottom: "6%", right: "12%" }),
+          css({
+            w: "16rem",
+            h: "16rem",
+            bottom: "8%",
+            right: "10%",
+            filter: "blur(20px)",
+          }),
         )}
-        style={{ animationDelay: "6s" }}
+        style={{ animationDelay: "5.4s" }}
       />
       <div
         className={cx(
           floatingElement("apple-indigo"),
-          css({ w: "14rem", h: "14rem", top: "30%", right: "35%" }),
+          css({
+            w: "12rem",
+            h: "12rem",
+            top: "32%",
+            right: "34%",
+            filter: "blur(20px)",
+          }),
         )}
-        style={{ animationDelay: "9s" }}
+        style={{ animationDelay: "8.6s" }}
       />
     </section>
   );

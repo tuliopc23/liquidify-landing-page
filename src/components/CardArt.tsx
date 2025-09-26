@@ -42,7 +42,7 @@ const VIEWBOX_HEIGHT = 180;
 const GLYPH_CANVAS_WIDTH = 320;
 const GLYPH_CANVAS_HEIGHT = 180;
 const OUTER_RADIUS = 28;
-const DEFAULT_SCALE = 0.72;
+const DEFAULT_SCALE = 0.64;
 
 const backgroundStops: Record<
   CardArtVariant,
@@ -232,6 +232,7 @@ const HigGlyph: GlyphComponent = ({ tone, accentId }) => (
       fill={`url(#${accentId})`}
       stroke={softStroke(tone)}
       strokeWidth={3}
+      vectorEffect="non-scaling-stroke"
     />
     <rect
       x={96}
@@ -297,6 +298,7 @@ const AppsGlyph: GlyphComponent = ({ tone, accentId }) => (
       fill={`url(#${accentId})`}
       stroke={softStroke(tone)}
       strokeWidth={3}
+      vectorEffect="non-scaling-stroke"
     />
     <rect
       x={78}
@@ -515,6 +517,7 @@ const KeyboardGlyph: GlyphComponent = ({ tone }) => (
       stroke={glyphSubFill(tone)}
       strokeWidth={8}
       strokeLinecap="round"
+      vectorEffect="non-scaling-stroke"
     />
   </g>
 );
@@ -528,6 +531,7 @@ const InstallGlyph: GlyphComponent = ({ tone }) => (
       strokeWidth={10}
       strokeLinecap="round"
       strokeLinejoin="round"
+      vectorEffect="non-scaling-stroke"
     />
     <rect
       x={122}
@@ -556,12 +560,14 @@ const UsageGlyph: GlyphComponent = ({ tone }) => (
       stroke={roundedRect(tone)}
       strokeWidth={10}
       strokeLinecap="round"
+      vectorEffect="non-scaling-stroke"
     />
     <path
       d="m174 88 42 66"
       stroke={glyphFill(tone)}
       strokeWidth={12}
       strokeLinecap="round"
+      vectorEffect="non-scaling-stroke"
     />
     <circle cx={196} cy={128} r={22} fill={glyphFill(tone)} />
     <path
@@ -570,6 +576,7 @@ const UsageGlyph: GlyphComponent = ({ tone }) => (
       strokeWidth={6}
       strokeLinecap="round"
       strokeLinejoin="round"
+      vectorEffect="non-scaling-stroke"
     />
   </g>
 );
@@ -651,6 +658,9 @@ const ArtFrame: React.FC<{
   const gradientId = useId();
   const clipId = useId();
   const accentId = useId();
+  const sharpenId = useId();
+  const vignetteId = useId();
+  const highlightId = useId();
   const stops = backgroundStops[variant][tone];
 
   const artScale = scale ?? DEFAULT_SCALE;
@@ -671,6 +681,7 @@ const ArtFrame: React.FC<{
       preserveAspectRatio="xMidYMid meet"
       focusable="false"
       xmlns="http://www.w3.org/2000/svg"
+      shapeRendering="geometricPrecision"
     >
       <defs>
         {stopEls(gradientId, stops)}
@@ -682,6 +693,41 @@ const ArtFrame: React.FC<{
             ry={OUTER_RADIUS}
           />
         </clipPath>
+        <radialGradient id={vignetteId} cx="50%" cy="50%" r="75%">
+          <stop offset="60%" stopColor="rgba(0,0,0,0)" />
+          <stop
+            offset="100%"
+            stopColor={
+              tone === "light" ? "rgba(0,0,0,0.10)" : "rgba(0,0,0,0.22)"
+            }
+          />
+        </radialGradient>
+        <linearGradient id={highlightId} x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="rgba(255,255,255,0.35)" />
+          <stop offset="35%" stopColor="rgba(255,255,255,0.08)" />
+          <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+        </linearGradient>
+        <filter
+          id={sharpenId}
+          x="-5%"
+          y="-5%"
+          width="110%"
+          height="110%"
+          colorInterpolationFilters="sRGB"
+        >
+          <feGaussianBlur in="SourceGraphic" stdDeviation="0.6" result="blur" />
+          <feComposite
+            in="SourceGraphic"
+            in2="blur"
+            operator="arithmetic"
+            k1="0"
+            k2="1.25"
+            k3="-0.25"
+            k4="0"
+            result="usm"
+          />
+          <feColorMatrix in="usm" type="saturate" values="1.06" />
+        </filter>
       </defs>
       <rect
         width={VIEWBOX_WIDTH}
@@ -690,9 +736,23 @@ const ArtFrame: React.FC<{
         ry={OUTER_RADIUS}
         fill={`url(#${gradientId})`}
       />
+      <rect
+        width={VIEWBOX_WIDTH}
+        height={Math.round(VIEWBOX_HEIGHT * 0.42)}
+        rx={OUTER_RADIUS}
+        ry={OUTER_RADIUS}
+        fill={`url(#${highlightId})`}
+      />
+      <rect
+        width={VIEWBOX_WIDTH}
+        height={VIEWBOX_HEIGHT}
+        rx={OUTER_RADIUS}
+        ry={OUTER_RADIUS}
+        fill={`url(#${vignetteId})`}
+      />
       <g clipPath={`url(#${clipId})`}>
         <g transform={`translate(${translateX} ${translateY})`}>
-          <g transform={centeredScale}>
+          <g transform={centeredScale} filter={`url(#${sharpenId})`}>
             <GradientGlyph tone={tone} accentId={accentId} />
           </g>
         </g>

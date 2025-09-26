@@ -14,6 +14,7 @@ const grid = css({
   },
   gap: "24px",
   mt: "1.5rem",
+  alignItems: "stretch",
 });
 
 const smallSection = css({
@@ -25,7 +26,7 @@ const smallSection = css({
 
 const smallRow = css({
   display: "grid",
-  gap: "1.25rem",
+  gap: "1rem",
   gridTemplateColumns: {
     base: "repeat(1, minmax(0, 1fr))",
     sm: "repeat(2, minmax(0, 1fr))",
@@ -73,7 +74,7 @@ export default function Features() {
   const cards: OverviewCardProps[] = [
     {
       href: "#hig-web",
-      cover: <CardArt variant="hig" tone={resolved} scale={0.58} />,
+      cover: <CardArt variant="hig" tone={resolved} scale={0.5} />,
       eyebrow: "Design language",
       title: "HIG principles — on the web",
       summary:
@@ -83,7 +84,7 @@ export default function Features() {
     },
     {
       href: "#apps-sites",
-      cover: <CardArt variant="apps" tone={resolved} scale={0.58} />,
+      cover: <CardArt variant="apps" tone={resolved} scale={0.5} />,
       eyebrow: "Use cases",
       title: "Built for Apple app sites",
       summary:
@@ -93,7 +94,7 @@ export default function Features() {
     },
     {
       href: "#quality",
-      cover: <CardArt variant="quality" tone={resolved} scale={0.58} />,
+      cover: <CardArt variant="quality" tone={resolved} scale={0.5} />,
       eyebrow: "Quality",
       title: "Accessible, fast, themable",
       summary:
@@ -168,7 +169,7 @@ export default function Features() {
   ];
 
   const smallFeatures = smallFeaturesBase.map((feature) => {
-    const scale = 0.52;
+    const scale = 0.46;
     return {
       ...feature,
       theme: resolved,
