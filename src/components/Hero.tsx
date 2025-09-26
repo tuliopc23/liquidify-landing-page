@@ -173,9 +173,6 @@ const Hero: React.FC = () => {
         )}
         style={{ animationDelay: "8.6s" }}
       />
-      <style>{`@media (prefers-reduced-motion: reduce) {
-          .reduce-motion * { animation: none !important; transition: none !important; }
-        }`}</style>
     </section>
   );
 };
