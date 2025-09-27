@@ -1551,15 +1551,6 @@
     aspect-ratio: 3/2;
 }
 
-  .\-webkit-mask-image_radial-gradient\(120\%_100\%_at_0\%_0\%\,_rgba\(0\,0\,0\,1\)\,_rgba\(0\,0\,0\,0\.5\)_55\%\,_rgba\(0\,0\,0\,0\)_70\%\) {
-    -webkit-mask-image: radial-gradient(120% 100% at 0% 0%, rgba(0,0,0,1), rgba(0,0,0,0.5) 55%, rgba(0,0,0,0) 70%);
-}
-
-  .msk-i_radial-gradient\(120\%_100\%_at_0\%_0\%\,_rgba\(0\,0\,0\,1\)\,_rgba\(0\,0\,0\,0\.5\)_55\%\,_rgba\(0\,0\,0\,0\)_70\%\) {
-    mask-image: radial-gradient(120% 100% at 0% 0%, rgba(0,0,0,1), rgba(0,0,0,0.5) 55%, rgba(0,0,0,0) 70%);
-    -webkit-mask-image: radial-gradient(120% 100% at 0% 0%, rgba(0,0,0,1), rgba(0,0,0,0.5) 55%, rgba(0,0,0,0) 70%);
-}
-
   .bx-s_border-box {
     box-sizing: border-box;
 }
@@ -2000,14 +1991,6 @@
     background: rgba(255,255,255,0.2);
 }
 
-  .after\:inset_0::after {
-    inset: 0;
-}
-
-  .after\:bg_linear-gradient\(180deg\,_rgba\(255\,255\,255\,0\.6\)\,_rgba\(255\,255\,255\,0\.15\)_35\%\,_rgba\(255\,255\,255\,0\)_60\%\)::after {
-    background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.15) 35%, rgba(255,255,255,0) 60%);
-}
-
   .before\:bg_apple-blue::before {
     background: var(--colors-apple-blue);
 }
@@ -2242,18 +2225,6 @@
 
   .dark .dark\:bg-c_rgba\(32\,36\,54\,0\.95\) {
     background-color: rgba(32,36,54,0.95);
-}
-
-  .after\:content_\"\"::after {
-    content: "";
-}
-
-  .after\:pos_absolute::after {
-    position: absolute;
-}
-
-  .after\:pointer-events_none::after {
-    pointer-events: none;
 }
 
   .\[\&_\>_\*\]\:d_flex > * {
@@ -2567,10 +2538,6 @@
 
   .\[\&\:\:-webkit-scrollbar-thumb\]\:hover\:bg_rgba\(255\,255\,255\,0\.3\)::-webkit-scrollbar-thumb:is(:hover, [data-hover]) {
     background: rgba(255,255,255,0.3);
-}
-
-  .dark .after\:dark\:bg_linear-gradient\(180deg\,_rgba\(255\,255\,255\,0\.12\)\,_rgba\(255\,255\,255\,0\.05\)_35\%\,_rgba\(255\,255\,255\,0\)_60\%\)::after {
-    background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05) 35%, rgba(255,255,255,0) 60%);
 }
 
   .dark .hover\:dark\:bg-c_rgba\(30\,30\,38\,0\.92\):is(:hover, [data-hover]) {
