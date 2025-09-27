@@ -1,33 +1,129 @@
 :root {
-  --card-art-hig-bg: oklch(0.398 0.07 227.392);
-  --card-art-apps-bg: oklch(0.6 0.118 184.704);
-  --card-art-quality-bg: oklch(0.828 0.189 84.429);
-  --card-art-accessibility-bg: #e9ebef;
-  --card-art-responsive-bg: #ececf0;
-  --card-art-interactions-bg: #d4183d;
-  --card-art-tree-bg: oklch(0.769 0.188 70.08);
-  --card-art-tokens-bg: oklch(0.95 0.0058 264.53);
-  --card-art-modes-bg: #cbced4;
-  --card-art-performance-bg: oklch(0.646 0.222 41.116);
-  --card-art-keyboard-bg: #cbced4;
-  --card-art-install-bg: oklch(0.398 0.07 227.392);
-  --card-art-usage-bg: oklch(0.6 0.118 184.704);
-  --card-art-inside-bg: oklch(0.95 0.0058 264.53);
+  /* Apple system colors — light appearance */
+  --color-light-blue: rgb(0, 122, 255);
+  --color-light-green: rgb(52, 199, 89);
+  --color-light-indigo: rgb(88, 86, 214);
+  --color-light-orange: rgb(255, 149, 0);
+  --color-light-pink: rgb(255, 45, 85);
+  --color-light-purple: rgb(175, 82, 222);
+  --color-light-red: rgb(255, 59, 48);
+  --color-light-teal: rgb(90, 200, 250);
+  --color-light-yellow: rgb(255, 204, 0);
+
+  /* Card art surface tokens (light mode) */
+  --card-art-hig-bg: color-mix(in oklab, var(--color-light-blue) 82%, white);
+  --card-art-apps-bg: color-mix(in oklab, var(--color-light-red) 80%, white);
+  --card-art-quality-bg: color-mix(
+    in oklab,
+    var(--color-light-green) 78%,
+    white
+  );
+  --card-art-accessibility-bg: color-mix(
+    in oklab,
+    var(--color-light-teal) 80%,
+    white
+  );
+  --card-art-responsive-bg: color-mix(
+    in oklab,
+    var(--color-light-pink) 78%,
+    white
+  );
+  --card-art-interactions-bg: color-mix(
+    in oklab,
+    var(--color-light-orange) 80%,
+    white
+  );
+  --card-art-tree-bg: color-mix(in oklab, var(--color-light-green) 82%, white);
+  --card-art-tokens-bg: color-mix(
+    in oklab,
+    var(--color-light-purple) 80%,
+    white
+  );
+  --card-art-modes-bg: color-mix(
+    in oklab,
+    var(--color-light-indigo) 80%,
+    white
+  );
+  --card-art-performance-bg: color-mix(
+    in oklab,
+    var(--color-light-yellow) 78%,
+    white
+  );
+  --card-art-keyboard-bg: color-mix(
+    in oklab,
+    var(--color-light-blue) 78%,
+    white
+  );
+  --card-art-install-bg: color-mix(
+    in oklab,
+    var(--color-light-blue) 80%,
+    white
+  );
+  --card-art-usage-bg: color-mix(in oklab, var(--color-light-teal) 78%, white);
+  --card-art-inside-bg: color-mix(
+    in oklab,
+    var(--color-light-purple) 78%,
+    white
+  );
 }
 
 .dark {
-  --card-art-hig-bg: oklch(0.696 0.17 162.48);
-  --card-art-apps-bg: oklch(0.488 0.243 264.376);
-  --card-art-quality-bg: oklch(0.645 0.246 16.439);
-  --card-art-accessibility-bg: oklch(0.269 0 0);
-  --card-art-responsive-bg: oklch(0.269 0 0);
-  --card-art-interactions-bg: oklch(0.396 0.141 25.723);
-  --card-art-tree-bg: oklch(0.696 0.17 162.48);
-  --card-art-tokens-bg: oklch(0.488 0.243 264.376);
-  --card-art-modes-bg: oklch(0.205 0 0);
-  --card-art-performance-bg: oklch(0.627 0.265 303.9);
-  --card-art-keyboard-bg: oklch(0.269 0 0);
-  --card-art-install-bg: oklch(0.488 0.243 264.376);
-  --card-art-usage-bg: oklch(0.696 0.17 162.48);
-  --card-art-inside-bg: oklch(0.488 0.243 264.376);
+  /* Apple system colors — dark appearance */
+  --color-dark-blue: rgb(10, 132, 255);
+  --color-dark-green: rgb(48, 209, 88);
+  --color-dark-indigo: rgb(94, 92, 230);
+  --color-dark-orange: rgb(255, 159, 10);
+  --color-dark-pink: rgb(255, 55, 95);
+  --color-dark-purple: rgb(191, 90, 242);
+  --color-dark-red: rgb(255, 69, 58);
+  --color-dark-teal: rgb(100, 210, 255);
+  --color-dark-yellow: rgb(255, 214, 10);
+
+  /* Card art surface tokens (dark mode) */
+  --card-art-hig-bg: color-mix(in oklab, var(--color-dark-blue) 82%, black);
+  --card-art-apps-bg: color-mix(in oklab, var(--color-dark-red) 80%, black);
+  --card-art-quality-bg: color-mix(
+    in oklab,
+    var(--color-dark-green) 80%,
+    black
+  );
+  --card-art-accessibility-bg: color-mix(
+    in oklab,
+    var(--color-dark-teal) 82%,
+    black
+  );
+  --card-art-responsive-bg: color-mix(
+    in oklab,
+    var(--color-dark-pink) 80%,
+    black
+  );
+  --card-art-interactions-bg: color-mix(
+    in oklab,
+    var(--color-dark-orange) 82%,
+    black
+  );
+  --card-art-tree-bg: color-mix(in oklab, var(--color-dark-green) 84%, black);
+  --card-art-tokens-bg: color-mix(
+    in oklab,
+    var(--color-dark-purple) 80%,
+    black
+  );
+  --card-art-modes-bg: color-mix(in oklab, var(--color-dark-indigo) 82%, black);
+  --card-art-performance-bg: color-mix(
+    in oklab,
+    var(--color-dark-yellow) 80%,
+    black
+  );
+  --card-art-keyboard-bg: color-mix(
+    in oklab,
+    var(--color-dark-blue) 78%,
+    black
+  );
+  --card-art-install-bg: color-mix(in oklab, var(--color-dark-blue) 80%, black);
+  --card-art-usage-bg: color-mix(in oklab, var(--color-dark-teal) 80%, black);
+  --card-art-inside-bg: color-mix(
+    in oklab,
+    var(--color-dark-purple) 80%,
+    black
+  );
 }
