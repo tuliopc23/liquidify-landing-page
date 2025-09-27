@@ -6,16 +6,24 @@ const Footer: React.FC = () => {
   return (
     <footer
       className={css({
-        backgroundColor: {
-          base: "rgba(245,246,255,0.96)",
-          _dark: "rgba(6,6,12,0.96)",
-        },
+        position: "relative",
+        isolation: "isolate",
+        backgroundColor: "glass.surface",
+        backdropFilter: "blur(var(--blurs-glass-surface))",
         paddingY: "4rem",
         color: "text",
         borderTopWidth: "1px",
-        borderColor: {
-          base: "rgba(0,0,0,0.05)",
-          _dark: "rgba(255,255,255,0.12)",
+        borderColor: "glass.stroke",
+        boxShadow: "var(--shadows-elevation-card-hoverPassive)",
+        overflow: "hidden",
+        _before: {
+          content: '""',
+          position: "absolute",
+          inset: 0,
+          pointerEvents: "none",
+          backgroundImage: "var(--gradients-glass-highlight)",
+          opacity: { base: 0.75, _dark: 0.6 },
+          zIndex: -1,
         },
       })}
     >

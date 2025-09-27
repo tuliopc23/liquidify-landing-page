@@ -6993,7 +6993,7 @@ bgBlendMode?: ConditionalValue<CssProperties["backgroundBlendMode"] | AnyString>
 bgSize?: ConditionalValue<CssProperties["backgroundSize"] | AnyString>
  bgGradient?: ConditionalValue<UtilityValues["backgroundGradient"] | CssVars | AnyString>
  bgLinear?: ConditionalValue<UtilityValues["backgroundLinear"] | CssVars | AnyString>
- bgRadial?: ConditionalValue<string | number | AnyString>
+ bgRadial?: ConditionalValue<UtilityValues["backgroundRadial"] | CssVars | AnyString>
  bgConic?: ConditionalValue<string | number | AnyString>
  /**
    * The **`border-radius`** CSS property rounds the corners of an element's outer border edge. You can set a single radius to make circular corners, or two radii to make elliptical corners.
@@ -7377,7 +7377,7 @@ scrollPaddingX?: ConditionalValue<CssProperties["scrollPaddingInline"] | AnyStri
  truncate?: ConditionalValue<UtilityValues["truncate"] | CssVars | AnyString>
  backgroundGradient?: ConditionalValue<UtilityValues["backgroundGradient"] | CssVars | AnyString>
  backgroundLinear?: ConditionalValue<UtilityValues["backgroundLinear"] | CssVars | AnyString>
- backgroundRadial?: ConditionalValue<string | number | AnyString>
+ backgroundRadial?: ConditionalValue<UtilityValues["backgroundRadial"] | CssVars | AnyString>
  backgroundConic?: ConditionalValue<string | number | AnyString>
  textGradient?: ConditionalValue<UtilityValues["textGradient"] | CssVars | AnyString>
  gradientFromPosition?: ConditionalValue<string | number | AnyString>
@@ -7401,8 +7401,8 @@ scrollPaddingX?: ConditionalValue<CssProperties["scrollPaddingInline"] | AnyStri
  saturate?: ConditionalValue<string | number | AnyString>
  sepia?: ConditionalValue<string | number | AnyString>
  dropShadow?: ConditionalValue<string | number | AnyString>
- blur?: ConditionalValue<string | number | AnyString>
- backdropBlur?: ConditionalValue<string | number | AnyString>
+ blur?: ConditionalValue<UtilityValues["blur"] | CssVars | AnyString>
+ backdropBlur?: ConditionalValue<UtilityValues["backdropBlur"] | CssVars | AnyString>
  backdropBrightness?: ConditionalValue<string | number | AnyString>
  backdropContrast?: ConditionalValue<string | number | AnyString>
  backdropGrayscale?: ConditionalValue<string | number | AnyString>

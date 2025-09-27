@@ -255,6 +255,18 @@ const tokens = {
     "value": "0 32px 48px rgba(0,0,0,0.16)",
     "variable": "var(--shadows-xl)"
   },
+  "blurs.glass-sm": {
+    "value": "12px",
+    "variable": "var(--blurs-glass-sm)"
+  },
+  "blurs.glass-md": {
+    "value": "18px",
+    "variable": "var(--blurs-glass-md)"
+  },
+  "blurs.glass-lg": {
+    "value": "28px",
+    "variable": "var(--blurs-glass-lg)"
+  },
   "breakpoints.sm": {
     "value": "640px",
     "variable": "var(--breakpoints-sm)"
@@ -358,6 +370,46 @@ const tokens = {
   "colors.glass.tint": {
     "value": "var(--colors-glass\\.tint)",
     "variable": "var(--colors-glass\\.tint)"
+  },
+  "colors.glass.stroke": {
+    "value": "var(--colors-glass\\.stroke)",
+    "variable": "var(--colors-glass\\.stroke)"
+  },
+  "colors.glass.surface": {
+    "value": "var(--colors-glass\\.surface)",
+    "variable": "var(--colors-glass\\.surface)"
+  },
+  "colors.glass.surface-elevated": {
+    "value": "var(--colors-glass\\.surface-elevated)",
+    "variable": "var(--colors-glass\\.surface-elevated)"
+  },
+  "blurs.glass.surface": {
+    "value": "var(--blurs-glass\\.surface)",
+    "variable": "var(--blurs-glass\\.surface)"
+  },
+  "blurs.glass.strong": {
+    "value": "var(--blurs-glass\\.strong)",
+    "variable": "var(--blurs-glass\\.strong)"
+  },
+  "shadows.elevation.card-compact.base": {
+    "value": "var(--shadows-elevation\\.card-compact\\.base)",
+    "variable": "var(--shadows-elevation\\.card-compact\\.base)"
+  },
+  "shadows.elevation.card-standard.base": {
+    "value": "var(--shadows-elevation\\.card-standard\\.base)",
+    "variable": "var(--shadows-elevation\\.card-standard\\.base)"
+  },
+  "shadows.elevation.card.hoverInteractive": {
+    "value": "var(--shadows-elevation\\.card\\.hover-interactive)",
+    "variable": "var(--shadows-elevation\\.card\\.hover-interactive)"
+  },
+  "shadows.elevation.card.hoverPassive": {
+    "value": "var(--shadows-elevation\\.card\\.hover-passive)",
+    "variable": "var(--shadows-elevation\\.card\\.hover-passive)"
+  },
+  "gradients.glass.highlight": {
+    "value": "var(--gradients-glass\\.highlight)",
+    "variable": "var(--gradients-glass\\.highlight)"
   },
   "colors.colorPalette": {
     "value": "var(--colors-color-palette)",

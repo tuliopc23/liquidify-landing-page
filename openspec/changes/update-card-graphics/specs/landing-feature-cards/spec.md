@@ -15,3 +15,18 @@ Marketing feature cards on the landing page MUST render the curated SVG graphics
 - **WHEN** the landing page resolves to light or dark mode
 - **THEN** each card illustration uses the corresponding custom property defined in `src/styles/card-art-colors.css` for its background surface
 - **AND** the SVG artwork remains otherwise unchanged.
+
+#### Scenario: Apple system palette colors the illustration surfaces
+- **WHEN** card art background tokens resolve in either light or dark mode
+- **THEN** the computed colors blend the appropriate Apple system color (e.g., blue, green, pink, indigo) with white in light mode or black in dark mode via `color-mix`
+- **AND** the resulting hues align with the official Apple system palette for platform consistency.
+
+#### Scenario: Card elevations use HIG elevation tokens
+- **WHEN** a feature card renders in its resting state or hovered state
+- **THEN** its box-shadow derives from the semantic elevation tokens defined in `panda.config.ts`
+- **AND** the light and dark treatments match Apple’s elevation guidance for glass surfaces.
+
+#### Scenario: Shared glass tokens style global chrome
+- **WHEN** navigation or footer chrome is rendered
+- **THEN** each surface uses the shared glass background, blur, highlight, and stroke tokens
+- **AND** the frosted treatment remains consistent with card surfaces across both themes.

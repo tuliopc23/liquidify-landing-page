@@ -27,12 +27,10 @@ const toggleRoot = css({
   padding: "0.125rem",
   borderRadius: "999px",
   borderWidth: "1px",
-  borderColor: "apple-blue",
-  backgroundColor: {
-    base: "rgba(255,255,255,0.82)",
-    _dark: "rgba(14,14,22,0.88)",
-  },
-  boxShadow: "0 12px 28px rgba(10,132,255,0.24)",
+  borderColor: "glass.stroke",
+  backgroundColor: "glass.surface",
+  backdropFilter: "blur(var(--blurs-glass-surface))",
+  boxShadow: "var(--shadows-elevation-card-compact-base)",
   gap: "0.25rem",
 });
 
@@ -52,7 +50,7 @@ const toggleOption = css({
   transition:
     "background-color 150ms var(--ease-out-quad), color 150ms var(--ease-out-quad), box-shadow 150ms var(--ease-out-quad), transform 120ms var(--ease-out-quad)",
   WebkitTapHighlightColor: "transparent",
-  _hover: { backgroundColor: "rgba(10,132,255,0.1)" },
+  _hover: { backgroundColor: "rgba(10,132,255,0.12)" },
   _active: { transform: "scale(0.98)" },
   _focusVisible: {
     outline: "none",
@@ -119,24 +117,33 @@ const Navbar: React.FC = () => {
     left: 0,
     right: 0,
     zIndex: 50,
-    transition:
-      "background-color 240ms var(--ease-out-quad), box-shadow 240ms var(--ease-out-quad)",
-    backdropFilter: "blur(24px)",
+    isolation: "isolate",
+    overflow: "hidden",
+    backdropFilter: "blur(var(--blurs-glass-strong))",
     borderBottomWidth: "1px",
-    borderColor: { base: "rgba(0,0,0,0.06)", _dark: "rgba(255,255,255,0.14)" },
-    backgroundColor: {
-      base: "rgba(255,255,255,0.65)",
-      _dark: "rgba(8,8,14,0.65)",
+    borderColor: "glass.stroke",
+    backgroundColor: "glass.surface",
+    boxShadow: "var(--shadows-elevation-card-compact-base)",
+    transition:
+      "background-color 220ms var(--ease-out-quad), box-shadow 240ms var(--ease-out-quad)",
+    _before: {
+      content: '""',
+      position: "absolute",
+      inset: 0,
+      pointerEvents: "none",
+      backgroundImage: "var(--gradients-glass-highlight)",
+      opacity: { base: 0.85, _dark: 0.7 },
+      zIndex: -1,
     },
-    boxShadow: "none",
   });
 
   const navSolid = css({
-    backgroundColor: {
-      base: "rgba(255,255,255,0.92)",
-      _dark: "rgba(12,12,18,0.9)",
+    backgroundColor: "glass.surface-elevated",
+    boxShadow: "var(--shadows-elevation-card-hoverPassive)",
+    borderColor: {
+      base: "rgba(0,0,0,0.08)",
+      _dark: "rgba(255,255,255,0.2)",
     },
-    boxShadow: "0 18px 44px rgba(15,23,42,0.08)",
   });
 
   return (
@@ -187,17 +194,14 @@ const Navbar: React.FC = () => {
               height: "2.75rem",
               borderRadius: "9999px",
               borderWidth: "1px",
-              borderColor: "rgba(60,60,67,0.12)",
-              backgroundColor: {
-                base: "rgba(255,255,255,0.75)",
-                _dark: "rgba(26,26,34,0.75)",
-              },
-              boxShadow: "0 12px 24px rgba(10,132,255,0.18)",
+              borderColor: "glass.stroke",
+              backgroundColor: "glass.surface",
+              boxShadow: "var(--shadows-elevation-card-compact-base)",
               color: {
                 base: "rgba(60,60,67,0.8)",
                 _dark: "rgba(235,235,245,0.78)",
               },
-              backdropFilter: "blur(22px)",
+              backdropFilter: "blur(var(--blurs-glass-surface))",
               transition:
                 "transform 120ms var(--ease-out-quad), box-shadow 200ms var(--ease-out-quad), border-color 160ms var(--ease-out-quad)",
               cursor: "pointer",

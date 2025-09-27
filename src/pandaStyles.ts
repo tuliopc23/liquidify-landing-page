@@ -131,38 +131,52 @@ export const button = cva({
 
 // Card surfaces
 export const card = css({
-  backgroundColor: "bg.surface",
-  backdropFilter: "blur(4px)",
+  position: "relative",
+  isolation: "isolate",
+  backgroundColor: "glass.surface",
+  backdropFilter: "blur(var(--blurs-glass-surface))",
   borderWidth: "1px",
-  borderColor: "border.default",
+  borderColor: "glass.stroke",
   borderRadius: "26px",
-  boxShadow: "sm",
+  boxShadow: "var(--shadows-elevation-card-standard-base)",
   transition:
-    "box-shadow 300ms var(--ease-out-quad), transform 300ms var(--ease-out-quad)",
-  _hover: { boxShadow: "md" },
+    "box-shadow 280ms var(--ease-out-quad), transform 280ms var(--ease-out-quad)",
+  _hover: { boxShadow: "var(--shadows-elevation-card-hoverPassive)" },
 });
 
 export const cardGlass = css({
   // HIG-friendly neutral liquid glass surface
   position: "relative",
-  backgroundColor: "glass.bg",
-  backdropFilter: "blur(20px)", // ~backdrop-blur-xl
+  isolation: "isolate",
+  backgroundColor: "glass.surface",
+  backdropFilter: "blur(var(--blurs-glass-strong))",
   borderWidth: "1px",
-  borderColor: "glass.border",
+  borderColor: "glass.stroke",
   borderRadius: "glass",
-  boxShadow: "lg",
+  boxShadow: "var(--shadows-elevation-card-standard-base)",
+  overflow: "hidden",
   transition:
-    "box-shadow 300ms var(--ease-out-quad), transform 300ms var(--ease-out-quad)",
+    "box-shadow 280ms var(--ease-out-quad), transform 280ms var(--ease-out-quad)",
   _before: {
     content: '""',
     position: "absolute",
     inset: 0,
     borderRadius: "inherit",
     pointerEvents: "none",
-    backgroundImage:
-      "linear-gradient(180deg, rgba(255,255,255,.35), transparent 40%), radial-gradient(120% 100% at 0% 0%, color-mix(in oklab, var(--colors-glass-tint), transparent 92%), transparent 60%)",
+    backgroundImage: "var(--gradients-glass-highlight)",
+    opacity: { base: 0.9, _dark: 0.85 },
   },
-  _hover: { boxShadow: "xl" },
+  _after: {
+    content: '""',
+    position: "absolute",
+    inset: "-1px",
+    borderRadius: "inherit",
+    pointerEvents: "none",
+    border: "1px solid rgba(255,255,255,0.14)",
+    mixBlendMode: "overlay",
+    opacity: { base: 0.4, _dark: 0.2 },
+  },
+  _hover: { boxShadow: "var(--shadows-elevation-card-hoverInteractive)" },
 });
 
 // Common link style (gray → apple-blue on hover)

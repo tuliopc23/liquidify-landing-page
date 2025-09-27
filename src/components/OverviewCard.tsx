@@ -30,18 +30,20 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
 }) => {
   const isLightCard = theme === "light";
   const isCompact = size === "compact";
+  const baseBoxShadow = isCompact
+    ? "var(--shadows-elevation-card-compact-base)"
+    : "var(--shadows-elevation-card-standard-base)";
+  const interactiveHoverShadow =
+    "var(--shadows-elevation-card-hoverInteractive)";
+  const passiveHoverShadow = "var(--shadows-elevation-card-hoverPassive)";
   const hoverStyles = href
     ? {
         transform: "translateY(-2px)",
-        boxShadow: isLightCard
-          ? "0 1px 0 rgba(0,0,0,0.06), 0 20px 64px rgba(0,0,0,0.14)"
-          : "0 1px 0 rgba(255,255,255,0.06) inset, 0 28px 72px rgba(0,0,0,0.56)",
+        boxShadow: interactiveHoverShadow,
       }
     : {
         transform: "translateY(-1px)",
-        boxShadow: isLightCard
-          ? "0 1px 0 rgba(0,0,0,0.05), 0 16px 48px rgba(0,0,0,0.12)"
-          : "0 1px 0 rgba(255,255,255,0.06) inset, 0 22px 60px rgba(0,0,0,0.46)",
+        boxShadow: passiveHoverShadow,
       };
   const card = css({
     display: "flex",
@@ -57,13 +59,7 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
     cursor: href ? "pointer" : "default",
     transition:
       "transform 160ms var(--ease-out-quad), box-shadow 200ms var(--ease-out-quad)",
-    boxShadow: isLightCard
-      ? isCompact
-        ? "inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 0 rgba(0,0,0,0.04), 0 8px 16px rgba(0,0,0,0.06), 0 20px 32px rgba(0,0,0,0.08)"
-        : "inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 0 rgba(0,0,0,0.04), 0 12px 24px rgba(0,0,0,0.06), 0 28px 44px rgba(0,0,0,0.10)"
-      : isCompact
-        ? "inset 0 1px 0 rgba(255,255,255,0.06), 0 10px 20px rgba(0,0,0,0.38), 0 24px 48px rgba(0,0,0,0.46)"
-        : "inset 0 1px 0 rgba(255,255,255,0.06), 0 14px 28px rgba(0,0,0,0.42), 0 30px 60px rgba(0,0,0,0.5)",
+    boxShadow: baseBoxShadow,
     _hover: {
       ...hoverStyles,
       transform: "translateY(-3px)",

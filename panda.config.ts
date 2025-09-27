@@ -108,6 +108,11 @@ export default defineConfig({
         lg: { value: "0 20px 30px rgba(0,0,0,0.12)" },
         xl: { value: "0 32px 48px rgba(0,0,0,0.16)" },
       },
+      blurs: {
+        "glass-sm": { value: "12px" },
+        "glass-md": { value: "18px" },
+        "glass-lg": { value: "28px" },
+      },
     },
     semanticTokens: {
       colors: {
@@ -198,6 +203,71 @@ export default defineConfig({
         },
         "glass.tint": {
           value: { base: "{colors.apple-blue}", _dark: "{colors.apple-blue}" },
+        },
+        "glass.stroke": {
+          value: {
+            base: "rgba(255,255,255,0.45)",
+            _dark: "rgba(255,255,255,0.18)",
+          },
+        },
+        "glass.surface": {
+          value: {
+            base: "rgba(255,255,255,0.72)",
+            _dark: "rgba(16,18,28,0.72)",
+          },
+        },
+        "glass.surface-elevated": {
+          value: {
+            base: "rgba(255,255,255,0.86)",
+            _dark: "rgba(14,16,26,0.86)",
+          },
+        },
+      },
+      blurs: {
+        "glass.surface": {
+          value: { base: "{blurs.glass-md}", _dark: "{blurs.glass-md}" },
+        },
+        "glass.strong": {
+          value: { base: "{blurs.glass-lg}", _dark: "{blurs.glass-lg}" },
+        },
+      },
+      shadows: {
+        "elevation.card-compact.base": {
+          value: {
+            base: "inset 0 1px 0 rgba(255,255,255,0.68), 0 5px 12px rgba(15,23,42,0.06), 0 16px 30px rgba(15,23,42,0.1), 0 30px 52px rgba(15,23,42,0.08)",
+            _dark:
+              "inset 0 1px 0 rgba(255,255,255,0.08), 0 14px 32px rgba(0,0,0,0.54), 0 32px 68px rgba(0,0,0,0.5), 0 54px 100px rgba(0,0,0,0.48)",
+          },
+        },
+        "elevation.card-standard.base": {
+          value: {
+            base: "inset 0 1px 0 rgba(255,255,255,0.68), 0 6px 14px rgba(15,23,42,0.08), 0 20px 40px rgba(15,23,42,0.12), 0 40px 70px rgba(15,23,42,0.1)",
+            _dark:
+              "inset 0 1px 0 rgba(255,255,255,0.08), 0 16px 36px rgba(0,0,0,0.58), 0 36px 78px rgba(0,0,0,0.55), 0 64px 110px rgba(0,0,0,0.52)",
+          },
+        },
+        "elevation.card.hoverInteractive": {
+          value: {
+            base: "0 14px 32px rgba(15,23,42,0.16), 0 36px 68px rgba(15,23,42,0.18), 0 62px 110px rgba(15,23,42,0.2)",
+            _dark:
+              "0 20px 48px rgba(0,0,0,0.68), 0 46px 94px rgba(0,0,0,0.72), 0 76px 130px rgba(0,0,0,0.68)",
+          },
+        },
+        "elevation.card.hoverPassive": {
+          value: {
+            base: "0 10px 24px rgba(15,23,42,0.12), 0 28px 52px rgba(15,23,42,0.14), 0 48px 80px rgba(15,23,42,0.16)",
+            _dark:
+              "0 16px 40px rgba(0,0,0,0.62), 0 40px 84px rgba(0,0,0,0.66), 0 68px 120px rgba(0,0,0,0.62)",
+          },
+        },
+      },
+      gradients: {
+        "glass.highlight": {
+          value: {
+            base: "linear-gradient(180deg, rgba(255,255,255,0.32), rgba(255,255,255,0) 50%), radial-gradient(120% 100% at 0% 0%, color-mix(in oklab, var(--colors-glass-tint), transparent 92%), transparent 65%)",
+            _dark:
+              "linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0) 55%), radial-gradient(120% 100% at 0% 0%, color-mix(in oklab, var(--colors-glass-tint), transparent 94%), transparent 70%)",
+          },
         },
       },
     },
