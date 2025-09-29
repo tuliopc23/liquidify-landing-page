@@ -698,10 +698,6 @@
     padding-block: 0.75rem;
 }
 
-  .bd-c_rgba\(60\,60\,67\,0\.12\) {
-    border-color: rgba(60,60,67,0.12);
-}
-
   .trs_transform_120ms_var\(--ease-out-quad\)\,_box-shadow_200ms_var\(--ease-out-quad\)\,_border-color_160ms_var\(--ease-out-quad\) {
     transition: transform 120ms var(--ease-out-quad), box-shadow 200ms var(--ease-out-quad), border-color 160ms var(--ease-out-quad);
 }
