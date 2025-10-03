@@ -55,6 +55,18 @@ const tokens = {
     "value": "#D6CEC3",
     "variable": "var(--colors-apple-taupe)"
   },
+  "colors.mb-navy": {
+    "value": "#0A1926",
+    "variable": "var(--colors-mb-navy)"
+  },
+  "colors.mb-surface": {
+    "value": "#183044",
+    "variable": "var(--colors-mb-surface)"
+  },
+  "colors.mb-orange": {
+    "value": "#CE6C47",
+    "variable": "var(--colors-mb-orange)"
+  },
   "colors.system-gray-50": {
     "value": "#F7F7F7",
     "variable": "var(--colors-system-gray-50)"
@@ -122,6 +134,14 @@ const tokens = {
   "fonts.mono": {
     "value": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
     "variable": "var(--fonts-mono)"
+  },
+  "fonts.caladea": {
+    "value": "Caladea, 'Times New Roman', Georgia, serif",
+    "variable": "var(--fonts-caladea)"
+  },
+  "fonts.wixMadefor": {
+    "value": "'Wix Madefor Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, system-ui, sans-serif",
+    "variable": "var(--fonts-wix-madefor)"
   },
   "fontSizes.display": {
     "value": "2.25rem",
@@ -382,6 +402,22 @@ const tokens = {
   "colors.glass.surface-elevated": {
     "value": "var(--colors-glass\\.surface-elevated)",
     "variable": "var(--colors-glass\\.surface-elevated)"
+  },
+  "colors.mb.bg": {
+    "value": "var(--colors-mb\\.bg)",
+    "variable": "var(--colors-mb\\.bg)"
+  },
+  "colors.mb.surface": {
+    "value": "var(--colors-mb\\.surface)",
+    "variable": "var(--colors-mb\\.surface)"
+  },
+  "colors.mb.accent": {
+    "value": "var(--colors-mb\\.accent)",
+    "variable": "var(--colors-mb\\.accent)"
+  },
+  "colors.mb.button-primary": {
+    "value": "var(--colors-mb\\.button-primary)",
+    "variable": "var(--colors-mb\\.button-primary)"
   },
   "blurs.glass.surface": {
     "value": "var(--blurs-glass\\.surface)",

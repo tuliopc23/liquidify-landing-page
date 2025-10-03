@@ -9,38 +9,146 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppPerfilRouteImport } from './routes/app/perfil'
+import { Route as AppDiscussoesRouteImport } from './routes/app/discussoes'
+import { Route as AppCursosRouteImport } from './routes/app/cursos'
+import { Route as AppStudioIndexRouteImport } from './routes/app/studio/index'
+import { Route as AppStudioMateriaisRouteImport } from './routes/app/studio/materiais'
+import { Route as AppStudioLembretesRouteImport } from './routes/app/studio/lembretes'
+import { Route as AppStudioArtigosRouteImport } from './routes/app/studio/artigos'
 
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppPerfilRoute = AppPerfilRouteImport.update({
+  id: '/perfil',
+  path: '/perfil',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDiscussoesRoute = AppDiscussoesRouteImport.update({
+  id: '/discussoes',
+  path: '/discussoes',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCursosRoute = AppCursosRouteImport.update({
+  id: '/cursos',
+  path: '/cursos',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppStudioIndexRoute = AppStudioIndexRouteImport.update({
+  id: '/studio/',
+  path: '/studio/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppStudioMateriaisRoute = AppStudioMateriaisRouteImport.update({
+  id: '/studio/materiais',
+  path: '/studio/materiais',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppStudioLembretesRoute = AppStudioLembretesRouteImport.update({
+  id: '/studio/lembretes',
+  path: '/studio/lembretes',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppStudioArtigosRoute = AppStudioArtigosRouteImport.update({
+  id: '/studio/artigos',
+  path: '/studio/artigos',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/app/cursos': typeof AppCursosRoute
+  '/app/discussoes': typeof AppDiscussoesRoute
+  '/app/perfil': typeof AppPerfilRoute
+  '/app/studio/artigos': typeof AppStudioArtigosRoute
+  '/app/studio/lembretes': typeof AppStudioLembretesRoute
+  '/app/studio/materiais': typeof AppStudioMateriaisRoute
+  '/app/studio': typeof AppStudioIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/app/cursos': typeof AppCursosRoute
+  '/app/discussoes': typeof AppDiscussoesRoute
+  '/app/perfil': typeof AppPerfilRoute
+  '/app/studio/artigos': typeof AppStudioArtigosRoute
+  '/app/studio/lembretes': typeof AppStudioLembretesRoute
+  '/app/studio/materiais': typeof AppStudioMateriaisRoute
+  '/app/studio': typeof AppStudioIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/app/cursos': typeof AppCursosRoute
+  '/app/discussoes': typeof AppDiscussoesRoute
+  '/app/perfil': typeof AppPerfilRoute
+  '/app/studio/artigos': typeof AppStudioArtigosRoute
+  '/app/studio/lembretes': typeof AppStudioLembretesRoute
+  '/app/studio/materiais': typeof AppStudioMateriaisRoute
+  '/app/studio/': typeof AppStudioIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/app/cursos'
+    | '/app/discussoes'
+    | '/app/perfil'
+    | '/app/studio/artigos'
+    | '/app/studio/lembretes'
+    | '/app/studio/materiais'
+    | '/app/studio'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/app'
+    | '/app/cursos'
+    | '/app/discussoes'
+    | '/app/perfil'
+    | '/app/studio/artigos'
+    | '/app/studio/lembretes'
+    | '/app/studio/materiais'
+    | '/app/studio'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/app/cursos'
+    | '/app/discussoes'
+    | '/app/perfil'
+    | '/app/studio/artigos'
+    | '/app/studio/lembretes'
+    | '/app/studio/materiais'
+    | '/app/studio/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +156,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app/perfil': {
+      id: '/app/perfil'
+      path: '/perfil'
+      fullPath: '/app/perfil'
+      preLoaderRoute: typeof AppPerfilRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/discussoes': {
+      id: '/app/discussoes'
+      path: '/discussoes'
+      fullPath: '/app/discussoes'
+      preLoaderRoute: typeof AppDiscussoesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/cursos': {
+      id: '/app/cursos'
+      path: '/cursos'
+      fullPath: '/app/cursos'
+      preLoaderRoute: typeof AppCursosRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/studio/': {
+      id: '/app/studio/'
+      path: '/studio'
+      fullPath: '/app/studio'
+      preLoaderRoute: typeof AppStudioIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/studio/materiais': {
+      id: '/app/studio/materiais'
+      path: '/studio/materiais'
+      fullPath: '/app/studio/materiais'
+      preLoaderRoute: typeof AppStudioMateriaisRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/studio/lembretes': {
+      id: '/app/studio/lembretes'
+      path: '/studio/lembretes'
+      fullPath: '/app/studio/lembretes'
+      preLoaderRoute: typeof AppStudioLembretesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/studio/artigos': {
+      id: '/app/studio/artigos'
+      path: '/studio/artigos'
+      fullPath: '/app/studio/artigos'
+      preLoaderRoute: typeof AppStudioArtigosRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
+interface AppRouteChildren {
+  AppCursosRoute: typeof AppCursosRoute
+  AppDiscussoesRoute: typeof AppDiscussoesRoute
+  AppPerfilRoute: typeof AppPerfilRoute
+  AppStudioArtigosRoute: typeof AppStudioArtigosRoute
+  AppStudioLembretesRoute: typeof AppStudioLembretesRoute
+  AppStudioMateriaisRoute: typeof AppStudioMateriaisRoute
+  AppStudioIndexRoute: typeof AppStudioIndexRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppCursosRoute: AppCursosRoute,
+  AppDiscussoesRoute: AppDiscussoesRoute,
+  AppPerfilRoute: AppPerfilRoute,
+  AppStudioArtigosRoute: AppStudioArtigosRoute,
+  AppStudioLembretesRoute: AppStudioLembretesRoute,
+  AppStudioMateriaisRoute: AppStudioMateriaisRoute,
+  AppStudioIndexRoute: AppStudioIndexRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

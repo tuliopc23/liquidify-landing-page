@@ -27,6 +27,11 @@ export default defineConfig({
         "apple-pink-light": { value: "#FFD3E0" },
         "apple-taupe": { value: "#D6CEC3" },
 
+        // MB Studio brand colors
+        "mb-navy": { value: "#0A1926" },
+        "mb-surface": { value: "#183044" },
+        "mb-orange": { value: "#CE6C47" },
+
         // System grays aligned with iOS neutrals
         "system-gray-50": { value: "#F7F7F7" },
         "system-gray-100": { value: "#F7F7F7" },
@@ -62,6 +67,15 @@ export default defineConfig({
         mono: {
           value:
             "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
+        },
+        // MB Studio brand fonts
+        caladea: {
+          value:
+            "Caladea, 'Times New Roman', Georgia, serif",
+        },
+        wixMadefor: {
+          value:
+            "'Wix Madefor Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, system-ui, sans-serif",
         },
       },
       fontSizes: {
@@ -221,6 +235,23 @@ export default defineConfig({
             base: "rgba(255,255,255,0.86)",
             _dark: "rgba(14,16,26,0.86)",
           },
+        },
+
+        // MB Studio semantic colors
+        "mb.bg": {
+          value: { base: "#f5f5f7", _dark: "{colors.mb-navy}" },
+        },
+        "mb.surface": {
+          value: {
+            base: "rgba(255,255,255,0.94)",
+            _dark: "{colors.mb-surface}",
+          },
+        },
+        "mb.accent": {
+          value: { base: "{colors.mb-orange}", _dark: "{colors.mb-orange}" },
+        },
+        "mb.button-primary": {
+          value: { base: "#1F1F21", _dark: "{colors.mb-orange}" },
         },
       },
       blurs: {
