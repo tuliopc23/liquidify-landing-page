@@ -28,12 +28,13 @@ const toggleRoot = css({
   borderRadius: "999px",
   borderWidth: "1px",
   borderColor: "glass.stroke",
-  backgroundColor: "glass.surface",
-  backdropFilter: "blur(var(--blurs-glass-surface))",
+  backgroundColor: "glass.regular", // Using official Liquid Glass variant
+  backdropFilter: "blur(var(--blurs-glass-regular))",
   boxShadow: "var(--shadows-elevation-card-compact-base)",
   gap: "0.25rem",
 });
 
+// HIG-Compliant: Monochromatic scheme on Liquid Glass
 const toggleOption = css({
   paddingInline: "0.875rem",
   paddingBlock: "0.4375rem",
@@ -41,7 +42,10 @@ const toggleOption = css({
   borderRadius: "999px",
   border: "none",
   backgroundColor: "transparent",
-  color: { base: "apple-blue", _dark: "#69b4ff" },
+  color: {
+    base: "rgba(60,60,67,0.65)", // Monochromatic, darker when light
+    _dark: "rgba(235,235,245,0.65)", // Monochromatic, lighter when dark
+  },
   fontFamily: "text",
   fontSize: "0.875rem",
   fontWeight: 500,
@@ -50,23 +54,40 @@ const toggleOption = css({
   transition:
     "background-color 150ms var(--ease-out-quad), color 150ms var(--ease-out-quad), box-shadow 150ms var(--ease-out-quad), transform 120ms var(--ease-out-quad)",
   WebkitTapHighlightColor: "transparent",
-  _hover: { backgroundColor: "rgba(10,132,255,0.12)" },
-  _active: { transform: "scale(0.98)" },
+  _hover: {
+    backgroundColor: {
+      base: "rgba(0,0,0,0.06)",
+      _dark: "rgba(255,255,255,0.08)",
+    },
+    color: {
+      base: "rgba(60,60,67,0.85)",
+      _dark: "rgba(235,235,245,0.85)",
+    },
+  },
+  _active: { transform: "scale(0.96)" }, // HIG-standard scale
   _focusVisible: {
     outline: "none",
-    boxShadow:
-      "0 0 0 2px color-mix(in oklab, var(--colors-apple-blue), transparent 55%)",
+    boxShadow: "0 0 0 3px rgba(10,132,255,0.45)", // Apple's exact focus ring spec
+    transition: "box-shadow 150ms var(--ease-out-quad)",
   },
 });
 
+// Active state: Subtle emphasis, not full color (HIG-compliant)
 const toggleOptionActive = css({
-  backgroundColor: "apple-blue",
-  color: "white",
-  boxShadow: "0 12px 26px rgba(10,132,255,0.36)",
-  _hover: { backgroundColor: "#0a7aff" },
-  _dark: {
-    backgroundColor: "#0a84ff",
-    boxShadow: "0 14px 30px rgba(10,132,255,0.44)",
+  backgroundColor: {
+    base: "rgba(0,0,0,0.1)",
+    _dark: "rgba(255,255,255,0.14)",
+  },
+  color: {
+    base: "rgba(0,0,0,0.9)", // Almost black when light
+    _dark: "rgba(255,255,255,0.95)", // Almost white when dark
+  },
+  fontWeight: 600,
+  _hover: {
+    backgroundColor: {
+      base: "rgba(0,0,0,0.12)",
+      _dark: "rgba(255,255,255,0.16)",
+    },
   },
 });
 
@@ -119,10 +140,10 @@ const Navbar: React.FC = () => {
     zIndex: 50,
     isolation: "isolate",
     overflow: "hidden",
-    backdropFilter: "blur(var(--blurs-glass-strong))",
+    backdropFilter: "blur(var(--blurs-glass-regular))", // Official Liquid Glass blur
     borderBottomWidth: "1px",
     borderColor: "glass.stroke",
-    backgroundColor: "glass.surface",
+    backgroundColor: "glass.regular", // Official Liquid Glass variant for navigation
     boxShadow: "var(--shadows-elevation-card-compact-base)",
     transition:
       "background-color 220ms var(--ease-out-quad), box-shadow 240ms var(--ease-out-quad)",
@@ -138,7 +159,7 @@ const Navbar: React.FC = () => {
   });
 
   const navSolid = css({
-    backgroundColor: "glass.surface-elevated",
+    backgroundColor: "glass.regular", // Keep using official variant when scrolled
     boxShadow: "var(--shadows-elevation-card-hoverPassive)",
     borderColor: {
       base: "rgba(0,0,0,0.08)",

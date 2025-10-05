@@ -65,17 +65,27 @@ export default defineConfig({
         },
       },
       fontSizes: {
-        display: { value: "2.25rem" },
-        largeTitle: { value: "2.125rem" },
-        title1: { value: "1.75rem" },
-        title2: { value: "1.375rem" },
-        title3: { value: "1.25rem" },
-        headline: { value: "1.0625rem" },
-        body: { value: "1.0625rem" },
-        callout: { value: "1rem" },
-        subheadline: { value: "0.9375rem" },
-        footnote: { value: "0.8125rem" },
-        caption: { value: "0.75rem" },
+        // HIG-precise typography (17pt base at 16px = 1.0625rem)
+        // Exact point values from Apple Human Interface Guidelines
+        display: { value: "2.25rem" }, // 36pt
+        largeTitle: { value: "2.125rem" }, // 34pt
+        title1: { value: "1.75rem" }, // 28pt
+        title2: { value: "1.375rem" }, // 22pt
+        title3: { value: "1.25rem" }, // 20pt
+        headline: { value: "1.0625rem" }, // 17pt (Semibold)
+        body: { value: "1.0625rem" }, // 17pt (Regular) - HIG standard
+        callout: { value: "1rem" }, // 16pt
+        subheadline: { value: "0.9375rem" }, // 15pt
+        footnote: { value: "0.8125rem" }, // 13pt
+        caption: { value: "0.75rem" }, // 12pt
+      },
+      durations: {
+        // Standardized motion timing per Apple conventions
+        instant: { value: "0ms" },
+        fast: { value: "150ms" }, // Color transitions
+        normal: { value: "250ms" }, // Transform, layout
+        slow: { value: "350ms" }, // Page transitions
+        slower: { value: "500ms" }, // Major state changes
       },
       lineHeights: {
         display: { value: "1.1" },
@@ -116,18 +126,39 @@ export default defineConfig({
     },
     semanticTokens: {
       colors: {
-        // Text colors
-        text: {
+        // Official Apple semantic color naming (HIG-aligned)
+        // Primary text hierarchy
+        label: {
           value: {
-            base: "#0b0b0d",
+            base: "#1d1d1f", // Apple's exact primary text
             _dark: "#f5f5f7",
           },
         },
-        muted: {
+        secondaryLabel: {
           value: {
-            base: "{colors.system-gray-600}",
-            _dark: "rgba(226,226,235,0.82)",
+            base: "rgba(60,60,67,0.6)", // 60% opacity
+            _dark: "rgba(235,235,245,0.6)",
           },
+        },
+        tertiaryLabel: {
+          value: {
+            base: "rgba(60,60,67,0.3)", // 30% opacity
+            _dark: "rgba(235,235,245,0.3)",
+          },
+        },
+        quaternaryLabel: {
+          value: {
+            base: "rgba(60,60,67,0.18)", // 18% opacity
+            _dark: "rgba(235,235,245,0.18)",
+          },
+        },
+
+        // Legacy aliases for backward compatibility
+        text: {
+          value: "{colors.label}",
+        },
+        muted: {
+          value: "{colors.secondaryLabel}",
         },
         link: {
           value: { base: "{colors.apple-blue}", _dark: "{colors.apple-blue}" },
@@ -159,7 +190,18 @@ export default defineConfig({
           },
         },
 
-        // Surfaces
+        // Background hierarchy (Apple semantic naming)
+        systemBackground: {
+          value: { base: "#ffffff", _dark: "#000000" },
+        },
+        secondarySystemBackground: {
+          value: { base: "#f2f2f7", _dark: "#1c1c1e" },
+        },
+        tertiarySystemBackground: {
+          value: { base: "#ffffff", _dark: "#2c2c2e" },
+        },
+
+        // Legacy aliases
         "bg.canvas": {
           value: { base: "#f5f5f7", _dark: "#050509" },
         },
@@ -182,7 +224,52 @@ export default defineConfig({
           },
         },
 
-        // Liquid glass tokens
+        // OFFICIAL LIQUID GLASS VARIANTS (HIG-Compliant)
+        // Reference: https://developer.apple.com/design/human-interface-guidelines/materials#Liquid-Glass
+
+        // glass.regular - For text-heavy controls (navigation, alerts, sidebars)
+        "glass.regular": {
+          value: {
+            base: "rgba(255,255,255,0.72)", // More opaque for text legibility
+            _dark: "rgba(16,18,28,0.72)",
+          },
+        },
+
+        // glass.clear - For media-rich backgrounds (video controls, photo overlays)
+        "glass.clear": {
+          value: {
+            base: "rgba(255,255,255,0.4)", // Highly translucent
+            _dark: "rgba(16,18,28,0.4)",
+          },
+        },
+
+        // Standard materials for CONTENT (not Liquid Glass)
+        "material.ultraThin": {
+          value: {
+            base: "rgba(255,255,255,0.78)",
+            _dark: "rgba(22,22,30,0.74)",
+          },
+        },
+        "material.thin": {
+          value: {
+            base: "rgba(255,255,255,0.84)",
+            _dark: "rgba(22,22,30,0.80)",
+          },
+        },
+        "material.regular": {
+          value: {
+            base: "rgba(255,255,255,0.90)",
+            _dark: "rgba(22,22,30,0.86)",
+          },
+        },
+        "material.thick": {
+          value: {
+            base: "rgba(255,255,255,0.96)",
+            _dark: "rgba(22,22,30,0.92)",
+          },
+        },
+
+        // Legacy Liquid Glass tokens (backward compatibility)
         "glass.bg": {
           value: {
             base: "rgba(255,255,255,0.6)",
@@ -211,10 +298,7 @@ export default defineConfig({
           },
         },
         "glass.surface": {
-          value: {
-            base: "rgba(255,255,255,0.72)",
-            _dark: "rgba(16,18,28,0.72)",
-          },
+          value: "{colors.glass.regular}", // Alias to official variant
         },
         "glass.surface-elevated": {
           value: {
@@ -224,8 +308,22 @@ export default defineConfig({
         },
       },
       blurs: {
+        // Official Liquid Glass blur variants
+        "glass.regular": {
+          value: { base: "18px", _dark: "20px" }, // Standard for navigation
+        },
+        "glass.clear": {
+          value: { base: "12px", _dark: "14px" }, // Less blur for media
+        },
+
+        // Standard material blurs (for content)
+        "material.standard": {
+          value: { base: "12px", _dark: "12px" },
+        },
+
+        // Legacy aliases
         "glass.surface": {
-          value: { base: "{blurs.glass-md}", _dark: "{blurs.glass-md}" },
+          value: "{blurs.glass.regular}",
         },
         "glass.strong": {
           value: { base: "{blurs.glass-lg}", _dark: "{blurs.glass-lg}" },

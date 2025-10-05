@@ -38,9 +38,9 @@ export const applyTheme = (mode: ThemeMode) => {
   const root = document.documentElement;
   if (resolved === "dark") root.classList.add("dark");
   else root.classList.remove("dark");
-  const reduce = false; // DEBUG: force full motion
+  // Respect user's motion preferences for accessibility
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   root.classList.toggle("reduce-motion", reduce);
-  root.classList.add("debug-motion");
   root.setAttribute("data-theme-mode", mode);
   root.setAttribute("data-theme", resolved);
   try {

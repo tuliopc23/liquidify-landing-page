@@ -17,12 +17,16 @@ export const button = cva({
     transitionDuration: "180ms",
     transitionTimingFunction: "var(--ease-out-quad)",
     transform: "translateZ(0)",
-    _hover: { transform: "translateY(-1px)" },
-    _active: { transform: "translateY(0)" },
+    // HIG-compliant button physics: scale instead of translateY
+    _hover: { transform: "scale(1.02)" },
+    _active: {
+      transform: "scale(0.96)", // Apple standard press scale
+      transition: "transform 120ms var(--ease-out-quad)",
+    },
     _focusVisible: {
       outline: "none",
-      boxShadow:
-        "0 0 0 3px color-mix(in oklab, var(--colors-apple-blue), transparent 55%)",
+      boxShadow: "0 0 0 3px rgba(10,132,255,0.45)", // Apple's exact focus ring spec
+      transition: "box-shadow 150ms var(--ease-out-quad)",
     },
     "@media (prefers-reduced-motion: reduce)": {
       transition: "none",
@@ -129,14 +133,20 @@ export const button = cva({
   defaultVariants: { intent: "primary", size: "md" },
 });
 
-// Card surfaces
+// STANDARD MATERIALS - For Content Layer (HIG-Compliant)
+// Official guidance: Don't use Liquid Glass in the content layer
 export const card = css({
   position: "relative",
   isolation: "isolate",
-  backgroundColor: "glass.surface",
-  backdropFilter: "blur(var(--blurs-glass-surface))",
+  backgroundColor: {
+    base: "rgba(255,255,255,0.92)",
+    _dark: "rgba(22,22,30,0.88)",
+  },
   borderWidth: "1px",
-  borderColor: "glass.stroke",
+  borderColor: {
+    base: "rgba(0,0,0,0.08)",
+    _dark: "rgba(255,255,255,0.12)",
+  },
   borderRadius: "26px",
   boxShadow: "var(--shadows-elevation-card-standard-base)",
   transition:
@@ -144,12 +154,35 @@ export const card = css({
   _hover: { boxShadow: "var(--shadows-elevation-card-hoverPassive)" },
 });
 
-export const cardGlass = css({
-  // HIG-friendly neutral liquid glass surface
+// Standard material with subtle backdrop blur (for elevated content)
+export const cardMaterial = css({
+  position: "relative",
+  isolation: "isolate",
+  backgroundColor: {
+    base: "rgba(255,255,255,0.86)",
+    _dark: "rgba(22,22,30,0.82)",
+  },
+  backdropFilter: "blur(12px)", // Subtle blur, not heavy like Liquid Glass
+  borderWidth: "1px",
+  borderColor: {
+    base: "rgba(0,0,0,0.08)",
+    _dark: "rgba(255,255,255,0.14)",
+  },
+  borderRadius: "26px",
+  boxShadow: "var(--shadows-elevation-card-standard-base)",
+  overflow: "hidden",
+  transition:
+    "box-shadow 280ms var(--ease-out-quad), transform 280ms var(--ease-out-quad)",
+  _hover: { boxShadow: "var(--shadows-elevation-card-hoverInteractive)" },
+});
+
+// LIQUID GLASS - For Controls/Navigation ONLY (HIG-Compliant)
+// Official guidance: "Liquid Glass forms a distinct functional layer for controls and navigation"
+export const glassControl = css({
   position: "relative",
   isolation: "isolate",
   backgroundColor: "glass.surface",
-  backdropFilter: "blur(var(--blurs-glass-strong))",
+  backdropFilter: "blur(var(--blurs-glass-surface))",
   borderWidth: "1px",
   borderColor: "glass.stroke",
   borderRadius: "glass",
@@ -179,12 +212,15 @@ export const cardGlass = css({
   _hover: { boxShadow: "var(--shadows-elevation-card-hoverInteractive)" },
 });
 
+// Legacy alias for backward compatibility (will be phased out)
+export const cardGlass = cardMaterial;
+
 // Common link style (gray → apple-blue on hover)
 export const navLink = css({
   fontFamily: "sans",
   display: "inline-flex",
   alignItems: "center",
-  color: { base: "muted", _dark: "rgba(232,232,237,0.78)" },
+  color: { base: "secondaryLabel", _dark: "rgba(232,232,237,0.78)" }, // Using semantic color
   paddingInline: "0.5rem",
   paddingBlock: "0.375rem",
   borderRadius: "0.5rem",
@@ -202,6 +238,11 @@ export const navLink = css({
       _dark: "rgba(255,255,255,0.08)",
     },
     backgroundSize: "100% 1px",
+  },
+  _focusVisible: {
+    outline: "none",
+    boxShadow: "0 0 0 3px rgba(10,132,255,0.45)", // Consistent focus ring
+    transition: "box-shadow 150ms var(--ease-out-quad)",
   },
 });
 

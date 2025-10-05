@@ -100,9 +100,13 @@ export interface UtilityValues {
 	backdropFilter: "auto";
 	backdropBlur: Tokens["blurs"];
 	borderSpacing: "auto";
+	transitionDelay: Tokens["durations"];
+	transitionDuration: Tokens["durations"];
 	transitionProperty: "common" | "colors" | "size" | "position" | "background";
 	transition: "all" | "common" | "size" | "position" | "background" | "colors" | "opacity" | "shadow" | "transform";
 	animationName: "float" | "pulse";
+	animationDuration: Tokens["durations"];
+	animationDelay: Tokens["durations"];
 	rotate: "auto" | "auto-3d" | CssProperties["rotate"];
 	rotateX: CssProperties["rotate"];
 	rotateY: CssProperties["rotate"];
@@ -124,7 +128,7 @@ export interface UtilityValues {
 	srOnly: boolean;
 	debug: boolean;
 	containerName: CssProperties["containerName"];
-	colorPalette: "apple-blue" | "apple-indigo" | "apple-purple" | "apple-pink" | "apple-red" | "apple-orange" | "apple-yellow" | "apple-green" | "apple-teal" | "apple-cyan" | "apple-red-orange" | "apple-tomato" | "apple-pink-light" | "apple-taupe" | "system-gray-50" | "system-gray-100" | "system-gray-200" | "system-gray-300" | "system-gray-400" | "system-gray-500" | "system-gray-600" | "system-gray-700" | "system-gray-800" | "system-gray-900" | "white" | "black" | "text" | "muted" | "link" | "primary" | "success" | "warning" | "danger" | "info" | "bg.canvas" | "bg.subtle" | "bg.surface" | "border.default" | "glass.bg" | "glass.border" | "glass.ring" | "glass.tint" | "glass.stroke" | "glass.surface" | "glass.surface-elevated";
+	colorPalette: "apple-blue" | "apple-indigo" | "apple-purple" | "apple-pink" | "apple-red" | "apple-orange" | "apple-yellow" | "apple-green" | "apple-teal" | "apple-cyan" | "apple-red-orange" | "apple-tomato" | "apple-pink-light" | "apple-taupe" | "system-gray-50" | "system-gray-100" | "system-gray-200" | "system-gray-300" | "system-gray-400" | "system-gray-500" | "system-gray-600" | "system-gray-700" | "system-gray-800" | "system-gray-900" | "white" | "black" | "label" | "secondaryLabel" | "tertiaryLabel" | "quaternaryLabel" | "text" | "muted" | "link" | "primary" | "success" | "warning" | "danger" | "info" | "systemBackground" | "secondarySystemBackground" | "tertiarySystemBackground" | "bg.canvas" | "bg.subtle" | "bg.surface" | "border.default" | "glass.regular" | "glass.clear" | "material.ultraThin" | "material.thin" | "material.regular" | "material.thick" | "glass.bg" | "glass.border" | "glass.ring" | "glass.tint" | "glass.stroke" | "glass.surface" | "glass.surface-elevated";
 	textStyle: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "8xl" | "9xl";
 }
 

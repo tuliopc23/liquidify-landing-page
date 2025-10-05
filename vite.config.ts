@@ -7,8 +7,10 @@ export default defineConfig(({ mode }) => {
   const portEnv = process.env.PORT ?? process.env.VITE_PORT;
   const devPort = Number.parseInt(portEnv ?? "", 10) || 5173;
   return {
-    plugins: [react(), TanStackRouterVite()],
-    optimizeDeps: {},
+    plugins: [TanStackRouterVite(), react()],
+    optimizeDeps: {
+      include: ["react", "react-dom", "@tanstack/react-router"],
+    },
     // Shim Node globals used by some dependencies in the browser.
     define: {
       "process.env.NODE_ENV": JSON.stringify(mode),

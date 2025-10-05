@@ -167,6 +167,26 @@ const tokens = {
     "value": "0.75rem",
     "variable": "var(--font-sizes-caption)"
   },
+  "durations.instant": {
+    "value": "0ms",
+    "variable": "var(--durations-instant)"
+  },
+  "durations.fast": {
+    "value": "150ms",
+    "variable": "var(--durations-fast)"
+  },
+  "durations.normal": {
+    "value": "250ms",
+    "variable": "var(--durations-normal)"
+  },
+  "durations.slow": {
+    "value": "350ms",
+    "variable": "var(--durations-slow)"
+  },
+  "durations.slower": {
+    "value": "500ms",
+    "variable": "var(--durations-slower)"
+  },
   "lineHeights.display": {
     "value": "1.1",
     "variable": "var(--line-heights-display)"
@@ -307,12 +327,28 @@ const tokens = {
     "value": "1536px",
     "variable": "var(--sizes-breakpoint-2xl)"
   },
+  "colors.label": {
+    "value": "var(--colors-label)",
+    "variable": "var(--colors-label)"
+  },
+  "colors.secondaryLabel": {
+    "value": "var(--colors-secondary-label)",
+    "variable": "var(--colors-secondary-label)"
+  },
+  "colors.tertiaryLabel": {
+    "value": "var(--colors-tertiary-label)",
+    "variable": "var(--colors-tertiary-label)"
+  },
+  "colors.quaternaryLabel": {
+    "value": "var(--colors-quaternary-label)",
+    "variable": "var(--colors-quaternary-label)"
+  },
   "colors.text": {
-    "value": "var(--colors-text)",
+    "value": "var(--colors-label)",
     "variable": "var(--colors-text)"
   },
   "colors.muted": {
-    "value": "var(--colors-muted)",
+    "value": "var(--colors-secondary-label)",
     "variable": "var(--colors-muted)"
   },
   "colors.link": {
@@ -339,6 +375,18 @@ const tokens = {
     "value": "var(--colors-info)",
     "variable": "var(--colors-info)"
   },
+  "colors.systemBackground": {
+    "value": "var(--colors-system-background)",
+    "variable": "var(--colors-system-background)"
+  },
+  "colors.secondarySystemBackground": {
+    "value": "var(--colors-secondary-system-background)",
+    "variable": "var(--colors-secondary-system-background)"
+  },
+  "colors.tertiarySystemBackground": {
+    "value": "var(--colors-tertiary-system-background)",
+    "variable": "var(--colors-tertiary-system-background)"
+  },
   "colors.bg.canvas": {
     "value": "var(--colors-bg\\.canvas)",
     "variable": "var(--colors-bg\\.canvas)"
@@ -354,6 +402,30 @@ const tokens = {
   "colors.border.default": {
     "value": "var(--colors-border\\.default)",
     "variable": "var(--colors-border\\.default)"
+  },
+  "colors.glass.regular": {
+    "value": "var(--colors-glass\\.regular)",
+    "variable": "var(--colors-glass\\.regular)"
+  },
+  "colors.glass.clear": {
+    "value": "var(--colors-glass\\.clear)",
+    "variable": "var(--colors-glass\\.clear)"
+  },
+  "colors.material.ultraThin": {
+    "value": "var(--colors-material\\.ultra-thin)",
+    "variable": "var(--colors-material\\.ultra-thin)"
+  },
+  "colors.material.thin": {
+    "value": "var(--colors-material\\.thin)",
+    "variable": "var(--colors-material\\.thin)"
+  },
+  "colors.material.regular": {
+    "value": "var(--colors-material\\.regular)",
+    "variable": "var(--colors-material\\.regular)"
+  },
+  "colors.material.thick": {
+    "value": "var(--colors-material\\.thick)",
+    "variable": "var(--colors-material\\.thick)"
   },
   "colors.glass.bg": {
     "value": "var(--colors-glass\\.bg)",
@@ -376,15 +448,27 @@ const tokens = {
     "variable": "var(--colors-glass\\.stroke)"
   },
   "colors.glass.surface": {
-    "value": "var(--colors-glass\\.surface)",
+    "value": "var(--colors-glass-regular)",
     "variable": "var(--colors-glass\\.surface)"
   },
   "colors.glass.surface-elevated": {
     "value": "var(--colors-glass\\.surface-elevated)",
     "variable": "var(--colors-glass\\.surface-elevated)"
   },
+  "blurs.glass.regular": {
+    "value": "var(--blurs-glass\\.regular)",
+    "variable": "var(--blurs-glass\\.regular)"
+  },
+  "blurs.glass.clear": {
+    "value": "var(--blurs-glass\\.clear)",
+    "variable": "var(--blurs-glass\\.clear)"
+  },
+  "blurs.material.standard": {
+    "value": "var(--blurs-material\\.standard)",
+    "variable": "var(--blurs-material\\.standard)"
+  },
   "blurs.glass.surface": {
-    "value": "var(--blurs-glass\\.surface)",
+    "value": "var(--blurs-glass-regular)",
     "variable": "var(--blurs-glass\\.surface)"
   },
   "blurs.glass.strong": {
