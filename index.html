@@ -36,20 +36,24 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
       rel="stylesheet"
     />
-    <!-- SF Pro (Display + Text, variable) via v1.fontapi.ir CDN -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
+    <!-- SF Pro fonts from fontapi.ir CDN for cross-platform consistency -->
+    <link rel="preconnect" href="//fdn.fontcdn.ir" />
+    <link rel="preconnect" href="//v1.fontapi.ir" />
+    <link href="https://v1.fontapi.ir/css/SFProDisplay" rel="stylesheet" />
+    <link href="https://v1.fontapi.ir/css/SFUIText" rel="stylesheet" />
+    <link href="https://v1.fontapi.ir/css/SFMono" rel="stylesheet" />
     <style>
-      /* Robust fallback font stack; Inter first (CDN), then platform fonts */
+      /* SF Pro font stack with system font fallbacks */
       :root {
         --global-font-body:
-          "Inter", -apple-system, system-ui, BlinkMacSystemFont, "SF Pro Text",
-          "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial,
-          sans-serif;
+          "SF UI Text", "SF Pro Text", -apple-system, system-ui, BlinkMacSystemFont,
+          "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        --global-font-display:
+          "SF Pro Display", "SF UI Display", -apple-system, system-ui, BlinkMacSystemFont,
+          "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        --global-font-mono:
+          "SF Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
       }
       html,
       body {
