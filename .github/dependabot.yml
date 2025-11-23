@@ -1,0 +1,39 @@
+version: 2
+updates:
+  # Enable version updates for npm (works with Bun)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/New_York"
+    open-pull-requests-limit: 10
+    # Auto-merge configuration
+    # Note: Auto-merge must also be enabled in repository settings
+    pull-request-branch-name:
+      separator: "-"
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore"
+      include: "scope"
+    # Group updates by dependency type
+    groups:
+      # Production dependencies
+      production-dependencies:
+        dependency-type: "production"
+        update-types:
+          - "minor"
+          - "patch"
+      # Development dependencies
+      development-dependencies:
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
+    # Allow both direct and indirect updates
+    versioning-strategy: auto
+    # Ignore specific dependencies if needed (uncomment and customize)
+    # ignore:
+    #   - dependency-name: "react"
+    #     versions: ["19.x"]
